@@ -1,9 +1,6 @@
 package entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import javax.persistence.ManyToMany;
@@ -12,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Expert extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +17,16 @@ public class Expert extends Person {
     private String email;
     private int score;
     @ManyToMany
-    List<HomeServices>homeServices=new ArrayList<>();
+    List<HomeServices> homeServices = new ArrayList<>();
+
+    public Expert() {
+
+    }
+
+    public Expert(String firstName, String lastName, String email) {
+        super(firstName, lastName);
+        this.email = email;
+
+    }
 
 }

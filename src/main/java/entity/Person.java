@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 @Entity
 @Data
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +12,11 @@ public class Person {
     private String firstName;
     private String lastName;
 
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-
-
+    public Person() {
+    }
 }

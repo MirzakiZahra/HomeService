@@ -1,17 +1,16 @@
 package service;
 
+import dao.ExpertDb;
 import entity.Expert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 public class ExpertService {
-    static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    public void addUser(Expert expert){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(expert);
-        transaction.commit();
-        session.close();
+ExpertDb expertDb=new ExpertDb();
+    public void createExpert(String firstName,String lastName,String email){
+        Expert expert=new Expert(firstName,lastName,email);
+        expertDb.addExpert(expert);
+       
     }
 }
