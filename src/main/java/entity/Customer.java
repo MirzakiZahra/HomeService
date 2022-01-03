@@ -19,4 +19,17 @@ public class Customer extends Person{
     private Date beginningTime;
     private String password;
 
+    public Customer(String address, String email, String password) {
+        this.address = address;
+        this.email = email;
+        this.password = password;
+    }
+    public Customer(){}
+
+    public Customer(String firstName, String lastName, String address, String email, String password) {
+        super(firstName, lastName);
+        this.address = address;
+        this.email = email;
+        this.password = password;
+    }
 }
