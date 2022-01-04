@@ -10,31 +10,21 @@ import org.hibernate.cfg.Configuration;
 import service.CustomerService;
 
 public class CustomerDb {
-    CustomerService customerService=new CustomerService();
+    CustomerService customerService = new CustomerService();
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    public void addCustomer(Customer customer){
+
+    public void addCustomer(Customer customer) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(customer);
         transaction.commit();
         session.close();
     }
-   /* public int checkExitOfDriver(int username) {
+
+    public int checkExitOfCustomer(int username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from driver inner join person on" +
-                " driver.id=person.id where person.username= :username";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Driver.class);
-        query.setParameter("username", username);
-        int output = (Integer) query.list().size();
-        session.close();
-        return output;
-    }*/
-    public int checkExitOfCustomer(int username){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String sql= "select * from customer where username = :username";
+        String sql = "select * from customer where username = :username";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Customer.class);
         query.setParameter("username", username);
@@ -42,6 +32,7 @@ public class CustomerDb {
         session.close();
         return output;
     }
+
     public Customer findCustomer(int username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -57,10 +48,10 @@ public class CustomerDb {
 
     }
 
-  //  public void changePassword(String password,int username){
+    //  public void changePassword(String password,int username){
     //    Session session = sessionFactory.openSession();
-      //  Transaction transaction = session.beginTransaction();
-       // customerService.changePassword(password,username);
+    //  Transaction transaction = session.beginTransaction();
+    // customerService.changePassword(password,username);
 
-  //  }
+    //  }
 }
