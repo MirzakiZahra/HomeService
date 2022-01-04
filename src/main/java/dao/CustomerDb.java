@@ -40,4 +40,18 @@ public class CustomerDb {
         session.close();
         return output;
     }
+    public Customer findCustomer(int username) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String sql = "select * from customer where username= :username";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Customer.class);
+        query.setParameter("username", username);
+        Customer customer = (Customer) query.list().get(0);
+        transaction.commit();
+        session.close();
+        return customer;
+
+
+    }
 }

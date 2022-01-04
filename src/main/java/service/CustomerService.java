@@ -12,4 +12,8 @@ public class CustomerService {
 
 
     }
+    public int changePassword(int password,int username){
+        customerDb
+
+    }
 }
