@@ -1,9 +1,10 @@
 package entity;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,6 +19,7 @@ public class Customer extends Person{
     @CreationTimestamp
     private Date beginningTime;
     private String password;
+    private int username;
 
     public Customer(String address, String email, String password) {
         this.address = address;
