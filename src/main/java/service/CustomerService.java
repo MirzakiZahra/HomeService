@@ -12,8 +12,9 @@ public class CustomerService {
 
 
     }
-    public int changePassword(int password,int username){
-        customerDb
+    public void changePassword(String password,int username){
+       Customer customer= customerDb.findCustomer(username);
+       customer.setPassword(password);
 
     }
 }

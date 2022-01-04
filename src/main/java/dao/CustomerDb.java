@@ -7,8 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import service.CustomerService;
 
 public class CustomerDb {
+    CustomerService customerService=new CustomerService();
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
     public void addCustomer(Customer customer){
         Session session = sessionFactory.openSession();
@@ -54,4 +56,11 @@ public class CustomerDb {
 
 
     }
+
+  //  public void changePassword(String password,int username){
+    //    Session session = sessionFactory.openSession();
+      //  Transaction transaction = session.beginTransaction();
+       // customerService.changePassword(password,username);
+
+  //  }
 }
