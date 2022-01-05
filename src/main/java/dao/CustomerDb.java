@@ -64,4 +64,12 @@ public class CustomerDb {
         transaction.commit();
         session.close();
     }
+    public void updateCustomerCredit(Customer customer){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(customer);
+        transaction.commit();
+        session.close();
+
+    }
 }
