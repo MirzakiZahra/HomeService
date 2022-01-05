@@ -1,8 +1,6 @@
 package service;
-
 import dao.CustomerDb;
-import entity.Customer;
-import entity.Expert;
+import model.people.Customer;
 
 public class CustomerService {
     CustomerDb customerDb=new CustomerDb();

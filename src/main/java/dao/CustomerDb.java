@@ -1,7 +1,6 @@
 package dao;
 
-import entity.Customer;
-import entity.Expert;
+import model.people.Customer;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -1,8 +1,7 @@
 package service;
 
 import dao.ExpertDb;
-import entity.Expert;
-import dao.ExpertDb;
+import model.people.Expert;
 
 public class ExpertService {
 ExpertDb expertDb=new ExpertDb();

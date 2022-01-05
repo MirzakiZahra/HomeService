@@ -1,4 +1,4 @@
-package entity;
+package model.people;
 
 
 import lombok.Data;
@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
