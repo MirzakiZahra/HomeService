@@ -1,12 +1,15 @@
 package dao;
 
 import model.people.Customer;
+import model.people.Expert;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import service.CustomerService;
+
+import java.util.List;
 
 
 public class CustomerDb {
@@ -64,12 +67,22 @@ public class CustomerDb {
         transaction.commit();
         session.close();
     }
+
     public void updateCustomerCredit(Customer customer){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(customer);
         transaction.commit();
         session.close();
+    }
 
+    public void showCustomer() {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String sql = "select * from person where DTYPE =customer;";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Customer.class);
+        List<Customer> customerList = query.list();
+        customerList.stream().forEach(i -> System.out.println(i));
     }
 }
