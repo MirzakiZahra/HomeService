@@ -2,6 +2,9 @@ package service;
 
 import dao.CustomerDb;
 import model.people.Customer;
+import model.people.Expert;
+
+import java.util.List;
 
 public class CustomerService {
     CustomerDb customerDb = new CustomerDb();
@@ -22,6 +25,11 @@ public class CustomerService {
         float temp = customer.getCredit() - money;
         customer.setCredit(temp);
         customerDb.updateCustomerCredit(customer);
+
+    }
+    public void printShowCustomer(){
+        List<Customer>customers=customerDb.showCustomer();
+        customers.stream().forEach(i -> System.out.println(i.getLastName()));
 
     }
 }
