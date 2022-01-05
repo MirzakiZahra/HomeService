@@ -16,8 +16,8 @@ public class    HomeServices {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToMany
-    List<Expert>experts=new ArrayList<>();
+   private String name;
+
 
 
 }

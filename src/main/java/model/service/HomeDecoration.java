@@ -1,2 +1,4 @@
-package model.service;public class HomeDecoration {
+package model.service;
+
+public class HomeDecoration {
 }
