@@ -6,7 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-
+import enums.UserStatue;
 @Entity
 @Data
 public class Customer extends Person {
@@ -21,6 +21,8 @@ public class Customer extends Person {
     private String password;
     private int username;
     private float credit;
+    @Enumerated(EnumType.STRING)
+    UserStatue userStatue;
 
 
     public Customer(String address, String email, String password) {
