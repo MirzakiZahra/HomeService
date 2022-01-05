@@ -20,7 +20,7 @@ public class CustomerDb {
         session.close();
     }
 
-    public int checkExitOfCustomer(int username) {
+    public int checkExistOfCustomer(int username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String sql = "select * from customer where username = :username";
@@ -31,7 +31,7 @@ public class CustomerDb {
         session.close();
         return output;
     }
-    public int checkExitOfEmail(String email) {
+    public int checkExistOfEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String sql = "select * from customer where email = :email";
@@ -42,19 +42,16 @@ public class CustomerDb {
         session.close();
         return output;
     }
-    public Customer findCustomer(int username) {
+    public Customer findCustomerByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from customer where username= :username";
+        String sql = "select * from customer where email = :email";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Customer.class);
-        query.setParameter("username", username);
-        Customer customer = (Customer) query.list().get(0);
-        transaction.commit();
+        query.setParameter("email", email);
+        Customer customer =  (Customer) query.list().get(0);
         session.close();
         return customer;
-
-
     }
 
     //  public void changePassword(String password,int username){
