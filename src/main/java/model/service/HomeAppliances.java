@@ -2,8 +2,10 @@ package model.service;
 
 import enums.TypeOfService;
 import lombok.Data;
+import model.people.Expert;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,4 +20,6 @@ public class HomeAppliances extends HomeServices {
     @Transient
     private static List<TypeOfService> type = Arrays.asList(TypeOfService.WASHING,
             TypeOfService.AUDIOACCESSORIES, TypeOfService.KITCHENAPPLIANCE);
+    @ManyToMany
+    private List<Expert> expertList=new ArrayList<>();
 }
