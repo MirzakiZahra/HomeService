@@ -1,4 +1,4 @@
 package model.service;
 
-public class Moving {
+public class Moving extends HomeServices{
 }

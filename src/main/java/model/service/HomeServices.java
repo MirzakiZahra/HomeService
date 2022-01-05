@@ -1,7 +1,6 @@
 package model.service;
 
 
-
 import lombok.Data;
 
 import model.people.Expert;
@@ -12,12 +11,11 @@ import java.util.List;
 
 @Entity
 @Data
-public class    HomeServices {
+public class HomeServices {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-   private String name;
-
+    private String name;
 
 
 }

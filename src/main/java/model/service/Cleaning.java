@@ -1,4 +1,4 @@
 package model.service;
 
-public class Cleaning {
+public class Cleaning extends HomeServices{
 }

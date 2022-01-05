@@ -1,4 +1,4 @@
 package model.service;
 
-public class HomeDecoration {
+public class HomeDecoration  extends HomeServices{
 }
