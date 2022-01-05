@@ -1,5 +1,7 @@
 package dao;
+import model.people.Customer;
 import model.people.Expert;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,5 +15,24 @@ public class ExpertDb {
         session.save(expert);
         transaction.commit();
         session.close();
+    }
+    public Expert findExpertByEmail(String email) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String sql = "select * from expert where email = :email";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Expert.class);
+        query.setParameter("email", email);
+        Expert expert = (Expert) query.list().get(0);
+        session.close();
+        return expert;
+    }
+    public void updateExpertCredit(Expert expert){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(expert);
+        transaction.commit();
+        session.close();
+
     }
 }

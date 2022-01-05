@@ -19,7 +19,7 @@ public class CustomerService {
 
     public void deductionOfMoneyForCustomer(String email, float money) {
         Customer customer = customerDb.findCustomerByEmail(email);
-        float temp = customer.getCredit() + money;
+        float temp = customer.getCredit() - money;
         customer.setCredit(temp);
         customerDb.updateCustomerCredit(customer);
 
