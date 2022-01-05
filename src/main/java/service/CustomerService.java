@@ -12,6 +12,5 @@ public class CustomerService {
        Customer customer= customerDb.findCustomerByEmail(email);
        customer.setPassword(password);
        customerDb.updateCustomerPassword(customer);
-
     }
 }

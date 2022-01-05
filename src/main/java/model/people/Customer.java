@@ -20,6 +20,8 @@ public class Customer extends Person {
     private Date beginningTime;
     private String password;
     private int username;
+    private float credit;
+
 
     public Customer(String address, String email, String password) {
         this.address = address;

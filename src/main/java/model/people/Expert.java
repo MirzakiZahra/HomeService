@@ -17,6 +17,7 @@ public class Expert extends Person {
     private int score;
     @ManyToMany
     List<HomeServices> homeServices = new ArrayList<>();
+    private float creditExpert;
 
     public Expert() {
 
