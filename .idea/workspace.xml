@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4f4af361-709c-439f-a8ff-11d74a14d22b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/people/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/people/Expert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/Cleaning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/Cleaning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/HomeAppliances.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/HomeAppliances.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/HomeDecoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/HomeDecoration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/HomeFacilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/HomeFacilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/service/HomeServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/HomeServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/Moving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/Moving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/Vehicles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/Vehicles.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641328344007</updated>
-      <workItem from="1641328348444" duration="10556000" />
+      <workItem from="1641328348444" duration="10748000" />
     </task>
     <servers />
   </component>
