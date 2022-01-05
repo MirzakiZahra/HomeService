@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import service.CustomerService;
 
+
 public class CustomerDb {
     CustomerService customerService = new CustomerService();
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();

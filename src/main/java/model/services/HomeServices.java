@@ -1,13 +1,9 @@
-package model.service;
+package model.services;
 
 
 import lombok.Data;
 
-import model.people.Expert;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Data

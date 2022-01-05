@@ -1,6 +1,6 @@
 package enums;
 
-public enum TypeOfService {
+public enum TypeOfServices {
     CLEAN,LAUNDRY,CARPETCLEANING,WASHINGTHESOFA,
     HOMESPRAYIN,KITCHENAPPLIANCE,WASHING,AUDIOACCESSORIES;
 

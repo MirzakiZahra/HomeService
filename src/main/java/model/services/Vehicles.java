@@ -1,25 +1,23 @@
-package model.service;
+package model.services;
 
-import enums.TypeOfService;
+import enums.TypeOfServices;
 import lombok.Data;
 import model.people.Expert;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Entity
 @Data
-public class HomeAppliances extends HomeServices {
+public class Vehicles extends HomeServices{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Enumerated(EnumType.STRING)
-    TypeOfService typeOfService;
+    TypeOfServices typeOfService;
     @Transient
-    private static List<TypeOfService> type = Arrays.asList(TypeOfService.WASHING,
-            TypeOfService.AUDIOACCESSORIES, TypeOfService.KITCHENAPPLIANCE);
+    private static List<TypeOfServices> type=new ArrayList<>();
     @ManyToMany
     private List<Expert> expertList=new ArrayList<>();
 }

@@ -1,6 +1,6 @@
-package model.service;
+package model.services;
 
-import enums.TypeOfService;
+import enums.TypeOfServices;
 import lombok.Data;
 import model.people.Expert;
 
@@ -16,10 +16,12 @@ public class Cleaning extends HomeServices {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Enumerated(EnumType.STRING)
-    TypeOfService typeOfService;
+    TypeOfServices typeOfService;
     @Transient
-    private static List<TypeOfService> type = Arrays.asList(TypeOfService.CLEAN, TypeOfService.LAUNDRY,
-            TypeOfService.HOMESPRAYIN, TypeOfService.CARPETCLEANING, TypeOfService.WASHINGTHESOFA);
+    private static List<TypeOfServices> type = Arrays.asList(TypeOfServices.CLEAN,
+            TypeOfServices.LAUNDRY,
+            TypeOfServices.HOMESPRAYIN, TypeOfServices.CARPETCLEANING,
+            TypeOfServices.WASHINGTHESOFA);
     @ManyToMany
     private List<Expert> expertList=new ArrayList<>();
 }

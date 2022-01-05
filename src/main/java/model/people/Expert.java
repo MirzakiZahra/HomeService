@@ -1,7 +1,7 @@
 package model.people;
 
 import lombok.Data;
-import model.service.HomeServices;
+import model.services.HomeServices;
 
 import javax.persistence.*;
 import java.util.ArrayList;
