@@ -31,6 +31,7 @@ public class CustomerDb {
         session.close();
         return output;
     }
+
     public int checkExistOfEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -38,10 +39,11 @@ public class CustomerDb {
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Customer.class);
         query.setParameter("email", email);
-        int output =  query.list().size();
+        int output = query.list().size();
         session.close();
         return output;
     }
+
     public Customer findCustomerByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -49,15 +51,16 @@ public class CustomerDb {
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Customer.class);
         query.setParameter("email", email);
-        Customer customer =  (Customer) query.list().get(0);
+        Customer customer = (Customer) query.list().get(0);
         session.close();
         return customer;
     }
 
-    //  public void changePassword(String password,int username){
-    //    Session session = sessionFactory.openSession();
-    //  Transaction transaction = session.beginTransaction();
-    // customerService.changePassword(password,username);
-
-    //  }
+    public void updateCustomerPassword(Customer customer) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(customer);
+        transaction.commit();
+        session.close();
+    }
 }
