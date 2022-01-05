@@ -1,7 +1,8 @@
 package enums;
 
 public enum TypeOfService {
-    BUILDINGDECORATION("bd"),BUILDINGFACILITIES("bf"),VEHICLES("v"),MOVING("m")
+    BUILDINGDECORATION("bd"),BUILDINGFACILITIES("bf"),VEHICLES("v")
+    ,MOVING("m")
     ,HOMEAPPLIANCES("h"),CLEANING("c");
     private String abbr;
     TypeOfService(String abbr) {
