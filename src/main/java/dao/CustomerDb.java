@@ -31,7 +31,17 @@ public class CustomerDb {
         session.close();
         return output;
     }
-
+    public int checkExitOfEmail(String email) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String sql = "select * from customer where email = :email";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Customer.class);
+        query.setParameter("email", email);
+        int output =  query.list().size();
+        session.close();
+        return output;
+    }
     public Customer findCustomer(int username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
