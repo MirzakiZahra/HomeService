@@ -60,14 +60,13 @@ public class ExpertDb {
     public List<Expert>showExpert() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from person where DTYPE =Expert;";
+        String sql = "select * from person where DTYPE =Expert";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Expert.class);
         List<Expert> expertList = query.list();
-      //  expertList.stream().forEach(i -> System.out.println(i));
         return expertList;
     }
-    public void deleteExpertwithService(Expert expert){
+    public void deleteExpertWithService(Expert expert){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(expert);

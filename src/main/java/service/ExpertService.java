@@ -42,8 +42,7 @@ public class ExpertService {
         Expert expert = expertDb.findExpertByEmail(email);
         HomeServices homeServices = serviceDb.findServiceByName(serviceName);
         expert.getHomeServices().remove(homeServices);
-        List<HomeServices> homeServices1 =
-                serviceDb.showServiceForSpeceficExpert(serviceName);
+       
 
     }
 

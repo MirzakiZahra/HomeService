@@ -79,11 +79,10 @@ public class CustomerDb {
     public List<Customer> showCustomer() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from person where DTYPE =customer;";
+        String sql = "select * from person where DTYPE =customer";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Customer.class);
         List<Customer> customerList = query.list();
-       // customerList.stream().forEach(i -> System.out.println(i));
         return customerList;
     }
 }
