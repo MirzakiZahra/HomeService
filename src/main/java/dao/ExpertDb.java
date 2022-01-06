@@ -20,6 +20,13 @@ public class ExpertDb {
         transaction.commit();
         session.close();
     }
+    public void deleteExpert(Expert expert){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(expert);
+        transaction.commit();
+        session.close();
+    }
 
     public Expert findExpertByEmail(String email) {
         Session session = sessionFactory.openSession();
