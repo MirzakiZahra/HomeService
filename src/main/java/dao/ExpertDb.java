@@ -48,6 +48,14 @@ public class ExpertDb {
         session.close();
 
     }
+    public void updateExpertScore(Expert expert) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(expert);
+        transaction.commit();
+        session.close();
+
+    }
 
     public List<Expert>showExpert() {
         Session session = sessionFactory.openSession();
@@ -58,6 +66,13 @@ public class ExpertDb {
         List<Expert> expertList = query.list();
       //  expertList.stream().forEach(i -> System.out.println(i));
         return expertList;
+    }
+    public void deleteExpertwithService(Expert expert){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(expert);
+        transaction.commit();
+        session.close();
     }
 
 }

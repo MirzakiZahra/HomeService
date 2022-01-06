@@ -1,6 +1,7 @@
 package service;
 
 import dao.CustomerDb;
+import dao.ExpertDb;
 import model.people.Customer;
 import model.people.Expert;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class CustomerService {
     CustomerDb customerDb = new CustomerDb();
+    ExpertDb expertDb=new ExpertDb();
 
     public void createCustomer(String firstName, String lastName, String address, String email, String password) {
         Customer customer = new Customer(firstName, lastName, address, email, password);
@@ -31,5 +33,11 @@ public class CustomerService {
         List<Customer>customers=customerDb.showCustomer();
         customers.stream().forEach(i -> System.out.println(i.getLastName()));
 
+    }
+    public void rate(int score,String email){
+        Expert expert= expertDb.findExpertByEmail(email);
+       int temp=expert.getScore()+score;
+        expert.setScore(temp);
+        expertDb.updateExpertScore(expert);
     }
 }

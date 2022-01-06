@@ -1,8 +1,10 @@
 package service;
 
 import dao.ExpertDb;
+import dao.ServiceDb;
 import model.people.Customer;
 import model.people.Expert;
+import model.services.HomeServices;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class ExpertService {
     ExpertDb expertDb = new ExpertDb();
+    ServiceDb serviceDb=new ServiceDb();
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
@@ -33,5 +36,16 @@ public class ExpertService {
         experts.stream().forEach(i -> System.out.println(i.getLastName()));
 
     }
+
+    public void deleteExpertFromService(String serviceName,String email){
+        Expert expert=expertDb.findExpertByEmail(email);
+        HomeServices homeServices=serviceDb.findServiceByName(serviceName);
+        expert.getHomeServices().remove(homeServices);
+      List<HomeServices>homeServices1=
+              serviceDb.showServiceForSpeceficExpert(serviceName);
+
+    }
+
+
 
 }
