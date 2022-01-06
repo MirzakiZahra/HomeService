@@ -18,6 +18,7 @@ public class Expert extends Person {
     @ManyToMany
     List<HomeServices> homeServices = new ArrayList<>();
     private float creditExpert;
+    private int countOfOrder;
 
     public Expert() {
 

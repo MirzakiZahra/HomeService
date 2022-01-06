@@ -2,10 +2,14 @@ package model.people;
 
 
 import lombok.Data;
+import model.Order;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import enums.UserStatue;
 @Entity
 @Data
@@ -23,6 +27,8 @@ public class Customer extends Person {
     private float credit;
     @Enumerated(EnumType.STRING)
     UserStatue userStatue;
+    @OneToMany
+    private List<Order>orders=new ArrayList<>();
 
 
     public Customer(String address, String email, String password) {

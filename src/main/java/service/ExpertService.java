@@ -12,37 +12,49 @@ import java.util.stream.Collectors;
 
 public class ExpertService {
     ExpertDb expertDb = new ExpertDb();
-    ServiceDb serviceDb=new ServiceDb();
+    ServiceDb serviceDb = new ServiceDb();
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
         expertDb.addExpert(expert);
     }
-    public void deleteExpert(String email){
-      Expert expert=  expertDb.findExpertByEmail(email);
-      expertDb.deleteExpert(expert);
+
+    public void deleteExpert(String email) {
+        Expert expert = expertDb.findExpertByEmail(email);
+        expertDb.deleteExpert(expert);
 
     }
 
     public void addMoneyForExpert(String email, float money) {
-        Expert expert=expertDb.findExpertByEmail(email);
+        Expert expert = expertDb.findExpertByEmail(email);
         float temp = expert.getCreditExpert() + money;
         expert.setCreditExpert(temp);
         expertDb.updateExpertCredit(expert);
     }
 
-    public void printShowExpert(){
-        List<Expert>experts=expertDb.showExpert();
+    public void printShowExpert() {
+        List<Expert> experts = expertDb.showExpert();
         experts.stream().forEach(i -> System.out.println(i.getLastName()));
 
     }
 
-    public void deleteExpertFromService(String serviceName,String email){
-        Expert expert=expertDb.findExpertByEmail(email);
-        HomeServices homeServices=serviceDb.findServiceByName(serviceName);
+    public void deleteExpertFromService(String serviceName, String email) {
+        Expert expert = expertDb.findExpertByEmail(email);
+        HomeServices homeServices = serviceDb.findServiceByName(serviceName);
         expert.getHomeServices().remove(homeServices);
-      List<HomeServices>homeServices1=
-              serviceDb.showServiceForSpeceficExpert(serviceName);
+        List<HomeServices> homeServices1 =
+                serviceDb.showServiceForSpeceficExpert(serviceName);
+
+    }
+
+    public int advantageOfScore(int score, String email) {
+        Expert expert = expertDb.findExpertByEmail(email);
+        int count = expert.getCountOfOrder();
+        int sum = expert.getScore() * count;
+        int temp = count + 1;
+        int newSum = sum + score;
+        int num = newSum / temp;
+        return num;
 
     }
 
