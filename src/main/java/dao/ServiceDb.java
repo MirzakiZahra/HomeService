@@ -1,6 +1,5 @@
 package dao;
 
-import model.people.Expert;
 import model.services.HomeServices;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -39,6 +38,7 @@ public class ServiceDb {
         List<HomeServices>homeServices=query.list();
         return homeServices;
     }
+
 
 
 }

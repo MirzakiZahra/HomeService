@@ -2,12 +2,10 @@ package service;
 
 import dao.ExpertDb;
 import dao.ServiceDb;
-import model.people.Customer;
-import model.people.Expert;
+import model.user.Expert;
 import model.services.HomeServices;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class ExpertService {
@@ -38,11 +36,10 @@ public class ExpertService {
 
     }
 
-    public void deleteExpertFromService(String serviceName, String email) {
+    public void deleteExpertFromService(String subServiceName, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
-        HomeServices homeServices = serviceDb.findServiceByName(serviceName);
+        HomeServices homeServices = serviceDb.findServiceByName(subServiceName);
         expert.getHomeServices().remove(homeServices);
-       
 
     }
 

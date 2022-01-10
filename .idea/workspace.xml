@@ -4,29 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f6feae6-63a5-4ebf-8033-a402a82d9e3b" name="Changes" comment="">
+    <list default="true" id="c1265306-f07e-4277-ba94-b1707a289da2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeService.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/CustomerDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CustomerDb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ExpertDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ExpertDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/OrderDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/OrderDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ServiceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ServiceDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/people/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/people/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Expert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/people/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/people/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/Cleaning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/Cleaning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/HomeAppliances.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/HomeAppliances.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/HomeDecoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/HomeDecoration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/HomeFacilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/HomeFacilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/Moving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/Moving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/Vehicles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/Vehicles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="23IBXnxge63ghSW277prZTxnv8w" />
+  <component name="ProjectId" id="23NtdOjzZXSZcXJFQs4Fm7jQcin" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,20 +43,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5f6feae6-63a5-4ebf-8033-a402a82d9e3b" name="Changes" comment="" />
-      <created>1641411768456</created>
+      <changelist id="c1265306-f07e-4277-ba94-b1707a289da2" name="Changes" comment="" />
+      <created>1641586467105</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1641411768456</updated>
-      <workItem from="1641411774674" duration="17253000" />
-      <workItem from="1641456224183" duration="1467000" />
+      <updated>1641586467105</updated>
+      <workItem from="1641586472901" duration="2792000" />
+      <workItem from="1641848422539" duration="1330000" />
     </task>
     <servers />
   </component>

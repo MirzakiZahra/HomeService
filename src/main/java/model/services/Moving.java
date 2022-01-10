@@ -2,7 +2,7 @@ package model.services;
 
 import enums.TypeOfServices;
 import lombok.Data;
-import model.people.Expert;
+import model.user.Expert;
 
 import javax.persistence.*;
 import java.util.ArrayList;

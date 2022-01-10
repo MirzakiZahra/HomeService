@@ -4,8 +4,8 @@ import dao.CustomerDb;
 import dao.ExpertDb;
 import dao.OrderDb;
 import model.Order;
-import model.people.Customer;
-import model.people.Expert;
+import model.user.Customer;
+import model.user.Expert;
 
 import java.util.List;
 
