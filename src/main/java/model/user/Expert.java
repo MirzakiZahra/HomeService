@@ -2,6 +2,7 @@ package model.user;
 
 import lombok.Data;
 import model.services.MainService;
+import model.services.SubService;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Expert extends Person {
     private String email;
     private int score;
     @ManyToMany
-    List<MainService> homeServices = new ArrayList<>();
+    private List<SubService> homeServices ;
     private float creditExpert;
     private int countOfOrder;
 
