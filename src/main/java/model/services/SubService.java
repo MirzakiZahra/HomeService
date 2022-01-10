@@ -1,8 +1,10 @@
 package model.services;
 
 import lombok.Data;
+import model.user.Expert;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -16,4 +18,6 @@ public class SubService {
     private float price;
     @ManyToOne
     private MainService mainService;
+    @ManyToMany
+    private Set<Expert> expertSet;
 }
