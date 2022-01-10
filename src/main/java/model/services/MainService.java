@@ -16,9 +16,8 @@ public class MainService {
     private int id;
     private String name;
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "mainService")
-    private List<SubService> subServiceSet;
-    private String description;
-    private float price;
+    private Set<SubService> subServiceSet;
+
 
 
 }
