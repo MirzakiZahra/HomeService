@@ -3,7 +3,7 @@ package service;
 import dao.ExpertDb;
 import dao.ServiceDb;
 import model.user.Expert;
-import model.services.HomeServices;
+import model.services.MainService;
 
 import java.util.List;
 
@@ -38,8 +38,8 @@ public class ExpertService {
 
     public void deleteExpertFromService(String subServiceName, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
-        HomeServices homeServices = serviceDb.findServiceByName(subServiceName);
-        expert.getHomeServices().remove(homeServices);
+        MainService mainService = serviceDb.findServiceByName(subServiceName);
+        expert.getHomeServices().remove(mainService);
 
     }
 

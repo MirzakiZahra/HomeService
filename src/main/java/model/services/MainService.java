@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class HomeServices {
+public class MainService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
