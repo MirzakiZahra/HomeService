@@ -21,6 +21,7 @@ public class CustomerService {
         customerDb.addCustomer(customer);
     }
 
+
     public void changePassword(String password, String email) {
         Customer customer = customerDb.findCustomerByEmail(email);
         customer.setPassword(password);
@@ -32,12 +33,10 @@ public class CustomerService {
         float temp = customer.getCredit() - money;
         customer.setCredit(temp);
         customerDb.updateCustomerCredit(customer);
-
     }
 
     public HashMap<String, List<String>> showCustomer() {
         List<Customer> customers = customerDb.showCustomer();
-
         HashMap<String, List<String>> customerHashMap = new HashMap<>();
         customers.stream().forEach(i -> customerHashMap.put(i.getFirstName(),
                 new ArrayList<>() {{
@@ -46,6 +45,5 @@ public class CustomerService {
                 }}));
         return customerHashMap;
     }
-
 
 }

@@ -22,6 +22,13 @@ public class CustomerDb {
         transaction.commit();
         session.close();
     }
+    public void deleteCustomer(Customer customer){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(customer);
+        transaction.commit();
+        session.close();
+    }
 
     public int checkExistOfCustomer(int username) {
         Session session = sessionFactory.openSession();
