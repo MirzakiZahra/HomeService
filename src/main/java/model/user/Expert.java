@@ -24,7 +24,7 @@ public class Expert extends Person {
     @OneToMany
     private List<Offer>offerList;
     private float creditExpert;
-    private int countOfOrder;
+    private int countOfOrder=0;
 
     public Expert() {
 

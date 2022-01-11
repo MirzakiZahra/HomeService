@@ -43,15 +43,21 @@ public class ExpertService {
 
     }
 
-    public void calculateExpertScore(float score, String email) {
+    public void updateExpertScore(float score, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
-        int count = expert.getCountOfOrder();
-        float sum = expert.getScore() * count;
-        int temp = count + 1;
-        float newSum = sum + score;
-        float num = newSum / temp;
-        expert.setScore(num);
-        expert.setCountOfOrder(temp);
+        if (expert.getCountOfOrder() == 0){
+          expert.setScore(score);
+          int temp = expert.getCountOfOrder()+1;
+          expert.setCountOfOrder(temp);
+        }else {
+            int count = expert.getCountOfOrder();
+            float sum = expert.getScore() * count;
+            int temp = count + 1;
+            float newSum = sum + score;
+            float num = newSum / temp;
+            expert.setScore(num);
+            expert.setCountOfOrder(temp);
+        }
         expertDb.updateExpertScore(expert);
     }
 
