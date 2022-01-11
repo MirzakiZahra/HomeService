@@ -32,7 +32,7 @@ public class CustomerService {
         customerDb.updateCustomerCredit(customer);
 
     }
-    public void printShowCustomer(){
+    public void showCustomer(){
         List<Customer>customers=customerDb.showCustomer();
         customers.stream().forEach(i -> System.out.println(i.getLastName()));
 
