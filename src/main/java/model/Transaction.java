@@ -15,7 +15,6 @@ public class Transaction {
     private int id;
     @CreationTimestamp
     private Date date;
-    private float fee;
     @Enumerated(value = EnumType.STRING)
     private TypeOfTransaction typeOfTransaction;
     @ManyToOne

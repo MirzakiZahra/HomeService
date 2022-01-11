@@ -17,7 +17,7 @@ public class Order {
     private int id;
     @Column(unique = true)
     private int uniqueCode;
-    private float cost;
+    private float price;
     @ManyToOne
     private Customer customer;
     @ManyToOne
@@ -35,7 +35,7 @@ public class Order {
 
     public Order(int uniqeCode, float cost, String explaintion, Date beggingDate, Date endingTime, String address) {
         this.uniqueCode = uniqeCode;
-        this.cost = cost;
+        this.price = cost;
         this.explaintion = explaintion;
         this.beggingDate = beggingDate;
         this.endingTime = endingTime;
