@@ -3,7 +3,6 @@ package model;
 import lombok.Data;
 import model.services.SubService;
 import model.user.Customer;
-import model.user.Expert;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,7 +23,7 @@ public class Order {
     private SubService subService;
     @OneToMany(mappedBy = "order")
     private List<Transaction> transactionList;
-    private String explaintion;
+    private String explanation;
     private Date beggingDate;
     private Date endingTime;
     private String address;
@@ -33,10 +32,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(int uniqeCode, float cost, String explaintion, Date beggingDate, Date endingTime, String address) {
-        this.uniqueCode = uniqeCode;
+    public Order(int uniqueCode, float cost, String explanation, Date beggingDate, Date endingTime, String address) {
+        this.uniqueCode = uniqueCode;
         this.price = cost;
-        this.explaintion = explaintion;
+        this.explanation = explanation;
         this.beggingDate = beggingDate;
         this.endingTime = endingTime;
         this.address = address;
