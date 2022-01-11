@@ -17,6 +17,7 @@ public class Customer extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String address;
+    @Column(unique = true)
     private String email;
     @Temporal(TemporalType.TIME)
     @CreationTimestamp
