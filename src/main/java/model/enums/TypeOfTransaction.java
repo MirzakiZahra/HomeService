@@ -1,5 +1,5 @@
 package model.enums;
 
-public enum TransactionType {
+public enum TypeOfTransaction {
     DEPOSIT,WITHDRAW
 }

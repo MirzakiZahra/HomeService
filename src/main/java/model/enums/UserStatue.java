@@ -1,13 +1,6 @@
 package model.enums;
 
 public enum UserStatue {
-    NEW("n"),AWAITINGAPPROVAL("a"),CONFIRMED("c");
-    private String abbr;
-    UserStatue(String abbr) {
-        this.abbr = abbr;
-    }
+    NEW,WAITINGFORAPPROVAL,CONFIRMED;
 
-    public String getAbbr() {
-        return abbr;
-    }
 }

@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c1265306-f07e-4277-ba94-b1707a289da2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/TypeOfTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/TypeOfOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/TypeOfOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/UserStatue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/UserStatue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -42,7 +46,7 @@
       <updated>1641586467105</updated>
       <workItem from="1641586472901" duration="2792000" />
       <workItem from="1641848422539" duration="3983000" />
-      <workItem from="1641867047217" duration="2035000" />
+      <workItem from="1641867047217" duration="2448000" />
     </task>
     <servers />
   </component>
