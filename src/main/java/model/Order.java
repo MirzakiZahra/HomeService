@@ -30,6 +30,8 @@ public class Order {
     private Date beggingDate;
     private Date endingTime;
     private String address;
+    @OneToMany
+    private List<Offer>offerList;
     public Order() {
     }
 
