@@ -1,6 +1,7 @@
 package model;
 
 import lombok.Data;
+import model.services.SubService;
 import model.user.Customer;
 import model.user.Expert;
 
@@ -19,6 +20,8 @@ public class Order {
     private Customer customer;
     @ManyToOne
     private Expert expert;
+    @ManyToOne
+    private SubService subService;
     private String explaintion;
     private Date beggingDate;
     private Date endingTime;
