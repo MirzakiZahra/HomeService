@@ -47,10 +47,5 @@ public class CustomerService {
         return customerHashMap;
     }
 
-    public void order(String email, int uniqueCode) {
-        Customer customer = customerDb.findCustomerByEmail(email);
-        Order order = orderDb.findOrder(uniqueCode);
-        customer.getOrders().add(order);
 
-    }
 }
