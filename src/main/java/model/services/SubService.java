@@ -1,6 +1,7 @@
 package model.services;
 
 import lombok.Data;
+import model.Order;
 import model.user.Expert;
 
 import javax.persistence.*;
@@ -20,4 +21,6 @@ public class SubService {
     private MainService mainService;
     @ManyToMany
     private Set<Expert> expertSet;
+    @OneToMany(mappedBy = "subService")
+    private Set<Order> orderSet;
 }
