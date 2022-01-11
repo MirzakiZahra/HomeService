@@ -14,6 +14,7 @@ public class Expert extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)
     private String email;
     private int score;
     @ManyToMany
