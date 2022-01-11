@@ -1,11 +1,9 @@
 package model;
 
 import lombok.Data;
+import model.user.Customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 @Data
 @Entity
@@ -13,8 +11,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int uniqeCode;
+    @Column(unique = true)
+    private int uniqueCode;
     private float cost;
+    @ManyToOne
+    private Customer customer;
     private String explaintion;
     private Date beggingDate;
     private Date endingTime;
@@ -24,7 +25,7 @@ public class Order {
     }
 
     public Order(int uniqeCode, float cost, String explaintion, Date beggingDate, Date endingTime, String address) {
-        this.uniqeCode = uniqeCode;
+        this.uniqueCode = uniqeCode;
         this.cost = cost;
         this.explaintion = explaintion;
         this.beggingDate = beggingDate;

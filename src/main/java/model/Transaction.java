@@ -18,5 +18,5 @@ public class Transaction {
     @CreationTimestamp
     private Date date;
     private float fee;
-    
+
 }
