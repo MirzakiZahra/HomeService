@@ -6,11 +6,10 @@ import model.Order;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import enums.UserStatue;
+import model.enums.UserStatue;
 @Entity
 @Data
 public class Customer extends Person {

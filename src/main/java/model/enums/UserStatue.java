@@ -1,4 +1,4 @@
-package enums;
+package model.enums;
 
 public enum UserStatue {
     NEW("n"),AWAITINGAPPROVAL("a"),CONFIRMED("c");
