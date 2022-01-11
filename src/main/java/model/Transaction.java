@@ -18,6 +18,8 @@ public class Transaction {
     private float fee;
     @Enumerated(value = EnumType.STRING)
     private TypeOfTransaction typeOfTransaction;
+    @ManyToOne
+    private Order order;
 
 
 }
