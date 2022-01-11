@@ -21,7 +21,6 @@ public class Expert extends Person {
     private int score;
     @ManyToMany
     private List<SubService> subServiceList ;
-  
     @OneToMany
     private List<Offer>offerList;
     private float creditExpert;

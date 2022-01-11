@@ -21,8 +21,6 @@ public class Order {
     @ManyToOne
     private Customer customer;
     @ManyToOne
-    private Expert expert;
-    @ManyToOne
     private SubService subService;
     @OneToMany(mappedBy = "order")
     private List<Transaction> transactionList;
