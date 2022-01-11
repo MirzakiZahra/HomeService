@@ -7,12 +7,14 @@ import model.Order;
 import model.user.Customer;
 import model.user.Expert;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CustomerService {
     CustomerDb customerDb = new CustomerDb();
-    ExpertDb expertDb=new ExpertDb();
-    OrderDb orderDb=new OrderDb();
+    ExpertDb expertDb = new ExpertDb();
+    OrderDb orderDb = new OrderDb();
 
     public void createCustomer(String firstName, String lastName, String address, String email, String password) {
         Customer customer = new Customer(firstName, lastName, address, email, password);
@@ -32,20 +34,29 @@ public class CustomerService {
         customerDb.updateCustomerCredit(customer);
 
     }
-    public void showCustomer(){
-        List<Customer>customers=customerDb.showCustomer();
-        customers.stream().forEach(i -> System.out.println(i.getLastName()));
 
+    public HashMap<String, List<String>> showCustomer() {
+        List<Customer> customers = customerDb.showCustomer();
+
+        HashMap<String, List<String>> customerHashMap = new HashMap<>();
+        customers.stream().forEach(i -> customerHashMap.put(i.getFirstName(),
+                new ArrayList<>() {{
+                    add(i.getLastName());
+                    add(i.getAddress());
+                }}));
+        return customerHashMap;
     }
-    public void rate(int score,String email){
-        Expert expert= expertDb.findExpertByEmail(email);
-      // int temp=expert.getScore()+score;
+
+    public void rate(int score, String email) {
+        Expert expert = expertDb.findExpertByEmail(email);
+        // int temp=expert.getScore()+score;
         //expert.setScore(temp);
 
     }
-    public void order(String email,int uniqueCode){
+
+    public void order(String email, int uniqueCode) {
         Customer customer = customerDb.findCustomerByEmail(email);
-        Order order=orderDb.findOrder(uniqueCode);
+        Order order = orderDb.findOrder(uniqueCode);
         customer.getOrders().add(order);
 
     }
