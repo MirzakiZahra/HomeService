@@ -1,6 +1,7 @@
 package model.user;
 
 import lombok.Data;
+import model.Offer;
 import model.Order;
 import model.services.MainService;
 import model.services.SubService;
@@ -22,6 +23,8 @@ public class Expert extends Person {
     private List<SubService> subServiceList ;
     @OneToMany(mappedBy = "expert")
     private List<Order> orderList;
+    @OneToMany
+    private List<Offer>offerList;
     private float creditExpert;
     private int countOfOrder;
 
