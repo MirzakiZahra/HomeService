@@ -18,7 +18,7 @@ public class Expert extends Person {
     private int id;
     @Column(unique = true)
     private String email;
-    private int score;
+    private float score;
     @ManyToMany
     private List<SubService> subServiceList ;
     @OneToMany

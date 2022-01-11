@@ -39,19 +39,20 @@ public class ExpertService {
     public void deleteExpertFromService(String subServiceName, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
         MainService mainService = serviceDb.findServiceByName(subServiceName);
-        expert.getHomeServices().remove(mainService);
+        expert.getSubServiceList().remove(mainService);
 
     }
 
-    public int advantageOfScore(int score, String email) {
+    public void calculateExpertScore(float score, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
         int count = expert.getCountOfOrder();
-        int sum = expert.getScore() * count;
+        float sum = expert.getScore() * count;
         int temp = count + 1;
-        int newSum = sum + score;
-        int num = newSum / temp;
-        return num;
-
+        float newSum = sum + score;
+        float num = newSum / temp;
+        expert.setScore(num);
+        expert.setCountOfOrder(temp);
+        expertDb.updateExpertScore(expert);
     }
 
 

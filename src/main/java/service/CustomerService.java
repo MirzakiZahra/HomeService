@@ -47,13 +47,6 @@ public class CustomerService {
         return customerHashMap;
     }
 
-    public void rate(int score, String email) {
-        Expert expert = expertDb.findExpertByEmail(email);
-        // int temp=expert.getScore()+score;
-        //expert.setScore(temp);
-
-    }
-
     public void order(String email, int uniqueCode) {
         Customer customer = customerDb.findCustomerByEmail(email);
         Order order = orderDb.findOrder(uniqueCode);
