@@ -30,7 +30,7 @@ public class Order {
     private Date beggingDate;
     private Date endingTime;
     private String address;
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<Offer>offerList;
     public Order() {
     }
