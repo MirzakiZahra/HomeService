@@ -21,6 +21,11 @@ public class CustomerService {
         customerDb.addCustomer(customer);
     }
 
+    public void removeCustomer(String email) {
+        Customer customer = customerDb.findCustomerByEmail(email);
+        customerDb.deleteCustomer(customer);
+
+    }
 
     public void changePassword(String password, String email) {
         Customer customer = customerDb.findCustomerByEmail(email);
