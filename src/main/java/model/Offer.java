@@ -14,7 +14,7 @@ public class Offer {
     private float price;
     @ManyToOne
     private Expert expert;
-    @OneToOne
+    @ManyToOne
     private Order order;
 
 
