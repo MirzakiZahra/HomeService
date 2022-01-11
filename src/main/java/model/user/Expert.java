@@ -16,6 +16,9 @@ public class Expert extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Lob
+    @Column(name = "photo", columnDefinition="BLOB",length = 300000)
+    private byte[] photo;
     @Column(unique = true)
     private String email;
     private float score;
