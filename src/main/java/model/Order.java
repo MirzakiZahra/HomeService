@@ -7,6 +7,8 @@ import model.user.Expert;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 public class Order {
@@ -22,11 +24,12 @@ public class Order {
     private Expert expert;
     @ManyToOne
     private SubService subService;
+    @OneToMany(mappedBy = "order")
+    private List<Transaction> transactionList;
     private String explaintion;
     private Date beggingDate;
     private Date endingTime;
     private String address;
-
     public Order() {
     }
 
