@@ -28,7 +28,7 @@ public class Customer extends Person {
     @Enumerated(EnumType.STRING)
     UserStatue userStatue;
     @OneToMany
-    private List<Order>orders=new ArrayList<>();
+    private List<Order>orders;
 
 
     public Customer(String address, String email, String password) {

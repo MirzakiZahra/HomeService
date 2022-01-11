@@ -17,7 +17,7 @@ public class Expert extends Person {
     private String email;
     private int score;
     @ManyToMany
-    private List<SubService> homeServices ;
+    private List<SubService> subServiceList ;
     private float creditExpert;
     private int countOfOrder;
 
