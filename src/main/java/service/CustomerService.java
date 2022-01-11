@@ -25,7 +25,7 @@ public class CustomerService {
         customerDb.updateCustomerPassword(customer);
     }
 
-    public void deductionOfMoneyForCustomer(String email, float money) {
+    public void withdrawCreditOfCustomer(String email, float money) {
         Customer customer = customerDb.findCustomerByEmail(email);
         float temp = customer.getCredit() - money;
         customer.setCredit(temp);
