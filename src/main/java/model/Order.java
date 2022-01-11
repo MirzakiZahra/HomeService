@@ -2,6 +2,7 @@ package model;
 
 import lombok.Data;
 import model.user.Customer;
+import model.user.Expert;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,6 +17,8 @@ public class Order {
     private float cost;
     @ManyToOne
     private Customer customer;
+    @ManyToOne
+    private Expert expert;
     private String explaintion;
     private Date beggingDate;
     private Date endingTime;
