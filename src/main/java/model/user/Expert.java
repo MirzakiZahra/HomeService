@@ -17,7 +17,7 @@ public class Expert extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Lob
-    @Column(name = "photo", columnDefinition="BLOB",length = 300000)
+    @Column(name = "photo", columnDefinition="BLOB",length = 300000 )
     private byte[] photo;
     @Column(unique = true)
     private String email;
