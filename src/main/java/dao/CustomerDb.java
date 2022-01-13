@@ -22,6 +22,7 @@ public class CustomerDb {
         transaction.commit();
         session.close();
     }
+
     public void deleteCustomer(Customer customer){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
