@@ -2,12 +2,15 @@ package service;
 
 import dao.CustomerDb;
 import dao.OrderDb;
+import dto.OrderDto;
 import model.Order;
 import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class OrderService {
     OrderDb orderDb = new OrderDb();
@@ -26,5 +29,15 @@ public class OrderService {
         customer.getOrders().add(order);
         customerDb.updateCustomerCredit(customer);
     }
-
+    public List<OrderDto> showAllOrder(){
+        List<Order> orderList = orderDb.showAllOrder();
+        List<OrderDto> orderDtoList = new ArrayList<>();
+        for (Order order : orderList){
+            OrderDto orderDto = new OrderDto(order.getId(),order.getPrice(),
+                    order.getSubService(),order.getExplanation(),order.getBeggingDate(),
+                    order.getEndingTime(),order.getAddress());
+            orderDtoList.add(orderDto);
+        }
+        return orderDtoList;
+    }
 }
