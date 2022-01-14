@@ -85,7 +85,10 @@ public class Main {
                     String beggingDate = scanner.next();
                     String endingDate = scanner.next();
                     String address = scanner.next();
-                    orderService.createOrder();
+                    orderService.createOrder(cost,explanation,
+                            convertStringToDate(beggingDate),convertStringToDate(endingDate),
+                            address,customer.getEmail(),subServiceId);
+                    System.out.println("Order Successfully Added");
                     break;
                 case "3":
 

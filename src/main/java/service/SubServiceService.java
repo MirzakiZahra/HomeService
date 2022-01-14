@@ -20,10 +20,10 @@ public class SubServiceService {
         }
         return subServiceDtoList;
     }
-    public boolean checkExistOfSubServiceById(int id){
-        if (subServiceDb.checkExistOfSubServiceById(id) == 0){
+    public SubService checkExistOfSubServiceById(int id){
+        if (subServiceDb.checkExistOfSubServiceById(id).equals(null)){
             throw new InputException("Wrong ID");
         }
-        return true;
+        return checkExistOfSubServiceById(id);
     }
 }
