@@ -1,15 +1,20 @@
 package view;
 
+import dto.SubServiceDto;
+import model.services.SubService;
 import model.user.Customer;
 import service.CustomerService;
 import service.OrderService;
+import service.SubServiceService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static CustomerService customerService = new CustomerService();
     static OrderService orderService = new OrderService();
+    static SubServiceService subServiceService = new SubServiceService();
     public static void main(String[] args) {
 
         System.out.println("************welcome********");
@@ -63,6 +68,11 @@ public class Main {
                     customerService.changePassword(newPassword,customer.getEmail());
                     break;
                 case "2":
+                    List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
+                    subServiceDtoList.stream().forEach(i-> System.out.println(i));
+                    System.out.println("Choose one of SubService from List");
+                    System.out.println("Enter SubService Id:");
+                    int subServiceId = scanner.nextInt();
 
                     break;
                 case "3":

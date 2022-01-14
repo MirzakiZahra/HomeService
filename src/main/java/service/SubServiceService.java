@@ -19,4 +19,7 @@ public class SubServiceService {
         }
         return subServiceDtoList;
     }
+    public boolean checkExistOfSubServiceById(int id){
+
+    }
 }

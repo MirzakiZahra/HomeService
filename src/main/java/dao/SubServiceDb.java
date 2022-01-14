@@ -21,4 +21,15 @@ public class SubServiceDb {
         session.close();
         return subServices;
     }
+    public int checkExistOfSubServiceById(int id){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from SubService s where s.id = :id";
+        Query query = session.createQuery(hql);
+        query.setParameter("id", id);
+        List<SubService> subServices = query.getResultList();
+        transaction.commit();
+        session.close();
+        return subServices.size();
+    }
 }
