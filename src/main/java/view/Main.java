@@ -3,6 +3,7 @@ package view;
 import dto.SubServiceDto;
 import model.services.SubService;
 import model.user.Customer;
+import model.user.Expert;
 import service.CustomerService;
 import service.OrderService;
 import service.SubServiceService;
@@ -120,6 +121,25 @@ public class Main {
             e.printStackTrace();
         }
         return date1;
+    }
+    public static void expertMenu(Expert expert){
+        String expertInput=scanner.next();
+        do {
+            System.out.println("1.Change Password\n2.See Order\n" +
+                    "3.Make Offer\n4.Exit");
+            expertInput = scanner.next();
+            switch (expertInput){
+                case "1":
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+            }
+        } while (!"4".equals(expertInput));
     }
 }
 
