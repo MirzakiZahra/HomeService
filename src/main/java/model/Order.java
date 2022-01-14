@@ -1,7 +1,7 @@
 package model;
 
 import lombok.Data;
-import model.enums.TypeOfOrder;
+import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
 
@@ -25,7 +25,7 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<Transaction> transactionList;
     @Enumerated(value = EnumType.STRING)
-    private TypeOfOrder typeOfOrder;
+    private OrderStatus orderStatus;
     private String explanation;
     private Date beggingDate;
     private Date endingTime;

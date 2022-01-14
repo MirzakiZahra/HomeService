@@ -3,7 +3,7 @@ package service;
 import dao.CustomerDb;
 import dao.OrderDb;
 import model.Order;
-import model.enums.TypeOfOrder;
+import model.enums.OrderStatus;
 import model.user.Customer;
 
 import java.util.Date;
@@ -16,7 +16,7 @@ public class OrderService {
         Order order=new Order(uniqueCode,cost,explanation,beggingDate,endingTime,address);
         Customer customer = customerDb.findCustomerByEmail(email);
         order.setCustomer(customer);
-        order.setTypeOfOrder(TypeOfOrder.WAITINGFOREXPERTSUGGESTION);
+        order.setOrderStatus(OrderStatus.WAITINGFOREXPERTSUGGESTION);
         orderDb.addCOrder(order);
         customer.getOrders().add(order);
         customerDb.updateCustomerCredit(customer);

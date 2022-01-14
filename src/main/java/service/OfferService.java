@@ -5,6 +5,7 @@ import dao.OfferDb;
 import dao.OrderDb;
 import model.Offer;
 import model.Order;
+import model.enums.OrderStatus;
 import model.user.Expert;
 
 import java.util.Date;
@@ -18,6 +19,7 @@ public class OfferService {
                             Date creationDate, Date startDate, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
         Order order = orderDb.findOrderById(orderId);
+        order.setOrderStatus(OrderStatus.WAITINGFORSPECIALISTSELECTION);
         Offer offer = new Offer(price, expert, order, creationDate, startDate);
         offerDb.addOffer(offer);
     }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import model.enums.UserStatue;
+import model.enums.UserStatus;
 @Entity
 @Data
 public class Customer extends Person {
@@ -26,7 +26,7 @@ public class Customer extends Person {
     private int username;
     private float credit;
     @Enumerated(EnumType.STRING)
-    UserStatue userStatue;
+    UserStatus userStatue;
     @OneToMany
     private List<Order>orders;
 
