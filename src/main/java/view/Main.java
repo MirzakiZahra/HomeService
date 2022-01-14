@@ -6,9 +6,10 @@ import service.CustomerService;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+    static CustomerService customerService = new CustomerService();
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CustomerService customerService = new CustomerService();
+
         System.out.println("************welcome********");
         String firstInput = new String();
         do {
@@ -42,11 +43,41 @@ public class Main {
             }
         } while (!"4".equals(firstInput));
     }
-    public static void customerMenu(Customer customer){
-        System.out.println("1.Change Password\n2.Add Order\n" +
-                "3.Show offers for specific Order\n4.Select Expert" +
-                "\n5.Score Expert\n6.Exit");
-        
+
+    public static void customerMenu(Customer customer) {
+        String customerSecondInput = new String();
+        do {
+            System.out.println("1.Change Password\n2.Add Order\n" +
+                    "3.Show offers for specific Order\n4.Select Expert" +
+                    "\n5.Score Expert\n6.Exit");
+            customerSecondInput = scanner.next();
+            switch (customerSecondInput){
+                case "1":
+                    System.out.println("Please Enter old Password");
+                    String oldPassword = scanner.next();
+                    customerService.changePassword();
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+
+                    break;
+                case "5":
+
+                    break;
+                case "6":
+                    break;
+                default:
+                    System.out.println("Enter Valid Number");
+                    break;
+            }
+        } while (!"6".equals(customerSecondInput));
+
+
     }
 }
 
