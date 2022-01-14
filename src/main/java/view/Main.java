@@ -55,6 +55,7 @@ public class Main {
                 case "1":
                     System.out.println("Please Enter old Password");
                     String oldPassword = scanner.next();
+                    customerService.checkOldEmail();
                     customerService.changePassword();
                     break;
                 case "2":

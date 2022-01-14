@@ -57,9 +57,9 @@ public class CustomerService {
         }
         return customer;
     }
-    public void checkOldEmail(String email){
-        if (customerDb.checkExistOfEmail(email) == 0){
-            throw new InputException("Email Doesn't Exist");
+    public void checkOldPassword(String password){
+        if (customerDb.checkExistOfPassword(password) == 0){
+            throw new InputException("Password is Incorrect");
         }
     }
 }
