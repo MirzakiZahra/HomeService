@@ -14,7 +14,11 @@ public class Main {
                    case "1":
                        //todo
                    case "2":
-                       //todo
+                       String customerInput = new String();
+                       do{
+                           System.out.println("");
+                       }while ()
+
                    case "3":
                        //todo
                    case "4":

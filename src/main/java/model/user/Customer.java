@@ -23,7 +23,7 @@ public class Customer extends Person {
     @CreationTimestamp
     private Date beginningTime;
     private String password;
-    private int username;
+    private String username;
     private float credit;
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;
@@ -45,7 +45,7 @@ public class Customer extends Person {
         this.password = password;
     }
 
-    public Customer(String firstName, String lastName, String address, String email, Date beginningTime, String password, int username) {
+    public Customer(String firstName, String lastName, String address, String email, Date beginningTime, String password, String username) {
         super(firstName, lastName);
         this.address = address;
         this.email = email;

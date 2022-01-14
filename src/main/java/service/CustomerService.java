@@ -3,6 +3,7 @@ package service;
 import dao.CustomerDb;
 import dao.ExpertDb;
 import dao.OrderDb;
+import exception.InputException;
 import model.Order;
 import model.user.Customer;
 import model.user.Expert;
@@ -48,6 +49,13 @@ public class CustomerService {
                     add(i.getAddress());
                 }}));
         return customerHashMap;
+    }
+    public Customer findCustomerByEmail(String email){
+        Customer customer = customerDb.findCustomerByEmail(email);
+        if (customer.equals(null)){
+            throw new InputException("Your Email DoesNot Exist");
+        }
+        return customer;
     }
 
 }

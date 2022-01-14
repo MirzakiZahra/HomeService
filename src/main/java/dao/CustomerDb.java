@@ -31,7 +31,7 @@ public class CustomerDb {
         session.close();
     }
 
-    public int checkExistOfCustomer(int username) {
+    public int checkExistOfCustomer(String username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String sql = "select * from customer where username = :username";
