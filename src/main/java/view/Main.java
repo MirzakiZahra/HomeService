@@ -7,6 +7,9 @@ import service.CustomerService;
 import service.OrderService;
 import service.SubServiceService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +18,7 @@ public class Main {
     static CustomerService customerService = new CustomerService();
     static OrderService orderService = new OrderService();
     static SubServiceService subServiceService = new SubServiceService();
+
     public static void main(String[] args) {
 
         System.out.println("************welcome********");
@@ -58,22 +62,30 @@ public class Main {
                     "3.Show offers for specific Order\n4.Select Expert" +
                     "\n5.Score Expert\n6.Exit");
             customerSecondInput = scanner.next();
-            switch (customerSecondInput){
+            switch (customerSecondInput) {
                 case "1":
                     System.out.println("Please Enter old Password");
                     String oldPassword = scanner.next();
                     customerService.checkOldPassword(oldPassword);
                     System.out.println("Please Enter New Password");
                     String newPassword = scanner.next();
-                    customerService.changePassword(newPassword,customer.getEmail());
+                    customerService.changePassword(newPassword, customer.getEmail());
                     break;
                 case "2":
                     List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
-                    subServiceDtoList.stream().forEach(i-> System.out.println(i));
+                    subServiceDtoList.stream().forEach(i -> System.out.println(i));
                     System.out.println("Choose one of SubService from List");
                     System.out.println("Enter SubService Id:");
                     int subServiceId = scanner.nextInt();
-
+                    subServiceService.checkExistOfSubServiceById(subServiceId);
+                    System.out.println("Please Enter Cost, Explanation, beggingDate," +
+                            " EndingDate,address");
+                    float cost = scanner.nextFloat();
+                    String explanation = scanner.next();
+                    String beggingDate = scanner.next();
+                    String endingDate = scanner.next();
+                    String address = scanner.next();
+                    orderService.createOrder();
                     break;
                 case "3":
 
@@ -93,6 +105,18 @@ public class Main {
         } while (!"6".equals(customerSecondInput));
 
 
+    }
+
+    public static Date convertStringToDate(String date) {
+        Date date1 = new Date();
+        SimpleDateFormat formatter =
+                new SimpleDateFormat("dd/MM/yyyy,HH:mm");
+        try {
+            date1 = formatter.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date1;
     }
 }
 
