@@ -2,12 +2,14 @@ package view;
 
 import model.user.Customer;
 import service.CustomerService;
+import service.OrderService;
 
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static CustomerService customerService = new CustomerService();
+    static OrderService orderService = new OrderService();
     public static void main(String[] args) {
 
         System.out.println("************welcome********");

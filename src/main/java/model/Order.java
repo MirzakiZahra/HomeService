@@ -15,8 +15,6 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true)
-    private int uniqueCode;
     private float price;
     @ManyToOne
     private Customer customer;
@@ -35,8 +33,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(int uniqueCode, float cost, String explanation, Date beggingDate, Date endingTime, String address) {
-        this.uniqueCode = uniqueCode;
+    public Order( float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
         this.explanation = explanation;
         this.beggingDate = beggingDate;
