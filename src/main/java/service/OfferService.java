@@ -15,7 +15,7 @@ public class OfferService {
     OfferDb offerDb = new OfferDb();
     OrderDb orderDb = new OrderDb();
 
-    public void createOffer(float price, int orderId,
+    public void createOffer(float price, int orderId,float basePrice,
                             Date creationDate, Date startDate, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
         Order order = orderDb.findOrderById(orderId);
