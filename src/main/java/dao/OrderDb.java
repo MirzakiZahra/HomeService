@@ -28,4 +28,11 @@ public class OrderDb {
         transaction.commit();
         session.close();
     }
+    public Order findOrderById(int id){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        transaction.commit();
+        session.close();
+    }
 }
