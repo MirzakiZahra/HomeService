@@ -2,6 +2,7 @@ package service;
 
 import dao.SubServiceDb;
 import dto.SubServiceDto;
+import exception.InputException;
 import model.services.SubService;
 
 import java.util.ArrayList;
@@ -20,6 +21,9 @@ public class SubServiceService {
         return subServiceDtoList;
     }
     public boolean checkExistOfSubServiceById(int id){
-
+        if (subServiceDb.checkExistOfSubServiceById(id) == 0){
+            throw new InputException("Wrong ID");
+        }
+        return true;
     }
 }
