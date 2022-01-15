@@ -10,7 +10,6 @@ import javax.persistence.Column;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubServiceDto {
-    @Column(unique = true)
     private int id;
     private String name;
     private String description;

@@ -3,13 +3,13 @@ package model.user;
 
 import lombok.Data;
 import model.Order;
+import model.enums.UserStatus;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import model.enums.UserStatus;
 @Entity
 @Data
 public class Customer extends Person {
@@ -28,7 +28,7 @@ public class Customer extends Person {
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;
     @OneToMany
-    private List<Order>orders;
+    private List<Order> orders;
 
 
     public Customer(String address, String email, String password) {
@@ -36,7 +36,9 @@ public class Customer extends Person {
         this.email = email;
         this.password = password;
     }
-    public Customer(){}
+
+    public Customer() {
+    }
 
     public Customer(String firstName, String lastName, String address, String email, String password) {
         super(firstName, lastName);

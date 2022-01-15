@@ -23,7 +23,7 @@ public class CustomerDb {
         session.close();
     }
 
-    public void deleteCustomer(Customer customer){
+    public void deleteCustomer(Customer customer) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(customer);
@@ -75,7 +75,7 @@ public class CustomerDb {
         session.close();
     }
 
-    public void updateCustomerCredit(Customer customer){
+    public void updateCustomerCredit(Customer customer) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(customer);

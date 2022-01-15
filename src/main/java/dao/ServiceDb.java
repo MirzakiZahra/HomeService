@@ -11,6 +11,7 @@ import java.util.List;
 
 public class ServiceDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+
     public MainService findServiceByName(String name) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -22,23 +23,24 @@ public class ServiceDb {
         session.close();
         return mainService;
     }
-    public void deleteServicewithService(MainService mainService){
+
+    public void deleteServicewithService(MainService mainService) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(mainService);
         transaction.commit();
         session.close();
     }
-    public List<MainService> showServiceForSpeceficExpert(String name){
+
+    public List<MainService> showServiceForSpeceficExpert(String name) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String sql = "select * from person where name =name";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(MainService.class);
-        List<MainService>homeServices=query.list();
+        List<MainService> homeServices = query.list();
         return homeServices;
     }
-
 
 
 }

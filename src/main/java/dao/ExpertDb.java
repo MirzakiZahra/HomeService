@@ -19,7 +19,8 @@ public class ExpertDb {
         transaction.commit();
         session.close();
     }
-    public void deleteExpert(Expert expert){
+
+    public void deleteExpert(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(expert);
@@ -47,6 +48,7 @@ public class ExpertDb {
         session.close();
 
     }
+
     public void updateExpertScore(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -56,7 +58,7 @@ public class ExpertDb {
 
     }
 
-    public List<Expert>showExpert() {
+    public List<Expert> showExpert() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String sql = "select * from person where DTYPE =Expert";
@@ -65,14 +67,16 @@ public class ExpertDb {
         List<Expert> expertList = query.list();
         return expertList;
     }
-    public void deleteExpertWithService(Expert expert){
+
+    public void deleteExpertWithService(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(expert);
         transaction.commit();
         session.close();
     }
-    public void newScore(Expert expert){
+
+    public void newScore(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(expert);

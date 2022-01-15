@@ -2,12 +2,9 @@ package model.user;
 
 import lombok.Data;
 import model.Offer;
-import model.Order;
-import model.services.MainService;
 import model.services.SubService;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,17 +14,17 @@ public class Expert extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Lob
-    @Column(name = "photo", columnDefinition="BLOB",length = 300000 )
+    @Column(name = "photo", columnDefinition = "BLOB", length = 300000)
     private byte[] photo;
     @Column(unique = true)
     private String email;
     private float score;
     @ManyToMany
-    private List<SubService> subServiceList ;
+    private List<SubService> subServiceList;
     @OneToMany
-    private List<Offer>offerList;
+    private List<Offer> offerList;
     private float creditExpert;
-    private int countOfOrder=0;
+    private int countOfOrder = 0;
 
     public Expert() {
 

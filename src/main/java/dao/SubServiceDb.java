@@ -11,7 +11,8 @@ import java.util.List;
 
 public class SubServiceDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    public List<SubService> getAllSubService(){
+
+    public List<SubService> getAllSubService() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String hql = "from SubService";
@@ -21,7 +22,8 @@ public class SubServiceDb {
         session.close();
         return subServices;
     }
-    public SubService checkExistOfSubServiceById(int id){
+
+    public SubService checkExistOfSubServiceById(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String hql = "from SubService s where s.id = :id";

@@ -1,7 +1,6 @@
 package view;
 
 import dto.SubServiceDto;
-import model.services.SubService;
 import model.user.Customer;
 import model.user.Expert;
 import service.CustomerService;
@@ -86,9 +85,9 @@ public class Main {
                     String beggingDate = scanner.next();
                     String endingDate = scanner.next();
                     String address = scanner.next();
-                    orderService.createOrder(cost,explanation,
-                            convertStringToDate(beggingDate),convertStringToDate(endingDate),
-                            address,customer.getEmail(),subServiceId);
+                    orderService.createOrder(cost, explanation,
+                            convertStringToDate(beggingDate), convertStringToDate(endingDate),
+                            address, customer.getEmail(), subServiceId);
                     System.out.println("Order Successfully Added");
                     break;
                 case "3":
@@ -122,13 +121,14 @@ public class Main {
         }
         return date1;
     }
-    public static void expertMenu(Expert expert){
-        String expertInput=scanner.next();
+
+    public static void expertMenu(Expert expert) {
+        String expertInput = scanner.next();
         do {
             System.out.println("1.Change Password\n2.See Order\n" +
                     "3.Make Offer\n4.Exit");
             expertInput = scanner.next();
-            switch (expertInput){
+            switch (expertInput) {
                 case "1":
                     break;
                 case "2":

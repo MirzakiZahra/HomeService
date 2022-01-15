@@ -4,9 +4,7 @@ import dao.CustomerDb;
 import dao.ExpertDb;
 import dao.OrderDb;
 import exception.InputException;
-import model.Order;
 import model.user.Customer;
-import model.user.Expert;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,15 +48,17 @@ public class CustomerService {
                 }}));
         return customerHashMap;
     }
-    public Customer findCustomerByEmail(String email){
+
+    public Customer findCustomerByEmail(String email) {
         Customer customer = customerDb.findCustomerByEmail(email);
-        if (customer.equals(null)){
+        if (customer.equals(null)) {
             throw new InputException("Your Email DoesNot Exist");
         }
         return customer;
     }
-    public void checkOldPassword(String password){
-        if (customerDb.checkExistOfPassword(password) == 0){
+
+    public void checkOldPassword(String password) {
+        if (customerDb.checkExistOfPassword(password) == 0) {
             throw new InputException("Password is Incorrect");
         }
     }

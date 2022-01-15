@@ -2,8 +2,8 @@ package service;
 
 import dao.ExpertDb;
 import dao.ServiceDb;
-import model.user.Expert;
 import model.services.MainService;
+import model.user.Expert;
 
 import java.util.List;
 
@@ -45,11 +45,11 @@ public class ExpertService {
 
     public void updateExpertScore(float score, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
-        if (expert.getCountOfOrder() == 0){
-          expert.setScore(score);
-          int temp = expert.getCountOfOrder()+1;
-          expert.setCountOfOrder(temp);
-        }else {
+        if (expert.getCountOfOrder() == 0) {
+            expert.setScore(score);
+            int temp = expert.getCountOfOrder() + 1;
+            expert.setCountOfOrder(temp);
+        } else {
             int count = expert.getCountOfOrder();
             float sum = expert.getScore() * count;
             int temp = count + 1;
@@ -60,7 +60,6 @@ public class ExpertService {
         }
         expertDb.updateExpertScore(expert);
     }
-
 
 
 }

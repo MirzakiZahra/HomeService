@@ -1,7 +1,6 @@
 package dao;
 
 import model.Offer;
-import model.user.Customer;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

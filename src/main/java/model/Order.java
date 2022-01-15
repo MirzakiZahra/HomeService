@@ -29,11 +29,12 @@ public class Order {
     private Date endingTime;
     private String address;
     @OneToMany(mappedBy = "order")
-    private List<Offer>offerList;
+    private List<Offer> offerList;
+
     public Order() {
     }
 
-    public Order( float cost, String explanation, Date beggingDate, Date endingTime, String address) {
+    public Order(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
         this.explanation = explanation;
         this.beggingDate = beggingDate;
