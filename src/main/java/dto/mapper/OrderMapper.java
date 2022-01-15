@@ -2,7 +2,7 @@ package dto.mapper;
 
 import dto.OrderDto;
 import model.Order;
-import model.builder.OrderBuilder;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +22,13 @@ public class OrderMapper {
     public List<Order> convertOrderDtoToOrder(List<OrderDto> orderDtoList) {
         List<Order> orderList = new ArrayList<>();
         for (OrderDto orderDto : orderDtoList) {
-            Order order = OrderBuilder.getBuilder()
-                    .withPrice(orderDto.getPrice())
-                    .withSubService(orderDto.getSubService())
-                    .withExplanation(orderDto.getExplanation())
-                    .withBeggingDate(orderDto.getBeggingDate())
-                    .withEndingTime(orderDto.getEndingTime())
-                    .withAddress(orderDto.getAddress())
+            Order order = Order.builder()
+                    .price(orderDto.getPrice())
+                    .subService(orderDto.getSubService())
+                    .explanation(orderDto.getExplanation())
+                    .beggingDate(orderDto.getBeggingDate())
+                    .endingTime(orderDto.getEndingTime())
+                    .address(orderDto.getAddress())
                     .build();
             orderList.add(order);
         }

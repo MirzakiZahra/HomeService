@@ -1,5 +1,6 @@
 package model;
 
+import lombok.Builder;
 import lombok.Data;
 import model.enums.OrderStatus;
 import model.services.SubService;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Builder
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
