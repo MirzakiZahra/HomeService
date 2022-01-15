@@ -19,5 +19,4 @@ public class OrderDto {
     private Date beggingDate;
     private Date endingTime;
     private String address;
-
 }
