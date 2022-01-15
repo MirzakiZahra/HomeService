@@ -45,7 +45,7 @@ public class CustomerService {
         customers.stream().forEach(i -> customerHashMap.put(i.getFirstName(),
                 new ArrayList<>() {{
                     add(i.getLastName());
-                    add(i.getAddress());
+                    //add(i.getAddress());
                 }}));
         return customerHashMap;
     }
