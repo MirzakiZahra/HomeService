@@ -9,6 +9,7 @@ import model.user.Customer;
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
 import java.beans.ConstructorProperties;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Order {
     @ManyToOne
     private SubService subService;
     @OneToMany(mappedBy = "order")
-    private List<Transaction> transactionList;
+    private List<Transaction> transactionList = new ArrayList<>();
     @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;
     private String explanation;
@@ -33,7 +34,7 @@ public class Order {
     private Date endingTime;
     private String address;
     @OneToMany(mappedBy = "order")
-    private List<Offer> offerList;
+    private List<Offer> offerList= new ArrayList<>();
 
     public Order() {
     }

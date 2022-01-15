@@ -5,6 +5,7 @@ import model.Offer;
 import model.services.SubService;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,9 +21,9 @@ public class Expert extends Person {
     private String email;
     private float score;
     @ManyToMany
-    private List<SubService> subServiceList;
+    private List<SubService> subServiceList = new ArrayList<>();
     @OneToMany
-    private List<Offer> offerList;
+    private List<Offer> offerList = new ArrayList<>();
     private float creditExpert;
     private int countOfOrder = 0;
 

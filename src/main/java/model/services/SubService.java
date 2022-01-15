@@ -5,6 +5,7 @@ import model.Order;
 import model.user.Expert;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,7 +21,7 @@ public class SubService {
     @ManyToOne
     private MainService mainService;
     @ManyToMany
-    private Set<Expert> expertSet;
+    private Set<Expert> expertSet = new HashSet<>();
     @OneToMany(mappedBy = "subService")
-    private Set<Order> orderSet;
+    private Set<Order> orderSet = new HashSet<>();
 }

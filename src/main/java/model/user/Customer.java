@@ -7,6 +7,7 @@ import model.enums.UserStatus;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class Customer extends Person {
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;
     @OneToMany
-    private List<Order> orders;
+    private List<Order> orders = new ArrayList<>();
 
 
     public Customer(String address, String email, String password) {
