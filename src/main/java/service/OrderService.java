@@ -3,6 +3,7 @@ package service;
 import dao.CustomerDb;
 import dao.OrderDb;
 import dto.OrderDto;
+import dto.mapper.OrderMapper;
 import model.Order;
 import model.enums.OrderStatus;
 import model.services.SubService;
@@ -16,6 +17,7 @@ public class OrderService {
     OrderDb orderDb = new OrderDb();
     CustomerDb customerDb = new CustomerDb();
     SubServiceService subServiceService = new SubServiceService();
+    OrderMapper orderMapper = new OrderMapper();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
@@ -32,13 +34,7 @@ public class OrderService {
 
     public List<OrderDto> showAllOrder() {
         List<Order> orderList = orderDb.showAllOrder();
-        List<OrderDto> orderDtoList = new ArrayList<>();
-        for (Order order : orderList) {
-            OrderDto orderDto = new OrderDto(order.getId(), order.getPrice(),
-                    order.getSubService(), order.getExplanation(), order.getBeggingDate(),
-                    order.getEndingTime(), order.getAddress());
-            orderDtoList.add(orderDto);
-        }
+        List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
         return orderDtoList;
     }
 }
