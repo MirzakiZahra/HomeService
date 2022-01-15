@@ -11,9 +11,9 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderBuilder {
-    private Order order;
+    private Order order = new Order();
 
-    static OrderBuilder getBuilder() {
+    public static OrderBuilder getBuilder() {
         return new OrderBuilder();
     }
 
