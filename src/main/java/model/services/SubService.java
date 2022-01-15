@@ -22,6 +22,6 @@ public class SubService {
     private MainService mainService;
     @ManyToMany
     private Set<Expert> expertSet = new HashSet<>();
-    @OneToMany(mappedBy = "subService")
+    @OneToMany(mappedBy = "subService" ,fetch = FetchType.LAZY)
     private Set<Order> orderSet = new HashSet<>();
 }

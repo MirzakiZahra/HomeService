@@ -16,7 +16,7 @@ public class CustomerService {
     OrderDb orderDb = new OrderDb();
 
     public void createCustomer(String firstName, String lastName, String address, String email, String password) {
-        Customer customer = new Customer(firstName, lastName, address, email, password);
+        Customer customer = new Customer(firstName, lastName, email, password, address);
         customerDb.addCustomer(customer);
     }
 
