@@ -12,7 +12,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDto {
-    @Column(unique = true)
     private int id;
     private float price;
     private SubService subService;

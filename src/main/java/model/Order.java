@@ -5,7 +5,9 @@ import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
 
+import javax.management.ConstructorParameters;
 import javax.persistence.*;
+import java.beans.ConstructorProperties;
 import java.util.Date;
 import java.util.List;
 
