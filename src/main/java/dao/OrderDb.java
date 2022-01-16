@@ -1,7 +1,6 @@
 package dao;
 
 import model.Order;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,16 +12,16 @@ import java.util.List;
 public class OrderDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public Order findOrder(int uniqeCode) {
+    public Order findOrder(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from order where uniqeCode = :uniqeCode";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Order.class);
-        query.setParameter("uniqeCode", uniqeCode);
-        Order order = (Order) query.list().get(0);
+        String hql = "from Order s where s.id = :id";
+        Query query = session.createQuery(hql);
+        query.setParameter("id", id);
+        List<Order> orderList = query.getResultList();
+        transaction.commit();
         session.close();
-        return order;
+        return orderList.get(0);
     }
 
     public void addCOrder(Order order) {
