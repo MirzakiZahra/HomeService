@@ -27,7 +27,7 @@ public class ExpertService {
         Expert expert = expertDb.findExpertByEmail(email);
         float temp = expert.getCreditExpert() + money;
         expert.setCreditExpert(temp);
-        expertDb.updateExpertCredit(expert);
+        expertDb.updateExpert(expert);
     }
 
     public void printShowExpert() {

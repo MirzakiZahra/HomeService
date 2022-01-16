@@ -40,16 +40,7 @@ public class ExpertDb {
         return expert;
     }
 
-    public void updateExpertCredit(Expert expert) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-
-    }
-
-    public void updateExpertScore(Expert expert) {
+    public void updateExpert(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(expert);

@@ -6,13 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import service.CustomerService;
 
 import java.util.List;
 
 
 public class CustomerDb {
-    CustomerService customerService = new CustomerService();
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     public void addCustomer(Customer customer) {
@@ -75,7 +73,6 @@ public class CustomerDb {
         session.close();
     }
 
-  
 
     public List<Customer> showCustomer() {
         Session session = sessionFactory.openSession();
