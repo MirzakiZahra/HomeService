@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class ExpertDb {
@@ -31,13 +32,13 @@ public class ExpertDb {
     public Expert findExpertByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from expert where email = :email";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Expert.class);
+        String hql = "from Expert s where s.email = :email";
+        Query query = session.createQuery(hql);
         query.setParameter("email", email);
-        Expert expert = (Expert) query.list().get(0);
+        List<Expert> expertList = query.getResultList();
+        transaction.commit();
         session.close();
-        return expert;
+        return expertList.get(0);
     }
 
     public void updateExpert(Expert expert) {
