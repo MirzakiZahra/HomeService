@@ -45,19 +45,20 @@ public class CustomerDb {
     public int checkExistOfPassword(String password) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from customer where password = :password";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Customer.class);
+        String hql = "from Customer s where s.password = :password";
+        Query query = session.createQuery(hql);
         query.setParameter("password", password);
-        int output = query.list().size();
+        List<Customer> customerList = query.getResultList();
+        transaction.commit();
         session.close();
-        return output;
+        return customerList.size();
     }
 
     public Customer findCustomerByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from customer where email = :email";
+        String sql = "select * fro" +
+                "m customer where email = :email";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Customer.class);
         query.setParameter("email", email);
