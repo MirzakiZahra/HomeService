@@ -21,7 +21,7 @@ public class Customer extends Person {
     private List<Address>  address;
     @Temporal(TemporalType.TIME)
     @CreationTimestamp
-    private Date beginningTime;
+    private Date registerTime;
     private float credit;
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;

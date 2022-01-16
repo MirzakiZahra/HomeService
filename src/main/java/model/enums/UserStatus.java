@@ -1,6 +1,6 @@
 package model.enums;
 
 public enum UserStatus {
-    NEW, WAITINGFORAPPROVAL, CONFIRMED;
+    NEW, WAITING_FOR_APPROVAL, CONFIRMED;
 
 }

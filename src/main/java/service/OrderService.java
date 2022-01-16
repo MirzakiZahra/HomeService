@@ -25,7 +25,7 @@ public class OrderService {
         SubService subService = subServiceService.checkExistOfSubServiceById(subServiceId);
         order.setCustomer(customer);
         order.setSubService(subService);
-        order.setOrderStatus(OrderStatus.WAITINGFOREXPERTSUGGESTION);
+        order.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
         orderDb.addCOrder(order);
         customer.getOrders().add(order);
         customerDb.updateCustomerCredit(customer);

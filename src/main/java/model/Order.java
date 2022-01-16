@@ -2,9 +2,11 @@ package model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
@@ -16,6 +18,7 @@ import java.util.List;
 @Data
 @Entity
 @Builder
+@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,14 +33,13 @@ public class Order {
     @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;
     private String explanation;
+    @CreationTimestamp
     private Date beggingDate;
+    @CreationTimestamp
     private Date endingTime;
     private String address;
     @OneToMany(mappedBy = "order")
     private List<Offer> offerList= new ArrayList<>();
-
-    public Order() {
-    }
 
     public Order(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
