@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Query;
 import java.util.List;
 
 
@@ -32,13 +33,13 @@ public class CustomerDb {
     public int checkExistOfCustomer(String username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from customer where username = :username";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Customer.class);
+        String hql = "from Customer s where s.username = :username";
+        Query query = session.createQuery(hql);
         query.setParameter("username", username);
-        int output = (Integer) query.list().size();
+        List<Customer> customerList = query.getResultList();
+        transaction.commit();
         session.close();
-        return output;
+        return customerList.size();
     }
 
     public int checkExistOfPassword(String password) {
