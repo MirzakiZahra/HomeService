@@ -29,7 +29,7 @@ public class CustomerService {
     public void changePassword(String password, String email) {
         Customer customer = customerDb.findCustomerByEmail(email);
         customer.setPassword(password);
-        customerDb.updateCustomerPassword(customer);
+        customerDb.updateCustomer(customer);
     }
 
     public void withdrawCreditOfCustomer(String email, float money) {

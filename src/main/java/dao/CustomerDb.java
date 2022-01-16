@@ -67,7 +67,7 @@ public class CustomerDb {
         return customer;
     }
 
-    public void updateCustomerPassword(Customer customer) {
+    public void updateCustomer(Customer customer) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.update(customer);
@@ -75,13 +75,7 @@ public class CustomerDb {
         session.close();
     }
 
-    public void updateCustomerCredit(Customer customer) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(customer);
-        transaction.commit();
-        session.close();
-    }
+  
 
     public List<Customer> showCustomer() {
         Session session = sessionFactory.openSession();
