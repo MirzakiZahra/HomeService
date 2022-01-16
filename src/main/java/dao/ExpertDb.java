@@ -53,6 +53,7 @@ public class ExpertDb {
     public List<Expert> showExpert() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
+      //  String hql= "from Person s where s."
         String sql = "select * from person where DTYPE =Expert";
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(Expert.class);

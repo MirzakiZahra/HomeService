@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class ServiceDb {
@@ -15,13 +16,13 @@ public class ServiceDb {
     public MainService findServiceByName(String name) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from HomeService where name = :name ";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(MainService.class);
+        String hql = "from MainService s where s.name = :name";
+        Query query = session.createQuery(hql);
         query.setParameter("name", name);
-        MainService mainService = (MainService) query.list().get(0);
+        List<MainService> mainServices = query.getResultList();
+        transaction.commit();
         session.close();
-        return mainService;
+        return mainServices.get(0);
     }
 
     public void deleteServicewithService(MainService mainService) {
