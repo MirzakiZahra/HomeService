@@ -50,4 +50,9 @@ public class OrderService {
         order.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
         orderDb.updateOrder(order);
     }
+    public List<OrderDto> customerDoneOrder(int customerId){
+        List<Order> orderList = orderDb.returnCustomerDoneOrder(customerId);
+        List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
+        return orderDtoList;
+    }
 }
