@@ -100,6 +100,7 @@ public class Main {
                 case "4":
                     System.out.println("Please Enter Offer ID");
                     int offerId = scanner.nextInt();
+                    orderService.setOfferForSpecificOrder(offerId);
                     break;
                 case "5":
 
