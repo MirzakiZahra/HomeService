@@ -48,6 +48,6 @@ public class OrderService {
         Order order = offer.getOrder();
         order.setPreferredOffer(offer);
         order.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
-        orderDb.
+        orderDb.updateOrder(order);
     }
 }
