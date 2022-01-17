@@ -1,5 +1,6 @@
 package view;
 
+import dto.OrderDto;
 import dto.SubServiceDto;
 import model.user.Customer;
 import model.user.Expert;
@@ -93,10 +94,10 @@ public class Main {
                 case "3":
                     System.out.println("Please Enter OrderId");
                     int orderId = scanner.nextInt();
-
+                    OrderDto orderDto = orderService.findOrderById(orderId);
+                    orderDto.getOfferList().stream().forEach(i-> System.out.println(i));
                     break;
                 case "4":
-
                     break;
                 case "5":
 
