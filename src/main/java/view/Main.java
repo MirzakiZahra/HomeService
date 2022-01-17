@@ -98,7 +98,8 @@ public class Main {
                     orderDto.getOfferList().stream().forEach(i-> System.out.println(i));
                     break;
                 case "4":
-
+                    System.out.println("Please Enter Offer ID");
+                    int offerId = scanner.nextInt();
                     break;
                 case "5":
 

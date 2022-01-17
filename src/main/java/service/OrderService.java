@@ -41,4 +41,7 @@ public class OrderService {
         OrderDto orderDto = orderMapper.convertOrderToOrderDto(order);
         return orderDto;
     }
+    public void setOfferForSpecificOrder(int id){
+
+    }
 }

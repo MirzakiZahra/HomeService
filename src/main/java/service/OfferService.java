@@ -19,7 +19,7 @@ public class OfferService {
                             Date creationDate, Date startDate, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
         Order order = orderDb.findOrderById(orderId);
-        order.setOrderStatus(OrderStatus.WAITINGFORSPECIALISTSELECTION);
+        order.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, order, creationDate, startDate);
         offerDb.addOffer(offer);
     }

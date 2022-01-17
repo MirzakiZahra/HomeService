@@ -27,6 +27,7 @@ public class Offer {
     private String explanation;
     @CreationTimestamp
     private Date durationOfWork;
+
     public Offer(float price, Expert expert, Order order, Date creationDate, Date startDate) {
         this.price = price;
         this.expert = expert;

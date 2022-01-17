@@ -32,4 +32,15 @@ public class OfferDb {
         session.close();
         return offerList;
     }
+    public Offer findOfferById(int id){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Offer o where o.id = :id ";
+        Query query = session.createQuery(hql);
+        query.setParameter("id", id);
+        List<Offer> offerList = query.getResultList();
+        transaction.commit();
+        session.close();
+        return offerList.get(0);
+    }
 }
