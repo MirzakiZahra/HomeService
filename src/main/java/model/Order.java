@@ -1,5 +1,7 @@
 package model;
 
+import com.mysql.cj.protocol.ColumnDefinition;
+import jdk.jfr.BooleanFlag;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,6 +44,7 @@ public class Order {
     private List<Offer> offerList= new ArrayList<>();
     @OneToOne
     private Offer preferredOffer;
+    private boolean getScore = false;
 
     public Order(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
