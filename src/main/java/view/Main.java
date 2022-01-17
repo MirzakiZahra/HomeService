@@ -103,7 +103,8 @@ public class Main {
                     orderService.setOfferForSpecificOrder(offerId);
                     break;
                 case "5":
-
+                    List<OrderDto> orderDtoList = orderService.
+                            customerDoneOrder(customer.getId());
                     break;
                 case "6":
                     break;
