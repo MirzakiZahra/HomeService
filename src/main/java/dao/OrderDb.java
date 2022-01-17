@@ -1,6 +1,8 @@
 package dao;
 
 import model.Order;
+import model.enums.OrderStatus;
+import model.user.Expert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -57,5 +59,16 @@ public class OrderDb {
         session.update(order);
         transaction.commit();
         session.close();
+    }
+    public List<Order> returnCustomerDoneOrder(int customerId){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Order o where o.customer = : customerId and o.orderStatus = 'Done'";
+        Query query = session.createQuery(hql);
+        query.setParameter("customerId", customerId);
+        List<Order> orderList = query.getResultList();
+        transaction.commit();
+        session.close();
+        return orderList;
     }
 }

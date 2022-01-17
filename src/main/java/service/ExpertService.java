@@ -40,7 +40,6 @@ public class ExpertService {
         Expert expert = expertDb.findExpertByEmail(email);
         MainService mainService = serviceDb.findServiceByName(subServiceName);
         expert.getSubServiceList().remove(mainService);
-
     }
 
     public void updateExpertScore(float score, String email) {
@@ -58,8 +57,7 @@ public class ExpertService {
             expert.setScore(num);
             expert.setCountOfOrder(temp);
         }
-        expertDb.updateExpertScore(expert);
+        expertDb.updateExpert(expert);
     }
-
 
 }
