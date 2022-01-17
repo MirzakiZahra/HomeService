@@ -3,6 +3,7 @@ package service;
 import dao.CustomerDb;
 import dao.OrderDb;
 import dto.OrderDto;
+import model.Offer;
 import service.mapper.OrderMapper;
 import model.Order;
 import model.enums.OrderStatus;
@@ -17,6 +18,7 @@ public class OrderService {
     CustomerDb customerDb = new CustomerDb();
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
+    OfferService offerService = new OfferService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
@@ -41,7 +43,11 @@ public class OrderService {
         OrderDto orderDto = orderMapper.convertOrderToOrderDto(order);
         return orderDto;
     }
-    public void setOfferForSpecificOrder(int id){
-
+    public void setOfferForSpecificOrder(int offerId){
+        Offer offer = offerService.findOfferById(offerId);
+        Order order = offer.getOrder();
+        order.setPreferredOffer(offer);
+        order.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
+        orderDb.
     }
 }

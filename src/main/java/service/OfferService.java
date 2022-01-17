@@ -23,4 +23,7 @@ public class OfferService {
         Offer offer = new Offer(price, expert, order, creationDate, startDate);
         offerDb.addOffer(offer);
     }
+    public Offer findOfferById(int id){
+        return offerDb.findOfferById(id);
+    }
 }
