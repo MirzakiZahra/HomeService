@@ -51,4 +51,11 @@ public class OrderDb {
         session.close();
         return orderList;
     }
+    public void updateOrder(Order order){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(order);
+        transaction.commit();
+        session.close();
+    }
 }
