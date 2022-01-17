@@ -40,6 +40,8 @@ public class Order {
     private String address;
     @OneToMany(mappedBy = "order")
     private List<Offer> offerList= new ArrayList<>();
+    @OneToOne
+    private Offer preferredOffer;
 
     public Order(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
