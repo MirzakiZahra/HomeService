@@ -28,7 +28,7 @@ public class OrderService {
         order.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
         orderDb.addCOrder(order);
         customer.getOrders().add(order);
-        customerDb.updateCustomerCredit(customer);
+        customerDb.updateCustomer(customer);
     }
 
     public List<OrderDto> showAllOrder() {
@@ -36,5 +36,9 @@ public class OrderService {
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
         return orderDtoList;
     }
-    
+    public OrderDto findOrderById(int id){
+        Order order = orderDb.findOrderById(id);
+        OrderDto orderDto = orderMapper.convertOrderToOrderDto(order);
+        return orderDto;
+    }
 }
