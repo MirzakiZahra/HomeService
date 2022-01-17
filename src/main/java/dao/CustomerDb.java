@@ -1,6 +1,5 @@
 package dao;
 
-import model.services.SubService;
 import model.user.Customer;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -58,14 +57,6 @@ public class CustomerDb {
     public Customer findCustomerByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-       /* String sql = "select * fro" +
-                "m customer where email = :email";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Customer.class);
-        query.setParameter("email", email);
-        Customer customer = (Customer) query.list().get(0);
-        session.close();
-        return customer;*/
         String hql = "from Customer s where s.email = :email";
         Query query = session.createQuery(hql);
         query.setParameter("email", email);

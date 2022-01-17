@@ -15,7 +15,7 @@ public class Address {
     private int id;
     private String city;
     private String country;
-    private int plaque;
+    private String plaque;
     private String street;
     @ManyToOne
     private Customer customer;

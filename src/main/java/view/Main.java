@@ -91,6 +91,8 @@ public class Main {
                     System.out.println("Order Successfully Added");
                     break;
                 case "3":
+                    System.out.println("Please Enter OrderId");
+                    int orderId = scanner.nextInt();
 
                     break;
                 case "4":
