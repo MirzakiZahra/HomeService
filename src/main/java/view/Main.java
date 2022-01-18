@@ -5,10 +5,7 @@ import dto.OrderDto;
 import dto.SubServiceDto;
 import model.user.Customer;
 import model.user.Expert;
-import service.CustomerService;
-import service.ExpertService;
-import service.OrderService;
-import service.SubServiceService;
+import service.*;
 import util.Validator;
 
 import java.text.ParseException;
@@ -24,6 +21,7 @@ public class Main {
     static SubServiceService subServiceService = new SubServiceService();
     static ExpertService expertService = new ExpertService();
     static Validator validator = new Validator();
+    static AddressService addressService = new AddressService();
 
     public static void main(String[] args) {
 
@@ -82,6 +80,7 @@ public class Main {
                 .street(scanner.next())
                 .plaque(scanner.next())
                 .build();
+        addressService.createAddress(addressDto);
         customerService.createCustomer(scanner.next(), scanner.next(), addressDto, email,
                 password);
     }
