@@ -55,4 +55,7 @@ public class OrderService {
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
         return orderDtoList;
     }
+    public Order findOrderByIdReturnOrder(int id){
+        return orderDb.findOrderById(id);
+    }
 }

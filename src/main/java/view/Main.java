@@ -5,6 +5,7 @@ import dto.SubServiceDto;
 import model.user.Customer;
 import model.user.Expert;
 import service.CustomerService;
+import service.ExpertService;
 import service.OrderService;
 import service.SubServiceService;
 
@@ -19,6 +20,7 @@ public class Main {
     static CustomerService customerService = new CustomerService();
     static OrderService orderService = new OrderService();
     static SubServiceService subServiceService = new SubServiceService();
+    static ExpertService expertService = new ExpertService();
 
     public static void main(String[] args) {
 
@@ -105,6 +107,11 @@ public class Main {
                 case "5":
                     List<OrderDto> orderDtoList = orderService.
                             customerDoneOrder(customer.getId());
+                    orderDtoList.stream().forEach(i-> System.out.println(i));
+                    System.out.println("Please Enter order ID and Score");
+                    orderId = scanner.nextInt();
+                    float score = scanner.nextFloat();
+
                     break;
                 case "6":
                     break;
