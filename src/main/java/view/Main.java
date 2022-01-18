@@ -33,7 +33,6 @@ public class Main {
                 case "1":
                     //todo
                 case "2":
-                    String customerInput = new String();
                     String firstCustomerInput = new String();
                     do {
                         System.out.println("1.Login\n2.SignUp\n3.Exit");
@@ -44,6 +43,10 @@ public class Main {
                                 String email = scanner.next();
                                 Customer customer = customerService.findCustomerByEmail(email);
                                 customerMenu(customer);
+                                break;
+                            case "2":
+                                System.out.println("Please Enter your Email");
+                                email = scanner.next();
                         }
                         System.out.println("");
                     } while (!"3".equals(firstCustomerInput));
