@@ -47,7 +47,6 @@ public class ExpertDb {
         session.update(expert);
         transaction.commit();
         session.close();
-
     }
 
     public List<Expert> showExpert() {

@@ -1,6 +1,7 @@
 package dao;
 
 import model.Address;
+import model.user.Expert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,6 +13,13 @@ public class AddressDb {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(address);
+        transaction.commit();
+        session.close();
+    }
+    public void updateAddress(Address address) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(address);
         transaction.commit();
         session.close();
     }
