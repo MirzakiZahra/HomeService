@@ -68,7 +68,38 @@ public class Main {
                     } while (!"3".equals(firstCustomerInput));
 
                 case "3":
-                    //todo
+                    String firstExpertInput = new String();
+                    do {
+                        System.out.println("1.Login\n2.SignUp\n3.Exit");
+                        firstExpertInput = scanner.next();
+                        switch (firstExpertInput) {
+                            case "1":
+                                System.out.println("Please Enter Your Email");
+                                String email = scanner.next();
+                                if (validator.checkEmail(email) == true) {
+                                    Expert expert = customerService.findCustomerByEmail(email);
+                                    customerMenu(customer);
+                                }
+                                break;
+                            case "2":
+                                System.out.println("Please Enter your Email");
+                                email = scanner.next();
+                                if (validator.checkEmailPatternAndExistence(email) == true) {
+                                    System.out.println("Please Enter Password");
+                                    String password = scanner.next();
+                                    if (validator.checkPassword(password) == true) {
+                                        customerSignUp(email,password);
+                                    }
+                                }
+                                break;
+                            case "3":
+                                break;
+                            default:
+                                System.out.println("Please Enter Valid Number");
+                                break;
+                        }
+                        System.out.println("");
+                    } while (!"3".equals(firstCustomerInput));
                 case "4":
                     break;
                 default:
@@ -89,7 +120,6 @@ public class Main {
         customerService.createCustomer(scanner.next(), scanner.next(), addressDto, email,
                 password);
     }
-
     public static void customerMenu(Customer customer) {
         String customerSecondInput = new String();
         do {
