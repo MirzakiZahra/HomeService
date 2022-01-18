@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a6c4fc1-84c3-4650-8aab-ddeee4b5ce7a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/AddressDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/AddressDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/AddressDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/AddressService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +46,7 @@
       <workItem from="1642218874715" duration="6220000" />
       <workItem from="1642278482984" duration="5455000" />
       <workItem from="1642305157666" duration="5233000" />
-      <workItem from="1642449740123" duration="13979000" />
+      <workItem from="1642449740123" duration="14450000" />
     </task>
     <servers />
   </component>

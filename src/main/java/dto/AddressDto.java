@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import model.user.Customer;
 
 @Data
 @AllArgsConstructor
@@ -15,4 +16,5 @@ public class AddressDto {
     private String country;
     private String plaque;
     private String street;
+    private Customer customer;
 }
