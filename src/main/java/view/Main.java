@@ -111,7 +111,7 @@ public class Main {
                     System.out.println("Please Enter order ID and Score");
                     orderId = scanner.nextInt();
                     float score = scanner.nextFloat();
-
+                    expertService.updateExpertScore(score,orderId);
                     break;
                 case "6":
                     break;
