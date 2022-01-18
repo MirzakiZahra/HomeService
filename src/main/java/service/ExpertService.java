@@ -2,6 +2,7 @@ package service;
 
 import dao.ExpertDb;
 import dao.ServiceDb;
+import dto.ExpertDto;
 import model.Order;
 import model.services.MainService;
 import model.user.Expert;
@@ -18,7 +19,10 @@ public class ExpertService {
         Expert expert = new Expert(firstName, lastName, email);
         expertDb.addExpert(expert);
     }
-
+    public ExpertDto findExpertByEmail(String email){
+        Expert expert = expertDb.findExpertByEmail(email);
+        
+    }
 
     public void deleteExpert(String email) {
         Expert expert = expertDb.findExpertByEmail(email);
