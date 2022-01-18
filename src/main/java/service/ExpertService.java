@@ -6,6 +6,7 @@ import dto.ExpertDto;
 import model.Order;
 import model.services.MainService;
 import model.user.Expert;
+import service.mapper.ExpertMapper;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class ExpertService {
     ExpertDb expertDb = new ExpertDb();
     ServiceDb serviceDb = new ServiceDb();
     OrderService orderService = new OrderService();
+    ExpertMapper expertMapper = new ExpertMapper();
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
@@ -21,7 +23,7 @@ public class ExpertService {
     }
     public ExpertDto findExpertByEmail(String email){
         Expert expert = expertDb.findExpertByEmail(email);
-
+        return expertMapper.convertExpertToExpertDto(expert);
     }
 
     public void deleteExpert(String email) {
