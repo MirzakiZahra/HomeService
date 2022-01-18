@@ -21,7 +21,7 @@ public class ExpertService {
     }
     public ExpertDto findExpertByEmail(String email){
         Expert expert = expertDb.findExpertByEmail(email);
-        
+
     }
 
     public void deleteExpert(String email) {
