@@ -57,6 +57,12 @@ public class Main {
                                         customerSignUp(email,password);
                                     }
                                 }
+                                break;
+                            case "3":
+                                break;
+                            default:
+                                System.out.println("Please Enter Valid Number");
+                                break;
                         }
                         System.out.println("");
                     } while (!"3".equals(firstCustomerInput));
