@@ -1,11 +1,12 @@
 package view;
 
+import dao.OfferDb;
 import dto.AddressDto;
 import dto.ExpertDto;
 import dto.OrderDto;
 import dto.SubServiceDto;
+import model.Offer;
 import model.user.Customer;
-import model.user.Expert;
 import service.*;
 import util.Validator;
 
@@ -23,6 +24,8 @@ public class Main {
     static ExpertService expertService = new ExpertService();
     static Validator validator = new Validator();
     static AddressService addressService = new AddressService();
+    static OfferService offerService = new OfferService();
+    static OfferDb offerDb=new OfferDb();
 
     public static void main(String[] args) {
 
@@ -55,7 +58,7 @@ public class Main {
                                     System.out.println("Please Enter Password");
                                     String password = scanner.next();
                                     if (validator.checkPassword(password) == true) {
-                                        customerSignUp(email,password);
+                                        customerSignUp(email, password);
                                     }
                                 }
                                 break;
@@ -90,7 +93,7 @@ public class Main {
                                     System.out.println("Please Enter Password");
                                     String password = scanner.next();
                                     if (validator.checkPassword(password) == true) {
-                                        customerSignUp(email,password);
+                                        customerSignUp(email, password);
                                     }
                                 }
                                 break;
@@ -122,6 +125,7 @@ public class Main {
         customerService.createCustomer(scanner.next(), scanner.next(), addressDto, email,
                 password);
     }
+
     public static void customerMenu(Customer customer) {
         String customerSecondInput = new String();
         do {
@@ -213,8 +217,24 @@ public class Main {
 
                     break;
                 case "3":
+                    System.out.println("Please enter Order Id");
+                    int orderId = scanner.nextInt();
+                    System.out.println("Please enter  price, basePrice,\n" +
+                            "                             creationDate,startDate");
+                    String creationDate = scanner.next();
+                    String startDate = scanner.next();
+                    Offer offer = offerService.createOffer
+                            (scanner.nextFloat(), orderId, scanner.nextFloat(),
+                            convertStringToDate(creationDate),
+                            convertStringToDate(startDate), expertDto.getEmail());
+                    offerDb.addOffer(offer);
+
                     break;
                 case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
                     break;
             }
         } while (!"4".equals(expertInput));
