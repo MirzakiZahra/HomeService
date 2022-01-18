@@ -8,6 +8,7 @@ import service.CustomerService;
 import service.ExpertService;
 import service.OrderService;
 import service.SubServiceService;
+import util.Validator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +22,7 @@ public class Main {
     static OrderService orderService = new OrderService();
     static SubServiceService subServiceService = new SubServiceService();
     static ExpertService expertService = new ExpertService();
+    static Validator validator = new Validator();
 
     public static void main(String[] args) {
 
@@ -41,12 +43,15 @@ public class Main {
                             case "1":
                                 System.out.println("Please Enter Your Email");
                                 String email = scanner.next();
-                                Customer customer = customerService.findCustomerByEmail(email);
-                                customerMenu(customer);
+                                if (validator.checkEmail(email) == true) {
+                                    Customer customer = customerService.findCustomerByEmail(email);
+                                    customerMenu(customer);
+                                }
                                 break;
                             case "2":
                                 System.out.println("Please Enter your Email");
                                 email = scanner.next();
+                                if ()
                         }
                         System.out.println("");
                     } while (!"3".equals(firstCustomerInput));
@@ -100,7 +105,7 @@ public class Main {
                     System.out.println("Please Enter OrderId");
                     int orderId = scanner.nextInt();
                     OrderDto orderDto = orderService.findOrderById(orderId);
-                    orderDto.getOfferList().stream().forEach(i-> System.out.println(i));
+                    orderDto.getOfferList().stream().forEach(i -> System.out.println(i));
                     break;
                 case "4":
                     System.out.println("Please Enter Offer ID");
@@ -110,11 +115,11 @@ public class Main {
                 case "5":
                     List<OrderDto> orderDtoList = orderService.
                             customerDoneOrder(customer.getId());
-                    orderDtoList.stream().forEach(i-> System.out.println(i));
+                    orderDtoList.stream().forEach(i -> System.out.println(i));
                     System.out.println("Please Enter order ID and Score");
                     orderId = scanner.nextInt();
                     float score = scanner.nextFloat();
-                    expertService.updateExpertScore(score,orderId);
+                    expertService.updateExpertScore(score, orderId);
                     break;
                 case "6":
                     break;

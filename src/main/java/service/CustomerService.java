@@ -36,7 +36,7 @@ public class CustomerService {
         Customer customer = customerDb.findCustomerByEmail(email);
         float temp = customer.getCredit() - money;
         customer.setCredit(temp);
-        customerDb.updateCustomerCredit(customer);
+        customerDb.updateCustomer(customer);
     }
 
     public HashMap<String, List<String>> showCustomer() {
