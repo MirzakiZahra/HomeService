@@ -7,6 +7,7 @@ import dto.AddressDto;
 import exception.InputException;
 import model.Address;
 import model.user.Customer;
+import service.mapper.AddressMapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,12 +15,17 @@ import java.util.List;
 
 public class CustomerService {
     CustomerDb customerDb = new CustomerDb();
+    AddressMapper addressMapper = new AddressMapper();
     ExpertDb expertDb = new ExpertDb();
     OrderDb orderDb = new OrderDb();
 
     public void createCustomer(String firstName, String lastName, AddressDto addressDto, String email, String password) {
-
-        Customer customer = new Customer(firstName, lastName, email, password,address);
+        Address address = addressMapper.convertAddressDtoToAddress(addressDto);
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(address);
+        Customer customer = new Customer(firstName, lastName, email, password,addressList);
+        address.setCustomer(customer);
+        customer.getAddress().add(address);
         customerDb.addCustomer(customer);
     }
 
