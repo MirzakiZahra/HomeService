@@ -1,6 +1,7 @@
 package view;
 
 import dto.AddressDto;
+import dto.ExpertDto;
 import dto.OrderDto;
 import dto.SubServiceDto;
 import model.user.Customer;
@@ -77,11 +78,12 @@ public class Main {
                                 System.out.println("Please Enter Your Email");
                                 String email = scanner.next();
                                 if (validator.checkEmail(email) == true) {
-                                    Expert expert = customerService.findCustomerByEmail(email);
-                                    customerMenu(customer);
+                                    ExpertDto expertDto = expertService.findExpertByEmail(email);
+                                    expertMenu(expertDto);
                                 }
                                 break;
                             case "2":
+                                //todo
                                 System.out.println("Please Enter your Email");
                                 email = scanner.next();
                                 if (validator.checkEmailPatternAndExistence(email) == true) {
@@ -99,7 +101,7 @@ public class Main {
                                 break;
                         }
                         System.out.println("");
-                    } while (!"3".equals(firstCustomerInput));
+                    } while (!"3".equals(firstExpertInput));
                 case "4":
                     break;
                 default:
@@ -198,11 +200,11 @@ public class Main {
         return date1;
     }
 
-    public static void expertMenu(Expert expert) {
+    public static void expertMenu(ExpertDto expertDto) {
         String expertInput = scanner.next();
         do {
             System.out.println("1.Change Password\n2.See Order\n" +
-                    "3.Make Offer\n4.Exit");
+                    "3.Make Offer\n4.Start Doing\n5.Finish Doing\n6.Exit");
             expertInput = scanner.next();
             switch (expertInput) {
                 case "1":
