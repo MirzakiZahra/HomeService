@@ -9,13 +9,7 @@ import service.mapper.AddressMapper;
 public class AddressService {
     AddressMapper addressMapper = new AddressMapper();
     AddressDb addressDb = new AddressDb();
-    public void createAddress(AddressDto addressDto){
-        Address address = addressMapper.convertAddressDtoToAddress(addressDto);
+    public void createAddress(Address address){
         addressDb.AddAddress(address);
-    }
-    public void addCustomerToAddress(int id, Customer customer){
-        Address address = addressDb.findAddressById(id);
-        address.setCustomer(customer);
-        addressDb.updateAddress(address);
     }
 }

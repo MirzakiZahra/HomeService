@@ -16,6 +16,7 @@ import java.util.List;
 public class CustomerService {
     CustomerDb customerDb = new CustomerDb();
     AddressMapper addressMapper = new AddressMapper();
+    AddressService addressService = new AddressService();
     ExpertDb expertDb = new ExpertDb();
     OrderDb orderDb = new OrderDb();
 
@@ -24,8 +25,9 @@ public class CustomerService {
         List<Address> addressList = new ArrayList<>();
         addressList.add(address);
         Customer customer = new Customer(firstName, lastName, email, password,addressList);
-        address.setCustomer(customer);
         customer.getAddress().add(address);
+        address.setCustomer(customer);
+        addressService.createAddress(address);
         customerDb.addCustomer(customer);
     }
 

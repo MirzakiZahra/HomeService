@@ -80,7 +80,6 @@ public class Main {
                 .street(scanner.next())
                 .plaque(scanner.next())
                 .build();
-        addressService.createAddress(addressDto);
         customerService.createCustomer(scanner.next(), scanner.next(), addressDto, email,
                 password);
     }
