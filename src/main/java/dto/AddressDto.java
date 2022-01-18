@@ -13,6 +13,6 @@ public class AddressDto {
     private int id;
     private String city;
     private String country;
-    private int plaque;
+    private String plaque;
     private String street;
 }

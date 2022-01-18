@@ -5,9 +5,10 @@ import service.CustomerService;
 
 public class Validator {
     CustomerService customerService = new CustomerService();
-    public void checkPassword(String password) {
+    public boolean checkPassword(String password) {
         if (!password.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"))
             throw new InputException("Weak Password");
+        return true;
     }
     public  boolean checkEmail(String email) {
         if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {

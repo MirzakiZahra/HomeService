@@ -1,6 +1,7 @@
 package model.user;
 
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Address;
@@ -16,6 +17,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
 public class Customer extends Person {
     @OneToMany
     private List<Address>  address;

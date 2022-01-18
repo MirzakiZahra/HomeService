@@ -3,6 +3,7 @@ package service;
 import dao.CustomerDb;
 import dao.ExpertDb;
 import dao.OrderDb;
+import dto.AddressDto;
 import exception.InputException;
 import model.Address;
 import model.user.Customer;
@@ -16,7 +17,8 @@ public class CustomerService {
     ExpertDb expertDb = new ExpertDb();
     OrderDb orderDb = new OrderDb();
 
-    public void createCustomer(String firstName, String lastName,List< Address> address, String email, String password) {
+    public void createCustomer(String firstName, String lastName, AddressDto addressDto, String email, String password) {
+
         Customer customer = new Customer(firstName, lastName, email, password,address);
         customerDb.addCustomer(customer);
     }

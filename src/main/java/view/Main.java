@@ -1,7 +1,9 @@
 package view;
 
+import dto.AddressDto;
 import dto.OrderDto;
 import dto.SubServiceDto;
+import model.Address;
 import model.user.Customer;
 import model.user.Expert;
 import service.CustomerService;
@@ -12,6 +14,7 @@ import util.Validator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -51,7 +54,13 @@ public class Main {
                             case "2":
                                 System.out.println("Please Enter your Email");
                                 email = scanner.next();
-                                if ()
+                                if (validator.checkEmailPatternAndExistence(email) == true){
+                                    System.out.println("Please Enter Password");
+                                    String password = scanner.next();
+                                    if (validator.checkPassword(password) == true){
+
+                                    }
+                                }
                         }
                         System.out.println("");
                     } while (!"3".equals(firstCustomerInput));
@@ -66,6 +75,19 @@ public class Main {
         } while (!"4".equals(firstInput));
     }
 
+    public static void customerSignUp(String email, String password){
+        System.out.println("Please Enter  country, " +
+                "city, street, plaque, FirstName, Lastname, username,");
+        AddressDto addressDto = AddressDto.builder()
+                .country(scanner.next())
+                .city(scanner.next())
+                .street(scanner.next())
+                .plaque(scanner.next())
+                .build();
+        addresses.add(address);
+        Customer customer = new Customer(scanner.next(),scanner.next(),
+                email,password,addresses);
+    }
     public static void customerMenu(Customer customer) {
         String customerSecondInput = new String();
         do {
