@@ -47,6 +47,12 @@ public class SubServiceDb {
         return subServices.get(0);
     }
 
-   
+    public void deleteSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(subService);
+        transaction.commit();
+        session.close();
+    }
 
 }
