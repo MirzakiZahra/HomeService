@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -16,4 +17,6 @@ public class OfferDto {
     private float price;
     private Date creationDate;
     private Date startDate;
+    private String explanation;
+    private Date durationOfWork;
 }
