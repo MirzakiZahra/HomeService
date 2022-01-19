@@ -30,6 +30,7 @@ public class Main {
     static OfferDb offerDb = new OfferDb();
     static OrderDb orderDb = new OrderDb();
     static ServiceDb serviceDb = new ServiceDb();
+    static MainServiceService mainServiceService=new MainServiceService();
 
     public static void main(String[] args) {
 
@@ -282,6 +283,9 @@ public class Main {
                 case "2":
                     break;
                 case "3":
+                    System.out.println("Please enter name Of MainService");
+                    mainServiceService.deleteMainService(scanner.next());
+
                     break;
                 case "4":
                     break;
