@@ -1,5 +1,6 @@
 package model.user;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Offer;
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
 public class Expert extends Person {
     @Lob
     @Column(name = "photo", columnDefinition = "BLOB", length = 300000)
