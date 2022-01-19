@@ -31,8 +31,8 @@ public class Main {
     static OfferDb offerDb = new OfferDb();
     static OrderDb orderDb = new OrderDb();
     static ServiceDb serviceDb = new ServiceDb();
-    static MainServiceService mainServiceService=new MainServiceService();
-    static SubServiceDb subServiceDb=new SubServiceDb();
+    static MainServiceService mainServiceService = new MainServiceService();
+    static SubServiceDb subServiceDb = new SubServiceDb();
 
 
     public static void main(String[] args) {
@@ -285,17 +285,18 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("Please enter name Of SubService");
-                    SubService subService=subServiceDb.findSubServiceByName(scanner.next());
-                    if (subService.equals(null)){
+                    SubService subService = subServiceDb.findSubServiceByName(scanner.next());
+                    if (subService.equals(null)) {
                         subServiceDb.addSubService(subService);
                     }
                     break;
                 case "3":
                     System.out.println("Please enter name Of MainService");
                     mainServiceService.deleteMainService(scanner.next());
-
                     break;
                 case "4":
+                    System.out.println("Please enter name Of SubService");
+                    subServiceService.deleteSubService(scanner.next());
                     break;
                 case "5":
                     break;
