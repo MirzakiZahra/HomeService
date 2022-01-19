@@ -11,7 +11,6 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Manager extends Person {
-    private final int username = 123;
-    private final String password = "z123";
+
 
 }
