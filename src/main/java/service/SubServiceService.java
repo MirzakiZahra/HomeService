@@ -3,6 +3,7 @@ package service;
 import dao.SubServiceDb;
 import dto.SubServiceDto;
 import exception.InputException;
+import model.services.MainService;
 import model.services.SubService;
 
 import java.util.ArrayList;
@@ -27,5 +28,19 @@ public class SubServiceService {
             throw new InputException("Wrong ID");
         }
         return checkExistOfSubServiceById(id);
+    }
+    public void createSubService(String name,String description,
+                                 float price, MainService mainService) {
+        SubService subService=new SubService(name,description,price,mainService);
+        subServiceDb.a
+        MainService mainService = new MainService(name);
+        serviceDb.addMainService(mainService);
+
+    }
+    public void deleteMainService(String name) {
+        MainService mainService=serviceDb.findServiceByName(name);
+        serviceDb.deleteMainService(mainService);
+
+
     }
 }

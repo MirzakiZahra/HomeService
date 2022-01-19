@@ -54,5 +54,12 @@ public class SubServiceDb {
         transaction.commit();
         session.close();
     }
+    public void addSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(subService);
+        transaction.commit();
+        session.close();
+    }
 
 }
