@@ -221,7 +221,7 @@ public class Main {
                     expertService.checkOldExpertPassword(oldPassword);
                     System.out.println("Please Enter New Password");
                     String newPassword = scanner.next();
-                    customerService.changePassword(newPassword, customer.getEmail());
+                    expertService.changePassword(newPassword, expertDto.getEmail());
                     break;
                 case "2":
                     List<SubService> subServices = expertDto.getSubServiceList();
