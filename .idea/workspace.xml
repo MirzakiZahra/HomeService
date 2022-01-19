@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a6c4fc1-84c3-4650-8aab-ddeee4b5ce7a" name="Changes" comment="" />
+    <list default="true" id="3a6c4fc1-84c3-4650-8aab-ddeee4b5ce7a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/mapper/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +47,7 @@
       <workItem from="1642278482984" duration="5455000" />
       <workItem from="1642305157666" duration="5233000" />
       <workItem from="1642449740123" duration="20048000" />
-      <workItem from="1642535794512" duration="11511000" />
+      <workItem from="1642535794512" duration="11859000" />
     </task>
     <servers />
   </component>

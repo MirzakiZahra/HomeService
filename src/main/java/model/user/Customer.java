@@ -18,6 +18,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Builder
+
 public class Customer extends Person {
     @OneToMany
     private List<Address>  address;
