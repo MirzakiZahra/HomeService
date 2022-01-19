@@ -29,7 +29,7 @@ public class Main {
     static OfferService offerService = new OfferService();
     static OfferDb offerDb = new OfferDb();
     static OrderDb orderDb = new OrderDb();
-    static ServiceDb serviceDb=new ServiceDb();
+    static ServiceDb serviceDb = new ServiceDb();
 
     public static void main(String[] args) {
 
@@ -262,19 +262,20 @@ public class Main {
             }
         } while (!"6".equals(expertInput));
     }
-    public static void adminMenu(ManagerDto managerDto){
+
+    public static void adminMenu(ManagerDto managerDto) {
         String managerInput = scanner.next();
         do {
             System.out.println("1.Add MainService\n2.Add SubService\n3.Delete MainService" +
                     "\n4.Delete SubService\n5.Exit");
-            managerInput=scanner.next();
-            switch (managerInput){
+            managerInput = scanner.next();
+            switch (managerInput) {
                 case "1":
                     System.out.println("Please enter name Of MainService");
-                   MainService mainService= serviceDb.findServiceByName(scanner.next());
-                   if (mainService.equals(null)){
-
-                   }
+                    MainService mainService = serviceDb.findServiceByName(scanner.next());
+                    if (mainService.equals(null)) {
+                        serviceDb.addMainService(mainService);
+                    }
 
 
                     break;
@@ -290,7 +291,7 @@ public class Main {
                     break;
 
             }
-        }while (!"5".equals(managerInput));
+        } while (!"5".equals(managerInput));
 
 
     }
