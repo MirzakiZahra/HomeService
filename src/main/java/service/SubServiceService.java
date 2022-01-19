@@ -36,5 +36,8 @@ public class SubServiceService {
         subServiceDb.addSubService(subService);
     }
 
- 
+    public void deleteSubService(String name) {
+        SubService subService=subServiceDb.findSubServiceByName(name);
+        subServiceDb.deleteSubService(subService);
+    }
 }
