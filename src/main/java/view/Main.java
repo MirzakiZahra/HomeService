@@ -216,6 +216,12 @@ public class Main {
             expertInput = scanner.next();
             switch (expertInput) {
                 case "1":
+                    System.out.println("Please Enter old Password");
+                    String oldPassword = scanner.next();
+                    customerService.checkOldPassword(oldPassword);
+                    System.out.println("Please Enter New Password");
+                    String newPassword = scanner.next();
+                    customerService.changePassword(newPassword, customer.getEmail());
                     break;
                 case "2":
                     List<SubService> subServices = expertDto.getSubServiceList();
@@ -228,7 +234,7 @@ public class Main {
                                 orderList.add(order);
                             }
                         }
-                        
+
                     }
 
 

@@ -3,6 +3,7 @@ package service;
 import dao.ExpertDb;
 import dao.ServiceDb;
 import dto.ExpertDto;
+import exception.InputException;
 import model.Order;
 import model.services.MainService;
 import model.user.Expert;
@@ -68,6 +69,11 @@ public class ExpertService {
             expert.setCountOfOrder(temp);
         }
         expertDb.updateExpert(expert);
+    }
+    public void checkOldExpertPassword(String password) {
+        if (customerDb.checkExistOfPassword(password) == 0) {
+            throw new InputException("Password is Incorrect");
+        }
     }
 
 

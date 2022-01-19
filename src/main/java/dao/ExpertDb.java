@@ -1,5 +1,6 @@
 package dao;
 
+import model.user.Customer;
 import model.user.Expert;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -74,6 +75,17 @@ public class ExpertDb {
         session.update(expert);
         transaction.commit();
         session.close();
+    }
+    public int checkExistOfExpertPassword(String password) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Expert s where s.password = :password";
+        Query query = session.createQuery(hql);
+        query.setParameter("password", password);
+        List<Expert> expertList = query.getResultList();
+        transaction.commit();
+        session.close();
+        return expertList.size();
     }
 
 }
