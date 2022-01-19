@@ -26,10 +26,10 @@ public class ServiceDb {
         return mainServices.get(0);
     }
 
-    public void deleteServicewithService(MainService mainService) {
+    public void deleteMainService(MainService mainService) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(mainService);
+        session.delete(mainService);
         transaction.commit();
         session.close();
     }
