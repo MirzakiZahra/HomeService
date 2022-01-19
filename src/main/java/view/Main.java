@@ -262,5 +262,8 @@ public class Main {
             }
         } while (!"4".equals(expertInput));
     }
+    public static void adminMenu(){
+
+    }
 }
 
