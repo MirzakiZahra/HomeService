@@ -3,6 +3,9 @@ package service.mapper;
 import dto.CustomerDto;
 import model.user.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerMapper {
     public CustomerDto convertCustomerToCustomerDto(Customer customer) {
         CustomerDto customerDto = CustomerDto.builder()
@@ -13,5 +16,17 @@ public class CustomerMapper {
                 .credit(customer.getCredit())
                 .build();
         return customerDto;
+    }
+
+    public List<Customer> convertCustomerDtoToCustomer(List<CustomerDto> customerDtoList) {
+        List<Customer> customerList = new ArrayList<>();
+        for (CustomerDto customerDto : customerDtoList) {
+            Customer customer = Customer.builder()
+                    .credit(customerDto.getCredit())
+                    .registerTime(customerDto.getRegisterTime())
+                    .build();
+            customerList.add(customer);
+        }
+        return customerList;
     }
 }
