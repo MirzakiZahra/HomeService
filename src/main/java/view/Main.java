@@ -218,7 +218,7 @@ public class Main {
                 case "1":
                     System.out.println("Please Enter old Password");
                     String oldPassword = scanner.next();
-                    customerService.checkOldPassword(oldPassword);
+                    expertService.checkOldExpertPassword(oldPassword);
                     System.out.println("Please Enter New Password");
                     String newPassword = scanner.next();
                     customerService.changePassword(newPassword, customer.getEmail());

@@ -6,6 +6,7 @@ import dto.ExpertDto;
 import exception.InputException;
 import model.Order;
 import model.services.MainService;
+import model.user.Customer;
 import model.user.Expert;
 import service.mapper.ExpertMapper;
 
@@ -74,6 +75,11 @@ public class ExpertService {
         if (expertDb.checkExistOfExpertPassword(password) == 0) {
             throw new InputException("Password is Incorrect");
         }
+    }
+    public void changePassword(String password, String email) {
+        Expert expert = expertDb.findExpertByEmail(email);
+        expert.setPassword(password);
+        expertDb.updateExpert(expert);
     }
 
 
