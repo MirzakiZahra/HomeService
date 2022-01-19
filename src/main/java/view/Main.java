@@ -1,11 +1,14 @@
 package view;
 
 import dao.OfferDb;
+import dao.OrderDb;
 import dto.AddressDto;
 import dto.ExpertDto;
 import dto.OrderDto;
 import dto.SubServiceDto;
 import model.Offer;
+import model.Order;
+import model.services.SubService;
 import model.user.Customer;
 import service.*;
 import util.Validator;
@@ -25,7 +28,8 @@ public class Main {
     static Validator validator = new Validator();
     static AddressService addressService = new AddressService();
     static OfferService offerService = new OfferService();
-    static OfferDb offerDb=new OfferDb();
+    static OfferDb offerDb = new OfferDb();
+    static OrderDb orderDb = new OrderDb();
 
     public static void main(String[] args) {
 
@@ -214,7 +218,19 @@ public class Main {
                 case "1":
                     break;
                 case "2":
-                    expertDto.getSubServiceList();
+                    List<SubService> subServices = expertDto.getSubServiceList();
+                    List<Order> orderList =
+                            orderDb.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
+                    // orderList.stream().forEach(i-> System.out.println(i));
+                    for (SubService subService : subServices) {
+                        for (Order order : orderList) {
+                            if (order.getSubService().equals(subService)) {
+                                orderList.add(order);
+                            }
+                        }
+                        
+                    }
+
 
                     break;
                 case "3":
@@ -226,8 +242,8 @@ public class Main {
                     String startDate = scanner.next();
                     Offer offer = offerService.createOffer
                             (scanner.nextFloat(), orderId, scanner.nextFloat(),
-                            convertStringToDate(creationDate),
-                            convertStringToDate(startDate), expertDto.getEmail());
+                                    convertStringToDate(creationDate),
+                                    convertStringToDate(startDate), expertDto.getEmail());
                     offerDb.addOffer(offer);
 
                     break;
