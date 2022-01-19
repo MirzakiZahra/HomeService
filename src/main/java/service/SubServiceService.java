@@ -29,18 +29,12 @@ public class SubServiceService {
         }
         return checkExistOfSubServiceById(id);
     }
-    public void createSubService(String name,String description,
+
+    public void createSubService(String name, String description,
                                  float price, MainService mainService) {
-        SubService subService=new SubService(name,description,price,mainService);
-        subServiceDb.a
-        MainService mainService = new MainService(name);
-        serviceDb.addMainService(mainService);
-
+        SubService subService = new SubService(name, description, price, mainService);
+        subServiceDb.addSubService(subService);
     }
-    public void deleteMainService(String name) {
-        MainService mainService=serviceDb.findServiceByName(name);
-        serviceDb.deleteMainService(mainService);
 
-
-    }
+ 
 }
