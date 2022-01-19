@@ -1,6 +1,9 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import model.enums.TypeOfTransaction;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -9,6 +12,9 @@ import java.util.Date;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
