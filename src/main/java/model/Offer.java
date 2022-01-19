@@ -1,5 +1,6 @@
 package model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.user.Expert;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
 public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
