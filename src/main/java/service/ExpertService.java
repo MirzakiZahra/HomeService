@@ -71,7 +71,7 @@ public class ExpertService {
         expertDb.updateExpert(expert);
     }
     public void checkOldExpertPassword(String password) {
-        if (customerDb.checkExistOfPassword(password) == 0) {
+        if (expertDb.checkExistOfExpertPassword(password) == 0) {
             throw new InputException("Password is Incorrect");
         }
     }
