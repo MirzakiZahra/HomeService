@@ -1,6 +1,7 @@
 package dao;
 
 import model.services.MainService;
+import model.user.Expert;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -42,6 +43,12 @@ public class ServiceDb {
         List<MainService> homeServices = query.list();
         return homeServices;
     }
-
+    public void addMainService(MainService mainService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(mainService);
+        transaction.commit();
+        session.close();
+    }
 
 }

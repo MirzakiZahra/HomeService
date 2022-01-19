@@ -2,12 +2,11 @@ package view;
 
 import dao.OfferDb;
 import dao.OrderDb;
-import dto.AddressDto;
-import dto.ExpertDto;
-import dto.OrderDto;
-import dto.SubServiceDto;
+import dao.ServiceDb;
+import dto.*;
 import model.Offer;
 import model.Order;
+import model.services.MainService;
 import model.services.SubService;
 import model.user.Customer;
 import service.*;
@@ -30,6 +29,7 @@ public class Main {
     static OfferService offerService = new OfferService();
     static OfferDb offerDb = new OfferDb();
     static OrderDb orderDb = new OrderDb();
+    static ServiceDb serviceDb=new ServiceDb();
 
     public static void main(String[] args) {
 
@@ -260,9 +260,38 @@ public class Main {
                 case "6":
                     break;
             }
-        } while (!"4".equals(expertInput));
+        } while (!"6".equals(expertInput));
     }
-    public static void adminMenu(){
+    public static void adminMenu(ManagerDto managerDto){
+        String managerInput = scanner.next();
+        do {
+            System.out.println("1.Add MainService\n2.Add SubService\n3.Delete MainService" +
+                    "\n4.Delete SubService\n5.Exit");
+            managerInput=scanner.next();
+            switch (managerInput){
+                case "1":
+                    System.out.println("Please enter name Of MainService");
+                   MainService mainService= serviceDb.findServiceByName(scanner.next());
+                   if (mainService.equals(null)){
+
+                   }
+
+
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                default:
+                    break;
+
+            }
+        }while (!"5".equals(managerInput));
+
 
     }
 }
