@@ -43,4 +43,5 @@ public class OfferDb {
         session.close();
         return offerList.get(0);
     }
+
 }

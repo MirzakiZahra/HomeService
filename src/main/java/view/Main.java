@@ -214,6 +214,7 @@ public class Main {
                 case "1":
                     break;
                 case "2":
+                    expertDto.getSubServiceList();
 
                     break;
                 case "3":

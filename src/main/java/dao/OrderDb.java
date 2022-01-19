@@ -71,4 +71,14 @@ public class OrderDb {
         session.close();
         return orderList;
     }
+    public List<Order>allOrdersWithStatusWAITINGFOREXPERTSUGGESTION(){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Order o where  o.orderStatus = 'WAITING_FOR_EXPERT_SUGGESTION'";
+        Query query = session.createQuery(hql);
+        List<Order> orderList = query.getResultList();
+        transaction.commit();
+        session.close();
+        return orderList;
+    }
 }
