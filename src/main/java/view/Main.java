@@ -248,6 +248,10 @@ public class Main {
                     orderService.changeOrderStatus(OrderStatus.STARTED, orderId);
                     break;
                 case "5":
+                    System.out.println("Please enter Order Id");
+                    orderId = scanner.nextInt();
+                    orderService.changeOrderStatus(OrderStatus.DONE, orderId);
+
                     break;
                 case "6":
                     break;
