@@ -3,6 +3,7 @@ package service;
 import dao.CustomerDb;
 import dao.OrderDb;
 import dto.OrderDto;
+import exception.EnoughCredit;
 import model.Offer;
 import model.Order;
 import model.enums.OrderStatus;
@@ -19,6 +20,8 @@ public class OrderService {
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
+    CustomerService customerService=new CustomerService();
+    ExpertService expertService=new ExpertService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
@@ -67,5 +70,17 @@ public class OrderService {
         Order order = findOrderByIdReturnOrder(orderId);
         order.setOrderStatus(orderStatus);
         orderDb.updateOrder(order);
+    }
+    public void transferMoney(int orderId,String expertEmail,float money){
+        Order order = findOrderByIdReturnOrder(orderId);
+      Customer customer=  order.getCustomer();
+      if(customer.getCredit()<=money){
+          customerService.withdrawCreditOfCustomer(customer.getEmail(),money);
+          expertService.addMoneyForExpert(expertEmail,money);
+
+      }
+      else {
+          throw new EnoughCredit("Not Enough Money");
+      }
     }
 }
