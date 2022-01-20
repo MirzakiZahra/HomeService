@@ -1,6 +1,7 @@
 package model.user;
 
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Person {
     @Id
