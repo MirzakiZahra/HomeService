@@ -5,6 +5,7 @@ import dao.OrderDb;
 import dao.ServiceDb;
 import dao.SubServiceDb;
 import dto.*;
+import model.enums.OrderStatus;
 import model.services.MainService;
 import model.services.SubService;
 import model.user.Customer;
@@ -243,8 +244,8 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("Please enter Order Id");
-                     orderId = scanner.nextInt();
-
+                    orderId = scanner.nextInt();
+                    orderService.changeOrderStatus(OrderStatus.STARTED, orderId);
                     break;
                 case "5":
                     break;
