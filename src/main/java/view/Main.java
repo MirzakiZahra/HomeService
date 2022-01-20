@@ -228,18 +228,6 @@ public class Main {
                     expertService.changePassword(newPassword, expertDto.getEmail());
                     break;
                 case "2":
-                    List<SubService> subServices = expertDto.getSubServiceList();
-                    List<Order> orderList =
-                            orderDb.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
-                    // orderList.stream().forEach(i-> System.out.println(i));
-                    for (SubService subService : subServices) {
-                        for (Order order : orderList) {
-                            if (order.getSubService().equals(subService)) {
-                                orderList.add(order);
-                            }
-                        }
-
-                    }
 
 
                     break;

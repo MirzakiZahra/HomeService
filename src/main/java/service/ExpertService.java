@@ -1,14 +1,18 @@
 package service;
 
 import dao.ExpertDb;
+import dao.OrderDb;
 import dao.ServiceDb;
 import dto.ExpertDto;
+import dto.OrderDto;
 import exception.InputException;
 import model.Order;
 import model.services.MainService;
+import model.services.SubService;
 import model.user.Customer;
 import model.user.Expert;
 import service.mapper.ExpertMapper;
+import service.mapper.OrderMapper;
 
 import java.util.List;
 
@@ -18,6 +22,9 @@ public class ExpertService {
     ServiceDb serviceDb = new ServiceDb();
     OrderService orderService = new OrderService();
     ExpertMapper expertMapper = new ExpertMapper();
+    ExpertDto expertDto=new ExpertDto();
+    OrderDb orderDb=new OrderDb();
+    OrderMapper orderMapper=new OrderMapper();
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
@@ -80,6 +87,21 @@ public class ExpertService {
         Expert expert = expertDb.findExpertByEmail(email);
         expert.setPassword(password);
         expertDb.updateExpert(expert);
+    }
+    public List<OrderDto>expertRelatedOrders(){
+        List<SubService> subServices = expertDto.getSubServiceList();
+        List<Order> orderList =
+                orderDb.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
+        for (SubService subService : subServices) {
+            for (Order order : orderList) {
+                if (order.getSubService().equals(subService)) {
+                    orderList.add(order);
+                }
+            }
+
+        }
+        return orderMapper.convertOrderToOrderDto(orderList);
+
     }
 
 
