@@ -6,7 +6,6 @@ import dao.ServiceDb;
 import dao.SubServiceDb;
 import dto.*;
 import model.Offer;
-import model.Order;
 import model.services.MainService;
 import model.services.SubService;
 import model.user.Customer;
@@ -228,8 +227,8 @@ public class Main {
                     expertService.changePassword(newPassword, expertDto.getEmail());
                     break;
                 case "2":
-
-
+                    expertService.expertRelatedOrders().stream().forEach(i ->
+                            System.out.println(i));
                     break;
                 case "3":
                     System.out.println("Please enter Order Id");
