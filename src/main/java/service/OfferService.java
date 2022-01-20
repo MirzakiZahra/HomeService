@@ -22,7 +22,7 @@ public class OfferService {
         order.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, order, creationDate, startDate);
         offerDb.addOffer(offer);
-        
+
     }
     public Offer findOfferById(int id){
         return offerDb.findOfferById(id);

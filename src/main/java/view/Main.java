@@ -5,7 +5,6 @@ import dao.OrderDb;
 import dao.ServiceDb;
 import dao.SubServiceDb;
 import dto.*;
-import model.Offer;
 import model.services.MainService;
 import model.services.SubService;
 import model.user.Customer;
@@ -237,14 +236,15 @@ public class Main {
                             "                             creationDate,startDate");
                     String creationDate = scanner.next();
                     String startDate = scanner.next();
-                    Offer offer = offerService.createOffer
+                    offerService.createOffer
                             (scanner.nextFloat(), orderId, scanner.nextFloat(),
                                     convertStringToDate(creationDate),
                                     convertStringToDate(startDate), expertDto.getEmail());
-                    offerDb.addOffer(offer);
-
                     break;
                 case "4":
+                    System.out.println("Please enter Order Id");
+                     orderId = scanner.nextInt();
+
                     break;
                 case "5":
                     break;

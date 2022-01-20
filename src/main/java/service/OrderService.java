@@ -4,11 +4,11 @@ import dao.CustomerDb;
 import dao.OrderDb;
 import dto.OrderDto;
 import model.Offer;
-import service.mapper.OrderMapper;
 import model.Order;
 import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
+import service.mapper.OrderMapper;
 
 import java.util.Date;
 import java.util.List;
@@ -38,24 +38,34 @@ public class OrderService {
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
         return orderDtoList;
     }
-    public OrderDto findOrderById(int id){
+
+    public OrderDto findOrderById(int id) {
         Order order = orderDb.findOrderById(id);
         OrderDto orderDto = orderMapper.convertOrderToOrderDto(order);
         return orderDto;
     }
-    public void setOfferForSpecificOrder(int offerId){
+
+    public void setOfferForSpecificOrder(int offerId) {
         Offer offer = offerService.findOfferById(offerId);
         Order order = offer.getOrder();
         order.setPreferredOffer(offer);
         order.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
         orderDb.updateOrder(order);
     }
-    public List<OrderDto> customerDoneOrder(int customerId){
+
+    public List<OrderDto> customerDoneOrder(int customerId) {
         List<Order> orderList = orderDb.returnCustomerDoneOrder(customerId);
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
         return orderDtoList;
     }
-    public Order findOrderByIdReturnOrder(int id){
+
+    public Order findOrderByIdReturnOrder(int id) {
         return orderDb.findOrderById(id);
+    }
+
+    public void changeOrderStatus(OrderStatus orderStatus, int orderId) {
+        Order order = findOrderByIdReturnOrder(orderId);
+        order.setOrderStatus(orderStatus);
+        orderDb.updateOrder(order);
     }
 }
