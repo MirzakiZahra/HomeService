@@ -251,8 +251,7 @@ public class Main {
                     System.out.println("Please enter Order Id");
                     orderId = scanner.nextInt();
                     orderService.changeOrderStatus(OrderStatus.DONE, orderId);
-                    orderService.transferMoney(orderId,expertDto.getEmail());
-
+                    orderService.transferMoney(orderId, expertDto.getEmail());
                     break;
                 case "6":
                     break;
@@ -273,8 +272,6 @@ public class Main {
                     if (mainService.equals(null)) {
                         serviceDb.addMainService(mainService);
                     }
-
-
                     break;
                 case "2":
                     System.out.println("Please enter name Of SubService");
