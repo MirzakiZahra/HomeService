@@ -251,6 +251,7 @@ public class Main {
                     System.out.println("Please enter Order Id");
                     orderId = scanner.nextInt();
                     orderService.changeOrderStatus(OrderStatus.DONE, orderId);
+                    orderService.transferMoney(orderId,expertDto.getEmail());
 
                     break;
                 case "6":

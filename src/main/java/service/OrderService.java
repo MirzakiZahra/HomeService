@@ -71,12 +71,12 @@ public class OrderService {
         order.setOrderStatus(orderStatus);
         orderDb.updateOrder(order);
     }
-    public void transferMoney(int orderId,String expertEmail,float money){
+    public void transferMoney(int orderId,String expertEmail){
         Order order = findOrderByIdReturnOrder(orderId);
       Customer customer=  order.getCustomer();
-      if(customer.getCredit()<=money){
-          customerService.withdrawCreditOfCustomer(customer.getEmail(),money);
-          expertService.addMoneyForExpert(expertEmail,money);
+      if(customer.getCredit()<=order.getPrice()){
+          customerService.withdrawCreditOfCustomer(customer.getEmail(),order.getPrice());
+          expertService.addMoneyForExpert(expertEmail,order.getPrice());
 
       }
       else {
