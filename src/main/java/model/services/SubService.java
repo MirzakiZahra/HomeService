@@ -3,7 +3,7 @@ package model.services;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.Order;
+import model.Orders;
 import model.user.Expert;
 
 import javax.persistence.*;
@@ -26,7 +26,7 @@ public class SubService {
     @ManyToMany
     private Set<Expert> expertSet = new HashSet<>();
     @OneToMany(mappedBy = "subService" ,fetch = FetchType.LAZY)
-    private Set<Order> orderSet = new HashSet<>();
+    private Set<Orders> ordersSet = new HashSet<>();
     @Builder
     public SubService(String name, String description, float price, MainService mainService) {
         this.name = name;

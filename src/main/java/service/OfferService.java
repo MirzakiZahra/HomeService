@@ -4,7 +4,7 @@ import dao.ExpertDb;
 import dao.OfferDb;
 import dao.OrderDb;
 import model.Offer;
-import model.Order;
+import model.Orders;
 import model.enums.OrderStatus;
 import model.user.Expert;
 
@@ -18,9 +18,9 @@ public class OfferService {
     public void createOffer(float price, int orderId, float basePrice,
                             Date creationDate, Date startDate, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
-        Order order = orderDb.findOrderById(orderId);
-        order.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
-        Offer offer = new Offer(price, expert, order, creationDate, startDate);
+        Orders orders = orderDb.findOrderById(orderId);
+        orders.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
+        Offer offer = new Offer(price, expert, orders, creationDate, startDate);
         offerDb.addOffer(offer);
 
     }

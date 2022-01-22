@@ -6,7 +6,7 @@ import dao.OrderDb;
 import dao.ServiceDb;
 import dto.ExpertDto;
 import dto.OrderDto;
-import model.Order;
+import model.Orders;
 import model.services.MainService;
 import model.services.SubService;
 import model.user.Expert;
@@ -60,8 +60,8 @@ public class ExpertService {
     }
 
     public void updateExpertScore(float score, int orderID) {
-        Order order = orderService.findOrderByIdReturnOrder(orderID);
-        Expert expert = order.getPreferredOffer().getExpert();
+        Orders orders = orderService.findOrderByIdReturnOrder(orderID);
+        Expert expert = orders.getPreferredOffer().getExpert();
         if (expert.getCountOfOrder() == 0) {
             expert.setScore(score);
             int temp = expert.getCountOfOrder() + 1;
@@ -89,17 +89,17 @@ public class ExpertService {
     }
     public List<OrderDto>expertRelatedOrders(){
         List<SubService> subServices = expertDto.getSubServiceList();
-        List<Order> orderList =
+        List<Orders> ordersList =
                 orderDb.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
         for (SubService subService : subServices) {
-            for (Order order : orderList) {
-                if (order.getSubService().equals(subService)) {
-                    orderList.add(order);
+            for (Orders orders : ordersList) {
+                if (orders.getSubService().equals(subService)) {
+                    ordersList.add(orders);
                 }
             }
 
         }
-        return orderMapper.convertOrderToOrderDto(orderList);
+        return orderMapper.convertOrderToOrderDto(ordersList);
 
     }
 

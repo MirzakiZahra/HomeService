@@ -22,7 +22,7 @@
         <mapping class="model.user.Manager"/>
         <mapping class="model.Address"/>
         <mapping class="model.Offer"/>
-        <mapping class="model.Order"/>
+        <mapping class="model.Orders"/>
         <mapping class="model.Transaction"/>
         <mapping class="model.services.SubService"/>
         <mapping class="model.services.MainService"/>

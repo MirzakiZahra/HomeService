@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.Order;
+import model.Orders;
 import model.enums.TypeOfTransaction;
 
 import java.util.Date;
@@ -17,5 +17,5 @@ public class TransactionDto {
     private int id;
     private Date date;
     private TypeOfTransaction typeOfTransaction;
-    private Order order;
+    private Orders orders;
 }

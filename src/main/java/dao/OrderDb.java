@@ -1,6 +1,6 @@
 package dao;
 
-import model.Order;
+import model.Orders;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,71 +12,71 @@ import java.util.List;
 public class OrderDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public Order findOrder(int id) {
+    public Orders findOrder(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Order s where s.id = :id";
+        String hql = "from Orders s where s.id = :id";
         Query query = session.createQuery(hql);
         query.setParameter("id", id);
-        List<Order> orderList = query.getResultList();
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return orderList.get(0);
+        return ordersList.get(0);
     }
 
-    public void addCOrder(Order order) {
+    public void addCOrder(Orders orders) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(order);
+        session.save(orders);
         transaction.commit();
         session.close();
     }
 
-    public Order findOrderById(int id) {
+    public Orders findOrderById(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Order order = session.load(Order.class, id);
+        Orders orders = session.load(Orders.class, id);
         transaction.commit();
         session.close();
-        return order;
+        return orders;
     }
 
-    public List<Order> showAllOrder() {
+    public List<Orders> showAllOrder() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Order";
+        String hql = "from Orders";
         Query query = session.createQuery(hql);
-        List<Order> orderList = query.getResultList();
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return orderList;
+        return ordersList;
     }
-    public void updateOrder(Order order){
+    public void updateOrder(Orders orders){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(order);
+        session.update(orders);
         transaction.commit();
         session.close();
     }
-    public List<Order> returnCustomerDoneOrder(int customerId){
+    public List<Orders> returnCustomerDoneOrder(int customerId){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Order o where o.customer = : customerId and o.orderStatus = 'Done'";
+        String hql = "from Orders o where o.customer = : customerId and o.orderStatus = 'Done'";
         Query query = session.createQuery(hql);
         query.setParameter("customerId", customerId);
-        List<Order> orderList = query.getResultList();
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return orderList;
+        return ordersList;
     }
-    public List<Order>allOrdersWithStatusWAITINGFOREXPERTSUGGESTION(){
+    public List<Orders>allOrdersWithStatusWAITINGFOREXPERTSUGGESTION(){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Order o where  o.orderStatus = 'WAITING_FOR_EXPERT_SUGGESTION'";
+        String hql = "from Orders o where  o.orderStatus = 'WAITING_FOR_EXPERT_SUGGESTION'";
         Query query = session.createQuery(hql);
-        List<Order> orderList = query.getResultList();
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return orderList;
+        return ordersList;
     }
 }

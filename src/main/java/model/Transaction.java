@@ -24,7 +24,7 @@ public class Transaction {
     @Enumerated(value = EnumType.STRING)
     private TypeOfTransaction typeOfTransaction;
     @ManyToOne
-    private Order order;
+    private Orders orders;
 
 
 }

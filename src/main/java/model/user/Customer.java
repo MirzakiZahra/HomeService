@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Address;
-import model.Order;
+import model.Orders;
 import model.enums.UserStatus;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -27,8 +27,8 @@ public class Customer extends Person {
     private float credit;
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;
-    @OneToMany
-    private List<Order> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+    private List<Orders> orders = new ArrayList<>();
     @Builder
     public Customer(String firstName, String lastName, String email, String password, List<Address> address) {
         super(firstName, lastName, email, password);

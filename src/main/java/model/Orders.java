@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -41,7 +41,7 @@ public class Order {
     private Offer preferredOffer;
     private boolean getScore = false;
     @Builder
-    public Order(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
+    public Orders(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
         this.explanation = explanation;
         this.beggingDate = beggingDate;

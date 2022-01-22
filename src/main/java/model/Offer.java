@@ -20,7 +20,7 @@ public class Offer {
     @ManyToOne
     private Expert expert;
     @ManyToOne
-    private Order order;
+    private Orders orders;
     @CreationTimestamp
     private Date creationDate;
     @Temporal(TemporalType.TIME)
@@ -29,10 +29,10 @@ public class Offer {
     @CreationTimestamp
     private Date durationOfWork;
     @Builder
-    public Offer(float price, Expert expert, Order order, Date creationDate, Date startDate) {
+    public Offer(float price, Expert expert, Orders orders, Date creationDate, Date startDate) {
         this.price = price;
         this.expert = expert;
-        this.order = order;
+        this.orders = orders;
         this.creationDate = creationDate;
         this.startDate = startDate;
     }

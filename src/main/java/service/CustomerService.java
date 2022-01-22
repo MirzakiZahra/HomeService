@@ -17,8 +17,6 @@ public class CustomerService {
     CustomerDb customerDb = new CustomerDb();
     AddressMapper addressMapper = new AddressMapper();
     AddressService addressService = new AddressService();
-    ExpertDb expertDb = new ExpertDb();
-    OrderDb orderDb = new OrderDb();
 
     public void createCustomer(String firstName, String lastName, AddressDto addressDto, String email, String password) {
         Address address = addressMapper.convertAddressDtoToAddress(addressDto);

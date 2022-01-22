@@ -5,7 +5,7 @@ import dao.OrderDb;
 import dto.OrderDto;
 import exception.EnoughCredit;
 import model.Offer;
-import model.Order;
+import model.Orders;
 import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
@@ -25,58 +25,58 @@ public class OrderService {
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
-        Order order = new Order(cost, explanation, beggingDate, endingTime, address);
+        Orders orders = new Orders(cost, explanation, beggingDate, endingTime, address);
         Customer customer = customerDb.findCustomerByEmail(email);
         SubService subService = subServiceService.checkExistOfSubServiceById(subServiceId);
-        order.setCustomer(customer);
-        order.setSubService(subService);
-        order.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
-        orderDb.addCOrder(order);
-        customer.getOrders().add(order);
+        orders.setCustomer(customer);
+        orders.setSubService(subService);
+        orders.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
+        orderDb.addCOrder(orders);
+        customer.getOrders().add(orders);
         customerDb.updateCustomer(customer);
     }
 
     public List<OrderDto> showAllOrder() {
-        List<Order> orderList = orderDb.showAllOrder();
-        List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
+        List<Orders> ordersList = orderDb.showAllOrder();
+        List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(ordersList);
         return orderDtoList;
     }
 
     public OrderDto findOrderById(int id) {
-        Order order = orderDb.findOrderById(id);
-        OrderDto orderDto = orderMapper.convertOrderToOrderDto(order);
+        Orders orders = orderDb.findOrderById(id);
+        OrderDto orderDto = orderMapper.convertOrderToOrderDto(orders);
         return orderDto;
     }
 
     public void setOfferForSpecificOrder(int offerId) {
         Offer offer = offerService.findOfferById(offerId);
-        Order order = offer.getOrder();
-        order.setPreferredOffer(offer);
-        order.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
-        orderDb.updateOrder(order);
+        Orders orders = offer.getOrders();
+        orders.setPreferredOffer(offer);
+        orders.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
+        orderDb.updateOrder(orders);
     }
 
     public List<OrderDto> customerDoneOrder(int customerId) {
-        List<Order> orderList = orderDb.returnCustomerDoneOrder(customerId);
-        List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(orderList);
+        List<Orders> ordersList = orderDb.returnCustomerDoneOrder(customerId);
+        List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(ordersList);
         return orderDtoList;
     }
 
-    public Order findOrderByIdReturnOrder(int id) {
+    public Orders findOrderByIdReturnOrder(int id) {
         return orderDb.findOrderById(id);
     }
 
     public void changeOrderStatus(OrderStatus orderStatus, int orderId) {
-        Order order = findOrderByIdReturnOrder(orderId);
-        order.setOrderStatus(orderStatus);
-        orderDb.updateOrder(order);
+        Orders orders = findOrderByIdReturnOrder(orderId);
+        orders.setOrderStatus(orderStatus);
+        orderDb.updateOrder(orders);
     }
     public void transferMoney(int orderId,String expertEmail){
-        Order order = findOrderByIdReturnOrder(orderId);
-      Customer customer=  order.getCustomer();
-      if(customer.getCredit()<=order.getPrice()){
-          customerService.withdrawCreditOfCustomer(customer.getEmail(),order.getPrice());
-          expertService.addMoneyForExpert(expertEmail,order.getPrice());
+        Orders orders = findOrderByIdReturnOrder(orderId);
+      Customer customer=  orders.getCustomer();
+      if(customer.getCredit()<= orders.getPrice()){
+          customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
+          expertService.addMoneyForExpert(expertEmail, orders.getPrice());
 
       }
       else {
