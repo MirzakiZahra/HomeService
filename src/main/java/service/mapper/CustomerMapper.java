@@ -18,7 +18,7 @@ public class CustomerMapper {
         return customerDto;
     }
 
-    public List<Customer> convertCustomerDtoToCustomer(List<CustomerDto> customerDtoList) {
+    /*public List<Customer> convertCustomerDtoToCustomer(List<CustomerDto> customerDtoList) {
         List<Customer> customerList = new ArrayList<>();
         for (CustomerDto customerDto : customerDtoList) {
             Customer customer = Customer.builder()
@@ -28,5 +28,5 @@ public class CustomerMapper {
             customerList.add(customer);
         }
         return customerList;
-    }
+    }*/
 }
