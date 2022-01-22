@@ -19,7 +19,7 @@ public class OfferMapper {
         return offerDto;
     }
 
-    public List<Offer> convertOfferDtoToOffer(List<OfferDto> offerDtoList) {
+   /* public List<Offer> convertOfferDtoToOffer(List<OfferDto> offerDtoList) {
         List<Offer> offerList = new ArrayList<>();
         for (OfferDto offerDto : offerDtoList) {
             Offer offer=Offer.builder()
@@ -31,5 +31,5 @@ public class OfferMapper {
             offerList.add(offer);
         }
         return offerList;
-    }
+    }*/
 }

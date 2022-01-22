@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AddressDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AddressDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/OfferMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/OfferMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/AddressDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/AddressDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Expert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Expert.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Person.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642823907507</updated>
-      <workItem from="1642823911694" duration="1681000" />
+      <workItem from="1642823911694" duration="2370000" />
     </task>
     <servers />
   </component>

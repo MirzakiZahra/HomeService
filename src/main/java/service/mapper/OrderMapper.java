@@ -29,7 +29,7 @@ public class OrderMapper {
         return orderDtoList;
     }
 
-    public List<Order> convertOrderDtoToOrder(List<OrderDto> orderDtoList) {
+   /* public List<Order> convertOrderDtoToOrder(List<OrderDto> orderDtoList) {
         List<Order> orderList = new ArrayList<>();
         for (OrderDto orderDto : orderDtoList) {
             Order order = Order.builder()
@@ -44,5 +44,5 @@ public class OrderMapper {
             orderList.add(order);
         }
         return orderList;
-    }
+    }*/
 }
