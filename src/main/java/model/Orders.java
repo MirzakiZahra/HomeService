@@ -25,7 +25,7 @@ public class Orders {
     private Customer customer;
     @ManyToOne
     private SubService subService;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orders")
     private List<Transaction> transactionList = new ArrayList<>();
     @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;
@@ -35,7 +35,7 @@ public class Orders {
     @CreationTimestamp
     private Date endingTime;
     private String address;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orders")
     private List<Offer> offerList= new ArrayList<>();
     @OneToOne
     private Offer preferredOffer;
