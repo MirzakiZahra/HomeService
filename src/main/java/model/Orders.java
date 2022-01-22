@@ -25,7 +25,7 @@ public class Orders {
     private Customer customer;
     @ManyToOne
     private SubService subService;
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "orders",fetch = FetchType.LAZY)
     private List<Transaction> transactionList = new ArrayList<>();
     @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;

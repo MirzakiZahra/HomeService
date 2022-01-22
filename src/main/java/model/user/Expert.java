@@ -21,7 +21,7 @@ public class Expert extends Person {
     private float score;
     @ManyToMany
     private List<SubService> subServiceList = new ArrayList<>();
-    @OneToMany
+    @OneToMany(mappedBy = "expert",fetch = FetchType.LAZY)
     private List<Offer> offerList = new ArrayList<>();
     private float creditExpert;
     private int countOfOrder = 0;

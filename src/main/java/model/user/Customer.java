@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 
 public class Customer extends Person {
-    @OneToMany
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
     private List<Address>  address;
     @Temporal(TemporalType.TIME)
     @CreationTimestamp

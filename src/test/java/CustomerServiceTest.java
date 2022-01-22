@@ -34,6 +34,6 @@ public class CustomerServiceTest {
     @Test
     void saveCustomerThenCheckExistence(){
         customerService.createCustomer("Zahra","Mirzaki",
-                addressDto,"mirzaki@gmail.com","Z@hra123456");
+                addressDto,"mirzaki1@gmail.com","Z@hra123456");
     }
 }

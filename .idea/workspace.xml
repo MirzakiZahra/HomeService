@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Expert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Orders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Expert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Expert.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642823907507</updated>
-      <workItem from="1642823911694" duration="4571000" />
+      <workItem from="1642823911694" duration="6044000" />
     </task>
     <servers />
   </component>
