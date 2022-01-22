@@ -29,10 +29,14 @@ public class Customer extends Person {
     UserStatus userStatue;
     @OneToMany
     private List<Order> orders = new ArrayList<>();
-    @Builder
     public Customer(String firstName, String lastName, String email, String password, List<Address> address) {
         super(firstName, lastName, email, password);
         this.address = address;
+    }
+    @Builder
+    public Customer(Date registerTime,float credit) {
+        this.credit=credit;
+        this.registerTime=registerTime;
     }
 
 

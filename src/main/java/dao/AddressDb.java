@@ -28,7 +28,7 @@ public class AddressDb {
     public Address findAddressById(int id){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Address a where a.id = :id";
+        String hql = "from Address a where exception.id = :id";
         Query query = session.createQuery(hql);
         query.setParameter("id", id);
         List<Address> addressList = query.getResultList();
