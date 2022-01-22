@@ -12,7 +12,6 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor
-@Builder
 public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +28,7 @@ public class Offer {
     private String explanation;
     @CreationTimestamp
     private Date durationOfWork;
-
+    @Builder
     public Offer(float price, Expert expert, Order order, Date creationDate, Date startDate) {
         this.price = price;
         this.expert = expert;

@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 import model.Offer;
 import model.services.SubService;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 @Data

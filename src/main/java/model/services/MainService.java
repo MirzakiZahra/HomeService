@@ -1,7 +1,6 @@
 package model.services;
 
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +11,6 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@Builder
 public class MainService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

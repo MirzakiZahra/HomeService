@@ -1,7 +1,5 @@
 package model;
 
-import com.mysql.cj.protocol.ColumnDefinition;
-import jdk.jfr.BooleanFlag;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,16 +8,13 @@ import model.services.SubService;
 import model.user.Customer;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.management.ConstructorParameters;
 import javax.persistence.*;
-import java.beans.ConstructorProperties;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
-@Builder
 @NoArgsConstructor
 public class Order {
     @Id
@@ -45,7 +40,7 @@ public class Order {
     @OneToOne
     private Offer preferredOffer;
     private boolean getScore = false;
-
+    @Builder
     public Order(float cost, String explanation, Date beggingDate, Date endingTime, String address) {
         this.price = cost;
         this.explanation = explanation;

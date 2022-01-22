@@ -1,6 +1,5 @@
 package dao;
 
-import model.services.MainService;
 import model.services.SubService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -4,11 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a6c4fc1-84c3-4650-8aab-ddeee4b5ce7a" name="Changes" comment="">
+    <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AddressDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AddressDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CustomerDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CustomerDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ExpertDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ExpertDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/OfferDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/OfferDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/OrderDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/OrderDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ServiceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ServiceDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SubServiceDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SubServiceDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/AddressDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/AddressDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/CustomerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ExpertDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ExpertDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/MainServiceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/MainServiceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ManagerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ManagerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/OfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/OfferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/SubServiceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/SubServiceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/TransactionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/TransactionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Offer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Offer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/MainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/SubService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/SubService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Expert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/MainServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MainServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceOfHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceOfHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/SubServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/SubServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/AddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/AddressMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/ExpertMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/ExpertMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/OfferMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/OfferMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/mapper/TransactionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/mapper/TransactionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,17 +54,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="23g5tuPI5q4D7DM3LTBgJDg2mpD" />
+  <component name="ProjectId" id="242LnHCezs1VJacpCA2e82n08Pr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,25 +65,35 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="CustomerServiceTest.saveCustomerThenCheckExistence" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
+      <option name="METHOD_NAME" value="saveCustomerThenCheckExistence" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CustomerServiceTest.saveCustomerThenCheckExistence" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3a6c4fc1-84c3-4650-8aab-ddeee4b5ce7a" name="Changes" comment="" />
-      <created>1642143111737</created>
+      <changelist id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="" />
+      <created>1642823907507</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1642143111737</updated>
-      <workItem from="1642143114862" duration="872000" />
-      <workItem from="1642183291143" duration="18998000" />
-      <workItem from="1642218874715" duration="6220000" />
-      <workItem from="1642278482984" duration="5455000" />
-      <workItem from="1642305157666" duration="5233000" />
-      <workItem from="1642449740123" duration="20048000" />
-      <workItem from="1642535794512" duration="12592000" />
-      <workItem from="1642638109393" duration="4525000" />
-      <workItem from="1642706742477" duration="1654000" />
+      <updated>1642823907507</updated>
+      <workItem from="1642823911694" duration="948000" />
     </task>
     <servers />
   </component>
@@ -69,6 +110,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

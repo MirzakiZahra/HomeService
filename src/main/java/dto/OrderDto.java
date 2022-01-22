@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import model.Offer;
 import model.services.SubService;
 
-import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

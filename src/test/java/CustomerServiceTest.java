@@ -1,6 +1,9 @@
+import dto.AddressDto;
 import model.Address;
 import model.user.Customer;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import service.CustomerService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +11,12 @@ import java.util.List;
 public class CustomerServiceTest {
     Customer customer = new Customer();
     Address address = new Address();
+    AddressDto addressDto = new AddressDto();
     List<Address> addressList = new ArrayList<>();
+    CustomerService customerService = new CustomerService();
     @BeforeEach
     void init(){
-        address = Address.builder()
+        addressDto = AddressDto.builder()
                 .country("Iran")
                 .city("Tehran")
                 .street("Imam")
@@ -26,5 +31,9 @@ public class CustomerServiceTest {
                 .address(addressList)
                 .build();
     }
-    
+    @Test
+    void saveCustomerThenCheckExistence(){
+        customerService.createCustomer("Zahra","Mirzaki",
+                addressDto,"mirzaki@gmail.com","Z@hra123456");
+    }
 }

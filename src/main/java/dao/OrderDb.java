@@ -1,8 +1,6 @@
 package dao;
 
 import model.Order;
-import model.enums.OrderStatus;
-import model.user.Expert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

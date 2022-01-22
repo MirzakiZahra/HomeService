@@ -2,7 +2,6 @@ package service;
 
 import dao.ServiceDb;
 import model.services.MainService;
-import model.user.Expert;
 
 public class MainServiceService {
     ServiceDb serviceDb = new ServiceDb();

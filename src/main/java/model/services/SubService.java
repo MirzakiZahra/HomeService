@@ -13,7 +13,6 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@Builder
 public class SubService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +27,7 @@ public class SubService {
     private Set<Expert> expertSet = new HashSet<>();
     @OneToMany(mappedBy = "subService" ,fetch = FetchType.LAZY)
     private Set<Order> orderSet = new HashSet<>();
-
+    @Builder
     public SubService(String name, String description, float price, MainService mainService) {
         this.name = name;
         this.description = description;

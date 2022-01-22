@@ -1,8 +1,6 @@
 package dao;
 
 import model.Offer;
-import model.services.SubService;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

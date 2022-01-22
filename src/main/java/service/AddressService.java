@@ -1,9 +1,7 @@
 package service;
 
 import dao.AddressDb;
-import dto.AddressDto;
 import model.Address;
-import model.user.Customer;
 import service.mapper.AddressMapper;
 
 public class AddressService {

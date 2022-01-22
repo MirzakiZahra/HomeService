@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Builder
+
 public class Expert extends Person {
     @Lob
     @Column(name = "photo", columnDefinition = "BLOB", length = 300000)
@@ -25,8 +25,15 @@ public class Expert extends Person {
     private List<Offer> offerList = new ArrayList<>();
     private float creditExpert;
     private int countOfOrder = 0;
-    public Expert(String firstName, String lastName, String email) {
+    @Builder
+    public Expert(String firstName, String lastName, String email, float score,
+                  float creditExpert,List<SubService>subServiceList) {
         super(firstName, lastName);
+        this.creditExpert=creditExpert;
+        this.subServiceList=subServiceList;
     }
 
+    public Expert(String firstName, String lastName, String email) {
+        super(firstName, lastName, email);
+    }
 }

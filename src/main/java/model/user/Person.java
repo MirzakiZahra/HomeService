@@ -1,7 +1,6 @@
 package model.user;
 
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-@Builder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Person {
     @Id
@@ -35,5 +33,11 @@ public class Person {
         this.email = email;
         this.password = password;
         this.username = username;
+    }
+    public Person( String firstName, String lastName, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 }
