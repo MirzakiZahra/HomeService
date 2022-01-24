@@ -6,12 +6,14 @@ import dto.SubServiceDto;
 import exception.InputException;
 import model.services.MainService;
 import model.services.SubService;
+import service.mapper.SubServiceMapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SubServiceService {
     SubServiceDb subServiceDb = new SubServiceDb();
+    SubServiceMapper subServiceMapper=new SubServiceMapper();
 
     public List<SubServiceDto> showAllSubService() {
         List<SubService> subServiceList = subServiceDb.getAllSubService();
@@ -46,6 +48,6 @@ public class SubServiceService {
         if (subServices.size() != 0) {
             throw new InputException("MainService Exist");
         }
-        return mainServiceMapper.convertMainServiceToMainServiceDto(mainService.get(0));
+        return subServiceMapper.convertSubServiceToSubServiceDto(subServices.get(0));
     }
 }
