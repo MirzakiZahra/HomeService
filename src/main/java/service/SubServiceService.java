@@ -50,4 +50,10 @@ public class SubServiceService {
         }
         return subServiceMapper.convertSubServiceToSubServiceDto(subServices.get(0));
     }
+    public SubService deleteSubServiceByName(String name) {
+        SubService subService=subServiceDb.findSubServiceByName(name);
+        subServiceDb.deleteSubService(subService);
+        return subService;
+    }
+
 }

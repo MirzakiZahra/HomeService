@@ -7,6 +7,7 @@ import dao.SubServiceDb;
 import dto.*;
 import model.enums.OrderStatus;
 import model.services.MainService;
+import model.services.SubService;
 import model.user.Customer;
 import service.*;
 import util.Validator;
@@ -31,6 +32,7 @@ public class Main {
     static ServiceDb serviceDb = new ServiceDb();
     static MainServiceService mainServiceService = new MainServiceService();
     static SubServiceDb subServiceDb = new SubServiceDb();
+    static SubServiceDto subServiceDto = new SubServiceDto();
 
 
     public static void main(String[] args) {
@@ -281,10 +283,9 @@ public class Main {
                         System.out.println("Please Enter SubServiceName & Description&price");
                         subServiceService.createSubService(scanner.next()
                                 , scanner.next(), scanner.nextFloat(), mainServices.get(0));
-                    }
-                    else {
+                    } else {
                         System.out.println("Please enter name Of MainService");
-                     mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
+                        mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
                         System.out.println("Please Enter MainServiceName");
                         mainServiceService.createMainService(scanner.next());
                         System.out.println("Please enter name Of SubService");
@@ -292,6 +293,7 @@ public class Main {
                         System.out.println("Please Enter SubServiceName & Description&price");
                         subServiceService.createSubService(scanner.next()
                                 , scanner.next(), scanner.nextFloat(), mainServices.get(0));
+
                     }
 
 
@@ -303,8 +305,14 @@ public class Main {
                     mainServiceService.deleteMainService(scanner.next());
                     break;
                 case "4":
+                    System.out.println("Please enter name Of MainService");
+                     mainServices = mainServiceService.findMainService(scanner.next());
                     System.out.println("Please enter name Of SubService");
-                    subServiceService.deleteSubService(scanner.next());
+                    SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
+                    System.out.println("Please enter name Of SubService");
+                   SubService subService= subServiceService.deleteSubServiceByName(scanner.next());
+                    mainServices.get(0).getSubServiceSet().remove(subService);
+
                     break;
                 case "5":
                     break;
