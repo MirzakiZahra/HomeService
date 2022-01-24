@@ -1,6 +1,7 @@
 package service;
 
 import dao.CustomerDb;
+import dao.ExpertDb;
 import dao.OrderDb;
 import dto.OrderDto;
 import exception.EnoughCredit;
@@ -9,6 +10,7 @@ import model.Orders;
 import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
+import model.user.Expert;
 import service.mapper.OrderMapper;
 
 import java.util.Date;
@@ -21,7 +23,8 @@ public class OrderService {
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
     CustomerService customerService=new CustomerService();
-    ExpertService expertService=new ExpertService();
+    ExpertDb expertDb =new ExpertDb();
+  //  ExpertService expertService=new ExpertService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
@@ -76,8 +79,10 @@ public class OrderService {
       Customer customer=  orders.getCustomer();
       if(customer.getCredit()<= orders.getPrice()){
           customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
-          expertService.addMoneyForExpert(expertEmail, orders.getPrice());
-
+          Expert expert = expertDb.findExpertByEmail(expertEmail);
+          float temp = expert.getCreditExpert() + orders.getPrice();
+          expert.setCreditExpert(temp);
+          expertDb.updateExpert(expert);
       }
       else {
           throw new EnoughCredit("Not Enough Money");

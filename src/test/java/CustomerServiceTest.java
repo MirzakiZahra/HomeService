@@ -8,7 +8,7 @@ import service.CustomerService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerServiceTest {
+/*public class CustomerServiceTest {
     Customer customer = new Customer();
     Address address = new Address();
     AddressDto addressDto = new AddressDto();
@@ -36,4 +36,4 @@ public class CustomerServiceTest {
         customerService.createCustomer("Zahra","Mirzaki",
                 addressDto,"mirzaki1@gmail.com","Z@hra123456");
     }
-}
+}*/

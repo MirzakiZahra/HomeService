@@ -40,12 +40,12 @@ public class ExpertService {
 
     }
 
-    public void addMoneyForExpert(String email, float money) {
+ /*   public void addMoneyForExpert(String email, float money) {
         Expert expert = expertDb.findExpertByEmail(email);
         float temp = expert.getCreditExpert() + money;
         expert.setCreditExpert(temp);
         expertDb.updateExpert(expert);
-    }
+    }*/
 
     public void printShowExpert() {
         List<Expert> experts = expertDb.showExpert();
