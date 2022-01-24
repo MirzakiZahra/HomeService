@@ -42,9 +42,8 @@ public class SubServiceService {
         subServiceDb.deleteSubService(subService);
     }
     public SubServiceDto findSubServiceByName(String name) {
-        List<SubService>subServices=subServiceDb.findSubServiceByName(name);
-        List<MainService> mainService = serviceDb.findServiceByName(name);
-        if (mainService.size() != 0) {
+        List<SubService>subServices=subServiceDb.findSubServiceByNameReturnList(name);
+        if (subServices.size() != 0) {
             throw new InputException("MainService Exist");
         }
         return mainServiceMapper.convertMainServiceToMainServiceDto(mainService.get(0));
