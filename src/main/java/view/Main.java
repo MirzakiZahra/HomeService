@@ -274,7 +274,7 @@ public class Main {
                     mainServiceService.createMainService(scanner.next());
                     break;
                 case "2":
-                    System.out.println("Please enter name Of SubService");
+                    System.out.println("Please enter name Of MainService, SubService");
                     SubService subService = subServiceDb.findSubServiceByName(scanner.next());
                     if (subService.equals(null)) {
                         subServiceDb.addSubService(subService);
@@ -282,6 +282,8 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("Please enter name Of MainService");
+                    mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
+                    System.out.println("Please Enter MainServiceName");
                     mainServiceService.deleteMainService(scanner.next());
                     break;
                 case "4":
