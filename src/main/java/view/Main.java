@@ -7,7 +7,6 @@ import dao.SubServiceDb;
 import dto.*;
 import model.enums.OrderStatus;
 import model.services.MainService;
-import model.services.SubService;
 import model.user.Customer;
 import service.*;
 import util.Validator;
@@ -252,7 +251,7 @@ public class Main {
                     System.out.println("Please enter Order Id");
                     orderId = scanner.nextInt();
                     orderService.changeOrderStatus(OrderStatus.DONE, orderId);
-                   // orderService.transferMoney(orderId, expertDto.getEmail());
+                    // orderService.transferMoney(orderId, expertDto.getEmail());
                     break;
                 case "6":
                     break;
@@ -274,11 +273,15 @@ public class Main {
                     mainServiceService.createMainService(scanner.next());
                     break;
                 case "2":
-                    System.out.println("Please enter name Of MainService, SubService");
-                    SubService subService = subServiceDb.findSubServiceByName(scanner.next());
-                    if (subService.equals(null)) {
-                        subServiceDb.addSubService(subService);
+                    System.out.println("Please enter name Of MainService");
+                    List<MainService> mainServices = mainServiceService.findMainService(scanner.next());
+                    if (mainServices.size()!=0){
+                        System.out.println("Please enter name Of SubService");
+
+
                     }
+
+
                     break;
                 case "3":
                     System.out.println("Please enter name Of MainService");

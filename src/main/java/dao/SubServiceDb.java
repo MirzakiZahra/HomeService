@@ -1,5 +1,6 @@
 package dao;
 
+import model.services.MainService;
 import model.services.SubService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -59,6 +60,18 @@ public class SubServiceDb {
         session.save(subService);
         transaction.commit();
         session.close();
+    }
+
+    public List<SubService> findSubServiceByNameReturnList(String name) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from MainService s where s.name = :name";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", name);
+        List<SubService> subServices = query.getResultList();
+        transaction.commit();
+        session.close();
+        return subServices;
     }
 
 }

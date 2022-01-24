@@ -1,6 +1,7 @@
 package service;
 
 import dao.SubServiceDb;
+import dto.MainServiceDto;
 import dto.SubServiceDto;
 import exception.InputException;
 import model.services.MainService;
@@ -39,5 +40,13 @@ public class SubServiceService {
     public void deleteSubService(String name) {
         SubService subService=subServiceDb.findSubServiceByName(name);
         subServiceDb.deleteSubService(subService);
+    }
+    public SubServiceDto findSubServiceByName(String name) {
+        List<SubService>subServices=subServiceDb.findSubServiceByName(name);
+        List<MainService> mainService = serviceDb.findServiceByName(name);
+        if (mainService.size() != 0) {
+            throw new InputException("MainService Exist");
+        }
+        return mainServiceMapper.convertMainServiceToMainServiceDto(mainService.get(0));
     }
 }
