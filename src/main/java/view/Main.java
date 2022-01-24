@@ -33,6 +33,7 @@ public class Main {
     static MainServiceService mainServiceService = new MainServiceService();
     static SubServiceDb subServiceDb = new SubServiceDb();
     static SubServiceDto subServiceDto = new SubServiceDto();
+    static AdminService adminService=new AdminService();
 
 
     public static void main(String[] args) {
@@ -327,16 +328,10 @@ public class Main {
 
     }
     public static void adminSignUp(String email, String password) {
-        System.out.println("Please Enter  country, " +
-                "city, street, plaque, FirstName, Lastname");
-        AddressDto addressDto = AddressDto.builder()
-                .country(scanner.next())
-                .city(scanner.next())
-                .street(scanner.next())
-                .plaque(scanner.next())
-                .build();
-        customerService.createCustomer(scanner.next(), scanner.next(), addressDto, email,
-                password);
+        System.out.println("Please Enter FirstName, Lastname,username");
+        adminService.createAdmin(scanner.next(),scanner.next(),email
+                ,password,scanner.next());
+
 
     }
 }
