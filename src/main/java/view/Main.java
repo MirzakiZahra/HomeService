@@ -275,10 +275,23 @@ public class Main {
                 case "2":
                     System.out.println("Please enter name Of MainService");
                     List<MainService> mainServices = mainServiceService.findMainService(scanner.next());
-                    if (mainServices.size()!=0){
+                    if (mainServices.size() != 0) {
                         System.out.println("Please enter name Of SubService");
-
-
+                        SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
+                        System.out.println("Please Enter SubServiceName & Description&price");
+                        subServiceService.createSubService(scanner.next()
+                                , scanner.next(), scanner.nextFloat(), mainServices.get(0));
+                    }
+                    else {
+                        System.out.println("Please enter name Of MainService");
+                     mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
+                        System.out.println("Please Enter MainServiceName");
+                        mainServiceService.createMainService(scanner.next());
+                        System.out.println("Please enter name Of SubService");
+                        SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
+                        System.out.println("Please Enter SubServiceName & Description&price");
+                        subServiceService.createSubService(scanner.next()
+                                , scanner.next(), scanner.nextFloat(), mainServices.get(0));
                     }
 
 
