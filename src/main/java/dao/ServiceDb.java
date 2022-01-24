@@ -13,7 +13,7 @@ import java.util.List;
 public class ServiceDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public MainService findServiceByName(String name) {
+    public List<MainService> findServiceByName(String name) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String hql = "from MainService s where s.name = :name";
@@ -22,7 +22,7 @@ public class ServiceDb {
         List<MainService> mainServices = query.getResultList();
         transaction.commit();
         session.close();
-        return mainServices.get(0);
+        return mainServices;
     }
 
     public void deleteMainService(MainService mainService) {

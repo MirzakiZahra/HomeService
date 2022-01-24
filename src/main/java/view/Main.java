@@ -269,10 +269,9 @@ public class Main {
             switch (managerInput) {
                 case "1":
                     System.out.println("Please enter name Of MainService");
-                    MainService mainService = serviceDb.findServiceByName(scanner.next());
-                    if (mainService.equals(null)) {
-                        serviceDb.addMainService(mainService);
-                    }
+                    MainServiceDto mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
+                    System.out.println("Please Enter MainServiceName");
+                    mainServiceService.createMainService(scanner.next());
                     break;
                 case "2":
                     System.out.println("Please enter name Of SubService");

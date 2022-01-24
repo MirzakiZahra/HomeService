@@ -2,8 +2,11 @@ package service;
 
 import dao.ServiceDb;
 import dto.MainServiceDto;
+import exception.InputException;
 import model.services.MainService;
 import service.mapper.MainServiceMapper;
+
+import java.util.List;
 
 public class MainServiceService {
     ServiceDb serviceDb = new ServiceDb();
@@ -14,11 +17,14 @@ public class MainServiceService {
 
     }
     public void deleteMainService(String name) {
-        MainService mainService=serviceDb.findServiceByName(name);
+        MainService mainService=serviceDb.findServiceByName(name).get(0);
         serviceDb.deleteMainService(mainService);
     }
     public MainServiceDto findMainServiceByName(String name){
-        MainService mainService = serviceDb.findServiceByName(name);
-        return mainServiceMapper.convertMainServiceToMainServiceDto(mainService);
+        List<MainService> mainService = serviceDb.findServiceByName(name);
+        if (mainService.size()!=0){
+            throw new InputException("MainService Exist");
+        }
+        return mainServiceMapper.convertMainServiceToMainServiceDto(mainService.get(0));
     }
 }
