@@ -18,7 +18,7 @@ public class Validator {
     }
     public boolean checkEmailPatternAndExistence(String email){
         if (email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")){
-            if (customerService.findCustomerByEmail(email).equals(null)){
+            if (customerService.checkExistenceOfCustomerByEmail(email)== false){
                 return true;
             }
             throw new InputException("Email Exist");

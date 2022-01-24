@@ -54,7 +54,7 @@ public class CustomerDb {
         return customerList.size();
     }
 
-    public Customer findCustomerByEmail(String email) {
+    public List<Customer> findCustomerByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String hql = "from Customer s where s.email = :email";
@@ -63,7 +63,7 @@ public class CustomerDb {
         List<Customer> customerList = query.getResultList();
         transaction.commit();
         session.close();
-        return customerList.get(0);
+        return customerList;
     }
 
     public void updateCustomer(Customer customer) {

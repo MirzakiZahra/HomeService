@@ -29,7 +29,7 @@ public class OrderService {
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
         Orders orders = new Orders(cost, explanation, beggingDate, endingTime, address);
-        Customer customer = customerDb.findCustomerByEmail(email);
+        Customer customer = customerDb.findCustomerByEmail(email).get(0);
         SubService subService = subServiceService.checkExistOfSubServiceById(subServiceId);
         orders.setCustomer(customer);
         orders.setSubService(subService);

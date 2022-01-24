@@ -30,18 +30,18 @@ public class CustomerService {
     }
 
     public void removeCustomer(String email) {
-        Customer customer = customerDb.findCustomerByEmail(email);
+        Customer customer = customerDb.findCustomerByEmail(email).get(0);
         customerDb.deleteCustomer(customer);
     }
 
     public void changePassword(String password, String email) {
-        Customer customer = customerDb.findCustomerByEmail(email);
+        Customer customer = customerDb.findCustomerByEmail(email).get(0);
         customer.setPassword(password);
         customerDb.updateCustomer(customer);
     }
 
     public void withdrawCreditOfCustomer(String email, float money) {
-        Customer customer = customerDb.findCustomerByEmail(email);
+        Customer customer = customerDb.findCustomerByEmail(email).get(0);
         float temp = customer.getCredit() - money;
         customer.setCredit(temp);
         customerDb.updateCustomer(customer);
@@ -58,12 +58,16 @@ public class CustomerService {
         return customerHashMap;
     }
 
-    public Customer findCustomerByEmail(String email) {
-        Customer customer = customerDb.findCustomerByEmail(email);
-        if (customer.equals(null)) {
-            throw new InputException("Your Email DoesNot Exist");
+    public boolean checkExistenceOfCustomerByEmail(String email) {
+        List<Customer> customerList = customerDb.findCustomerByEmail(email);
+        if (customerList.size()==0) {
+            return false;
         }
-        return customer;
+        return true;
+    }
+    public Customer findCustomerByEmail(String email) {
+        List<Customer> customerList = customerDb.findCustomerByEmail(email);
+        return customerList.get(0);
     }
 
     public void checkOldPassword(String password) {
