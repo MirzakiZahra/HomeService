@@ -21,7 +21,7 @@ public class Address {
     private String country;
     private String plaque;
     private String street;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Customer customer;
 
 }
