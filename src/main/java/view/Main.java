@@ -331,8 +331,11 @@ public class Main {
         System.out.println("Please Enter FirstName, Lastname,username");
         adminService.createAdmin(scanner.next(),scanner.next(),email
                 ,password,scanner.next());
+    }
+    public static void expertSignUp(String email, String password) {
+        System.out.println("Please Enter FirstName, Lastname");
 
-
+        expertService.createExpert(scanner.next(),scanner.next(),email);
     }
 }
 
