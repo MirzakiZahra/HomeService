@@ -291,8 +291,9 @@ public class Main {
                         System.out.println("Please enter name Of SubService");
                         SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
                         System.out.println("Please Enter SubServiceName & Description&price");
-                        subServiceService.createSubService(scanner.next()
+                        SubService subService =subServiceService.createSubServices(scanner.next()
                                 , scanner.next(), scanner.nextFloat(), mainServices.get(0));
+                        mainServices.get(0).getSubServiceSet().add(subService);
 
                     }
 
@@ -306,11 +307,11 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("Please enter name Of MainService");
-                     mainServices = mainServiceService.findMainService(scanner.next());
+                    mainServices = mainServiceService.findMainService(scanner.next());
                     System.out.println("Please enter name Of SubService");
                     SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
                     System.out.println("Please enter name Of SubService");
-                   SubService subService= subServiceService.deleteSubServiceByName(scanner.next());
+                    SubService subService = subServiceService.deleteSubServiceByName(scanner.next());
                     mainServices.get(0).getSubServiceSet().remove(subService);
 
                     break;
@@ -322,6 +323,20 @@ public class Main {
             }
         } while (!"5".equals(managerInput));
 
+
+
+    }
+    public static void adminSignUp(String email, String password) {
+        System.out.println("Please Enter  country, " +
+                "city, street, plaque, FirstName, Lastname");
+        AddressDto addressDto = AddressDto.builder()
+                .country(scanner.next())
+                .city(scanner.next())
+                .street(scanner.next())
+                .plaque(scanner.next())
+                .build();
+        customerService.createCustomer(scanner.next(), scanner.next(), addressDto, email,
+                password);
 
     }
 }

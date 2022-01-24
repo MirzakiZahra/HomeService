@@ -38,6 +38,12 @@ public class SubServiceService {
         SubService subService = new SubService(name, description, price, mainService);
         subServiceDb.addSubService(subService);
     }
+    public SubService createSubServices(String name, String description,
+                                 float price, MainService mainService) {
+        SubService subService = new SubService(name, description, price, mainService);
+        subServiceDb.addSubService(subService);
+        return subService;
+    }
 
     public void deleteSubService(String name) {
         SubService subService=subServiceDb.findSubServiceByName(name);
