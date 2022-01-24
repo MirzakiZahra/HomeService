@@ -100,6 +100,7 @@ public class Main {
                                     System.out.println("Please Enter Password");
                                     String password = scanner.next();
                                     if (validator.checkPassword(password) == true) {
+                                        //todo
                                         customerSignUp(email, password);
                                     }
                                 }

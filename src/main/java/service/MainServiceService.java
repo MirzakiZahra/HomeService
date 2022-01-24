@@ -1,6 +1,7 @@
 package service;
 
 import dao.ServiceDb;
+import dto.MainServiceDto;
 import model.services.MainService;
 
 public class MainServiceService {
@@ -14,7 +15,6 @@ public class MainServiceService {
     public void deleteMainService(String name) {
         MainService mainService=serviceDb.findServiceByName(name);
         serviceDb.deleteMainService(mainService);
-
-
     }
+
 }

@@ -26,7 +26,6 @@ public class CustomerService {
         customer.getAddress().add(address);
         address.setCustomer(customer);
         addressService.createAddress(address);
-        //customerDb.addCustomer(customer);
     }
 
     public void removeCustomer(String email) {
