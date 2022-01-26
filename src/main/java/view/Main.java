@@ -45,7 +45,40 @@ public class Main {
             firstInput = scanner.next();
             switch (firstInput) {
                 case "1":
-                    //todo
+                    System.out.println("1.Login\n2.SignUp\n3.Exit");
+                    String firstAdminInput = new String();
+                    do {
+                        System.out.println("1.Login\n2.SignUp\n3.Exit");
+                        firstAdminInput = scanner.next();
+                        switch (firstAdminInput) {
+                            case "1":
+                                System.out.println("Please Enter Your Email");
+                                String email = scanner.next();
+                                if (validator.checkEmail(email) == true) {
+                                    Customer customer = customerService.findCustomerByEmail(email);
+                                    adminMenu(customer);
+                                }
+                                break;
+                            case "2":
+                                System.out.println("Please Enter your Email");
+                                email = scanner.next();
+                                if (validator.checkEmailPatternAndExistence(email) == true) {
+                                    System.out.println("Please Enter Password");
+                                    String password = scanner.next();
+                                    if (validator.checkPassword(password) == true) {
+                                        adminSignUp(email, password);
+                                    }
+                                }
+                                break;
+                            case "3":
+                                break;
+                            default:
+                                System.out.println("Please Enter Valid Number");
+                                break;
+                        }
+                        System.out.println("");
+                    } while (!"3".equals(firstCustomerInput));
+
                 case "2":
                     String firstCustomerInput = new String();
                     do {
