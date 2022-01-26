@@ -42,7 +42,6 @@ public class ExpertService {
     public void deleteExpert(String email) {
         Expert expert = expertDb.findExpertByEmail(email).get(0);
         expertDb.deleteExpert(expert);
-
     }
 
  /*   public void addMoneyForExpert(String email, float money) {
@@ -55,15 +54,7 @@ public class ExpertService {
     public void printShowExpert() {
         List<Expert> experts = expertDb.showExpert();
         experts.stream().forEach(i -> System.out.println(i.getLastName()));
-
     }
-
-    public void deleteExpertFromService(String subServiceName, String email) {
-        Expert expert = expertDb.findExpertByEmail(email).get(0);
-        MainService mainService = serviceDb.findServiceByName(subServiceName).get(0);
-        expert.getSubServiceList().remove(mainService);
-    }
-
     public void updateExpertScore(float score, int orderID) {
         Orders orders = orderService.findOrderByIdReturnOrder(orderID);
         Expert expert = orders.getPreferredOffer().getExpert();

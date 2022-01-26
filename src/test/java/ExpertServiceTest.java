@@ -74,7 +74,7 @@ public class ExpertServiceTest {
         SubServiceDb subServiceDb = new SubServiceDb();
         subServiceDb.addSubService(subService);
         expertService.addServiceToExpert("ali@gmail.com",subService.getName());
-        expertService.deleteExpertFromService("Home Cleaning","ali@gmail.com");
+        expertService.deleteServiceFromExpert("ali@gmail.com","Home Cleaning");
         ExpertDto expertDto = expertService.findExpertByEmail("ali@gmail.com");
         Assertions.assertNotEquals(null,expertDto.
                 getSubServiceList());
