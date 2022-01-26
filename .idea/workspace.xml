@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/CustomerServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CustomerServiceTest.class" afterDir="false" />
     </list>
@@ -90,7 +90,7 @@
       <workItem from="1642832447862" duration="39000" />
       <workItem from="1642987048778" duration="10867000" />
       <workItem from="1643053229261" duration="6272000" />
-      <workItem from="1643153631768" duration="11020000" />
+      <workItem from="1643153631768" duration="12825000" />
     </task>
     <servers />
   </component>
@@ -114,7 +114,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/CustomerServiceTest.java</url>
-          <line>38</line>
+          <line>31</line>
           <properties class="CustomerServiceTest" method="saveCustomerThenCheckExistence">
             <option name="EMULATED" value="true" />
           </properties>

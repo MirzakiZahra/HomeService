@@ -25,13 +25,6 @@ public class CustomerServiceTest {
                 .plaque("5")
                 .build();
         addressList.add(address);
-        customer=Customer.builder()
-                .firstName("Zahra")
-                .lastName("Mirzaki")
-                .email("mirzaki@gmail.com")
-                .password("Z@hra123456")
-                .address(addressList)
-                .build();
         customerService.createCustomer("Zahra","Mirzaki",
                 addressDto,"mirzaki1@gmail.com","Z@hra123456");
     }
