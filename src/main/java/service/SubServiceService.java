@@ -35,17 +35,11 @@ public class SubServiceService {
     }
 
     public void createSubService(String name, String description,
-                                 float price, MainService mainService) {
-        SubService subService = new SubService(name, description, price, mainService);
+                                 float price, String mainServiceName) {
+        List<MainService> mainServices = mainServiceService.findMainService(mainServiceName);
+        SubService subService = new SubService(name, description, price, mainServices.get(0));
         subServiceDb.addSubService(subService);
     }
-    public SubService createSubServices(String name, String description,
-                                 float price, MainService mainService) {
-        SubService subService = new SubService(name, description, price, mainService);
-        subServiceDb.addSubService(subService);
-        return subService;
-    }
-
     public void deleteSubService(String name) {
         SubService subService=subServiceDb.findSubServiceByName(name);
         subServiceDb.deleteSubService(subService);

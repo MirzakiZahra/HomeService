@@ -6,10 +6,8 @@ import dao.ServiceDb;
 import dao.SubServiceDb;
 import dto.*;
 import model.enums.OrderStatus;
-import model.services.MainService;
 import model.services.SubService;
 import model.user.Customer;
-import model.user.Manager;
 import service.*;
 import util.Validator;
 
@@ -34,8 +32,7 @@ public class Main {
     static MainServiceService mainServiceService = new MainServiceService();
     static SubServiceDb subServiceDb = new SubServiceDb();
     static SubServiceDto subServiceDto = new SubServiceDto();
-    static AdminService adminService=new AdminService();
-
+    static AdminService adminService = new AdminService();
 
 
     public static void main(String[] args) {
@@ -57,7 +54,7 @@ public class Main {
                                 System.out.println("Please Enter Your Email");
                                 String email = scanner.next();
                                 if (validator.checkEmail(email) == true) {
-                                    AdminDto adminDto=adminService.findManagerByEmail(email);
+                                    AdminDto adminDto = adminService.findManagerByEmail(email);
                                     adminMenu(adminDto);
                                 }
                                 break;
@@ -311,28 +308,17 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("Please enter name Of MainService");
-                    List<MainService> mainServices = mainServiceService.findMainService(scanner.next());
-                    if (mainServices.size() != 0) {
-                        System.out.println("Please enter name Of SubService");
-                        SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
+                    String mainServiceName = scanner.next();
+                    if (mainServiceService.checkExistOfMainService(mainServiceName) == true) {
                         System.out.println("Please Enter SubServiceName & Description&price");
                         subServiceService.createSubService(scanner.next()
-                                , scanner.next(), scanner.nextFloat(), mainServices.get(0));
+                                , scanner.next(), scanner.nextFloat(), mainServiceName);
                     } else {
-                        System.out.println("Please enter name Of MainService");
-                        mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
-                        System.out.println("Please Enter MainServiceName");
-                        mainServiceService.createMainService(scanner.next());
-                        System.out.println("Please enter name Of SubService");
-                        SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
+                        mainServiceService.createMainService(mainServiceName);
                         System.out.println("Please Enter SubServiceName & Description&price");
-                        SubService subService =subServiceService.createSubServices(scanner.next()
-                                , scanner.next(), scanner.nextFloat(), mainServices.get(0));
-                        mainServices.get(0).getSubServiceSet().add(subService);
-
+                        subServiceService.createSubService(scanner.next()
+                                , scanner.next(), scanner.nextFloat(), mainServiceName);
                     }
-
-
                     break;
                 case "3":
                     System.out.println("Please enter name Of MainService");
@@ -359,17 +345,18 @@ public class Main {
         } while (!"5".equals(managerInput));
 
 
-
     }
+
     public static void adminSignUp(String email, String password) {
         System.out.println("Please Enter FirstName, Lastname,username");
-        adminService.createAdmin(scanner.next(),scanner.next(),email
-                ,password,scanner.next());
+        adminService.createAdmin(scanner.next(), scanner.next(), email
+                , password, scanner.next());
     }
+
     public static void expertSignUp(String email, String password) {
         System.out.println("Please Enter FirstName, Lastname");
 
-        expertService.createExpert(scanner.next(),scanner.next(),email);
+        expertService.createExpert(scanner.next(), scanner.next(), email);
     }
 }
 
