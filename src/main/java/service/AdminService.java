@@ -2,6 +2,7 @@ package service;
 
 import dao.AdminDb;
 import dto.AddressDto;
+import dto.ManagerDto;
 import model.Address;
 import model.user.Customer;
 import model.user.Manager;
@@ -17,9 +18,9 @@ public class AdminService {
        Manager manager = new Manager( firstName,lastName,  email,  password,username);
         adminDb.addAdmin(manager);
     }
-    public Manager findManagerByEmail(String email) {
-
+    public ManagerDto findManagerByEmail(String email) {
         List<Manager> managerList = adminDb.findManagerByEmail(email);
+        
         return managerList.get(0);
     }
 }

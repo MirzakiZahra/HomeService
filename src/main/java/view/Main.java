@@ -9,6 +9,7 @@ import model.enums.OrderStatus;
 import model.services.MainService;
 import model.services.SubService;
 import model.user.Customer;
+import model.user.Manager;
 import service.*;
 import util.Validator;
 
@@ -36,6 +37,7 @@ public class Main {
     static AdminService adminService=new AdminService();
 
 
+
     public static void main(String[] args) {
 
         System.out.println("************welcome********");
@@ -55,8 +57,8 @@ public class Main {
                                 System.out.println("Please Enter Your Email");
                                 String email = scanner.next();
                                 if (validator.checkEmail(email) == true) {
-                                    Customer customer = customerService.findCustomerByEmail(email);
-                                    adminMenu(customer);
+                                    Manager manager=adminService.findManagerByEmail(email);
+                                    adminMenu(manager);
                                 }
                                 break;
                             case "2":
