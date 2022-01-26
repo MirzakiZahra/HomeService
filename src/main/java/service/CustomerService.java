@@ -41,9 +41,13 @@ public class CustomerService {
 
     public void withdrawCreditOfCustomer(String email, float money) {
         Customer customer = customerDb.findCustomerByEmail(email).get(0);
-        float temp = customer.getCredit() - money;
-        customer.setCredit(temp);
-        customerDb.updateCustomer(customer);
+        if (customer.getCredit()<money){
+            throw new InputException("Your Credit is Not Enough");
+        }else {
+            float temp = customer.getCredit() - money;
+            customer.setCredit(temp);
+            customerDb.updateCustomer(customer);
+        }
     }
 
     public HashMap<String, List<String>> showCustomer() {
