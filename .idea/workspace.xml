@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CustomerServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CustomerServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,25 +36,32 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.CustomerServiceTest.checkOldPassword">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="HomeService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit">
     <configuration name="CustomerServiceTest.checkOldPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
       <option name="METHOD_NAME" value="checkOldPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
+      <option name="METHOD_NAME" value="giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceTest.giveCustomerEmailAndNewPass_changePass_newPass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
+      <option name="METHOD_NAME" value="giveCustomerEmailAndNewPass_changePass_newPass" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -80,10 +89,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" />
+        <item itemvalue="JUnit.CustomerServiceTest.giveCustomerEmailAndNewPass_changePass_newPass" />
         <item itemvalue="JUnit.CustomerServiceTest.checkOldPassword" />
         <item itemvalue="JUnit.CustomerServiceTest.saveCustomerThenRemoveAndThenCheckExistence" />
         <item itemvalue="JUnit.CustomerServiceTest.saveCustomerThenCheckExistence" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -99,7 +109,7 @@
       <workItem from="1642832447862" duration="39000" />
       <workItem from="1642987048778" duration="10867000" />
       <workItem from="1643053229261" duration="6272000" />
-      <workItem from="1643153631768" duration="13703000" />
+      <workItem from="1643153631768" duration="14316000" />
     </task>
     <servers />
   </component>

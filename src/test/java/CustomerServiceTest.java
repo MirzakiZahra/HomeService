@@ -43,5 +43,18 @@ public class CustomerServiceTest {
         Assertions.assertEquals(result.getMessage(),"Password is Incorrect");
     }
     @Test
-    void
+    void giveCustomerEmailAndNewPass_changePass_newPass(){
+        customerService.changePassword("12345","mirzaki1@gmail.com");
+        Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
+        Assertions.assertEquals(customer.getPassword(),"12345");
+    }
+    @Test
+    void giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit(){
+        Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
+        customer.setCredit(5000);
+        customerService.updateCustomer(customer);
+        customerService.withdrawCreditOfCustomer("mirzaki1@gmail.com",2000);
+        customer=customerService.findCustomerByEmail("mirzaki1@gmail.com");
+        Assertions.assertEquals(3000,customer.getCredit());
+    }
 }

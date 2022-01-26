@@ -77,4 +77,7 @@ public class CustomerService {
             throw new InputException("Password is Incorrect");
         }
     }
+    public void updateCustomer(Customer customer){
+        customerDb.updateCustomer(customer);
+    }
 }
