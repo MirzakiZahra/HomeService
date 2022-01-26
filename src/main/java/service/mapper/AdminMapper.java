@@ -11,6 +11,8 @@ public class AdminMapper {
                 .firstName(manager.getFirstName())
                 .lastName(manager.getLastName())
                 .email(manager.getEmail())
+                .password(manager.getPassword())
+                .username(manager.getUsername())
                 .build();
         return adminDto;
     }
