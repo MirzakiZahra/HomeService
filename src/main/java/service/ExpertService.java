@@ -124,7 +124,8 @@ public class ExpertService {
             throw new InputException("Expert DoesNot Exist");
         }else{
             Expert expert = expertDb.findExpertByEmail(email).get(0);
-            if (checkExistenceOfSubServiceInExpertSubServiceList(expert,subServiceName)==true){
+            if (checkExistenceOfSubServiceInExpertSubServiceList(
+                    expertMapper.convertExpertToExpertDto(expert),subServiceName)==true){
                 SubService foundSubService = subServiceDb.findSubServiceByName(subServiceName);
                 expert.getSubServiceList().remove(foundSubService);
                 expertDb.updateExpert(expert);
@@ -133,8 +134,8 @@ public class ExpertService {
             }
         }
     }
-    public boolean checkExistenceOfSubServiceInExpertSubServiceList(Expert expert,String subServiceName){
-        for (SubService subService:expert.getSubServiceList()){
+    public boolean checkExistenceOfSubServiceInExpertSubServiceList(ExpertDto expertDto,String subServiceName){
+        for (SubService subService:expertDto.getSubServiceList()){
             if (subService.getName().equalsIgnoreCase(subServiceName)){
                 return true;
             }
