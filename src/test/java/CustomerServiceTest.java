@@ -40,4 +40,10 @@ public class CustomerServiceTest {
                 customerService.findCustomerByEmail("mirzaki1@gmail.com"));
         Assertions.assertEquals(result.getMessage(),"Customer Not Exist");
     }
+    @Test
+    void checkOldPasswordByWrongPass(){
+        InputException result = Assertions.assertThrows(InputException.class, () ->
+                customerService.checkOldPassword("123456"));
+        Assertions.assertEquals(result.getMessage(),"Password is Incorrect");
+    }
 }
