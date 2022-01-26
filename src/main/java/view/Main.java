@@ -5,6 +5,7 @@ import dao.OrderDb;
 import dao.ServiceDb;
 import dao.SubServiceDb;
 import dto.*;
+import exception.InputException;
 import model.enums.OrderStatus;
 import model.user.Customer;
 import service.*;
@@ -43,7 +44,6 @@ public class Main {
             firstInput = scanner.next();
             switch (firstInput) {
                 case "1":
-                    System.out.println("1.Login\n2.SignUp\n3.Exit");
                     String firstAdminInput = new String();
                     do {
                         System.out.println("1.Login\n2.SignUp\n3.Exit");
@@ -126,15 +126,13 @@ public class Main {
                                 }
                                 break;
                             case "2":
-                                //todo
                                 System.out.println("Please Enter your Email");
                                 email = scanner.next();
                                 if (validator.checkEmailPatternAndExistence(email) == true) {
                                     System.out.println("Please Enter Password");
                                     String password = scanner.next();
                                     if (validator.checkPassword(password) == true) {
-                                        //todo
-                                        customerSignUp(email, password);
+                                        expertSignUp(email, password);
                                     }
                                 }
                                 break;
@@ -302,12 +300,16 @@ public class Main {
             switch (managerInput) {
                 case "1":
                     System.out.println("Please enter name Of MainService");
-                    MainServiceDto mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
-                    mainServiceService.createMainService(mainServiceDto.getName());
+                    String mainServiceName = scanner.next();
+                    if (mainServiceService.checkExistOfMainService(mainServiceName) == true) {
+                        throw new InputException("MainService Exist");
+                    } else {
+                        mainServiceService.createMainService(mainServiceName);
+                    }
                     break;
                 case "2":
                     System.out.println("Please enter name Of MainService");
-                    String mainServiceName = scanner.next();
+                    mainServiceName = scanner.next();
                     if (mainServiceService.checkExistOfMainService(mainServiceName) == true) {
                         System.out.println("Please Enter SubServiceName & Description&price");
                         subServiceService.createSubService(scanner.next()
@@ -334,8 +336,6 @@ public class Main {
 
             }
         } while (!"5".equals(managerInput));
-
-
     }
 
     public static void adminSignUp(String email, String password) {

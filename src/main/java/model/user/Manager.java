@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Manager extends Person {
     public Manager(String firstName, String lastName, String email, String password, String username) {
         super(firstName, lastName, email, password, username);
