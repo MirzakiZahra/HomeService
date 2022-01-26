@@ -74,9 +74,8 @@ public class Main {
                                 System.out.println("Please Enter Valid Number");
                                 break;
                         }
-                        System.out.println("");
                     } while (!"3".equals(firstAdminInput));
-
+                    break;
                 case "2":
                     String firstCustomerInput = new String();
                     do {
@@ -110,7 +109,7 @@ public class Main {
                         }
                         System.out.println("");
                     } while (!"3".equals(firstCustomerInput));
-
+                    break;
                 case "3":
                     String firstExpertInput = new String();
                     do {
@@ -144,6 +143,7 @@ public class Main {
                         }
                         System.out.println("");
                     } while (!"3".equals(firstExpertInput));
+                    break;
                 case "4":
                     break;
                 default:
