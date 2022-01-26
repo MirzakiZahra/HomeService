@@ -64,5 +64,20 @@ public class ExpertServiceTest {
         Assertions.assertEquals(true,
                 expertService.checkExistenceOfSubServiceInExpertSubServiceList(expertDto,"Home Cleaning"));
     }
+    @Test
+    void giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService(){
+        MainService mainService = new MainService("Cleaning");
+        ServiceDb serviceDb = new ServiceDb();
+        serviceDb.addMainService(mainService);
+        SubService subService = new SubService("Home Cleaning","Clean Home",
+                2000,mainService);
+        SubServiceDb subServiceDb = new SubServiceDb();
+        subServiceDb.addSubService(subService);
+        expertService.addServiceToExpert("ali@gmail.com",subService.getName());
+        expertService.deleteExpertFromService("Home Cleaning","ali@gmail.com");
+        ExpertDto expertDto = expertService.findExpertByEmail("ali@gmail.com");
+        Assertions.assertNotEquals(null,expertDto.
+                getSubServiceList());
+    }
 }
 
