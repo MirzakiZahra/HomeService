@@ -79,7 +79,7 @@ public class OrderService {
       Customer customer=  orders.getCustomer();
       if(customer.getCredit()<= orders.getPrice()){
           customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
-          Expert expert = expertDb.findExpertByEmail(expertEmail);
+          Expert expert = expertDb.findExpertByEmail(expertEmail).get(0);
           float temp = expert.getCreditExpert() + orders.getPrice();
           expert.setCreditExpert(temp);
           expertDb.updateExpert(expert);

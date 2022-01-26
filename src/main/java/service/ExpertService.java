@@ -30,12 +30,15 @@ public class ExpertService {
         expertDb.addExpert(expert);
     }
     public ExpertDto findExpertByEmail(String email){
-        Expert expert = expertDb.findExpertByEmail(email);
-        return expertMapper.convertExpertToExpertDto(expert);
+        List<Expert> expertList = expertDb.findExpertByEmail(email);
+        if (expertList.size()==0){
+            throw new InputException("Expert DoesNot Exist");
+        }
+        return expertMapper.convertExpertToExpertDto(expertList.get(0));
     }
 
     public void deleteExpert(String email) {
-        Expert expert = expertDb.findExpertByEmail(email);
+        Expert expert = expertDb.findExpertByEmail(email).get(0);
         expertDb.deleteExpert(expert);
 
     }
@@ -54,7 +57,7 @@ public class ExpertService {
     }
 
     public void deleteExpertFromService(String subServiceName, String email) {
-        Expert expert = expertDb.findExpertByEmail(email);
+        Expert expert = expertDb.findExpertByEmail(email).get(0);
         MainService mainService = serviceDb.findServiceByName(subServiceName).get(0);
         expert.getSubServiceList().remove(mainService);
     }
@@ -83,7 +86,7 @@ public class ExpertService {
         }
     }
     public void changePassword(String password, String email) {
-        Expert expert = expertDb.findExpertByEmail(email);
+        Expert expert = expertDb.findExpertByEmail(email).get(0);
         expert.setPassword(password);
         expertDb.updateExpert(expert);
     }

@@ -17,7 +17,7 @@ public class OfferService {
 
     public void createOffer(float price, int orderId, float basePrice,
                             Date creationDate, Date startDate, String email) {
-        Expert expert = expertDb.findExpertByEmail(email);
+        Expert expert = expertDb.findExpertByEmail(email).get(0);
         Orders orders = orderDb.findOrderById(orderId);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, orders, creationDate, startDate);

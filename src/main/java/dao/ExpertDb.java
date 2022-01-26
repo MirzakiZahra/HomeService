@@ -29,7 +29,7 @@ public class ExpertDb {
         session.close();
     }
 
-    public Expert findExpertByEmail(String email) {
+    public List<Expert> findExpertByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         String hql = "from Expert s where s.email = :email";
@@ -38,7 +38,7 @@ public class ExpertDb {
         List<Expert> expertList = query.getResultList();
         transaction.commit();
         session.close();
-        return expertList.get(0);
+        return expertList;
     }
 
     public void updateExpert(Expert expert) {
