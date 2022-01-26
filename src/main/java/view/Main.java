@@ -321,8 +321,6 @@ public class Main {
                     }
                     break;
                 case "3":
-                    System.out.println("Please enter name Of MainService");
-                    mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
                     System.out.println("Please Enter MainServiceName");
                     mainServiceService.deleteMainService(scanner.next());
                     break;

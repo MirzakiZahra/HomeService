@@ -18,8 +18,11 @@ public class MainServiceService {
     }
 
     public void deleteMainService(String name) {
-        MainService mainService = serviceDb.findServiceByName(name).get(0);
-        serviceDb.deleteMainService(mainService);
+        List<MainService> mainServiceList = serviceDb.findServiceByName(name);
+        if (mainServiceList.size()==0){
+            throw new InputException("Main Service Does Not Exit");
+        }
+        serviceDb.deleteMainService(mainServiceList.get(0));
     }
     public void updateMainService(MainService mainService){
         serviceDb.updateMainService(mainService);
