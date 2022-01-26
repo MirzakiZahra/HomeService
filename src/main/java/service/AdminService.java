@@ -20,7 +20,7 @@ public class AdminService {
     }
     public ManagerDto findManagerByEmail(String email) {
         List<Manager> managerList = adminDb.findManagerByEmail(email);
-        
+
         return managerList.get(0);
     }
 }
