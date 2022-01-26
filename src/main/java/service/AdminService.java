@@ -3,11 +3,13 @@ package service;
 import dao.AdminDb;
 import dto.AdminDto;
 import model.user.Manager;
+import service.mapper.AdminMapper;
 
 import java.util.List;
 
 public class AdminService {
     AdminDb adminDb=new AdminDb();
+    AdminMapper adminMapper = new AdminMapper();
     public void createAdmin(String firstName, String lastName, String email
             , String password,String username) {
        Manager manager = new Manager( firstName,lastName,  email,  password,username);
@@ -15,7 +17,6 @@ public class AdminService {
     }
     public AdminDto findManagerByEmail(String email) {
         List<Manager> managerList = adminDb.findManagerByEmail(email);
-
-        return managerList.get(0);
+        return adminMapper.convertAdminToAdminDto(managerList.get(0));
     }
 }
