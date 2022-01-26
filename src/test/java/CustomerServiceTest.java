@@ -27,26 +27,26 @@ public class CustomerServiceTest {
     @Test
     void giveExistCustomerEmail_findByEmail_customerName(){
         Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
-        Assertions.assertEquals(customer.getFirstName(),"Zahra");
+        Assertions.assertEquals("Zahra",customer.getFirstName());
     }
     @Test
     void giveExistUser_removeAndFindCustomer_ThrowException(){
         customerService.removeCustomer("mirzaki1@gmail.com");
         InputException result = Assertions.assertThrows(InputException.class, () ->
                 customerService.findCustomerByEmail("mirzaki1@gmail.com"));
-        Assertions.assertEquals(result.getMessage(),"Customer Not Exist");
+        Assertions.assertEquals("Customer Not Exist",result.getMessage());
     }
     @Test
     void giveWrongPass_checkOldPassword_ThrowException(){
         InputException result = Assertions.assertThrows(InputException.class, () ->
                 customerService.checkOldPassword("123456"));
-        Assertions.assertEquals(result.getMessage(),"Password is Incorrect");
+        Assertions.assertEquals("Password is Incorrect",result.getMessage());
     }
     @Test
     void giveCustomerEmailAndNewPass_changePass_newPass(){
         customerService.changePassword("12345","mirzaki1@gmail.com");
         Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
-        Assertions.assertEquals(customer.getPassword(),"12345");
+        Assertions.assertEquals("12345",customer.getPassword());
     }
     @Test
     void giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit(){
