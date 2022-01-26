@@ -21,6 +21,9 @@ public class MainServiceService {
         MainService mainService = serviceDb.findServiceByName(name).get(0);
         serviceDb.deleteMainService(mainService);
     }
+    public void updateMainService(MainService mainService){
+        serviceDb.updateMainService(mainService);
+    }
 
     public MainServiceDto findMainServiceByName(String name) {
         List<MainService> mainService = serviceDb.findServiceByName(name);

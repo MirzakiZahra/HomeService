@@ -39,6 +39,7 @@ public class SubServiceService {
         List<MainService> mainServices = mainServiceService.findMainService(mainServiceName);
         SubService subService = new SubService(name, description, price, mainServices.get(0));
         mainServices.get(0).getSubServiceSet().add(subService);
+        mainServiceService.updateMainService(mainServices.get(0));
         subServiceDb.addSubService(subService);
     }
     public void deleteSubService(String name) {
