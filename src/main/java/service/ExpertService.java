@@ -119,7 +119,20 @@ public class ExpertService {
             subServiceDb.updateSubService(foundSubService);
         }
     }
-
+    public void deleteServiceFromExpert(String email, String subServiceName){
+        if (expertDb.findExpertByEmail(email).size()==0){
+            throw new InputException("Expert DoesNot Exist");
+        }else{
+            Expert expert = expertDb.findExpertByEmail(email).get(0);
+            if (checkExistenceOfSubServiceInExpertSubServiceList(expert,subServiceName)==true){
+                SubService foundSubService = subServiceDb.findSubServiceByName(subServiceName);
+                expert.getSubServiceList().remove(foundSubService);
+                expertDb.updateExpert(expert);
+                foundSubService.getExpertSet().remove(expert);
+                subServiceDb.updateSubService(foundSubService);
+            }
+        }
+    }
     public boolean checkExistenceOfSubServiceInExpertSubServiceList(Expert expert,String subServiceName){
         for (SubService subService:expert.getSubServiceList()){
             if (subService.getName().equalsIgnoreCase(subServiceName)){
