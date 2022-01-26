@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ExpertService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ExpertServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ExpertServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/ExpertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ExpertService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ExpertServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ExpertServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/services/SubService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/services/SubService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.ExpertServiceTest.giveExpertEmailAndSubServiceName_addSubServiceToExpert_AccurateSubService">
+  <component name="RunManager" selected="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCreditMoreThanCurrentCredit_throwException">
     <configuration name="CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCreditMoreThanCurrentCredit_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,11 +86,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCreditMoreThanCurrentCredit_throwException" />
         <item itemvalue="JUnit.ExpertServiceTest.giveExpertEmailAndSubServiceName_addSubServiceToExpert_AccurateSubService" />
         <item itemvalue="JUnit.ExpertServiceTest.giveExistExpert_removeAndFindExpert_ThrowException" />
         <item itemvalue="JUnit.ExpertServiceTest.giveNotExistExpertEmail_findExpertByEmail_throwException" />
         <item itemvalue="JUnit.ExpertServiceTest.giveExpertEmail_findExpertByEmail_trueExpertName" />
-        <item itemvalue="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCreditMoreThanCurrentCredit_throwException" />
       </list>
     </recent_temporary>
   </component>
@@ -110,7 +106,7 @@
       <workItem from="1642832447862" duration="39000" />
       <workItem from="1642987048778" duration="10867000" />
       <workItem from="1643053229261" duration="6272000" />
-      <workItem from="1643153631768" duration="18638000" />
+      <workItem from="1643153631768" duration="18861000" />
     </task>
     <servers />
   </component>

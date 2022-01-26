@@ -22,7 +22,7 @@ public class SubService {
     private float price;
     @ManyToOne
     private MainService mainService;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Expert> expertSet = new HashSet<>();
     @OneToMany(mappedBy = "subService" ,fetch = FetchType.LAZY)
     private Set<Orders> ordersSet = new HashSet<>();
