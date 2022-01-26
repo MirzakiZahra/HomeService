@@ -57,4 +57,13 @@ public class CustomerServiceTest {
         customer=customerService.findCustomerByEmail("mirzaki1@gmail.com");
         Assertions.assertEquals(3000,customer.getCredit());
     }
+    @Test
+    void giveCustomerEmailAndCredit_withdrawCreditMoreThanCurrentCredit_throwException(){
+        Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
+        customer.setCredit(5000);
+        customerService.updateCustomer(customer);
+        InputException result = Assertions.assertThrows(InputException.class, () ->
+                customerService.withdrawCreditOfCustomer("mirzaki1@gmail.com",8000));
+        Assertions.assertEquals("Your Credit is Not Enough",result.getMessage());
+    }
 }
