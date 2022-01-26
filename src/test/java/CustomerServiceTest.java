@@ -1,6 +1,7 @@
 import dto.AddressDto;
 import model.Address;
 import model.user.Customer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import service.CustomerService;
@@ -8,7 +9,7 @@ import service.CustomerService;
 import java.util.ArrayList;
 import java.util.List;
 
-/*public class CustomerServiceTest {
+public class CustomerServiceTest {
     Customer customer = new Customer();
     Address address = new Address();
     AddressDto addressDto = new AddressDto();
@@ -35,5 +36,7 @@ import java.util.List;
     void saveCustomerThenCheckExistence(){
         customerService.createCustomer("Zahra","Mirzaki",
                 addressDto,"mirzaki1@gmail.com","Z@hra123456");
+        Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
+        Assertions.assertEquals(customer.getFirstName(),"Zahra");
     }
-}*/
+}
