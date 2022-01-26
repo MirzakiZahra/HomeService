@@ -53,10 +53,12 @@ public class SubServiceService {
         }
         return subServiceMapper.convertSubServiceToSubServiceDto(subServices.get(0));
     }
-    public SubService deleteSubServiceByName(String name) {
+    public void deleteSubServiceByName(String name) {
         SubService subService=subServiceDb.findSubServiceByName(name);
+        MainService mainService = subService.getMainService();
+        mainService.getSubServiceSet().remove(subService);
+        mainServiceService.updateMainService(mainService);
         subServiceDb.deleteSubService(subService);
-        return subService;
     }
 
 }

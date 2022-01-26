@@ -6,7 +6,6 @@ import dao.ServiceDb;
 import dao.SubServiceDb;
 import dto.*;
 import model.enums.OrderStatus;
-import model.services.SubService;
 import model.user.Customer;
 import service.*;
 import util.Validator;
@@ -325,14 +324,8 @@ public class Main {
                     mainServiceService.deleteMainService(scanner.next());
                     break;
                 case "4":
-                    System.out.println("Please enter name Of MainService");
-                    mainServices = mainServiceService.findMainService(scanner.next());
                     System.out.println("Please enter name Of SubService");
-                    SubServiceDto subServiceDto = subServiceService.findSubServiceByName(scanner.next());
-                    System.out.println("Please enter name Of SubService");
-                    SubService subService = subServiceService.deleteSubServiceByName(scanner.next());
-                    mainServices.get(0).getSubServiceSet().remove(subService);
-
+                    subServiceService.deleteSubServiceByName(scanner.next());
                     break;
                 case "5":
                     break;
