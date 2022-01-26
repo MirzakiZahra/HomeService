@@ -2,14 +2,17 @@ package model.services;
 
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 public class MainService {
     @Id
@@ -17,7 +20,7 @@ public class MainService {
     private int id;
     @Column(unique = true)
     private String name;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mainService")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "mainService")
     private Set<SubService> subServiceSet = new HashSet<>();
 
     public MainService(String name) {

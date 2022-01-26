@@ -1,8 +1,6 @@
 package model.services;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import model.Orders;
 import model.user.Expert;
 
@@ -11,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 public class SubService {
     @Id
