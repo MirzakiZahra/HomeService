@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,7 @@
       <workItem from="1642832447862" duration="39000" />
       <workItem from="1642987048778" duration="10867000" />
       <workItem from="1643053229261" duration="6272000" />
-      <workItem from="1643153631768" duration="12976000" />
+      <workItem from="1643153631768" duration="13703000" />
     </task>
     <servers />
   </component>
@@ -122,7 +123,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/CustomerServiceTest.java</url>
-          <line>31</line>
+          <line>27</line>
           <properties class="CustomerServiceTest" method="saveCustomerThenCheckExistence">
             <option name="EMULATED" value="true" />
           </properties>
