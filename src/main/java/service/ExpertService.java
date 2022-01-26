@@ -55,7 +55,7 @@ public class ExpertService {
 
     public void deleteExpertFromService(String subServiceName, String email) {
         Expert expert = expertDb.findExpertByEmail(email);
-        MainService mainService = serviceDb.findServiceByName(subServiceName);
+        MainService mainService = serviceDb.findServiceByName(subServiceName).get(0);
         expert.getSubServiceList().remove(mainService);
     }
 

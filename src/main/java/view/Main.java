@@ -57,8 +57,8 @@ public class Main {
                                 System.out.println("Please Enter Your Email");
                                 String email = scanner.next();
                                 if (validator.checkEmail(email) == true) {
-                                    Manager manager=adminService.findManagerByEmail(email);
-                                    adminMenu(manager);
+                                    AdminDto adminDto=adminService.findManagerByEmail(email);
+                                    adminMenu(adminDto);
                                 }
                                 break;
                             case "2":
@@ -79,7 +79,7 @@ public class Main {
                                 break;
                         }
                         System.out.println("");
-                    } while (!"3".equals(firstCustomerInput));
+                    } while (!"3".equals(firstAdminInput));
 
                 case "2":
                     String firstCustomerInput = new String();
@@ -298,7 +298,7 @@ public class Main {
     }
 
     public static void adminMenu(AdminDto managerDto) {
-        String managerInput = scanner.next();
+        String managerInput = new String();
         do {
             System.out.println("1.Add MainService\n2.Add SubService\n3.Delete MainService" +
                     "\n4.Delete SubService\n5.Exit");
@@ -307,8 +307,7 @@ public class Main {
                 case "1":
                     System.out.println("Please enter name Of MainService");
                     MainServiceDto mainServiceDto = mainServiceService.findMainServiceByName(scanner.next());
-                    System.out.println("Please Enter MainServiceName");
-                    mainServiceService.createMainService(scanner.next());
+                    mainServiceService.createMainService(mainServiceDto.getName());
                     break;
                 case "2":
                     System.out.println("Please enter name Of MainService");

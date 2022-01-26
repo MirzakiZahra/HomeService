@@ -14,6 +14,7 @@ import java.util.List;
 public class SubServiceService {
     SubServiceDb subServiceDb = new SubServiceDb();
     SubServiceMapper subServiceMapper=new SubServiceMapper();
+    MainServiceService mainServiceService = new MainServiceService();
 
     public List<SubServiceDto> showAllSubService() {
         List<SubService> subServiceList = subServiceDb.getAllSubService();

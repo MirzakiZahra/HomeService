@@ -15,7 +15,6 @@ public class MainServiceService {
     public void createMainService(String name) {
         MainService mainService = new MainService(name);
         serviceDb.addMainService(mainService);
-
     }
 
     public void deleteMainService(String name) {
@@ -33,6 +32,12 @@ public class MainServiceService {
 
     public List<MainService> findMainService(String name) {
         return serviceDb.findServiceByName(name);
-
+    }
+    public boolean checkExistOfMainService(String name){
+        List<MainService> mainServiceList = serviceDb.findServiceByName(name);
+        if (mainServiceList.size()!=0){
+            return false;
+        }
+        return true;
     }
 }
