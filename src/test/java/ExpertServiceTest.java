@@ -1,5 +1,6 @@
 import dto.AddressDto;
 import dto.ExpertDto;
+import exception.InputException;
 import model.user.Expert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,5 +19,12 @@ public class ExpertServiceTest {
         ExpertDto expertDto = expertService.findExpertByEmail("ali@gmail.com");
         Assertions.assertEquals("Ali",expertDto.getFirstName());
     }
+    @Test
+    void giveNotExistExpertEmail_findExpertByEmail_throwException(){
+        InputException result = Assertions.assertThrows(InputException.class, () ->
+                expertService.findExpertByEmail("aliyavari@gmail.com"));
+        Assertions.assertEquals("Expert DoesNot Exist",result.getMessage());
+    }
+    
 }
 
