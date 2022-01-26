@@ -2,6 +2,7 @@ package dao;
 
 import model.services.MainService;
 import model.services.SubService;
+import model.user.Expert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -72,6 +73,13 @@ public class SubServiceDb {
         transaction.commit();
         session.close();
         return subServices;
+    }
+    public void updateSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(subService);
+        transaction.commit();
+        session.close();
     }
 
 }

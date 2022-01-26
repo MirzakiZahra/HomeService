@@ -1,5 +1,6 @@
 package service;
 
+import dao.SubServiceDb;
 import exception.InputException;
 import dao.ExpertDb;
 import dao.OrderDb;
@@ -24,6 +25,7 @@ public class ExpertService {
     ExpertDto expertDto=new ExpertDto();
     OrderDb orderDb=new OrderDb();
     OrderMapper orderMapper=new OrderMapper();
+    SubServiceDb subServiceDb = new SubServiceDb();
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
@@ -103,6 +105,19 @@ public class ExpertService {
 
         }
         return orderMapper.convertOrderToOrderDto(ordersList);
+
+    }
+    public void addServiceToExpert(String email, String subServiceName){
+        if (expertDb.findExpertByEmail(email).size()==0){
+            throw new InputException("Expert DoesNot Exist");
+        }else{
+            Expert expert = expertDb.findExpertByEmail(email).get(0);
+            SubService foundSubService = subServiceDb.findSubServiceByName(subServiceName);
+            expert.getSubServiceList().add(foundSubService);
+            expertDb.updateExpert(expert);
+            foundSubService.getExpertSet().add(expert);
+            subServiceDb.updateSubService(foundSubService);
+        }
 
     }
 
