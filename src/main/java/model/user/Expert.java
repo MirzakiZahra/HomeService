@@ -19,7 +19,7 @@ public class Expert extends Person {
     @Column(name = "photo", columnDefinition = "BLOB", length = 300000)
     private byte[] photo;
     private float score;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<SubService> subServiceList = new ArrayList<>();
     @OneToMany(mappedBy = "expert",fetch = FetchType.LAZY)
     private List<Offer> offerList = new ArrayList<>();
