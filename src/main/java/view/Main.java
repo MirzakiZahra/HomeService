@@ -297,7 +297,7 @@ public class Main {
         } while (!"6".equals(expertInput));
     }
 
-    public static void adminMenu(ManagerDto managerDto) {
+    public static void adminMenu(AdminDto managerDto) {
         String managerInput = scanner.next();
         do {
             System.out.println("1.Add MainService\n2.Add SubService\n3.Delete MainService" +
