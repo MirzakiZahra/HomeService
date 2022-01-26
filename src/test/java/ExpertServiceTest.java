@@ -25,6 +25,12 @@ public class ExpertServiceTest {
                 expertService.findExpertByEmail("aliyavari@gmail.com"));
         Assertions.assertEquals("Expert DoesNot Exist",result.getMessage());
     }
-    
+    @Test
+    void giveExistExpert_removeAndFindExpert_ThrowException(){
+        expertService.deleteExpert("ali@gmail.com");
+        InputException result = Assertions.assertThrows(InputException.class, () ->
+                expertService.findExpertByEmail("ali@gmail.com"));
+        Assertions.assertEquals("Expert DoesNot Exist",result.getMessage());
+    }
 }
 
