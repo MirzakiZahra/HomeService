@@ -1,11 +1,16 @@
+import dao.ServiceDb;
+import dao.SubServiceDb;
 import dto.AddressDto;
 import dto.ExpertDto;
 import exception.InputException;
+import model.services.MainService;
+import model.services.SubService;
 import model.user.Expert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import service.ExpertService;
+import service.MainServiceService;
 
 public class ExpertServiceTest {
     ExpertService expertService = new ExpertService();
@@ -31,6 +36,19 @@ public class ExpertServiceTest {
         InputException result = Assertions.assertThrows(InputException.class, () ->
                 expertService.findExpertByEmail("ali@gmail.com"));
         Assertions.assertEquals("Expert DoesNot Exist",result.getMessage());
+    }
+    @Test
+    void giveExpertEmailAndSubServiceName_addSubServiceToExpert_AccurateSubService(){
+        MainService mainService = new MainService("Cleaning");
+        ServiceDb serviceDb = new ServiceDb();
+        serviceDb.addMainService(mainService);
+        SubService subService = new SubService("Home Cleaning","Clean Home",
+                2000,mainService);
+        SubServiceDb subServiceDb = new SubServiceDb();
+        subServiceDb.addSubService(subService);
+        expertService.addServiceToExpert("ali@gmail.com",subService.getName());
+        ExpertDto expertDto = expertService.findExpertByEmail("ali@gmail.com");
+        Assertions.assertEquals("Home Cleaning",expertDto.getSubServiceList().get(0));
     }
 }
 

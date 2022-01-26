@@ -118,7 +118,6 @@ public class ExpertService {
             foundSubService.getExpertSet().add(expert);
             subServiceDb.updateSubService(foundSubService);
         }
-
     }
 
 
