@@ -120,5 +120,13 @@ public class ExpertService {
         }
     }
 
+    public boolean checkExistenceOfSubServiceInExpertSubServiceList(Expert expert,String subServiceName){
+        for (SubService subService:expert.getSubServiceList()){
+            if (subService.getName().equalsIgnoreCase(subServiceName)){
+                return true;
+            }
+        }
+        throw new InputException("Expert hasn't such Service");
+    }
 
 }
