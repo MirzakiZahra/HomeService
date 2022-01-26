@@ -1,4 +1,5 @@
 import dto.AddressDto;
+import exception.InputException;
 import model.Address;
 import model.user.Customer;
 import org.junit.jupiter.api.Assertions;
@@ -31,12 +32,19 @@ public class CustomerServiceTest {
                 .password("Z@hra123456")
                 .address(addressList)
                 .build();
+        customerService.createCustomer("Zahra","Mirzaki",
+                addressDto,"mirzaki1@gmail.com","Z@hra123456");
     }
     @Test
     void saveCustomerThenCheckExistence(){
-        customerService.createCustomer("Zahra","Mirzaki",
-                addressDto,"mirzaki1@gmail.com","Z@hra123456");
         Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
         Assertions.assertEquals(customer.getFirstName(),"Zahra");
+    }
+    @Test
+    void saveCustomerThenRemoveAndThenCheckExistence(){
+        customerService.removeCustomer("mirzaki1@gmail.com");
+        InputException result = Assertions.assertThrows(InputException.class, () ->
+                customerService.findCustomerByEmail("mirzaki1@gmail.com"));
+        Assertions.assertEquals(result.getMessage(),"Customer Not Exist");
     }
 }

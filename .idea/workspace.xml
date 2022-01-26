@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aaab01a0-82a3-4293-a8cb-4200595a0caf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CustomerServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CustomerServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.CustomerServiceTest.saveCustomerThenCheckExistence">
+  <component name="RunManager" selected="JUnit.CustomerServiceTest.saveCustomerThenRemoveAndThenCheckExistence">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.Main" />
       <module name="HomeService" />
@@ -58,8 +60,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerServiceTest.saveCustomerThenRemoveAndThenCheckExistence" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
+      <option name="METHOD_NAME" value="saveCustomerThenRemoveAndThenCheckExistence" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerServiceTest.saveCustomerThenRemoveAndThenCheckExistence" />
         <item itemvalue="JUnit.CustomerServiceTest.saveCustomerThenCheckExistence" />
         <item itemvalue="Application.Main" />
       </list>
@@ -77,7 +90,7 @@
       <workItem from="1642832447862" duration="39000" />
       <workItem from="1642987048778" duration="10867000" />
       <workItem from="1643053229261" duration="6272000" />
-      <workItem from="1643153631768" duration="9952000" />
+      <workItem from="1643153631768" duration="11020000" />
     </task>
     <servers />
   </component>
@@ -101,7 +114,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/CustomerServiceTest.java</url>
-          <line>34</line>
+          <line>38</line>
           <properties class="CustomerServiceTest" method="saveCustomerThenCheckExistence">
             <option name="EMULATED" value="true" />
           </properties>

@@ -66,6 +66,9 @@ public class CustomerService {
     }
     public Customer findCustomerByEmail(String email) {
         List<Customer> customerList = customerDb.findCustomerByEmail(email);
+        if (customerList.size()==0){
+            throw new InputException("Customer Not Exist");
+        }
         return customerList.get(0);
     }
 
