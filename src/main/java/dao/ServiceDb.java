@@ -1,5 +1,6 @@
 package dao;
 
+import model.Orders;
 import model.services.MainService;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -23,6 +24,13 @@ public class ServiceDb {
         transaction.commit();
         session.close();
         return mainServices;
+    }
+    public void updateMainService(MainService mainService){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(mainService);
+        transaction.commit();
+        session.close();
     }
 
     public void deleteMainService(MainService mainService) {
