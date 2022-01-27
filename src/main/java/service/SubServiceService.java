@@ -30,7 +30,7 @@ public class SubServiceService {
         if (subServiceDb.checkExistOfSubServiceById(id).equals(null)) {
             throw new InputException("Wrong ID");
         }
-        return checkExistOfSubServiceById(id);
+        return subServiceDb.checkExistOfSubServiceById(id);
     }
 
     public void createSubService(String name, String description,
