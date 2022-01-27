@@ -29,9 +29,9 @@ public class Orders {
     @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;
     private String explanation;
-    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date beggingDate;
-    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date endingTime;
     private String address;
     @OneToMany(mappedBy = "orders")

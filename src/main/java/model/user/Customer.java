@@ -20,7 +20,7 @@ import java.util.*;
 public class Customer extends Person {
     @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Address>  address;
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date registerTime;
     private float credit;
