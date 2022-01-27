@@ -1,7 +1,6 @@
 package model.services;
 
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

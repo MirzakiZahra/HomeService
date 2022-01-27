@@ -3,9 +3,6 @@ package service.mapper;
 import dto.OfferDto;
 import model.Offer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class OfferMapper {
     public OfferDto convertOfferToOfferDto(Offer offer){
         OfferDto offerDto=OfferDto.builder()

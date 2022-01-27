@@ -1,8 +1,6 @@
 package service.mapper;
 
 import dto.AdminDto;
-import dto.CustomerDto;
-import model.user.Customer;
 import model.user.Manager;
 
 public class AdminMapper {

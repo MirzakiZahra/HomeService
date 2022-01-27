@@ -1,6 +1,5 @@
 package dao;
 
-import model.Orders;
 import model.services.MainService;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;

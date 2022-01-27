@@ -3,9 +3,6 @@ package service.mapper;
 import dto.CustomerDto;
 import model.user.Customer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CustomerMapper {
     public CustomerDto convertCustomerToCustomerDto(Customer customer) {
         CustomerDto customerDto = CustomerDto.builder()
