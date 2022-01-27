@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Orders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,17 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.OrderServiceTest.giveOrderId_findOrderById_trueOrder">
-    <configuration name="MainServiceServiceTest.giveDuplicateMainServiceName_addIt_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainServiceServiceTest" />
-      <option name="METHOD_NAME" value="giveDuplicateMainServiceName_addIt_throwException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus">
     <configuration name="MainServiceServiceTest.giveExistMainServiceName_checkExistenceOfIt_returnAccurateName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
@@ -62,6 +49,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MainServiceServiceTest" />
       <option name="METHOD_NAME" value="giveNewMainServiceName_updateItThenFindIt_throwException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
+      <option name="METHOD_NAME" value="giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,11 +86,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
         <item itemvalue="JUnit.OrderServiceTest.giveOrderId_findOrderById_trueOrder" />
         <item itemvalue="JUnit.SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveExistMainServiceName_checkExistenceOfIt_returnAccurateName" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveNewMainServiceName_updateItThenFindIt_throwException" />
-        <item itemvalue="JUnit.MainServiceServiceTest.giveDuplicateMainServiceName_addIt_throwException" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +104,7 @@
       <updated>1643243946980</updated>
       <workItem from="1643243967659" duration="9678000" />
       <workItem from="1643270392826" duration="4598000" />
-      <workItem from="1643311464284" duration="2396000" />
+      <workItem from="1643311464284" duration="3786000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 import dto.AddressDto;
 import model.Orders;
+import model.enums.OrderStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
@@ -46,6 +47,12 @@ public class OrderServiceTest {
         Assertions.assertEquals(convertStringToDate("12/11/1400,21:00"),
                 order.getEndingTime());
         Assertions.assertEquals("mirzaki1@gmail.com",order.getCustomer().getEmail());
+    }
+    @Test
+    void giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus(){
+        orderService.changeOrderStatus(OrderStatus.DONE,1);
+        Orders orders = orderService.findOrderByIdReturnOrder(1);
+        Assertions.assertEquals(OrderStatus.DONE,orders.getOrderStatus());
     }
     public static Date convertStringToDate(String date) {
         Date date1 = new Date();
