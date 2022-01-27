@@ -23,10 +23,10 @@ public class Offer {
     private Orders orders;
     @CreationTimestamp
     private Date creationDate;
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
     private String explanation;
-    @CreationTimestamp
+    @Temporal(TemporalType.TIME)
     private Date durationOfWork;
     @Builder
     public Offer(float price, Expert expert, Orders orders, Date creationDate, Date startDate) {
