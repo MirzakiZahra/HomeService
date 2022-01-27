@@ -22,9 +22,9 @@ public class OrderService {
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
-    CustomerService customerService=new CustomerService();
-    ExpertDb expertDb =new ExpertDb();
-  //  ExpertService expertService=new ExpertService();
+    CustomerService customerService = new CustomerService();
+    ExpertDb expertDb = new ExpertDb();
+    //  ExpertService expertService=new ExpertService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
@@ -74,18 +74,18 @@ public class OrderService {
         orders.setOrderStatus(orderStatus);
         orderDb.updateOrder(orders);
     }
-    public void transferMoney(int orderId,String expertEmail){
+
+    public void transferMoney(int orderId, String expertEmail) {
         Orders orders = findOrderByIdReturnOrder(orderId);
-      Customer customer=  orders.getCustomer();
-      if(customer.getCredit()<= orders.getPrice()){
-          customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
-          Expert expert = expertDb.findExpertByEmail(expertEmail).get(0);
-          float temp = expert.getCreditExpert() + orders.getPrice();
-          expert.setCreditExpert(temp);
-          expertDb.updateExpert(expert);
-      }
-      else {
-          throw new EnoughCredit("Not Enough Money");
-      }
+        Customer customer = orders.getCustomer();
+        if (customer.getCredit() >= orders.getPrice()) {
+            customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
+            Expert expert = expertDb.findExpertByEmail(expertEmail).get(0);
+            float temp = expert.getCreditExpert() + orders.getPrice();
+            expert.setCreditExpert(temp);
+            expertDb.updateExpert(expert);
+        } else {
+            throw new EnoughCredit("Not Enough Money");
+        }
     }
 }

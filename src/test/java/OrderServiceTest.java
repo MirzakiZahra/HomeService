@@ -3,6 +3,7 @@ import dto.AddressDto;
 import model.Offer;
 import model.Orders;
 import model.enums.OrderStatus;
+import model.user.Customer;
 import model.user.Expert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,6 +70,16 @@ public class OrderServiceTest {
         orderService.setOfferForSpecificOrder(1);
         orders=orderService.findOrderByIdReturnOrder(1);
         Assertions.assertEquals(1,orders.getPreferredOffer().getId());
+    }
+    @Test
+    void giveCustomerAndOrder_transferMoney_accurateCredit(){
+        expertService.createExpert("Ali", "Alavi", "ali@gmail.com");
+        Customer customer = customerService.findCustomerByEmail("mirzaki1@gmail.com");
+        customer.setCredit(150000);
+        customerService.updateCustomer(customer);
+        orderService.transferMoney(1,"ali@gmail.com");
+        Assertions.assertEquals(70000,
+                customerService.findCustomerByEmail("mirzaki1@gmail.com").getCredit());
     }
     public static Date convertStringToDate(String date) {
         Date date1 = new Date();
