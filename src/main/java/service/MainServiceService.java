@@ -37,6 +37,9 @@ public class MainServiceService {
     }
 
     public List<MainService> findMainService(String name) {
+        if (serviceDb.findServiceByName(name).size()==0){
+            throw new InputException("MAinService DoesNot Exist");
+        }
         return serviceDb.findServiceByName(name);
     }
     public boolean checkExistOfMainService(String name){
