@@ -1,5 +1,9 @@
 import dto.AddressDto;
+import model.Orders;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import service.CustomerService;
 import service.MainServiceService;
 import service.OrderService;
@@ -31,6 +35,17 @@ public class OrderServiceTest {
         orderService.createOrder(80000,"Nothing to say",
                 convertStringToDate("12/11/1400,20:00"), convertStringToDate("12/11/1400,21:00"),
                         "Tehran","mirzaki1@gmail.com",1);
+    }
+    @Test
+    void giveOrderId_findOrderById_trueOrder(){
+        Orders order = orderService.findOrderByIdReturnOrder(1);
+        Assertions.assertEquals(80000,order.getPrice());
+        Assertions.assertEquals("Nothing to say",order.getExplanation());
+        Assertions.assertEquals(convertStringToDate("12/11/1400,20:00"),
+                order.getBeggingDate());
+        Assertions.assertEquals(convertStringToDate("12/11/1400,21:00"),
+                order.getEndingTime());
+        Assertions.assertEquals("mirzaki1@gmail.com",order.getCustomer().getEmail());
     }
     public static Date convertStringToDate(String date) {
         Date date1 = new Date();
