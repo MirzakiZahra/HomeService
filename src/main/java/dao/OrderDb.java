@@ -61,7 +61,7 @@ public class OrderDb {
     public List<Orders> returnCustomerDoneOrder(int customerId){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Orders o where o.customer = : customerId and o.orderStatus = 'Done'";
+        String hql = "from Orders o where o.customer.id = : customerId and o.orderStatus = 'Done'";
         Query query = session.createQuery(hql);
         query.setParameter("customerId", customerId);
         List<Orders> ordersList = query.getResultList();
