@@ -81,6 +81,11 @@ public class OrderServiceTest {
         Assertions.assertEquals(70000,
                 customerService.findCustomerByEmail("mirzaki1@gmail.com").getCredit());
     }
+    @Test
+    void giveCustomer_showCustomerDoneOrder_accurateOrder(){
+        orderService.changeOrderStatus(OrderStatus.DONE,1);
+        Assertions.assertEquals(1,orderService.customerDoneOrder(1).get(0).getId());
+    }
     public static Date convertStringToDate(String date) {
         Date date1 = new Date();
         SimpleDateFormat formatter =

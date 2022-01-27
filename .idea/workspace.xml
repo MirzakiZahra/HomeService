@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/OrderService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +34,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.OrderServiceTest.giveCustomerAndOrder_transferMoney_accurateCredit">
+  <component name="RunManager" selected="JUnit.OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder">
     <configuration name="OrderServiceTest.giveCustomerAndOrder_transferMoney_accurateCredit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
       <option name="METHOD_NAME" value="giveCustomerAndOrder_transferMoney_accurateCredit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
+      <option name="METHOD_NAME" value="giveCustomer_showCustomerDoneOrder_accurateOrder" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,23 +85,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SubServiceServiceTest" />
-      <option name="METHOD_NAME" value="giveSubServiceName_deleteItThenFindIt_throwException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder" />
         <item itemvalue="JUnit.OrderServiceTest.giveCustomerAndOrder_transferMoney_accurateCredit" />
         <item itemvalue="JUnit.OrderServiceTest.giveOrderAndOffer_setOfferForOrder_offerSetAccurately" />
         <item itemvalue="JUnit.OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
         <item itemvalue="JUnit.OrderServiceTest.giveOrderId_findOrderById_trueOrder" />
-        <item itemvalue="JUnit.SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" />
       </list>
     </recent_temporary>
   </component>
@@ -105,7 +105,7 @@
       <updated>1643243946980</updated>
       <workItem from="1643243967659" duration="9678000" />
       <workItem from="1643270392826" duration="4598000" />
-      <workItem from="1643311464284" duration="9127000" />
+      <workItem from="1643311464284" duration="10331000" />
     </task>
     <servers />
   </component>
