@@ -7,22 +7,31 @@ import service.MainServiceService;
 
 public class MainServiceServiceTest {
     MainServiceService mainServiceService = new MainServiceService();
+
     @BeforeEach
-    void init(){
+    void init() {
         MainService mainService = new MainService("Repairing");
         mainServiceService.createMainService(mainService.getName());
     }
+
     @Test
-    void giveMainServiceName_addItAndThenGetIt_AccurateMainService(){
+    void giveMainServiceName_addItAndThenGetIt_AccurateMainService() {
         Assertions.assertEquals("Repairing",
                 mainServiceService.findMainService("Repairing").get(0).getName());
     }
+
     @Test
-    void giveMainServiceName_addItThenDeleteITThenFindIt_throwException(){
+    void giveMainServiceName_addItThenDeleteITThenFindIt_throwException() {
         mainServiceService.deleteMainService("Repairing");
         InputException result = Assertions.assertThrows(InputException.class, () ->
-               mainServiceService.findMainService("Repairing"));
-        Assertions.assertEquals("MainService DoesNot Exist",result.getMessage());
+                mainServiceService.findMainService("Repairing"));
+        Assertions.assertEquals("MainService DoesNot Exist", result.getMessage());
     }
-    
+
+    @Test
+    void giveDuplicateMainServiceName_addIt_throwException() {
+        Exception result = Assertions.assertThrows(Exception.class, () ->
+                mainServiceService.createMainService("Repairing"));
+        Assertions.assertEquals("could not execute statement", result.getMessage());
+    }
 }
