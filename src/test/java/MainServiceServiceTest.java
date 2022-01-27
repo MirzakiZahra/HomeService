@@ -43,4 +43,8 @@ public class MainServiceServiceTest {
                 mainServiceService.findMainService("Repairing"));
         Assertions.assertEquals("MainService DoesNot Exist",result.getMessage());
     }
+    @Test
+    void giveExistMainServiceName_checkExistenceOfIt_returnTrue(){
+        Assertions.assertEquals(true,mainServiceService.checkExistOfMainService("Repairing"));
+    }
 }
