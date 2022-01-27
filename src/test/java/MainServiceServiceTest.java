@@ -34,4 +34,13 @@ public class MainServiceServiceTest {
                 mainServiceService.createMainService("Repairing"));
         Assertions.assertEquals("could not execute statement", result.getMessage());
     }
+    @Test
+    void giveNewMainServiceName_updateItThenFindIt_throwException(){
+        MainService mainService = mainServiceService.findMainService("Repairing").get(0);
+        mainService.setName("RepairingSomeThingElse");
+        mainServiceService.updateMainService(mainService);
+        InputException result = Assertions.assertThrows(InputException.class, () ->
+                mainServiceService.findMainService("Repairing"));
+        Assertions.assertEquals("MainService DoesNot Exist",result.getMessage());
+    }
 }
