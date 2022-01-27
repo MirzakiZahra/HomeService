@@ -47,8 +47,8 @@ public class SubServiceService {
     }
     public SubServiceDto findSubServiceByName(String name) {
         List<SubService>subServices=subServiceDb.findSubServiceByNameReturnList(name);
-        if (subServices.size() != 0) {
-            throw new InputException("MainService Exist");
+        if (subServices.size() == 0) {
+            throw new InputException("SubService DosesNot Exist");
         }
         return subServiceMapper.convertSubServiceToSubServiceDto(subServices.get(0));
     }

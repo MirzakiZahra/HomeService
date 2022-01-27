@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/SubServiceServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/SubServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/SubServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SubServiceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SubServiceServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.MainServiceServiceTest.giveExistMainServiceName_checkExistenceOfIt_returnAccurateName">
+  <component name="RunManager" selected="JUnit.SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException">
     <configuration name="MainServiceServiceTest.giveDuplicateMainServiceName_addIt_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
@@ -49,16 +49,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MainServiceServiceTest" />
       <option name="METHOD_NAME" value="giveExistMainServiceName_checkExistenceOfIt_returnAccurateName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainServiceServiceTest.giveMainServiceName_addItAndThenGetIt_AccurateMainService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainServiceServiceTest" />
-      <option name="METHOD_NAME" value="giveMainServiceName_addItAndThenGetIt_AccurateMainService" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,13 +74,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SubServiceServiceTest" />
+      <option name="METHOD_NAME" value="giveSubServiceName_deleteItThenFindIt_throwException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveExistMainServiceName_checkExistenceOfIt_returnAccurateName" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveNewMainServiceName_updateItThenFindIt_throwException" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveDuplicateMainServiceName_addIt_throwException" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveMainServiceName_addItThenDeleteITThenFindIt_throwException" />
-        <item itemvalue="JUnit.MainServiceServiceTest.giveMainServiceName_addItAndThenGetIt_AccurateMainService" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +102,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643243946980</updated>
-      <workItem from="1643243967659" duration="8277000" />
+      <workItem from="1643243967659" duration="8800000" />
     </task>
     <servers />
   </component>
