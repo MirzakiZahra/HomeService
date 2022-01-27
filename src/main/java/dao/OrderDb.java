@@ -35,7 +35,7 @@ public class OrderDb {
     public Orders findOrderById(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Orders orders = session.load(Orders.class, id);
+        Orders orders = session.get(Orders.class, id);
         transaction.commit();
         session.close();
         return orders;

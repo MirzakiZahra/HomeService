@@ -1,21 +1,20 @@
 package model.user;
 
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import model.Address;
 import model.Orders;
 import model.enums.UserStatus;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 
 public class Customer extends Person {
@@ -28,7 +27,8 @@ public class Customer extends Person {
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;
     @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER)
-    private List<Orders> orders = new ArrayList<>();
+    //@Fetch(value = FetchMode.SUBSELECT)
+    private Set<Orders> orders = new HashSet<>();
     @Builder
     public Customer(String firstName, String lastName, String email, String password, List<Address> address) {
         super(firstName, lastName, email, password);

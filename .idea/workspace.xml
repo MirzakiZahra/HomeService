@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/OrderDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/OrderDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Orders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Orders$OrdersBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Orders$OrdersBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Orders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/user/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/user/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/OrderService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +110,8 @@
       <option name="presentableId" value="Default" />
       <updated>1643243946980</updated>
       <workItem from="1643243967659" duration="9678000" />
-      <workItem from="1643270392826" duration="2870000" />
+      <workItem from="1643270392826" duration="4598000" />
+      <workItem from="1643311464284" duration="1800000" />
     </task>
     <servers />
   </component>

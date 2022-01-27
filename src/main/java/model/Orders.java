@@ -1,8 +1,6 @@
 package model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import model.enums.OrderStatus;
 import model.services.SubService;
 import model.user.Customer;
@@ -13,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Data
+@Setter
+@Getter
 @Entity
 @NoArgsConstructor
 public class Orders {
