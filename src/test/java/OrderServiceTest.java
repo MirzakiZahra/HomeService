@@ -1,14 +1,14 @@
+import dao.ExpertDb;
 import dto.AddressDto;
+import model.Offer;
 import model.Orders;
 import model.enums.OrderStatus;
+import model.user.Expert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import service.CustomerService;
-import service.MainServiceService;
-import service.OrderService;
-import service.SubServiceService;
+import service.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +20,9 @@ public class OrderServiceTest {
     CustomerService customerService = new CustomerService();
     MainServiceService mainServiceService = new MainServiceService();
     SubServiceService subServiceService = new SubServiceService();
+    ExpertService expertService = new ExpertService();
+    ExpertDb expertDb = new ExpertDb();
+    OfferService offerService = new OfferService();
     @BeforeEach
     void init(){
         addressDto = AddressDto.builder()
@@ -53,6 +56,19 @@ public class OrderServiceTest {
         orderService.changeOrderStatus(OrderStatus.DONE,1);
         Orders orders = orderService.findOrderByIdReturnOrder(1);
         Assertions.assertEquals(OrderStatus.DONE,orders.getOrderStatus());
+    }
+    @Test
+    void giveOrderAndOffer_setOfferForOrder_offerSetAccurately(){
+        expertService.createExpert("Ali", "Alavi", "ali@gmail.com");
+        Expert expert = expertDb.findExpertByEmail("ali@gmail.com").get(0);
+        Orders orders = orderService.findOrderByIdReturnOrder(1);
+        offerService.createOffer(10000,1,8000,
+                convertStringToDate("10/11/1400,20:30"),convertStringToDate("10/11/1400,20:30"),
+                "ali@gmail.com");
+        Offer offer = offerService.findOfferById(1);
+        orderService.setOfferForSpecificOrder(1);
+        orders=orderService.findOrderByIdReturnOrder(1);
+        Assertions.assertEquals(1,orders.getPreferredOffer().getId());
     }
     public static Date convertStringToDate(String date) {
         Date date1 = new Date();
