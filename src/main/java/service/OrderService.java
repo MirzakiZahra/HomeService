@@ -8,6 +8,7 @@ import exception.EnoughCredit;
 import model.Offer;
 import model.Orders;
 import model.enums.OrderStatus;
+import model.enums.TypeOfTransaction;
 import model.services.SubService;
 import model.user.Customer;
 import model.user.Expert;
@@ -24,7 +25,7 @@ public class OrderService {
     OfferService offerService = new OfferService();
     CustomerService customerService = new CustomerService();
     ExpertDb expertDb = new ExpertDb();
-    //  ExpertService expertService=new ExpertService();
+    TransactionService transactionService = new TransactionService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
@@ -84,6 +85,8 @@ public class OrderService {
             float temp = expert.getCreditExpert() + orders.getPrice();
             expert.setCreditExpert(temp);
             expertDb.updateExpert(expert);
+            transactionService.createTransaction(orders, TypeOfTransaction.DEPOSIT);
+            transactionService.createTransaction(orders,TypeOfTransaction.WITHDRAW);
         } else {
             throw new EnoughCredit("Not Enough Money");
         }
