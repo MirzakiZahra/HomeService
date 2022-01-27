@@ -27,7 +27,7 @@ public class Customer extends Person {
     private float credit;
     @Enumerated(EnumType.STRING)
     UserStatus userStatue;
-    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER)
     private List<Orders> orders = new ArrayList<>();
     @Builder
     public Customer(String firstName, String lastName, String email, String password, List<Address> address) {
