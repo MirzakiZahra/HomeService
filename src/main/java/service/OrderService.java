@@ -21,7 +21,7 @@ import java.util.List;
 @Service
 public class OrderService {
     @Autowired
-    OrderRepository orderRepository = new OrderRepository();
+    OrderRepository orderRepository ;
     CustomerRepository customerRepository;
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
@@ -38,19 +38,19 @@ public class OrderService {
         orders.setCustomer(customer);
         orders.setSubService(subService);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
-        orderRepository.addCOrder(orders);
+        orderRepository.save(orders);
         customer.getOrders().add(orders);
         customerRepository.save(customer);
     }
 
     public List<OrderDto> showAllOrder() {
-        List<Orders> ordersList = orderRepository.showAllOrder();
+        List<Orders> ordersList = orderRepository.findAllOrders();
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(ordersList);
         return orderDtoList;
     }
 
     public OrderDto findOrderById(int id) {
-        Orders orders = orderRepository.findOrderById(id);
+        Orders orders = orderRepository.findById(id);
         OrderDto orderDto = orderMapper.convertOrderToOrderDto(orders);
         return orderDto;
     }
@@ -60,23 +60,23 @@ public class OrderService {
         Orders orders = offer.getOrders();
         orders.setPreferredOffer(offer);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
-        orderRepository.updateOrder(orders);
+        orderRepository.save(orders);
     }
 
     public List<OrderDto> customerDoneOrder(int customerId) {
-        List<Orders> ordersList = orderRepository.returnCustomerDoneOrder(customerId);
+        List<Orders> ordersList = orderRepository.findOrdersByOrderStatusAndCustomer(customerId);
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(ordersList);
         return orderDtoList;
     }
 
     public Orders findOrderByIdReturnOrder(int id) {
-        return orderRepository.findOrderById(id);
+        return orderRepository.findById(id);
     }
 
     public void changeOrderStatus(OrderStatus orderStatus, int orderId) {
         Orders orders = findOrderByIdReturnOrder(orderId);
         orders.setOrderStatus(orderStatus);
-        orderRepository.updateOrder(orders);
+        orderRepository.save(orders);
     }
 
     public void transferMoney(int orderId, String expertEmail) {

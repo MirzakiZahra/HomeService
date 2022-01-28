@@ -16,12 +16,12 @@ public class OfferService {
     @Autowired
     ExpertRepository expertRepository;
     OfferRepository offerRepository;
-    OrderRepository orderRepository = new OrderRepository();
+    OrderRepository orderRepository ;
 
     public void createOffer(float price, int orderId, float basePrice,
                             Date creationDate, Date startDate, String email) {
         Expert expert = expertRepository.findAllByEmail(email).get(0);
-        Orders orders = orderRepository.findOrderById(orderId);
+        Orders orders = orderRepository.findById(orderId);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, orders, creationDate, startDate);
         offerRepository.save(offer);

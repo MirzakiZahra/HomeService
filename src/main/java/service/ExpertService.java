@@ -25,7 +25,7 @@ public class ExpertService {
     OrderService orderService = new OrderService();
     ExpertMapper expertMapper = new ExpertMapper();
     ExpertDto expertDto = new ExpertDto();
-    OrderRepository orderRepository = new OrderRepository();
+    OrderRepository orderRepository;
     OrderMapper orderMapper = new OrderMapper();
     SubServiceRepository subServiceRepository;
 
@@ -81,7 +81,7 @@ public class ExpertService {
     public List<OrderDto> expertRelatedOrders() {
         List<SubService> subServices = expertDto.getSubServiceList();
         List<Orders> ordersList =
-                orderRepository.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
+                orderRepository.findAllByOrderStatusAndCustomer();
         for (SubService subService : subServices) {
             for (Orders orders : ordersList) {
                 if (orders.getSubService().equals(subService)) {

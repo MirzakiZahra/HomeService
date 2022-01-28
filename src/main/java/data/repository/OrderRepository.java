@@ -1,82 +1,25 @@
 package data.repository;
 
 import data.model.Orders;
+import data.model.services.SubService;
+import data.model.user.Expert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
 
-import javax.persistence.Query;
 import java.util.List;
-
-public class OrderRepository {
-    static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-
-    public Orders findOrder(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Orders s where s.id = :id";
-        Query query = session.createQuery(hql);
-        query.setParameter("id", id);
-        List<Orders> ordersList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return ordersList.get(0);
-    }
-
-    public void addCOrder(Orders orders) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(orders);
-        transaction.commit();
-        session.close();
-    }
-
-    public Orders findOrderById(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Orders orders = session.get(Orders.class, id);
-        transaction.commit();
-        session.close();
-        return orders;
-    }
-
-    public List<Orders> showAllOrder() {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Orders";
-        Query query = session.createQuery(hql);
-        List<Orders> ordersList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return ordersList;
-    }
-    public void updateOrder(Orders orders){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(orders);
-        transaction.commit();
-        session.close();
-    }
-    public List<Orders> returnCustomerDoneOrder(int customerId){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Orders o where o.customer.id = : customerId and o.orderStatus = 'Done'";
-        Query query = session.createQuery(hql);
-        query.setParameter("customerId", customerId);
-        List<Orders> ordersList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return ordersList;
-    }
-    public List<Orders>allOrdersWithStatusWAITINGFOREXPERTSUGGESTION(){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Orders o where  o.orderStatus = 'WAITING_FOR_EXPERT_SUGGESTION'";
-        Query query = session.createQuery(hql);
-        List<Orders> ordersList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return ordersList;
-    }
+@Repository
+public interface OrderRepository extends CrudRepository<Orders, Integer> {
+    Orders findById(int id);
+    @Query(value = "select * from Orders", nativeQuery = true)
+    List<Orders> findAllOrders();
+    @Query(value = "select * from orders where customer_id= :customerId and orderStatus= :Done",nativeQuery = true)
+    List<Orders> findOrdersByOrderStatusAndCustomer(@Param("customer_id") int customerId);
+    @Query(value = "select * from orders where orderStatus= :WAITING_FOR_EXPERT_SUGGESTION",nativeQuery = true)
+    List<Orders> findAllByOrderStatusAndCustomer();
 }

@@ -27,7 +27,7 @@ public class Main {
     static AddressService addressService = new AddressService();
     static OfferService offerService = new OfferService();
     static OfferRepository offerRepository ;
-    static OrderRepository orderRepository = new OrderRepository();
+    static OrderRepository orderRepository;
     static ServiceRepository serviceRepository;
     static MainServiceService mainServiceService = new MainServiceService();
     static SubServiceRepository subServiceRepository;
