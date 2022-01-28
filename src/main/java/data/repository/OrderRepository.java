@@ -1,6 +1,6 @@
 package data.repository;
 
-import data.model.services.SubService;
+import data.model.Orders;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,75 +9,74 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class SubServiceDb {
+public class OrderRepository {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public List<SubService> getAllSubService() {
+    public Orders findOrder(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from SubService";
-        Query query = session.createQuery(hql);
-        List<SubService> subServices = query.getResultList();
-        transaction.commit();
-        session.close();
-        return subServices;
-    }
-
-    public SubService checkExistOfSubServiceById(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from SubService s where s.id = :id";
+        String hql = "from Orders s where s.id = :id";
         Query query = session.createQuery(hql);
         query.setParameter("id", id);
-        List<SubService> subServices = query.getResultList();
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return subServices.get(0);
+        return ordersList.get(0);
     }
-    public SubService findSubServiceByName(String name) {
+
+    public void addCOrder(Orders orders) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from SubService s where s.name = :name";
+        session.save(orders);
+        transaction.commit();
+        session.close();
+    }
+
+    public Orders findOrderById(int id) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Orders orders = session.get(Orders.class, id);
+        transaction.commit();
+        session.close();
+        return orders;
+    }
+
+    public List<Orders> showAllOrder() {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Orders";
         Query query = session.createQuery(hql);
-        query.setParameter("name", name);
-        List<SubService>subServices = query.getResultList();
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return subServices.get(0);
+        return ordersList;
     }
-
-    public void deleteSubService(SubService subService) {
+    public void updateOrder(Orders orders){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(subService);
-        transaction.commit();
-        session.close();
-    }
-    public void addSubService(SubService subService) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(subService);
+        session.update(orders);
         transaction.commit();
         session.close();
     }
-
-    public List<SubService> findSubServiceByNameReturnList(String name) {
+    public List<Orders> returnCustomerDoneOrder(int customerId){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from MainService s where s.name = :name";
+        String hql = "from Orders o where o.customer.id = : customerId and o.orderStatus = 'Done'";
         Query query = session.createQuery(hql);
-        query.setParameter("name", name);
-        List<SubService> subServices = query.getResultList();
+        query.setParameter("customerId", customerId);
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
-        return subServices;
+        return ordersList;
     }
-    public void updateSubService(SubService subService) {
+    public List<Orders>allOrdersWithStatusWAITINGFOREXPERTSUGGESTION(){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(subService);
+        String hql = "from Orders o where  o.orderStatus = 'WAITING_FOR_EXPERT_SUGGESTION'";
+        Query query = session.createQuery(hql);
+        List<Orders> ordersList = query.getResultList();
         transaction.commit();
         session.close();
+        return ordersList;
     }
-
 }

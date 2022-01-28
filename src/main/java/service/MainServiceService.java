@@ -1,6 +1,6 @@
 package service;
 
-import data.repository.ServiceDb;
+import data.repository.ServiceRepository;
 import data.dto.MainServiceDto;
 import exception.InputException;
 import data.model.services.MainService;
@@ -9,27 +9,27 @@ import service.mapper.MainServiceMapper;
 import java.util.List;
 
 public class MainServiceService {
-    ServiceDb serviceDb = new ServiceDb();
+    ServiceRepository serviceRepository = new ServiceRepository();
     MainServiceMapper mainServiceMapper = new MainServiceMapper();
 
     public void createMainService(String name) {
         MainService mainService = new MainService(name);
-        serviceDb.addMainService(mainService);
+        serviceRepository.addMainService(mainService);
     }
 
     public void deleteMainService(String name) {
-        List<MainService> mainServiceList = serviceDb.findServiceByName(name);
+        List<MainService> mainServiceList = serviceRepository.findServiceByName(name);
         if (mainServiceList.size()==0){
             throw new InputException("Main Service Does Not Exit");
         }
-        serviceDb.deleteMainService(mainServiceList.get(0));
+        serviceRepository.deleteMainService(mainServiceList.get(0));
     }
     public void updateMainService(MainService mainService){
-        serviceDb.updateMainService(mainService);
+        serviceRepository.updateMainService(mainService);
     }
 
     public MainServiceDto findMainServiceByName(String name) {
-        List<MainService> mainService = serviceDb.findServiceByName(name);
+        List<MainService> mainService = serviceRepository.findServiceByName(name);
         if (mainService.size() != 0) {
             throw new InputException("MainService Exist");
         }
@@ -37,13 +37,13 @@ public class MainServiceService {
     }
 
     public List<MainService> findMainService(String name) {
-        if (serviceDb.findServiceByName(name).size()==0){
+        if (serviceRepository.findServiceByName(name).size()==0){
             throw new InputException("MainService DoesNot Exist");
         }
-        return serviceDb.findServiceByName(name);
+        return serviceRepository.findServiceByName(name);
     }
     public boolean checkExistOfMainService(String name){
-        List<MainService> mainServiceList = serviceDb.findServiceByName(name);
+        List<MainService> mainServiceList = serviceRepository.findServiceByName(name);
         if (mainServiceList.size()!=0){
             return true;
         }

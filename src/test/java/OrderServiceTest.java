@@ -1,4 +1,4 @@
-import data.repository.ExpertDb;
+import data.repository.ExpertRepository;
 import data.dto.AddressDto;
 import data.model.Offer;
 import data.model.Orders;
@@ -21,7 +21,7 @@ public class OrderServiceTest {
     MainServiceService mainServiceService = new MainServiceService();
     SubServiceService subServiceService = new SubServiceService();
     ExpertService expertService = new ExpertService();
-    ExpertDb expertDb = new ExpertDb();
+    ExpertRepository expertRepository = new ExpertRepository();
     OfferService offerService = new OfferService();
     @BeforeEach
     void init(){
@@ -60,7 +60,7 @@ public class OrderServiceTest {
     @Test
     void giveOrderAndOffer_setOfferForOrder_offerSetAccurately(){
         expertService.createExpert("Ali", "Alavi", "ali@gmail.com");
-        Expert expert = expertDb.findExpertByEmail("ali@gmail.com").get(0);
+        Expert expert = expertRepository.findExpertByEmail("ali@gmail.com").get(0);
         Orders orders = orderService.findOrderByIdReturnOrder(1);
         offerService.createOffer(10000,1,8000,
                 convertStringToDate("10/11/1400,20:30"),convertStringToDate("10/11/1400,20:30"),

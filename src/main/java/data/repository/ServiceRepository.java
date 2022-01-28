@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ServiceDb {
+public class ServiceRepository {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     public List<MainService> findServiceByName(String name) {

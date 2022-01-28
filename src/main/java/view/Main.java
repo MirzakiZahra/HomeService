@@ -1,9 +1,9 @@
 package view;
 
-import data.repository.OfferDb;
-import data.repository.OrderDb;
-import data.repository.ServiceDb;
-import data.repository.SubServiceDb;
+import data.repository.OfferRepository;
+import data.repository.OrderRepository;
+import data.repository.ServiceRepository;
+import data.repository.SubServiceRepository;
 import data.dto.*;
 import exception.InputException;
 import data.model.enums.OrderStatus;
@@ -26,11 +26,11 @@ public class Main {
     static Validator validator = new Validator();
     static AddressService addressService = new AddressService();
     static OfferService offerService = new OfferService();
-    static OfferDb offerDb = new OfferDb();
-    static OrderDb orderDb = new OrderDb();
-    static ServiceDb serviceDb = new ServiceDb();
+    static OfferRepository offerRepository = new OfferRepository();
+    static OrderRepository orderRepository = new OrderRepository();
+    static ServiceRepository serviceRepository = new ServiceRepository();
     static MainServiceService mainServiceService = new MainServiceService();
-    static SubServiceDb subServiceDb = new SubServiceDb();
+    static SubServiceRepository subServiceRepository = new SubServiceRepository();
     static SubServiceDto subServiceDto = new SubServiceDto();
     static AdminService adminService = new AdminService();
 

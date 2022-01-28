@@ -1,10 +1,10 @@
 package service;
 
-import data.repository.SubServiceDb;
+import data.repository.SubServiceRepository;
 import exception.InputException;
-import data.repository.ExpertDb;
-import data.repository.OrderDb;
-import data.repository.ServiceDb;
+import data.repository.ExpertRepository;
+import data.repository.OrderRepository;
+import data.repository.ServiceRepository;
 import data.dto.ExpertDto;
 import data.dto.OrderDto;
 import data.model.Orders;
@@ -17,21 +17,21 @@ import java.util.List;
 
 
 public class ExpertService {
-    ExpertDb expertDb = new ExpertDb();
-    ServiceDb serviceDb = new ServiceDb();
+    ExpertRepository expertRepository = new ExpertRepository();
+    ServiceRepository serviceRepository = new ServiceRepository();
     OrderService orderService = new OrderService();
     ExpertMapper expertMapper = new ExpertMapper();
     ExpertDto expertDto=new ExpertDto();
-    OrderDb orderDb=new OrderDb();
+    OrderRepository orderRepository =new OrderRepository();
     OrderMapper orderMapper=new OrderMapper();
-    SubServiceDb subServiceDb = new SubServiceDb();
+    SubServiceRepository subServiceRepository = new SubServiceRepository();
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
-        expertDb.addExpert(expert);
+        expertRepository.addExpert(expert);
     }
     public ExpertDto findExpertByEmail(String email){
-        List<Expert> expertList = expertDb.findExpertByEmail(email);
+        List<Expert> expertList = expertRepository.findExpertByEmail(email);
         if (expertList.size()==0){
             throw new InputException("Expert DoesNot Exist");
         }
@@ -39,8 +39,8 @@ public class ExpertService {
     }
 
     public void deleteExpert(String email) {
-        Expert expert = expertDb.findExpertByEmail(email).get(0);
-        expertDb.deleteExpert(expert);
+        Expert expert = expertRepository.findExpertByEmail(email).get(0);
+        expertRepository.deleteExpert(expert);
     }
 
  /*   public void addMoneyForExpert(String email, float money) {
@@ -51,7 +51,7 @@ public class ExpertService {
     }*/
 
     public void printShowExpert() {
-        List<Expert> experts = expertDb.showExpert();
+        List<Expert> experts = expertRepository.showExpert();
         experts.stream().forEach(i -> System.out.println(i.getLastName()));
     }
     public void updateExpertScore(float score, int orderID) {
@@ -70,22 +70,22 @@ public class ExpertService {
             expert.setScore(num);
             expert.setCountOfOrder(temp);
         }
-        expertDb.updateExpert(expert);
+        expertRepository.updateExpert(expert);
     }
     public void checkOldExpertPassword(String password) {
-        if (expertDb.checkExistOfExpertPassword(password) == 0) {
+        if (expertRepository.checkExistOfExpertPassword(password) == 0) {
             throw new InputException("Password is Incorrect");
         }
     }
     public void changePassword(String password, String email) {
-        Expert expert = expertDb.findExpertByEmail(email).get(0);
+        Expert expert = expertRepository.findExpertByEmail(email).get(0);
         expert.setPassword(password);
-        expertDb.updateExpert(expert);
+        expertRepository.updateExpert(expert);
     }
     public List<OrderDto>expertRelatedOrders(){
         List<SubService> subServices = expertDto.getSubServiceList();
         List<Orders> ordersList =
-                orderDb.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
+                orderRepository.allOrdersWithStatusWAITINGFOREXPERTSUGGESTION();
         for (SubService subService : subServices) {
             for (Orders orders : ordersList) {
                 if (orders.getSubService().equals(subService)) {
@@ -98,29 +98,29 @@ public class ExpertService {
 
     }
     public void addServiceToExpert(String email, String subServiceName){
-        if (expertDb.findExpertByEmail(email).size()==0){
+        if (expertRepository.findExpertByEmail(email).size()==0){
             throw new InputException("Expert DoesNot Exist");
         }else{
-            Expert expert = expertDb.findExpertByEmail(email).get(0);
-            SubService foundSubService = subServiceDb.findSubServiceByName(subServiceName);
+            Expert expert = expertRepository.findExpertByEmail(email).get(0);
+            SubService foundSubService = subServiceRepository.findSubServiceByName(subServiceName);
             expert.getSubServiceList().add(foundSubService);
-            expertDb.updateExpert(expert);
+            expertRepository.updateExpert(expert);
             foundSubService.getExpertSet().add(expert);
-            subServiceDb.updateSubService(foundSubService);
+            subServiceRepository.updateSubService(foundSubService);
         }
     }
     public void deleteServiceFromExpert(String email, String subServiceName){
-        if (expertDb.findExpertByEmail(email).size()==0){
+        if (expertRepository.findExpertByEmail(email).size()==0){
             throw new InputException("Expert DoesNot Exist");
         }else{
-            Expert expert = expertDb.findExpertByEmail(email).get(0);
+            Expert expert = expertRepository.findExpertByEmail(email).get(0);
             if (checkExistenceOfSubServiceInExpertSubServiceList(
                     expertMapper.convertExpertToExpertDto(expert),subServiceName)==true){
-                SubService foundSubService = subServiceDb.findSubServiceByName(subServiceName);
+                SubService foundSubService = subServiceRepository.findSubServiceByName(subServiceName);
                 expert.getSubServiceList().remove(foundSubService);
-                expertDb.updateExpert(expert);
+                expertRepository.updateExpert(expert);
                 foundSubService.getExpertSet().remove(expert);
-                subServiceDb.updateSubService(foundSubService);
+                subServiceRepository.updateSubService(foundSubService);
             }
         }
     }

@@ -1,6 +1,6 @@
 package service;
 
-import data.repository.SubServiceDb;
+import data.repository.SubServiceRepository;
 import data.dto.SubServiceDto;
 import exception.InputException;
 import data.model.services.MainService;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubServiceService {
-    SubServiceDb subServiceDb = new SubServiceDb();
+    SubServiceRepository subServiceRepository = new SubServiceRepository();
     SubServiceMapper subServiceMapper=new SubServiceMapper();
     MainServiceService mainServiceService = new MainServiceService();
 
     public List<SubServiceDto> showAllSubService() {
-        List<SubService> subServiceList = subServiceDb.getAllSubService();
+        List<SubService> subServiceList = subServiceRepository.getAllSubService();
         List<SubServiceDto> subServiceDtoList = new ArrayList<>();
         for (SubService subService : subServiceList) {
             SubServiceDto subServiceDto = new SubServiceDto(subService.getId(),
@@ -27,10 +27,10 @@ public class SubServiceService {
     }
 
     public SubService checkExistOfSubServiceById(int id) {
-        if (subServiceDb.checkExistOfSubServiceById(id).equals(null)) {
+        if (subServiceRepository.checkExistOfSubServiceById(id).equals(null)) {
             throw new InputException("Wrong ID");
         }
-        return subServiceDb.checkExistOfSubServiceById(id);
+        return subServiceRepository.checkExistOfSubServiceById(id);
     }
 
     public void createSubService(String name, String description,
@@ -39,25 +39,25 @@ public class SubServiceService {
         SubService subService = new SubService(name, description, price, mainServices.get(0));
         mainServices.get(0).getSubServiceSet().add(subService);
         mainServiceService.updateMainService(mainServices.get(0));
-        subServiceDb.addSubService(subService);
+        subServiceRepository.addSubService(subService);
     }
     public void deleteSubService(String name) {
-        SubService subService=subServiceDb.findSubServiceByName(name);
-        subServiceDb.deleteSubService(subService);
+        SubService subService= subServiceRepository.findSubServiceByName(name);
+        subServiceRepository.deleteSubService(subService);
     }
     public SubServiceDto findSubServiceByName(String name) {
-        List<SubService>subServices=subServiceDb.findSubServiceByNameReturnList(name);
+        List<SubService>subServices= subServiceRepository.findSubServiceByNameReturnList(name);
         if (subServices.size() == 0) {
             throw new InputException("SubService DosesNot Exist");
         }
         return subServiceMapper.convertSubServiceToSubServiceDto(subServices.get(0));
     }
     public void deleteSubServiceByName(String name) {
-        SubService subService=subServiceDb.findSubServiceByName(name);
+        SubService subService= subServiceRepository.findSubServiceByName(name);
         MainService mainService = subService.getMainService();
         mainService.getSubServiceSet().remove(subService);
         mainServiceService.updateMainService(mainService);
-        subServiceDb.deleteSubService(subService);
+        subServiceRepository.deleteSubService(subService);
     }
 
 }

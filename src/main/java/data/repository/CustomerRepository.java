@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 
-public class CustomerDb {
+public class CustomerRepository {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     public void addCustomer(Customer customer) {

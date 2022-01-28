@@ -1,8 +1,8 @@
 package service;
 
-import data.repository.ExpertDb;
-import data.repository.OfferDb;
-import data.repository.OrderDb;
+import data.repository.ExpertRepository;
+import data.repository.OfferRepository;
+import data.repository.OrderRepository;
 import data.model.Offer;
 import data.model.Orders;
 import data.model.enums.OrderStatus;
@@ -11,20 +11,20 @@ import data.model.user.Expert;
 import java.util.Date;
 
 public class OfferService {
-    ExpertDb expertDb = new ExpertDb();
-    OfferDb offerDb = new OfferDb();
-    OrderDb orderDb = new OrderDb();
+    ExpertRepository expertRepository = new ExpertRepository();
+    OfferRepository offerRepository = new OfferRepository();
+    OrderRepository orderRepository = new OrderRepository();
 
     public void createOffer(float price, int orderId, float basePrice,
                             Date creationDate, Date startDate, String email) {
-        Expert expert = expertDb.findExpertByEmail(email).get(0);
-        Orders orders = orderDb.findOrderById(orderId);
+        Expert expert = expertRepository.findExpertByEmail(email).get(0);
+        Orders orders = orderRepository.findOrderById(orderId);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, orders, creationDate, startDate);
-        offerDb.addOffer(offer);
+        offerRepository.addOffer(offer);
 
     }
     public Offer findOfferById(int id){
-        return offerDb.findOfferById(id);
+        return offerRepository.findOfferById(id);
     }
 }

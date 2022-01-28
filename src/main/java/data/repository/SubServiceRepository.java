@@ -1,7 +1,6 @@
 package data.repository;
 
-import data.model.user.Expert;
-import org.hibernate.SQLQuery;
+import data.model.services.SubService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,82 +9,75 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ExpertDb {
+public class SubServiceRepository {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public void addExpert(Expert expert) {
+    public List<SubService> getAllSubService() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(expert);
-        transaction.commit();
-        session.close();
-    }
-
-    public void deleteExpert(Expert expert) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.delete(expert);
-        transaction.commit();
-        session.close();
-    }
-
-    public List<Expert> findExpertByEmail(String email) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Expert s where s.email = :email";
+        String hql = "from SubService";
         Query query = session.createQuery(hql);
-        query.setParameter("email", email);
-        List<Expert> expertList = query.getResultList();
+        List<SubService> subServices = query.getResultList();
         transaction.commit();
         session.close();
-        return expertList;
+        return subServices;
     }
 
-    public void updateExpert(Expert expert) {
+    public SubService checkExistOfSubServiceById(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-    }
-
-    public List<Expert> showExpert() {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-      //  String hql= "from Person s where s."
-        String sql = "select * from person where DTYPE =Expert";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Expert.class);
-        List<Expert> expertList = query.list();
-        return expertList;
-    }
-
-    public void deleteExpertWithService(Expert expert) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-    }
-
-    public void newScore(Expert expert) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-    }
-    public int checkExistOfExpertPassword(String password) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Expert s where s.password = :password";
+        String hql = "from SubService s where s.id = :id";
         Query query = session.createQuery(hql);
-        query.setParameter("password", password);
-        List<Expert> expertList = query.getResultList();
+        query.setParameter("id", id);
+        List<SubService> subServices = query.getResultList();
         transaction.commit();
         session.close();
-        return expertList.size();
+        return subServices.get(0);
+    }
+    public SubService findSubServiceByName(String name) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from SubService s where s.name = :name";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", name);
+        List<SubService>subServices = query.getResultList();
+        transaction.commit();
+        session.close();
+        return subServices.get(0);
     }
 
+    public void deleteSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(subService);
+        transaction.commit();
+        session.close();
+    }
+    public void addSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(subService);
+        transaction.commit();
+        session.close();
+    }
+
+    public List<SubService> findSubServiceByNameReturnList(String name) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from MainService s where s.name = :name";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", name);
+        List<SubService> subServices = query.getResultList();
+        transaction.commit();
+        session.close();
+        return subServices;
+    }
+    public void updateSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(subService);
+        transaction.commit();
+        session.close();
+    }
 
 }

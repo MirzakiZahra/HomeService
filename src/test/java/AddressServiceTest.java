@@ -1,4 +1,4 @@
-import data.repository.AddressDb;
+import data.repository.AddressRepository;
 import data.model.Address;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import service.AddressService;
 
 public class AddressServiceTest {
     AddressService addressService = new AddressService();
-    AddressDb addressDb = new AddressDb();
+    AddressRepository addressRepository = new AddressRepository();
     @Test
     void giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress(){
         Address address = Address.builder()
@@ -16,6 +16,6 @@ public class AddressServiceTest {
                 .plaque("6")
                 .build();
         addressService.createAddress(address);
-        Assertions.assertEquals(address,addressDb.findAddressById(1));
+        Assertions.assertEquals(address, addressRepository.findAddressById(1));
     }
 }

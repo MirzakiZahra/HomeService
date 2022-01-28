@@ -1,8 +1,8 @@
 package service;
 
-import data.repository.CustomerDb;
-import data.repository.ExpertDb;
-import data.repository.OrderDb;
+import data.repository.CustomerRepository;
+import data.repository.ExpertRepository;
+import data.repository.OrderRepository;
 import data.dto.OrderDto;
 import exception.EnoughCredit;
 import data.model.Offer;
@@ -18,36 +18,36 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderService {
-    OrderDb orderDb = new OrderDb();
-    CustomerDb customerDb = new CustomerDb();
+    OrderRepository orderRepository = new OrderRepository();
+    CustomerRepository customerRepository = new CustomerRepository();
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
     CustomerService customerService = new CustomerService();
-    ExpertDb expertDb = new ExpertDb();
+    ExpertRepository expertRepository = new ExpertRepository();
     TransactionService transactionService = new TransactionService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
         Orders orders = new Orders(cost, explanation, beggingDate, endingTime, address);
-        Customer customer = customerDb.findCustomerByEmail(email).get(0);
+        Customer customer = customerRepository.findCustomerByEmail(email).get(0);
         SubService subService = subServiceService.checkExistOfSubServiceById(subServiceId);
         orders.setCustomer(customer);
         orders.setSubService(subService);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
-        orderDb.addCOrder(orders);
+        orderRepository.addCOrder(orders);
         customer.getOrders().add(orders);
-        customerDb.updateCustomer(customer);
+        customerRepository.updateCustomer(customer);
     }
 
     public List<OrderDto> showAllOrder() {
-        List<Orders> ordersList = orderDb.showAllOrder();
+        List<Orders> ordersList = orderRepository.showAllOrder();
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(ordersList);
         return orderDtoList;
     }
 
     public OrderDto findOrderById(int id) {
-        Orders orders = orderDb.findOrderById(id);
+        Orders orders = orderRepository.findOrderById(id);
         OrderDto orderDto = orderMapper.convertOrderToOrderDto(orders);
         return orderDto;
     }
@@ -57,23 +57,23 @@ public class OrderService {
         Orders orders = offer.getOrders();
         orders.setPreferredOffer(offer);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_THE_SPECIALIST_TO_ARRIVE);
-        orderDb.updateOrder(orders);
+        orderRepository.updateOrder(orders);
     }
 
     public List<OrderDto> customerDoneOrder(int customerId) {
-        List<Orders> ordersList = orderDb.returnCustomerDoneOrder(customerId);
+        List<Orders> ordersList = orderRepository.returnCustomerDoneOrder(customerId);
         List<OrderDto> orderDtoList = orderMapper.convertOrderToOrderDto(ordersList);
         return orderDtoList;
     }
 
     public Orders findOrderByIdReturnOrder(int id) {
-        return orderDb.findOrderById(id);
+        return orderRepository.findOrderById(id);
     }
 
     public void changeOrderStatus(OrderStatus orderStatus, int orderId) {
         Orders orders = findOrderByIdReturnOrder(orderId);
         orders.setOrderStatus(orderStatus);
-        orderDb.updateOrder(orders);
+        orderRepository.updateOrder(orders);
     }
 
     public void transferMoney(int orderId, String expertEmail) {
@@ -81,10 +81,10 @@ public class OrderService {
         Customer customer = orders.getCustomer();
         if (customer.getCredit() >= orders.getPrice()) {
             customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
-            Expert expert = expertDb.findExpertByEmail(expertEmail).get(0);
+            Expert expert = expertRepository.findExpertByEmail(expertEmail).get(0);
             float temp = expert.getCreditExpert() + orders.getPrice();
             expert.setCreditExpert(temp);
-            expertDb.updateExpert(expert);
+            expertRepository.updateExpert(expert);
             transactionService.createTransaction(orders, TypeOfTransaction.DEPOSIT);
             transactionService.createTransaction(orders,TypeOfTransaction.WITHDRAW);
         } else {

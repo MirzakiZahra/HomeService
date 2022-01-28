@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class OfferDb {
+public class OfferRepository {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     public void addOffer(Offer offer) {

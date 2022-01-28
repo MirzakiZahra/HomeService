@@ -1,5 +1,5 @@
-import data.repository.ServiceDb;
-import data.repository.SubServiceDb;
+import data.repository.ServiceRepository;
+import data.repository.SubServiceRepository;
 import data.dto.ExpertDto;
 import exception.InputException;
 import data.model.services.MainService;
@@ -53,12 +53,12 @@ public class ExpertServiceTest {
     }
     public ExpertDto preTasks(){
         MainService mainService = new MainService("Cleaning");
-        ServiceDb serviceDb = new ServiceDb();
-        serviceDb.addMainService(mainService);
+        ServiceRepository serviceRepository = new ServiceRepository();
+        serviceRepository.addMainService(mainService);
         SubService subService = new SubService("Home Cleaning","Clean Home",
                 2000,mainService);
-        SubServiceDb subServiceDb = new SubServiceDb();
-        subServiceDb.addSubService(subService);
+        SubServiceRepository subServiceRepository = new SubServiceRepository();
+        subServiceRepository.addSubService(subService);
         expertService.addServiceToExpert("ali@gmail.com",subService.getName());
         return expertService.findExpertByEmail("ali@gmail.com");
     }

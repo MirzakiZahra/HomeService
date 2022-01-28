@@ -1,6 +1,6 @@
 package service;
 
-import data.repository.CustomerDb;
+import data.repository.CustomerRepository;
 import data.dto.AddressDto;
 import exception.InputException;
 import data.model.Address;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CustomerService {
-    CustomerDb customerDb = new CustomerDb();
+    CustomerRepository customerRepository = new CustomerRepository();
     AddressMapper addressMapper = new AddressMapper();
     AddressService addressService = new AddressService();
 
@@ -27,29 +27,29 @@ public class CustomerService {
     }
 
     public void removeCustomer(String email) {
-        Customer customer = customerDb.findCustomerByEmail(email).get(0);
-        customerDb.deleteCustomer(customer);
+        Customer customer = customerRepository.findCustomerByEmail(email).get(0);
+        customerRepository.deleteCustomer(customer);
     }
 
     public void changePassword(String password, String email) {
-        Customer customer = customerDb.findCustomerByEmail(email).get(0);
+        Customer customer = customerRepository.findCustomerByEmail(email).get(0);
         customer.setPassword(password);
-        customerDb.updateCustomer(customer);
+        customerRepository.updateCustomer(customer);
     }
 
     public void withdrawCreditOfCustomer(String email, float money) {
-        Customer customer = customerDb.findCustomerByEmail(email).get(0);
+        Customer customer = customerRepository.findCustomerByEmail(email).get(0);
         if (customer.getCredit()<money){
             throw new InputException("Your Credit is Not Enough");
         }else {
             float temp = customer.getCredit() - money;
             customer.setCredit(temp);
-            customerDb.updateCustomer(customer);
+            customerRepository.updateCustomer(customer);
         }
     }
 
     public HashMap<String, List<String>> showCustomer() {
-        List<Customer> customers = customerDb.showCustomer();
+        List<Customer> customers = customerRepository.showCustomer();
         HashMap<String, List<String>> customerHashMap = new HashMap<>();
         customers.stream().forEach(i -> customerHashMap.put(i.getFirstName(),
                 new ArrayList<>() {{
@@ -60,14 +60,14 @@ public class CustomerService {
     }
 
     public boolean checkExistenceOfCustomerByEmail(String email) {
-        List<Customer> customerList = customerDb.findCustomerByEmail(email);
+        List<Customer> customerList = customerRepository.findCustomerByEmail(email);
         if (customerList.size()==0) {
             return false;
         }
         return true;
     }
     public Customer findCustomerByEmail(String email) {
-        List<Customer> customerList = customerDb.findCustomerByEmail(email);
+        List<Customer> customerList = customerRepository.findCustomerByEmail(email);
         if (customerList.size()==0){
             throw new InputException("Customer Not Exist");
         }
@@ -75,11 +75,11 @@ public class CustomerService {
     }
 
     public void checkOldPassword(String password) {
-        if (customerDb.checkExistOfPassword(password) == 0) {
+        if (customerRepository.checkExistOfPassword(password) == 0) {
             throw new InputException("Password is Incorrect");
         }
     }
     public void updateCustomer(Customer customer){
-        customerDb.updateCustomer(customer);
+        customerRepository.updateCustomer(customer);
     }
 }
