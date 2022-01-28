@@ -1,10 +1,10 @@
 package service;
 
-import dao.CustomerDb;
-import dto.AddressDto;
+import data.dao.CustomerDb;
+import data.dto.AddressDto;
 import exception.InputException;
-import model.Address;
-import model.user.Customer;
+import data.model.Address;
+import data.model.user.Customer;
 import service.mapper.AddressMapper;
 
 import java.util.ArrayList;

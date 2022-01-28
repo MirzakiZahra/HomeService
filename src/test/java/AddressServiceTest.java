@@ -1,5 +1,5 @@
-import dao.AddressDb;
-import model.Address;
+import data.dao.AddressDb;
+import data.model.Address;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import service.AddressService;

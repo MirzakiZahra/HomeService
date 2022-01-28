@@ -1,13 +1,13 @@
 package view;
 
-import dao.OfferDb;
-import dao.OrderDb;
-import dao.ServiceDb;
-import dao.SubServiceDb;
-import dto.*;
+import data.dao.OfferDb;
+import data.dao.OrderDb;
+import data.dao.ServiceDb;
+import data.dao.SubServiceDb;
+import data.dto.*;
 import exception.InputException;
-import model.enums.OrderStatus;
-import model.user.Customer;
+import data.model.enums.OrderStatus;
+import data.model.user.Customer;
 import service.*;
 import util.Validator;
 

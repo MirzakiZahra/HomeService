@@ -1,9 +1,9 @@
 package service;
 
-import dao.ServiceDb;
-import dto.MainServiceDto;
+import data.dao.ServiceDb;
+import data.dto.MainServiceDto;
 import exception.InputException;
-import model.services.MainService;
+import data.model.services.MainService;
 import service.mapper.MainServiceMapper;
 
 import java.util.List;

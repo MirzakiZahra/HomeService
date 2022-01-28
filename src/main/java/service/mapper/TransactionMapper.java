@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.TransactionDto;
-import model.Transaction;
+import data.dto.TransactionDto;
+import data.model.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;

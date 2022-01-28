@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.AdminDto;
-import model.user.Manager;
+import data.dto.AdminDto;
+import data.model.user.Manager;
 
 public class AdminMapper {
     public AdminDto convertAdminToAdminDto(Manager manager) {

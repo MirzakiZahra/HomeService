@@ -1,9 +1,9 @@
 package service;
 
-import dao.TransactionDao;
-import model.Orders;
-import model.Transaction;
-import model.enums.TypeOfTransaction;
+import data.dao.TransactionDao;
+import data.model.Orders;
+import data.model.Transaction;
+import data.model.enums.TypeOfTransaction;
 
 public class TransactionService {
     TransactionDao transactionDao = new TransactionDao();

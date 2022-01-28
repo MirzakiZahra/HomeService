@@ -1,6 +1,6 @@
-import dto.AddressDto;
+import data.dto.AddressDto;
 import exception.InputException;
-import model.user.Customer;
+import data.model.user.Customer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

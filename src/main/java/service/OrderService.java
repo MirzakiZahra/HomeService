@@ -1,17 +1,17 @@
 package service;
 
-import dao.CustomerDb;
-import dao.ExpertDb;
-import dao.OrderDb;
-import dto.OrderDto;
+import data.dao.CustomerDb;
+import data.dao.ExpertDb;
+import data.dao.OrderDb;
+import data.dto.OrderDto;
 import exception.EnoughCredit;
-import model.Offer;
-import model.Orders;
-import model.enums.OrderStatus;
-import model.enums.TypeOfTransaction;
-import model.services.SubService;
-import model.user.Customer;
-import model.user.Expert;
+import data.model.Offer;
+import data.model.Orders;
+import data.model.enums.OrderStatus;
+import data.model.enums.TypeOfTransaction;
+import data.model.services.SubService;
+import data.model.user.Customer;
+import data.model.user.Expert;
 import service.mapper.OrderMapper;
 
 import java.util.Date;

@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.OrderDto;
-import model.Orders;
+import data.dto.OrderDto;
+import data.model.Orders;
 
 import java.util.ArrayList;
 import java.util.List;

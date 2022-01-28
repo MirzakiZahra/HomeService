@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.OfferDto;
-import model.Offer;
+import data.dto.OfferDto;
+import data.model.Offer;
 
 public class OfferMapper {
     public OfferDto convertOfferToOfferDto(Offer offer){

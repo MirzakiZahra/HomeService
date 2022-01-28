@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.AddressDto;
-import model.Address;
+import data.dto.AddressDto;
+import data.model.Address;
 
 public class AddressMapper {
     public Address convertAddressDtoToAddress(AddressDto addressDto){

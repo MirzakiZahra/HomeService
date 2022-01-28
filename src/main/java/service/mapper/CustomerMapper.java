@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.CustomerDto;
-import model.user.Customer;
+import data.dto.CustomerDto;
+import data.model.user.Customer;
 
 public class CustomerMapper {
     public CustomerDto convertCustomerToCustomerDto(Customer customer) {

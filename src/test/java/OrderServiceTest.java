@@ -1,13 +1,12 @@
-import dao.ExpertDb;
-import dto.AddressDto;
-import model.Offer;
-import model.Orders;
-import model.enums.OrderStatus;
-import model.user.Customer;
-import model.user.Expert;
+import data.dao.ExpertDb;
+import data.dto.AddressDto;
+import data.model.Offer;
+import data.model.Orders;
+import data.model.enums.OrderStatus;
+import data.model.user.Customer;
+import data.model.user.Expert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import service.*;
 

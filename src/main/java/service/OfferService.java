@@ -1,12 +1,12 @@
 package service;
 
-import dao.ExpertDb;
-import dao.OfferDb;
-import dao.OrderDb;
-import model.Offer;
-import model.Orders;
-import model.enums.OrderStatus;
-import model.user.Expert;
+import data.dao.ExpertDb;
+import data.dao.OfferDb;
+import data.dao.OrderDb;
+import data.model.Offer;
+import data.model.Orders;
+import data.model.enums.OrderStatus;
+import data.model.user.Expert;
 
 import java.util.Date;
 

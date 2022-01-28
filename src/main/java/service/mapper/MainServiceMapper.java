@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.MainServiceDto;
-import model.services.MainService;
+import data.dto.MainServiceDto;
+import data.model.services.MainService;
 
 public class MainServiceMapper {
     public MainServiceDto convertMainServiceToMainServiceDto(MainService mainService){

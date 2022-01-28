@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.SubServiceDto;
-import model.services.SubService;
+import data.dto.SubServiceDto;
+import data.model.services.SubService;
 
 public class SubServiceMapper {
     public SubServiceDto convertSubServiceToSubServiceDto(SubService subService){

@@ -1,7 +1,7 @@
 package service.mapper;
 
-import dto.ExpertDto;
-import model.user.Expert;
+import data.dto.ExpertDto;
+import data.model.user.Expert;
 
 import java.util.ArrayList;
 import java.util.List;

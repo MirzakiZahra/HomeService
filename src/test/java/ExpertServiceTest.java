@@ -1,23 +1,13 @@
-import dao.ServiceDb;
-import dao.SubServiceDb;
-import dto.AddressDto;
-import dto.ExpertDto;
+import data.dao.ServiceDb;
+import data.dao.SubServiceDb;
+import data.dto.ExpertDto;
 import exception.InputException;
-import model.Offer;
-import model.Orders;
-import model.services.MainService;
-import model.services.SubService;
+import data.model.services.MainService;
+import data.model.services.SubService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import service.CustomerService;
 import service.ExpertService;
-import service.OrderService;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ExpertServiceTest {
     ExpertService expertService = new ExpertService();

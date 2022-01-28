@@ -1,8 +1,8 @@
 package service;
 
-import dao.AdminDb;
-import dto.AdminDto;
-import model.user.Manager;
+import data.dao.AdminDb;
+import data.dto.AdminDto;
+import data.model.user.Manager;
 import service.mapper.AdminMapper;
 
 import java.util.List;

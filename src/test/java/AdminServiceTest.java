@@ -1,5 +1,5 @@
-import dao.AdminDb;
-import model.user.Manager;
+import data.dao.AdminDb;
+import data.model.user.Manager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import service.AdminService;

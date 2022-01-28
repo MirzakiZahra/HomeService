@@ -1,10 +1,10 @@
 package service;
 
-import dao.SubServiceDb;
-import dto.SubServiceDto;
+import data.dao.SubServiceDb;
+import data.dto.SubServiceDto;
 import exception.InputException;
-import model.services.MainService;
-import model.services.SubService;
+import data.model.services.MainService;
+import data.model.services.SubService;
 import service.mapper.SubServiceMapper;
 
 import java.util.ArrayList;

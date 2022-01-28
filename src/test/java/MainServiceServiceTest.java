@@ -1,5 +1,5 @@
 import exception.InputException;
-import model.services.MainService;
+import data.model.services.MainService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
