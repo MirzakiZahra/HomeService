@@ -102,7 +102,7 @@ public class ExpertService {
             throw new InputException("Expert DoesNot Exist");
         }else{
             Expert expert = expertRepository.findExpertByEmail(email).get(0);
-            SubService foundSubService = subServiceRepository.findSubServiceByName(subServiceName);
+            SubService foundSubService = subServiceRepository.findByName(subServiceName);
             expert.getSubServiceList().add(foundSubService);
             expertRepository.updateExpert(expert);
             foundSubService.getExpertSet().add(expert);
@@ -116,7 +116,7 @@ public class ExpertService {
             Expert expert = expertRepository.findExpertByEmail(email).get(0);
             if (checkExistenceOfSubServiceInExpertSubServiceList(
                     expertMapper.convertExpertToExpertDto(expert),subServiceName)==true){
-                SubService foundSubService = subServiceRepository.findSubServiceByName(subServiceName);
+                SubService foundSubService = subServiceRepository.findByName(subServiceName);
                 expert.getSubServiceList().remove(foundSubService);
                 expertRepository.updateExpert(expert);
                 foundSubService.getExpertSet().remove(expert);
