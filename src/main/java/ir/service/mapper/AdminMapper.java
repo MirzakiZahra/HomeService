@@ -1,16 +1,16 @@
 package ir.service.mapper;
 
 import ir.data.dto.AdminDto;
-import ir.data.model.user.Manager;
+import ir.data.model.user.Admin;
 
 public class AdminMapper {
-    public AdminDto convertAdminToAdminDto(Manager manager) {
+    public AdminDto convertAdminToAdminDto(Admin admin) {
         AdminDto adminDto= AdminDto.builder()
-                .firstName(manager.getFirstName())
-                .lastName(manager.getLastName())
-                .email(manager.getEmail())
-                .password(manager.getPassword())
-                .username(manager.getUsername())
+                .firstName(admin.getFirstName())
+                .lastName(admin.getLastName())
+                .email(admin.getEmail())
+                .password(admin.getPassword())
+                .username(admin.getUsername())
                 .build();
         return adminDto;
     }

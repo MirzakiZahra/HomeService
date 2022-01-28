@@ -1,13 +1,13 @@
 package ir.data.repository;
 
-import ir.data.model.user.Manager;
+import ir.data.model.user.Admin;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface AdminRepository extends CrudRepository<Manager, Integer> {
+public interface AdminRepository extends CrudRepository<Admin, Integer> {
 
-    List<Manager> findManagerByEmail(String email);
+    List<Admin> findManagerByEmail(String email);
 
 }

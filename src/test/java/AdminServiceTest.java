@@ -1,6 +1,5 @@
 import ir.config.SpringConfig;
-import ir.data.repository.AdminRepository;
-import ir.data.model.user.Manager;
+import ir.data.model.user.Admin;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ir.service.AdminService;
@@ -12,11 +11,11 @@ public class AdminServiceTest {
     AdminService adminService = context.getBean(AdminService.class);
     @Test
     void giveAdminNeededData_addAdminAndThenFindIt_AccurateAdmin(){
-        Manager manager = new Manager("admin","admin","admin@admin.com",
+        Admin admin = new Admin("admin","admin","admin@admin.com",
                 "@Dmin123456","admin") ;
-        adminService.createAdmin(manager.getFirstName(), manager.getLastName(), manager.getEmail(),
-                manager.getPassword(), manager.getUsername());
-        Assertions.assertEquals(manager,
+        adminService.createAdmin(admin.getFirstName(), admin.getLastName(), admin.getEmail(),
+                admin.getPassword(), admin.getUsername());
+        Assertions.assertEquals(admin,
                 adminRepository.findManagerByEmail("admin@admin.com").get(0));
     }
 }

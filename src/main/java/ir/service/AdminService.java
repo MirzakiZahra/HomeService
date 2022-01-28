@@ -2,7 +2,7 @@ package ir.service;
 
 import ir.data.repository.AdminRepository;
 import ir.data.dto.AdminDto;
-import ir.data.model.user.Manager;
+import ir.data.model.user.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ir.service.mapper.AdminMapper;
@@ -15,11 +15,12 @@ public class AdminService {
     AdminMapper adminMapper = new AdminMapper();
     public void createAdmin(String firstName, String lastName, String email
             , String password,String username) {
-       Manager manager = new Manager( firstName,lastName,  email,  password,username);
-        adminRepository.save(manager);
+       Admin admin = new Admin( firstName,lastName,  email,  password,username);
+        adminRepository.save(admin);
     }
     public AdminDto findManagerByEmail(String email) {
-        List<Manager> managerList = adminRepository.findManagerByEmail(email);
-        return adminMapper.convertAdminToAdminDto(managerList.get(0));
+        List<Admin> adminList = adminRepository.findManagerByEmail(email);
+        return adminMapper.convertAdminToAdminDto(adminList.get(0));
     }
+
 }
