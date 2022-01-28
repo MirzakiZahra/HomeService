@@ -6,7 +6,7 @@ import service.AddressService;
 
 public class AddressServiceTest {
     AddressService addressService = new AddressService();
-    AddressRepository addressRepository = new AddressRepository();
+    AddressRepository addressRepository ;
     @Test
     void giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress(){
         Address address = Address.builder()
