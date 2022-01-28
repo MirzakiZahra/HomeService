@@ -22,5 +22,7 @@ public class AdminService {
         List<Admin> adminList = adminRepository.findManagerByEmail(email);
         return adminMapper.convertAdminToAdminDto(adminList.get(0));
     }
-    
+    public Admin findManagerByEmail(String email){
+       return adminRepository.findManagerByEmail(email).get(0);
+    }
 }
