@@ -26,7 +26,7 @@ public class OrderService {
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
-    CustomerService customerService = new CustomerService();
+    CustomerService customerService ;
     ExpertRepository expertRepository;
     TransactionService transactionService = new TransactionService();
 

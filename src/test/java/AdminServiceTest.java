@@ -16,6 +16,6 @@ public class AdminServiceTest {
         adminService.createAdmin(admin.getFirstName(), admin.getLastName(), admin.getEmail(),
                 admin.getPassword(), admin.getUsername());
         Assertions.assertEquals(admin,
-                adminRepository.findManagerByEmailReturnDto("admin@admin.com").get(0));
+                adminService.findManagerByEmail("admin@admin.com"));
     }
 }

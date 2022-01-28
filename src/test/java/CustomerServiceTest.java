@@ -8,7 +8,7 @@ import ir.service.CustomerService;
 
 public class CustomerServiceTest {
     AddressDto addressDto = new AddressDto();
-    CustomerService customerService = new CustomerService();
+    CustomerService customerService ;
     @BeforeEach
     void init(){
         addressDto = AddressDto.builder()

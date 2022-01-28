@@ -17,7 +17,7 @@ import java.util.Date;
 public class OrderServiceTest {
     OrderService orderService = new OrderService();
     AddressDto addressDto = new AddressDto();
-    CustomerService customerService = new CustomerService();
+    CustomerService customerService ;
     MainServiceService mainServiceService = new MainServiceService();
     SubServiceService subServiceService = new SubServiceService();
     ExpertService expertService = new ExpertService();

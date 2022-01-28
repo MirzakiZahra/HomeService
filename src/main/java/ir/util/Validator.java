@@ -1,10 +1,15 @@
 package ir.util;
 
+import ir.config.SpringConfig;
 import ir.exception.InputException;
 import ir.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Validator {
-    CustomerService customerService = new CustomerService();
+    static ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    static CustomerService customerService = context.getBean(CustomerService.class);
     public boolean checkPassword(String password) {
         if (!password.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"))
             throw new InputException("Weak Password");
