@@ -13,7 +13,7 @@ public interface OrderRepository extends CrudRepository<Orders, Integer> {
     @Query(value = "select * from Orders", nativeQuery = true)
     List<Orders> findAllOrders();
     @Query(value = "select * from orders where customer_id= :customerId and orderStatus= :Done",nativeQuery = true)
-    List<Orders> findOrdersByOrderStatusAndCustomer(@Param("customer_id") int customerId);
+    List<Orders> findOrdersByOrderStatusAndCustomer(@Param("customerId") int customerId);
     @Query(value = "select * from orders where orderStatus= :WAITING_FOR_EXPERT_SUGGESTION",nativeQuery = true)
     List<Orders> findAllByOrderStatusAndCustomer();
 }

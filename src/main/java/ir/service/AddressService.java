@@ -10,13 +10,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Qualifier("AddressService")
+@Qualifier("addressService")
 //@Transactional
 //@RequiredArgsConstructor
 public class AddressService {
-    @Autowired(required = true)
+    @Autowired
     AddressRepository addressRepository ;
     public void createAddress(Address address){
         addressRepository.save(address);
+    }
+    public Address findById(int id){
+        return addressRepository.findById(id);
     }
 }
