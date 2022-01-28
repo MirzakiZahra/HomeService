@@ -9,7 +9,7 @@ import service.mapper.MainServiceMapper;
 import java.util.List;
 
 public class MainServiceService {
-    ServiceRepository serviceRepository = new ServiceRepository();
+    ServiceRepository serviceRepository ;
     MainServiceMapper mainServiceMapper = new MainServiceMapper();
 
     public void createMainService(String name) {
@@ -18,18 +18,18 @@ public class MainServiceService {
     }
 
     public void deleteMainService(String name) {
-        List<MainService> mainServiceList = serviceRepository.findServiceByName(name);
+        List<MainService> mainServiceList = serviceRepository.findMainServiceByName(name);
         if (mainServiceList.size()==0){
             throw new InputException("Main Service Does Not Exit");
         }
         serviceRepository.deleteMainService(mainServiceList.get(0));
     }
     public void updateMainService(MainService mainService){
-        serviceRepository.updateMainService(mainService);
+        serviceRepository.save(mainService);
     }
 
     public MainServiceDto findMainServiceByName(String name) {
-        List<MainService> mainService = serviceRepository.findServiceByName(name);
+        List<MainService> mainService = serviceRepository.findMainServiceByName(name);
         if (mainService.size() != 0) {
             throw new InputException("MainService Exist");
         }
@@ -37,13 +37,13 @@ public class MainServiceService {
     }
 
     public List<MainService> findMainService(String name) {
-        if (serviceRepository.findServiceByName(name).size()==0){
+        if (serviceRepository.findMainServiceByName(name).size()==0){
             throw new InputException("MainService DoesNot Exist");
         }
-        return serviceRepository.findServiceByName(name);
+        return serviceRepository.findMainServiceByName(name);
     }
     public boolean checkExistOfMainService(String name){
-        List<MainService> mainServiceList = serviceRepository.findServiceByName(name);
+        List<MainService> mainServiceList = serviceRepository.findMainServiceByName(name);
         if (mainServiceList.size()!=0){
             return true;
         }
