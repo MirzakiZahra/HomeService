@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubServiceService {
-    SubServiceRepository subServiceRepository = new SubServiceRepository();
+    SubServiceRepository subServiceRepository ;
     SubServiceMapper subServiceMapper=new SubServiceMapper();
     MainServiceService mainServiceService = new MainServiceService();
 
@@ -39,11 +39,11 @@ public class SubServiceService {
         SubService subService = new SubService(name, description, price, mainServices.get(0));
         mainServices.get(0).getSubServiceSet().add(subService);
         mainServiceService.updateMainService(mainServices.get(0));
-        subServiceRepository.addSubService(subService);
+        subServiceRepository.save(subService);
     }
     public void deleteSubService(String name) {
         SubService subService= subServiceRepository.findByName(name);
-        subServiceRepository.deleteSubService(subService);
+        subServiceRepository.delete(subService);
     }
     public SubServiceDto findSubServiceByName(String name) {
         List<SubService>subServices= subServiceRepository.findAllByName(name);
@@ -57,7 +57,7 @@ public class SubServiceService {
         MainService mainService = subService.getMainService();
         mainService.getSubServiceSet().remove(subService);
         mainServiceService.updateMainService(mainService);
-        subServiceRepository.deleteSubService(subService);
+        subServiceRepository.delete(subService);
     }
 
 }
