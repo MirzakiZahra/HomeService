@@ -22,7 +22,7 @@ import java.util.List;
 public class OrderService {
     @Autowired
     OrderRepository orderRepository = new OrderRepository();
-    CustomerRepository customerRepository = new CustomerRepository();
+    CustomerRepository customerRepository;
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
@@ -33,14 +33,14 @@ public class OrderService {
     public void createOrder(float cost, String explanation, Date beggingDate,
                             Date endingTime, String address, String email, int subServiceId) {
         Orders orders = new Orders(cost, explanation, beggingDate, endingTime, address);
-        Customer customer = customerRepository.findCustomerByEmail(email).get(0);
+        Customer customer = customerRepository.findAllByEmail(email).get(0);
         SubService subService = subServiceService.checkExistOfSubServiceById(subServiceId);
         orders.setCustomer(customer);
         orders.setSubService(subService);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
         orderRepository.addCOrder(orders);
         customer.getOrders().add(orders);
-        customerRepository.updateCustomer(customer);
+        customerRepository.save(customer);
     }
 
     public List<OrderDto> showAllOrder() {
