@@ -12,6 +12,7 @@ import service.ExpertService;
 public class ExpertServiceTest {
     ExpertService expertService = new ExpertService();
     ServiceRepository serviceRepository ;
+    SubServiceRepository subServiceRepository ;
 
     @BeforeEach
     void init() {
@@ -57,8 +58,8 @@ public class ExpertServiceTest {
         serviceRepository.save(mainService);
         SubService subService = new SubService("Home Cleaning","Clean Home",
                 2000,mainService);
-        SubServiceRepository subServiceRepository = new SubServiceRepository();
-        subServiceRepository.addSubService(subService);
+
+        subServiceRepository.save(subService);
         expertService.addServiceToExpert("ali@gmail.com",subService.getName());
         return expertService.findExpertByEmail("ali@gmail.com");
     }
