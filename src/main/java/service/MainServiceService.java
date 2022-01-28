@@ -14,7 +14,7 @@ public class MainServiceService {
 
     public void createMainService(String name) {
         MainService mainService = new MainService(name);
-        serviceRepository.addMainService(mainService);
+        serviceRepository.save(mainService);
     }
 
     public void deleteMainService(String name) {

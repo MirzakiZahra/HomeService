@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ExpertService {
     ExpertRepository expertRepository = new ExpertRepository();
-    ServiceRepository serviceRepository = new ServiceRepository();
+    ServiceRepository serviceRepository;
     OrderService orderService = new OrderService();
     ExpertMapper expertMapper = new ExpertMapper();
     ExpertDto expertDto=new ExpertDto();

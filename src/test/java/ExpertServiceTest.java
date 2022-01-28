@@ -11,6 +11,7 @@ import service.ExpertService;
 
 public class ExpertServiceTest {
     ExpertService expertService = new ExpertService();
+    ServiceRepository serviceRepository ;
 
     @BeforeEach
     void init() {
@@ -53,8 +54,7 @@ public class ExpertServiceTest {
     }
     public ExpertDto preTasks(){
         MainService mainService = new MainService("Cleaning");
-        ServiceRepository serviceRepository = new ServiceRepository();
-        serviceRepository.addMainService(mainService);
+        serviceRepository.save(mainService);
         SubService subService = new SubService("Home Cleaning","Clean Home",
                 2000,mainService);
         SubServiceRepository subServiceRepository = new SubServiceRepository();
