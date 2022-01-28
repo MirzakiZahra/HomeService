@@ -1,45 +1,17 @@
 package data.repository;
 
 import data.model.Offer;
+import data.model.services.MainService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
-
-public class OfferRepository {
-    static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-
-    public void addOffer(Offer offer) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(offer);
-        transaction.commit();
-        session.close();
-    }
-
-    public List<Offer> showOffer() {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Offer ";
-        Query query = session.createQuery(hql);
-        List<Offer> offerList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return offerList;
-    }
-    public Offer findOfferById(int id){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Offer o where o.id = :id ";
-        Query query = session.createQuery(hql);
-        query.setParameter("id", id);
-        List<Offer> offerList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return offerList.get(0);
-    }
-
+@Repository
+public interface OfferRepository extends CrudRepository<Offer, Integer> {
+   Offer findOfferById(int id);
 }

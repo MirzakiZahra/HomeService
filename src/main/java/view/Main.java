@@ -26,7 +26,7 @@ public class Main {
     static Validator validator = new Validator();
     static AddressService addressService = new AddressService();
     static OfferService offerService = new OfferService();
-    static OfferRepository offerRepository = new OfferRepository();
+    static OfferRepository offerRepository ;
     static OrderRepository orderRepository = new OrderRepository();
     static ServiceRepository serviceRepository;
     static MainServiceService mainServiceService = new MainServiceService();

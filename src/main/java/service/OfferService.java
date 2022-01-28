@@ -7,12 +7,15 @@ import data.model.Offer;
 import data.model.Orders;
 import data.model.enums.OrderStatus;
 import data.model.user.Expert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
-
+@Service
 public class OfferService {
+    @Autowired
     ExpertRepository expertRepository = new ExpertRepository();
-    OfferRepository offerRepository = new OfferRepository();
+    OfferRepository offerRepository;
     OrderRepository orderRepository = new OrderRepository();
 
     public void createOffer(float price, int orderId, float basePrice,
@@ -21,7 +24,7 @@ public class OfferService {
         Orders orders = orderRepository.findOrderById(orderId);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, orders, creationDate, startDate);
-        offerRepository.addOffer(offer);
+        offerRepository.save(offer);
 
     }
     public Offer findOfferById(int id){
