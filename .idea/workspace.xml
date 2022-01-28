@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/data/repository/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/data/repository/AddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/data/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/data/repository/OrderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/service/AddressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AddressServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddressServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/data/repository/AddressRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/data/repository/AddressRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/data/repository/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/data/repository/OrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AdminServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AdminServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ir/service/AddressService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/service/AddressService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/view/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/AddressServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AddressServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +113,7 @@
       <workItem from="1643243967659" duration="9678000" />
       <workItem from="1643270392826" duration="4598000" />
       <workItem from="1643311464284" duration="29184000" />
+      <workItem from="1643403472044" duration="1712000" />
     </task>
     <servers />
   </component>
@@ -134,16 +131,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/AddressServiceTest.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

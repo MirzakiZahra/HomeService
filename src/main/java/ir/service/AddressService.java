@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Qualifier("addressService")
-//@Transactional
-//@RequiredArgsConstructor
 public class AddressService {
     @Autowired
     AddressRepository addressRepository ;

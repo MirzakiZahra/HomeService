@@ -20,7 +20,6 @@ public class AddressServiceTest {
                 .plaque("65")
                 .build();
         addressService.createAddress(address);
-        Address byId = addressService.findById(1);
-        Assertions.assertEquals(address,byId);
+        Assertions.assertEquals(address,addressService.findById(13));
     }
 }
