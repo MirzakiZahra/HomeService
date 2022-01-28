@@ -27,7 +27,7 @@ public class OrderService {
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
     CustomerService customerService = new CustomerService();
-    ExpertRepository expertRepository = new ExpertRepository();
+    ExpertRepository expertRepository;
     TransactionService transactionService = new TransactionService();
 
     public void createOrder(float cost, String explanation, Date beggingDate,
@@ -84,10 +84,10 @@ public class OrderService {
         Customer customer = orders.getCustomer();
         if (customer.getCredit() >= orders.getPrice()) {
             customerService.withdrawCreditOfCustomer(customer.getEmail(), orders.getPrice());
-            Expert expert = expertRepository.findExpertByEmail(expertEmail).get(0);
+            Expert expert = expertRepository.findAllByEmail(expertEmail).get(0);
             float temp = expert.getCreditExpert() + orders.getPrice();
             expert.setCreditExpert(temp);
-            expertRepository.updateExpert(expert);
+            expertRepository.save(expert);
             transactionService.createTransaction(orders, TypeOfTransaction.DEPOSIT);
             transactionService.createTransaction(orders,TypeOfTransaction.WITHDRAW);
         } else {
