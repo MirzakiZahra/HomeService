@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 public interface ServiceRepository extends CrudRepository<MainService, Integer>{
     List<MainService> findMainServiceByName(String name);
-    
+
     public void deleteMainService(MainService mainService) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

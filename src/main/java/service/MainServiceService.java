@@ -22,7 +22,7 @@ public class MainServiceService {
         if (mainServiceList.size()==0){
             throw new InputException("Main Service Does Not Exit");
         }
-        serviceRepository.deleteMainService(mainServiceList.get(0));
+        serviceRepository.delete(mainServiceList.get(0));
     }
     public void updateMainService(MainService mainService){
         serviceRepository.save(mainService);
