@@ -1,18 +1,14 @@
 package data.repository;
 
 import data.model.Transaction;
+import data.model.services.MainService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public class TransactionRepository {
-    static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+@Repository
+public interface TransactionRepository extends CrudRepository<Transaction, Integer> {
 
-    public void addTransaction(Transaction transaction){
-        Session session = sessionFactory.openSession();
-        org.hibernate.Transaction transaction1=  session.beginTransaction();
-        session.save(transaction);
-        transaction1.commit();
-        session.close();
-    }
 }

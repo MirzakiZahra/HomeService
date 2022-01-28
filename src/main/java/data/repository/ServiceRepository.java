@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface ServiceRepository extends CrudRepository<MainService, Integer> {
     List<MainService> findMainServiceByName(String name);
-
 }

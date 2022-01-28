@@ -5,12 +5,15 @@ import data.dto.SubServiceDto;
 import exception.InputException;
 import data.model.services.MainService;
 import data.model.services.SubService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import service.mapper.SubServiceMapper;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class SubServiceService {
+    @Autowired
     SubServiceRepository subServiceRepository ;
     SubServiceMapper subServiceMapper=new SubServiceMapper();
     MainServiceService mainServiceService = new MainServiceService();

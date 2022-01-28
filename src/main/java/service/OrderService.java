@@ -12,12 +12,15 @@ import data.model.enums.TypeOfTransaction;
 import data.model.services.SubService;
 import data.model.user.Customer;
 import data.model.user.Expert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import service.mapper.OrderMapper;
 
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class OrderService {
+    @Autowired
     OrderRepository orderRepository = new OrderRepository();
     CustomerRepository customerRepository = new CustomerRepository();
     SubServiceService subServiceService = new SubServiceService();

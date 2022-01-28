@@ -4,11 +4,14 @@ import data.repository.ServiceRepository;
 import data.dto.MainServiceDto;
 import exception.InputException;
 import data.model.services.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import service.mapper.MainServiceMapper;
 
 import java.util.List;
-
+@Service
 public class MainServiceService {
+    @Autowired
     ServiceRepository serviceRepository ;
     MainServiceMapper mainServiceMapper = new MainServiceMapper();
 
