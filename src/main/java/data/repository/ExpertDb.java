@@ -1,6 +1,7 @@
-package data.dao;
+package data.repository;
 
-import data.model.Orders;
+import data.model.user.Expert;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,74 +10,82 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class OrderDb {
+public class ExpertDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public Orders findOrder(int id) {
+    public void addExpert(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Orders s where s.id = :id";
-        Query query = session.createQuery(hql);
-        query.setParameter("id", id);
-        List<Orders> ordersList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return ordersList.get(0);
-    }
-
-    public void addCOrder(Orders orders) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(orders);
+        session.save(expert);
         transaction.commit();
         session.close();
     }
 
-    public Orders findOrderById(int id) {
+    public void deleteExpert(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Orders orders = session.get(Orders.class, id);
+        session.delete(expert);
         transaction.commit();
         session.close();
-        return orders;
     }
 
-    public List<Orders> showAllOrder() {
+    public List<Expert> findExpertByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Orders";
+        String hql = "from Expert s where s.email = :email";
         Query query = session.createQuery(hql);
-        List<Orders> ordersList = query.getResultList();
+        query.setParameter("email", email);
+        List<Expert> expertList = query.getResultList();
         transaction.commit();
         session.close();
-        return ordersList;
+        return expertList;
     }
-    public void updateOrder(Orders orders){
+
+    public void updateExpert(Expert expert) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(orders);
+        session.update(expert);
         transaction.commit();
         session.close();
     }
-    public List<Orders> returnCustomerDoneOrder(int customerId){
+
+    public List<Expert> showExpert() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Orders o where o.customer.id = : customerId and o.orderStatus = 'Done'";
+      //  String hql= "from Person s where s."
+        String sql = "select * from person where DTYPE =Expert";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Expert.class);
+        List<Expert> expertList = query.list();
+        return expertList;
+    }
+
+    public void deleteExpertWithService(Expert expert) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(expert);
+        transaction.commit();
+        session.close();
+    }
+
+    public void newScore(Expert expert) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(expert);
+        transaction.commit();
+        session.close();
+    }
+    public int checkExistOfExpertPassword(String password) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Expert s where s.password = :password";
         Query query = session.createQuery(hql);
-        query.setParameter("customerId", customerId);
-        List<Orders> ordersList = query.getResultList();
+        query.setParameter("password", password);
+        List<Expert> expertList = query.getResultList();
         transaction.commit();
         session.close();
-        return ordersList;
+        return expertList.size();
     }
-    public List<Orders>allOrdersWithStatusWAITINGFOREXPERTSUGGESTION(){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Orders o where  o.orderStatus = 'WAITING_FOR_EXPERT_SUGGESTION'";
-        Query query = session.createQuery(hql);
-        List<Orders> ordersList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return ordersList;
-    }
+
+
 }

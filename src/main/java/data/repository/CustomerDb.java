@@ -1,6 +1,6 @@
-package data.dao;
+package data.repository;
 
-import data.model.user.Expert;
+import data.model.user.Customer;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,82 +10,78 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ExpertDb {
+
+public class CustomerDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public void addExpert(Expert expert) {
+    public void addCustomer(Customer customer) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(expert);
+        session.save(customer);
         transaction.commit();
         session.close();
     }
 
-    public void deleteExpert(Expert expert) {
+    public void deleteCustomer(Customer customer) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(expert);
+        session.delete(customer);
         transaction.commit();
         session.close();
     }
 
-    public List<Expert> findExpertByEmail(String email) {
+    public int checkExistOfCustomer(String username) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Expert s where s.email = :email";
+        String hql = "from Customer s where s.username = :username";
         Query query = session.createQuery(hql);
-        query.setParameter("email", email);
-        List<Expert> expertList = query.getResultList();
+        query.setParameter("username", username);
+        List<Customer> customerList = query.getResultList();
         transaction.commit();
         session.close();
-        return expertList;
+        return customerList.size();
     }
 
-    public void updateExpert(Expert expert) {
+    public int checkExistOfPassword(String password) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-    }
-
-    public List<Expert> showExpert() {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-      //  String hql= "from Person s where s."
-        String sql = "select * from person where DTYPE =Expert";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Expert.class);
-        List<Expert> expertList = query.list();
-        return expertList;
-    }
-
-    public void deleteExpertWithService(Expert expert) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-    }
-
-    public void newScore(Expert expert) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(expert);
-        transaction.commit();
-        session.close();
-    }
-    public int checkExistOfExpertPassword(String password) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Expert s where s.password = :password";
+        String hql = "from Customer s where s.password = :password";
         Query query = session.createQuery(hql);
         query.setParameter("password", password);
-        List<Expert> expertList = query.getResultList();
+        List<Customer> customerList = query.getResultList();
         transaction.commit();
         session.close();
-        return expertList.size();
+        return customerList.size();
+    }
+
+    public List<Customer> findCustomerByEmail(String email) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "from Customer s where s.email = :email";
+        Query query = session.createQuery(hql);
+        query.setParameter("email", email);
+        List<Customer> customerList = query.getResultList();
+        transaction.commit();
+        session.close();
+        return customerList;
+    }
+
+    public void updateCustomer(Customer customer) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(customer);
+        transaction.commit();
+        session.close();
     }
 
 
+    public List<Customer> showCustomer() {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String sql = "select * from person where DTYPE =customer";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Customer.class);
+        List<Customer> customerList = query.list();
+        return customerList;
+    }
 }

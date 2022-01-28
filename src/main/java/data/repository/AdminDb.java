@@ -1,6 +1,6 @@
-package data.dao;
+package data.repository;
 
-import data.model.Address;
+import data.model.user.Manager;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,31 +9,25 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-public class AddressDb {
+public class AdminDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    public void AddAddress(Address address){
+
+    public void addAdmin(Manager manager) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(address);
+        session.save(manager);
         transaction.commit();
         session.close();
     }
-    public void updateAddress(Address address) {
+    public List<Manager> findManagerByEmail(String email) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(address);
-        transaction.commit();
-        session.close();
-    }
-    public Address findAddressById(int id){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Address a where a.id = :id";
+        String hql = "from Manager m where m.email = :email";
         Query query = session.createQuery(hql);
-        query.setParameter("id", id);
-        List<Address> addressList = query.getResultList();
+        query.setParameter("email", email);
+        List<Manager> managerList = query.getResultList();
         transaction.commit();
         session.close();
-        return addressList.get(0);
+        return managerList;
     }
 }

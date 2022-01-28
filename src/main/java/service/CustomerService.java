@@ -1,6 +1,6 @@
 package service;
 
-import data.dao.CustomerDb;
+import data.repository.CustomerDb;
 import data.dto.AddressDto;
 import exception.InputException;
 import data.model.Address;

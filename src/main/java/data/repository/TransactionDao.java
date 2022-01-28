@@ -1,4 +1,4 @@
-package data.dao;
+package data.repository;
 
 import data.model.Transaction;
 import org.hibernate.Session;

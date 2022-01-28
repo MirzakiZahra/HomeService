@@ -1,4 +1,4 @@
-import data.dao.AddressDb;
+import data.repository.AddressDb;
 import data.model.Address;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

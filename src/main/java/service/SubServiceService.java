@@ -1,6 +1,6 @@
 package service;
 
-import data.dao.SubServiceDb;
+import data.repository.SubServiceDb;
 import data.dto.SubServiceDto;
 import exception.InputException;
 import data.model.services.MainService;

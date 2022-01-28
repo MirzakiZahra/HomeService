@@ -1,6 +1,6 @@
 package service;
 
-import data.dao.TransactionDao;
+import data.repository.TransactionDao;
 import data.model.Orders;
 import data.model.Transaction;
 import data.model.enums.TypeOfTransaction;

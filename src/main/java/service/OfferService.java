@@ -1,8 +1,8 @@
 package service;
 
-import data.dao.ExpertDb;
-import data.dao.OfferDb;
-import data.dao.OrderDb;
+import data.repository.ExpertDb;
+import data.repository.OfferDb;
+import data.repository.OrderDb;
 import data.model.Offer;
 import data.model.Orders;
 import data.model.enums.OrderStatus;

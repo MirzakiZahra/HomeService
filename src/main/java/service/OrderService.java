@@ -1,8 +1,8 @@
 package service;
 
-import data.dao.CustomerDb;
-import data.dao.ExpertDb;
-import data.dao.OrderDb;
+import data.repository.CustomerDb;
+import data.repository.ExpertDb;
+import data.repository.OrderDb;
 import data.dto.OrderDto;
 import exception.EnoughCredit;
 import data.model.Offer;

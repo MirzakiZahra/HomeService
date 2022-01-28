@@ -1,6 +1,6 @@
 package service;
 
-import data.dao.ServiceDb;
+import data.repository.ServiceDb;
 import data.dto.MainServiceDto;
 import exception.InputException;
 import data.model.services.MainService;

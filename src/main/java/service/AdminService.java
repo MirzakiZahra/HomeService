@@ -1,6 +1,6 @@
 package service;
 
-import data.dao.AdminDb;
+import data.repository.AdminDb;
 import data.dto.AdminDto;
 import data.model.user.Manager;
 import service.mapper.AdminMapper;

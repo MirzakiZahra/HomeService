@@ -1,6 +1,6 @@
 package service;
 
-import data.dao.AddressDb;
+import data.repository.AddressDb;
 import data.model.Address;
 import service.mapper.AddressMapper;
 

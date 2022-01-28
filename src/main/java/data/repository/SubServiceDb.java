@@ -1,7 +1,6 @@
-package data.dao;
+package data.repository;
 
-import data.model.user.Customer;
-import org.hibernate.SQLQuery;
+import data.model.services.SubService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,78 +9,75 @@ import org.hibernate.cfg.Configuration;
 import javax.persistence.Query;
 import java.util.List;
 
-
-public class CustomerDb {
+public class SubServiceDb {
     static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-    public void addCustomer(Customer customer) {
+    public List<SubService> getAllSubService() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(customer);
-        transaction.commit();
-        session.close();
-    }
-
-    public void deleteCustomer(Customer customer) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.delete(customer);
-        transaction.commit();
-        session.close();
-    }
-
-    public int checkExistOfCustomer(String username) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Customer s where s.username = :username";
+        String hql = "from SubService";
         Query query = session.createQuery(hql);
-        query.setParameter("username", username);
-        List<Customer> customerList = query.getResultList();
+        List<SubService> subServices = query.getResultList();
         transaction.commit();
         session.close();
-        return customerList.size();
+        return subServices;
     }
 
-    public int checkExistOfPassword(String password) {
+    public SubService checkExistOfSubServiceById(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Customer s where s.password = :password";
+        String hql = "from SubService s where s.id = :id";
         Query query = session.createQuery(hql);
-        query.setParameter("password", password);
-        List<Customer> customerList = query.getResultList();
+        query.setParameter("id", id);
+        List<SubService> subServices = query.getResultList();
         transaction.commit();
         session.close();
-        return customerList.size();
+        return subServices.get(0);
     }
-
-    public List<Customer> findCustomerByEmail(String email) {
+    public SubService findSubServiceByName(String name) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "from Customer s where s.email = :email";
+        String hql = "from SubService s where s.name = :name";
         Query query = session.createQuery(hql);
-        query.setParameter("email", email);
-        List<Customer> customerList = query.getResultList();
+        query.setParameter("name", name);
+        List<SubService>subServices = query.getResultList();
         transaction.commit();
         session.close();
-        return customerList;
+        return subServices.get(0);
     }
 
-    public void updateCustomer(Customer customer) {
+    public void deleteSubService(SubService subService) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(customer);
+        session.delete(subService);
+        transaction.commit();
+        session.close();
+    }
+    public void addSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(subService);
         transaction.commit();
         session.close();
     }
 
-
-    public List<Customer> showCustomer() {
+    public List<SubService> findSubServiceByNameReturnList(String name) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "select * from person where DTYPE =customer";
-        SQLQuery query = session.createSQLQuery(sql);
-        query.addEntity(Customer.class);
-        List<Customer> customerList = query.list();
-        return customerList;
+        String hql = "from MainService s where s.name = :name";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", name);
+        List<SubService> subServices = query.getResultList();
+        transaction.commit();
+        session.close();
+        return subServices;
     }
+    public void updateSubService(SubService subService) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(subService);
+        transaction.commit();
+        session.close();
+    }
+
 }
