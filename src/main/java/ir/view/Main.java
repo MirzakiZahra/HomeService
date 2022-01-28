@@ -56,7 +56,7 @@ public class Main {
                                 System.out.println("Please Enter Your Email");
                                 String email = scanner.next();
                                 if (validator.checkEmail(email) == true) {
-                                    AdminDto adminDto = adminService.findManagerByEmail(email);
+                                    AdminDto adminDto = adminService.findManagerByEmailReturnDto(email);
                                     adminMenu(adminDto);
                                 }
                                 break;

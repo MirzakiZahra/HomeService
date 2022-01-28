@@ -18,9 +18,9 @@ public class AdminService {
        Admin admin = new Admin( firstName,lastName,  email,  password,username);
         adminRepository.save(admin);
     }
-    public AdminDto findManagerByEmail(String email) {
+    public AdminDto findManagerByEmailReturnDto(String email) {
         List<Admin> adminList = adminRepository.findManagerByEmail(email);
         return adminMapper.convertAdminToAdminDto(adminList.get(0));
     }
-
+    
 }
