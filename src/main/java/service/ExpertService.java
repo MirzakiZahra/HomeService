@@ -24,7 +24,7 @@ public class ExpertService {
     ExpertDto expertDto=new ExpertDto();
     OrderRepository orderRepository =new OrderRepository();
     OrderMapper orderMapper=new OrderMapper();
-    SubServiceRepository subServiceRepository = new SubServiceRepository();
+    SubServiceRepository subServiceRepository ;
 
     public void createExpert(String firstName, String lastName, String email) {
         Expert expert = new Expert(firstName, lastName, email);
@@ -106,7 +106,7 @@ public class ExpertService {
             expert.getSubServiceList().add(foundSubService);
             expertRepository.updateExpert(expert);
             foundSubService.getExpertSet().add(expert);
-            subServiceRepository.updateSubService(foundSubService);
+            subServiceRepository.save(foundSubService);
         }
     }
     public void deleteServiceFromExpert(String email, String subServiceName){
@@ -120,7 +120,7 @@ public class ExpertService {
                 expert.getSubServiceList().remove(foundSubService);
                 expertRepository.updateExpert(expert);
                 foundSubService.getExpertSet().remove(expert);
-                subServiceRepository.updateSubService(foundSubService);
+                subServiceRepository.save(foundSubService);
             }
         }
     }

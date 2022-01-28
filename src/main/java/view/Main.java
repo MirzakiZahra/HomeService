@@ -1,13 +1,13 @@
 package view;
 
+import data.dto.*;
+import data.model.enums.OrderStatus;
+import data.model.user.Customer;
 import data.repository.OfferRepository;
 import data.repository.OrderRepository;
 import data.repository.ServiceRepository;
 import data.repository.SubServiceRepository;
-import data.dto.*;
 import exception.InputException;
-import data.model.enums.OrderStatus;
-import data.model.user.Customer;
 import service.*;
 import util.Validator;
 
@@ -28,9 +28,9 @@ public class Main {
     static OfferService offerService = new OfferService();
     static OfferRepository offerRepository = new OfferRepository();
     static OrderRepository orderRepository = new OrderRepository();
-    static ServiceRepository serviceRepository ;
+    static ServiceRepository serviceRepository;
     static MainServiceService mainServiceService = new MainServiceService();
-    static SubServiceRepository subServiceRepository = new SubServiceRepository();
+    static SubServiceRepository subServiceRepository;
     static SubServiceDto subServiceDto = new SubServiceDto();
     static AdminService adminService = new AdminService();
 
