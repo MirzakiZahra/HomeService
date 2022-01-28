@@ -1,10 +1,10 @@
-import data.dto.AddressDto;
-import exception.InputException;
-import data.model.user.Customer;
+import ir.data.dto.AddressDto;
+import ir.exception.InputException;
+import ir.data.model.user.Customer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.CustomerService;
+import ir.service.CustomerService;
 
 public class CustomerServiceTest {
     AddressDto addressDto = new AddressDto();

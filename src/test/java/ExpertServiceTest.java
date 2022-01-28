@@ -1,13 +1,13 @@
-import data.repository.ServiceRepository;
-import data.repository.SubServiceRepository;
-import data.dto.ExpertDto;
-import exception.InputException;
-import data.model.services.MainService;
-import data.model.services.SubService;
+import ir.data.repository.ServiceRepository;
+import ir.data.repository.SubServiceRepository;
+import ir.data.dto.ExpertDto;
+import ir.exception.InputException;
+import ir.data.model.services.MainService;
+import ir.data.model.services.SubService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.ExpertService;
+import ir.service.ExpertService;
 
 public class ExpertServiceTest {
     ExpertService expertService = new ExpertService();

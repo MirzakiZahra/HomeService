@@ -1,9 +1,9 @@
-import exception.InputException;
+import ir.exception.InputException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.MainServiceService;
-import service.SubServiceService;
+import ir.service.MainServiceService;
+import ir.service.SubServiceService;
 
 public class SubServiceServiceTest {
     SubServiceService subServiceService = new SubServiceService();

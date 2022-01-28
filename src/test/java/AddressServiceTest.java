@@ -1,11 +1,17 @@
-import data.repository.AddressRepository;
-import data.model.Address;
+import ir.config.SpringConfig;
+import ir.data.repository.AddressRepository;
+import ir.data.model.Address;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.AddressService;
+import ir.service.AddressService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.io.ObjectInputFilter;
 
 public class AddressServiceTest {
-    AddressService addressService = new AddressService();
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    AddressService addressService = context.getBean(AddressService.class);
     AddressRepository addressRepository ;
     @Test
     void giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress(){

@@ -1,8 +1,8 @@
-import data.repository.AdminRepository;
-import data.model.user.Manager;
+import ir.data.repository.AdminRepository;
+import ir.data.model.user.Manager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.AdminService;
+import ir.service.AdminService;
 
 public class AdminServiceTest {
     AdminService adminService = new AdminService();

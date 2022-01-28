@@ -1,9 +1,9 @@
-import exception.InputException;
-import data.model.services.MainService;
+import ir.exception.InputException;
+import ir.data.model.services.MainService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.MainServiceService;
+import ir.service.MainServiceService;
 
 public class MainServiceServiceTest {
     MainServiceService mainServiceService = new MainServiceService();

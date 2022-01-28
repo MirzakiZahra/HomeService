@@ -1,0 +1,7 @@
+package ir.data.model.enums;
+
+public enum OrderStatus {
+    WAITING_FOR_EXPERT_SUGGESTION, WAITING_FOR_SPECIALIST_SELECTION,
+    WAITING_FOR_THE_SPECIALIST_TO_ARRIVE, STARTED, DONE, PAID;
+
+}
