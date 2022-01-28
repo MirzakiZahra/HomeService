@@ -6,7 +6,7 @@ import service.AdminService;
 
 public class AdminServiceTest {
     AdminService adminService = new AdminService();
-    AdminRepository adminRepository = new AdminRepository();
+    AdminRepository adminRepository ;
     @Test
     void giveAdminNeededData_addAdminAndThenFindIt_AccurateAdmin(){
         Manager manager = new Manager("admin","admin","admin@admin.com",

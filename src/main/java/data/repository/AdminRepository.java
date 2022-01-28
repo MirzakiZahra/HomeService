@@ -1,33 +1,18 @@
 package data.repository;
 
+import data.model.services.MainService;
 import data.model.user.Manager;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
 import java.util.List;
+@Repository
+public interface AdminRepository extends CrudRepository<Manager, Integer> {
 
-public class AdminRepository {
-    static SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    List<Manager> findManagerByEmail(String email);
 
-    public void addAdmin(Manager manager) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(manager);
-        transaction.commit();
-        session.close();
-    }
-    public List<Manager> findManagerByEmail(String email) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        String hql = "from Manager m where m.email = :email";
-        Query query = session.createQuery(hql);
-        query.setParameter("email", email);
-        List<Manager> managerList = query.getResultList();
-        transaction.commit();
-        session.close();
-        return managerList;
-    }
 }
