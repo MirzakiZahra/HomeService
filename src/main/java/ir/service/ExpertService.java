@@ -25,8 +25,10 @@ public class ExpertService {
     OrderService orderService = new OrderService();
     ExpertMapper expertMapper = new ExpertMapper();
     ExpertDto expertDto = new ExpertDto();
+    @Autowired
     OrderRepository orderRepository;
     OrderMapper orderMapper = new OrderMapper();
+    @Autowired
     SubServiceRepository subServiceRepository;
 
     public void createExpert(String firstName, String lastName, String email) {
