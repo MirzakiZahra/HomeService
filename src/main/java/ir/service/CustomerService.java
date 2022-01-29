@@ -18,7 +18,6 @@ import java.util.List;
 
 public class CustomerService {
     private  CustomerRepository customerRepository;
-
     @Autowired
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;

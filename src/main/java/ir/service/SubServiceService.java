@@ -16,7 +16,8 @@ public class SubServiceService {
     @Autowired
     SubServiceRepository subServiceRepository ;
     SubServiceMapper subServiceMapper=new SubServiceMapper();
-    MainServiceService mainServiceService = new MainServiceService();
+    @Autowired
+    MainServiceService mainServiceService;
 
     public List<SubServiceDto> showAllSubService() {
         List<SubService> subServiceList = subServiceRepository.findAllSubService();

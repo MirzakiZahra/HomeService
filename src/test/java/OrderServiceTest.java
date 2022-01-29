@@ -18,7 +18,7 @@ public class OrderServiceTest {
     OrderService orderService = new OrderService();
     AddressDto addressDto = new AddressDto();
     CustomerService customerService ;
-    MainServiceService mainServiceService = new MainServiceService();
+    MainServiceService mainServiceService;
     SubServiceService subServiceService = new SubServiceService();
     ExpertService expertService = new ExpertService();
     ExpertRepository expertRepository ;

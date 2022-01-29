@@ -1,5 +1,6 @@
 package ir.service;
 
+import ir.data.repository.CustomerRepository;
 import ir.data.repository.ServiceRepository;
 import ir.data.dto.MainServiceDto;
 import ir.exception.InputException;
@@ -11,8 +12,12 @@ import ir.service.mapper.MainServiceMapper;
 import java.util.List;
 @Service
 public class MainServiceService {
+    private ServiceRepository serviceRepository;
+
     @Autowired
-    ServiceRepository serviceRepository ;
+    public MainServiceService(ServiceRepository serviceRepository) {
+        this.serviceRepository = serviceRepository;
+    }
     MainServiceMapper mainServiceMapper = new MainServiceMapper();
 
     public void createMainService(String name) {

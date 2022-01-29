@@ -7,7 +7,7 @@ import ir.service.SubServiceService;
 
 public class SubServiceServiceTest {
     SubServiceService subServiceService = new SubServiceService();
-    MainServiceService mainServiceService = new MainServiceService();
+    MainServiceService mainServiceService;
     @BeforeEach
     void init(){
         mainServiceService.createMainService("Cleaning");

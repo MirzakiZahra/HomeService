@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import ir.service.MainServiceService;
 
 public class MainServiceServiceTest {
-    MainServiceService mainServiceService = new MainServiceService();
+    MainServiceService mainServiceService;
 
     @BeforeEach
     void init() {
