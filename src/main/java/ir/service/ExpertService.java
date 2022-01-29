@@ -99,11 +99,14 @@ public class ExpertService {
             throw new InputException("Expert DoesNot Exist");
         } else {
             Expert expert = expertRepository.findAllByEmail(email).get(0);
-            SubService foundSubService = subServiceRepository.findByName(subServiceName);
-            expert.getSubServiceList().add(foundSubService);
-            expertRepository.save(expert);
-            foundSubService.getExpertSet().add(expert);
-            subServiceRepository.save(foundSubService);
+            if (checkNotExistenceOfSubServiceInExpertSubServiceList(
+                    expertMapper.convertExpertToExpertDto(expert), subServiceName) == false){
+                SubService foundSubService = subServiceRepository.findByName(subServiceName);
+                expert.getSubServiceList().add(foundSubService);
+                expertRepository.save(expert);
+                foundSubService.getExpertSet().add(expert);
+                subServiceRepository.save(foundSubService);
+            }
         }
     }
 
@@ -131,6 +134,12 @@ public class ExpertService {
         }
         throw new InputException("Expert hasn't such Service");
     }
-
-
+    public boolean checkNotExistenceOfSubServiceInExpertSubServiceList(ExpertDto expertDto, String subServiceName) {
+        for (SubService subService : expertDto.getSubServiceList()) {
+            if (subService.getName().equalsIgnoreCase(subServiceName)) {
+                throw new InputException("Expert has such Service");
+            }
+        }
+        return false;
+    }
 }
