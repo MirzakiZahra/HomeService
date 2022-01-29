@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class OfferServiceTest {
-    OfferService offerService = new OfferService();
+    OfferService offerService ;
     ExpertService expertService = new ExpertService();
     CustomerService customerService ;
     MainServiceService mainServiceService;

@@ -1,5 +1,6 @@
 package ir.service;
 
+import ir.data.repository.CustomerRepository;
 import ir.data.repository.ExpertRepository;
 import ir.data.repository.OfferRepository;
 import ir.data.repository.OrderRepository;
@@ -13,10 +14,14 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 @Service
 public class OfferService {
+
+    private OfferRepository offerRepository;
+    @Autowired
+    public OfferService(OfferRepository offerRepository) {
+        this.offerRepository = offerRepository;
+    }
     @Autowired
     ExpertRepository expertRepository;
-    @Autowired
-    OfferRepository offerRepository;
     @Autowired
     OrderRepository orderRepository ;
 

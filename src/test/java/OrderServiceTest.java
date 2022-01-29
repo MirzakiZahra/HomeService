@@ -22,7 +22,7 @@ public class OrderServiceTest {
     SubServiceService subServiceService;
     ExpertService expertService = new ExpertService();
     ExpertRepository expertRepository ;
-    OfferService offerService = new OfferService();
+    OfferService offerService ;
     @BeforeEach
     void init(){
         addressDto = AddressDto.builder()
