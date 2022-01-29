@@ -1,8 +1,6 @@
 package ir.data.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ir.data.model.user.Expert;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,7 +8,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 public class Offer {
     @Id
@@ -35,5 +34,17 @@ public class Offer {
         this.orders = orders;
         this.creationDate = creationDate;
         this.startDate = startDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", price=" + price +
+                ", creationDate=" + creationDate +
+                ", startDate=" + startDate +
+                ", explanation='" + explanation + '\'' +
+                ", durationOfWork=" + durationOfWork +
+                '}';
     }
 }

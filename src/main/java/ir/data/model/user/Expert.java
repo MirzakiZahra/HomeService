@@ -1,8 +1,6 @@
 package ir.data.model.user;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ir.data.model.Offer;
 import ir.data.model.services.SubService;
 
@@ -11,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 
 public class Expert extends Person {

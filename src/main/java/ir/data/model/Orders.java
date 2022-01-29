@@ -33,7 +33,7 @@ public class Orders {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endingTime;
     private String address;
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "orders",fetch = FetchType.EAGER)
     private List<Offer> offerList= new ArrayList<>();
     @OneToOne
     private Offer preferredOffer;
