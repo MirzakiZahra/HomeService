@@ -22,6 +22,7 @@ import java.util.List;
 public class OrderService {
     @Autowired
     OrderRepository orderRepository ;
+    @Autowired
     CustomerRepository customerRepository;
     SubServiceService subServiceService = new SubServiceService();
     OrderMapper orderMapper = new OrderMapper();

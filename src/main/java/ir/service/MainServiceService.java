@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class MainServiceService {
     private ServiceRepository serviceRepository;
-
     @Autowired
     public MainServiceService(ServiceRepository serviceRepository) {
         this.serviceRepository = serviceRepository;
