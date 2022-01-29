@@ -246,7 +246,7 @@ public class Main {
     }
 
     public static void expertMenu(ExpertDto expertDto) {
-        String expertInput = scanner.next();
+        String expertInput = new String();
         do {
             System.out.println("1.Change Password\n2.See Order\n" +
                     "3.Make Offer\n4.Start Doing\n5.Finish Doing\n6.Add SubService\n7.Delete SubService\n8.Exit");

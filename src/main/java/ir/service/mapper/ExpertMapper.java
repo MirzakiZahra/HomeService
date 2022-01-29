@@ -10,6 +10,7 @@ public class ExpertMapper {
     public ExpertDto convertExpertToExpertDto(Expert expert) {
         ExpertDto expertDto = ExpertDto.builder()
                 .id(expert.getId())
+                .email(expert.getEmail())
                 .username(expert.getUsername())
                 .firstName(expert.getFirstName())
                 .lastName(expert.getLastName())
@@ -25,6 +26,7 @@ public class ExpertMapper {
         for (ExpertDto expertDto : expertDtoList) {
             Expert expert = Expert.builder()
                     .score(expertDto.getScore())
+                    .email(expertDto.getEmail())
                     .creditExpert(expertDto.getCreditExpert())
                     .subServiceList(expertDto.getSubServiceList())
                     .build();
