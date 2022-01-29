@@ -6,7 +6,7 @@ import ir.service.MainServiceService;
 import ir.service.SubServiceService;
 
 public class SubServiceServiceTest {
-    SubServiceService subServiceService = new SubServiceService();
+    SubServiceService subServiceService;
     MainServiceService mainServiceService;
     @BeforeEach
     void init(){

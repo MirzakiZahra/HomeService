@@ -1,5 +1,6 @@
 package ir.service;
 
+import ir.data.repository.ServiceRepository;
 import ir.data.repository.SubServiceRepository;
 import ir.data.dto.SubServiceDto;
 import ir.exception.InputException;
@@ -13,8 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class SubServiceService {
+    private SubServiceRepository subServiceRepository;
     @Autowired
-    SubServiceRepository subServiceRepository ;
+    public SubServiceService(SubServiceRepository subServiceRepository) {
+        this.subServiceRepository = subServiceRepository;
+    }
     SubServiceMapper subServiceMapper=new SubServiceMapper();
     @Autowired
     MainServiceService mainServiceService;

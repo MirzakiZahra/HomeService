@@ -24,7 +24,7 @@ public class OrderService {
     OrderRepository orderRepository ;
     @Autowired
     CustomerRepository customerRepository;
-    SubServiceService subServiceService = new SubServiceService();
+    SubServiceService subServiceService;
     OrderMapper orderMapper = new OrderMapper();
     OfferService offerService = new OfferService();
     CustomerService customerService ;

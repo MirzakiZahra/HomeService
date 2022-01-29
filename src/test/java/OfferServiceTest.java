@@ -13,7 +13,7 @@ public class OfferServiceTest {
     ExpertService expertService = new ExpertService();
     CustomerService customerService ;
     MainServiceService mainServiceService;
-    SubServiceService subServiceService = new SubServiceService();
+    SubServiceService subServiceService;
     OrderService orderService = new OrderService();
     @BeforeEach
     void init(){
