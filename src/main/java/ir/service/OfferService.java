@@ -15,7 +15,9 @@ import java.util.Date;
 public class OfferService {
     @Autowired
     ExpertRepository expertRepository;
+    @Autowired
     OfferRepository offerRepository;
+    @Autowired
     OrderRepository orderRepository ;
 
     public void createOffer(float price, int orderId, float basePrice,

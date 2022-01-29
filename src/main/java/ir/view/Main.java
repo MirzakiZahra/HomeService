@@ -267,8 +267,8 @@ public class Main {
                 case "3":
                     System.out.println("Please enter Order Id");
                     int orderId = scanner.nextInt();
-                    System.out.println("Please enter  price, basePrice,\n" +
-                            "                             creationDate,startDate");
+                    System.out.println("Please enter creationDate,startDate" +
+                            ", price, basePrice,");
                     String creationDate = scanner.next();
                     String startDate = scanner.next();
                     offerService.createOffer
