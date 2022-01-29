@@ -249,7 +249,7 @@ public class Main {
         String expertInput = scanner.next();
         do {
             System.out.println("1.Change Password\n2.See Order\n" +
-                    "3.Make Offer\n4.Start Doing\n5.Finish Doing\n6.Add SubService\n7.Exit");
+                    "3.Make Offer\n4.Start Doing\n5.Finish Doing\n6.Add SubService\n7.Delete SubService\n8.Exit");
             expertInput = scanner.next();
             switch (expertInput) {
                 case "1":
@@ -294,9 +294,14 @@ public class Main {
                     expertService.addServiceToExpert(expertDto.getEmail(),scanner.next());
                     break;
                 case "7":
+                    expertDto.getSubServiceList().stream().forEach(i-> System.out.println(i));
+                    System.out.println("Please enter SubService name");
+                    expertService.deleteServiceFromExpert(expertDto.getEmail(),scanner.next());
+                    break;
+                case "8":
                     break;
             }
-        } while (!"7".equals(expertInput));
+        } while (!"8".equals(expertInput));
     }
 
     public static void adminMenu(AdminDto managerDto) {
