@@ -1,20 +1,25 @@
+import ir.config.SpringConfig;
 import ir.data.dto.AddressDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ir.service.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class OfferServiceTest {
-    OfferService offerService ;
-    ExpertService expertService = new ExpertService();
-    CustomerService customerService ;
-    MainServiceService mainServiceService;
-    SubServiceService subServiceService;
-    OrderService orderService = new OrderService();
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    OfferService offerService  = context.getBean( OfferService.class);
+    ExpertService expertService  = context.getBean( ExpertService.class);
+    CustomerService customerService  = context.getBean( CustomerService.class);
+    SubServiceService subServiceService  = context.getBean( SubServiceService.class);
+    MainServiceService mainServiceService = context.getBean( MainServiceService.class);
+    OrderService orderService = context.getBean( OrderService.class);
+
     @BeforeEach
     void init(){
         AddressDto addressDto = AddressDto.builder()

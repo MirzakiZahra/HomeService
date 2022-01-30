@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SubServiceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SubServiceServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OfferServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OfferServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/OrderServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/OrderServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,55 +36,51 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="JUnit.CustomerServiceTest.giveExistCustomerEmail_findByEmail_customerName">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ir.view.Main" />
-      <module name="HomeService" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ir.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddressServiceTest.giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately">
+    <configuration name="OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddressServiceTest" />
-      <option name="METHOD_NAME" value="giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress" />
+      <option name="MAIN_CLASS_NAME" value="OfferServiceTest" />
+      <option name="METHOD_NAME" value="giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminServiceTest.giveAdminNeededData_addAdminAndThenFindIt_AccurateAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AdminServiceTest" />
-      <option name="METHOD_NAME" value="giveAdminNeededData_addAdminAndThenFindIt_AccurateAdmin" />
+      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
+      <option name="METHOD_NAME" value="giveCustomer_showCustomerDoneOrder_accurateOrder" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerServiceTest.giveExistCustomerEmail_findByEmail_customerName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
-      <option name="METHOD_NAME" value="giveExistCustomerEmail_findByEmail_customerName" />
+      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
+      <option name="METHOD_NAME" value="giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderServiceTest.giveOrderAndOffer_setOfferForOrder_offerSetAccurately" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SubServiceServiceTest" />
-      <option name="METHOD_NAME" value="giveSubServiceName_deleteItThenFindIt_throwException" />
+      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
+      <option name="METHOD_NAME" value="giveOrderAndOffer_setOfferForOrder_offerSetAccurately" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,11 +88,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CustomerServiceTest.giveExistCustomerEmail_findByEmail_customerName" />
-        <item itemvalue="JUnit.AdminServiceTest.giveAdminNeededData_addAdminAndThenFindIt_AccurateAdmin" />
-        <item itemvalue="JUnit.SubServiceServiceTest.giveSubServiceName_deleteItThenFindIt_throwException" />
-        <item itemvalue="JUnit.AddressServiceTest.giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" />
+        <item itemvalue="JUnit.OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder" />
+        <item itemvalue="JUnit.OrderServiceTest.giveOrderAndOffer_setOfferForOrder_offerSetAccurately" />
+        <item itemvalue="JUnit.OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
+        <item itemvalue="JUnit.OrderServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +109,7 @@
       <workItem from="1643311464284" duration="29184000" />
       <workItem from="1643403472044" duration="10135000" />
       <workItem from="1643421408735" duration="8273000" />
-      <workItem from="1643500732959" duration="2144000" />
+      <workItem from="1643500732959" duration="3709000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,4 @@
+import ir.config.SpringConfig;
 import ir.data.repository.ExpertRepository;
 import ir.data.dto.AddressDto;
 import ir.data.model.Offer;
@@ -9,20 +10,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ir.service.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class OrderServiceTest {
-    OrderService orderService = new OrderService();
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    OrderService orderService = context.getBean(OrderService.class);
+    MainServiceService mainServiceService= context.getBean(MainServiceService.class);
+    CustomerService customerService= context.getBean( CustomerService.class);
     AddressDto addressDto = new AddressDto();
-    CustomerService customerService ;
-    MainServiceService mainServiceService;
-    SubServiceService subServiceService;
-    ExpertService expertService = new ExpertService();
-    ExpertRepository expertRepository ;
-    OfferService offerService ;
+    SubServiceService subServiceService= context.getBean( SubServiceService .class);
+    ExpertService expertService= context.getBean( ExpertService .class);
+    OfferService offerService= context.getBean( OfferService  .class);
+
     @BeforeEach
     void init(){
         addressDto = AddressDto.builder()
@@ -60,7 +64,6 @@ public class OrderServiceTest {
     @Test
     void giveOrderAndOffer_setOfferForOrder_offerSetAccurately(){
         expertService.createExpert("Ali", "Alavi", "ali@gmail.com");
-        Expert expert = expertRepository.findAllByEmail("ali@gmail.com").get(0);
         Orders orders = orderService.findOrderByIdReturnOrder(1);
         offerService.createOffer(10000,1,8000,
                 convertStringToDate("10/11/1400,20:30"),convertStringToDate("10/11/1400,20:30"),
