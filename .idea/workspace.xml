@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ExpertServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ExpertServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainServiceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainServiceServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit">
+  <component name="RunManager" selected="JUnit.ExpertServiceTest.giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService">
     <configuration name="CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
@@ -52,6 +50,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
       <option name="METHOD_NAME" value="giveExistCustomerEmail_findByEmail_customerName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpertServiceTest.giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ExpertServiceTest" />
+      <option name="METHOD_NAME" value="giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -77,23 +85,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OfferServiceTest" />
-      <option name="METHOD_NAME" value="giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExpertServiceTest.giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService" />
         <item itemvalue="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" />
         <item itemvalue="JUnit.CustomerServiceTest.giveExistCustomerEmail_findByEmail_customerName" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveNewMainServiceName_updateItThenFindIt_throwException" />
         <item itemvalue="JUnit.MainServiceServiceTest.giveMainServiceName_addItAndThenGetIt_AccurateMainService" />
-        <item itemvalue="JUnit.OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" />
       </list>
     </recent_temporary>
   </component>
@@ -110,7 +108,7 @@
       <workItem from="1643311464284" duration="29184000" />
       <workItem from="1643403472044" duration="10135000" />
       <workItem from="1643421408735" duration="8273000" />
-      <workItem from="1643500732959" duration="5647000" />
+      <workItem from="1643500732959" duration="6539000" />
     </task>
     <servers />
   </component>

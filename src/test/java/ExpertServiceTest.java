@@ -6,6 +6,7 @@ import ir.exception.InputException;
 import ir.data.model.services.MainService;
 import ir.data.model.services.SubService;
 import ir.service.MainServiceService;
+import ir.service.SubServiceService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +17,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ExpertServiceTest {
     ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
     ExpertService expertService= context.getBean(ExpertService .class);
-    ServiceRepository serviceRepository ;
-    SubServiceRepository subServiceRepository ;
+    MainServiceService mainServiceService= context.getBean(MainServiceService .class);
+    SubServiceService subServiceService= context.getBean(SubServiceService .class);
+  
 
     @BeforeEach
     void init() {
@@ -60,11 +62,11 @@ public class ExpertServiceTest {
     }
     public ExpertDto preTasks(){
         MainService mainService = new MainService("Cleaning");
-        serviceRepository.save(mainService);
+        mainServiceService.createMainService(mainService.getName());
         SubService subService = new SubService("Home Cleaning","Clean Home",
                 2000,mainService);
-
-        subServiceRepository.save(subService);
+        subServiceService.createSubService(subService.getName(),subService.getDescription(),
+                subService.getPrice(),mainService.getName());
         expertService.addServiceToExpert("ali@gmail.com",subService.getName());
         return expertService.findExpertByEmail("ali@gmail.com");
     }
