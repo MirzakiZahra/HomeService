@@ -1,13 +1,19 @@
+import ir.config.SpringConfig;
 import ir.exception.InputException;
+import ir.service.AddressService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ir.service.MainServiceService;
 import ir.service.SubServiceService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SubServiceServiceTest {
-    SubServiceService subServiceService;
-    MainServiceService mainServiceService;
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    SubServiceService subServiceService = context.getBean(SubServiceService.class);
+    MainServiceService mainServiceService= context.getBean(MainServiceService.class);
+
     @BeforeEach
     void init(){
         mainServiceService.createMainService("Cleaning");
