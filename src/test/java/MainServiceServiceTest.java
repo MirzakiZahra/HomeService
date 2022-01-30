@@ -1,12 +1,18 @@
+import ir.config.SpringConfig;
 import ir.exception.InputException;
 import ir.data.model.services.MainService;
+import ir.service.OrderService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ir.service.MainServiceService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainServiceServiceTest {
-    MainServiceService mainServiceService;
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    MainServiceService mainServiceService = context.getBean(MainServiceService.class);
+
 
     @BeforeEach
     void init() {

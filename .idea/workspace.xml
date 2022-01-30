@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OfferServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OfferServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OrderServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/OrderServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/OrderServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CustomerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ExpertServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ExpertServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainServiceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainServiceServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,47 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="JUnit.OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately">
+  <component name="RunManager" selected="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit">
+    <configuration name="CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
+      <option name="METHOD_NAME" value="giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceTest.giveExistCustomerEmail_findByEmail_customerName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CustomerServiceTest" />
+      <option name="METHOD_NAME" value="giveExistCustomerEmail_findByEmail_customerName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainServiceServiceTest.giveMainServiceName_addItAndThenGetIt_AccurateMainService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainServiceServiceTest" />
+      <option name="METHOD_NAME" value="giveMainServiceName_addItAndThenGetIt_AccurateMainService" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainServiceServiceTest.giveNewMainServiceName_updateItThenFindIt_throwException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HomeService" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainServiceServiceTest" />
+      <option name="METHOD_NAME" value="giveNewMainServiceName_updateItThenFindIt_throwException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HomeService" />
       <option name="PACKAGE_NAME" value="" />
@@ -47,52 +87,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
-      <option name="METHOD_NAME" value="giveCustomer_showCustomerDoneOrder_accurateOrder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
-      <option name="METHOD_NAME" value="giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest.giveOrderAndOffer_setOfferForOrder_offerSetAccurately" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HomeService" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OrderServiceTest" />
-      <option name="METHOD_NAME" value="giveOrderAndOffer_setOfferForOrder_offerSetAccurately" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerServiceTest.giveCustomerEmailAndCredit_withdrawCredit_newAccurateCredit" />
+        <item itemvalue="JUnit.CustomerServiceTest.giveExistCustomerEmail_findByEmail_customerName" />
+        <item itemvalue="JUnit.MainServiceServiceTest.giveNewMainServiceName_updateItThenFindIt_throwException" />
+        <item itemvalue="JUnit.MainServiceServiceTest.giveMainServiceName_addItAndThenGetIt_AccurateMainService" />
         <item itemvalue="JUnit.OfferServiceTest.giveRequiredOfferData_createOfferThenFindOffer_createAndFindAccurately" />
-        <item itemvalue="JUnit.OrderServiceTest.giveCustomer_showCustomerDoneOrder_accurateOrder" />
-        <item itemvalue="JUnit.OrderServiceTest.giveOrderAndOffer_setOfferForOrder_offerSetAccurately" />
-        <item itemvalue="JUnit.OrderServiceTest.giveOrderAndNewStatus_changeOrderStatus_accurateOrderStatus" />
-        <item itemvalue="JUnit.OrderServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -109,7 +110,7 @@
       <workItem from="1643311464284" duration="29184000" />
       <workItem from="1643403472044" duration="10135000" />
       <workItem from="1643421408735" duration="8273000" />
-      <workItem from="1643500732959" duration="3709000" />
+      <workItem from="1643500732959" duration="5647000" />
     </task>
     <servers />
   </component>

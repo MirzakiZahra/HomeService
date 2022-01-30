@@ -1,16 +1,21 @@
+import ir.config.SpringConfig;
 import ir.data.repository.ServiceRepository;
 import ir.data.repository.SubServiceRepository;
 import ir.data.dto.ExpertDto;
 import ir.exception.InputException;
 import ir.data.model.services.MainService;
 import ir.data.model.services.SubService;
+import ir.service.MainServiceService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ir.service.ExpertService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ExpertServiceTest {
-    ExpertService expertService = new ExpertService();
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    ExpertService expertService= context.getBean(ExpertService .class);
     ServiceRepository serviceRepository ;
     SubServiceRepository subServiceRepository ;
 

@@ -1,14 +1,20 @@
+import ir.config.SpringConfig;
 import ir.data.dto.AddressDto;
 import ir.exception.InputException;
 import ir.data.model.user.Customer;
+import ir.service.ExpertService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ir.service.CustomerService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class CustomerServiceTest {
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    CustomerService customerService = context.getBean(CustomerService .class);
     AddressDto addressDto = new AddressDto();
-    CustomerService customerService ;
+   ;
     @BeforeEach
     void init(){
         addressDto = AddressDto.builder()
