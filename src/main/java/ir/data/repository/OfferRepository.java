@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OfferRepository extends CrudRepository<Offer, Integer> {
-   Offer findOfferById(int id);
+    Offer findOfferById(int id);
 }

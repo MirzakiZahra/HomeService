@@ -1,10 +1,6 @@
 package ir.service;
 
-import ir.data.repository.CustomerRepository;
-import ir.data.repository.ExpertRepository;
-import ir.data.repository.OrderRepository;
 import ir.data.dto.OrderDto;
-import ir.exception.EnoughCredit;
 import ir.data.model.Offer;
 import ir.data.model.Orders;
 import ir.data.model.enums.OrderStatus;
@@ -12,24 +8,29 @@ import ir.data.model.enums.TypeOfTransaction;
 import ir.data.model.services.SubService;
 import ir.data.model.user.Customer;
 import ir.data.model.user.Expert;
+import ir.data.repository.CustomerRepository;
+import ir.data.repository.ExpertRepository;
+import ir.data.repository.OrderRepository;
+import ir.exception.EnoughCredit;
+import ir.service.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ir.service.mapper.OrderMapper;
 
 import java.util.Date;
 import java.util.List;
+
 @Service
 public class OrderService {
     @Autowired
-    OrderRepository orderRepository ;
+    OrderRepository orderRepository;
     @Autowired
     CustomerRepository customerRepository;
     @Autowired
     SubServiceService subServiceService;
     OrderMapper orderMapper = new OrderMapper();
     @Autowired
-    OfferService offerService ;
-    CustomerService customerService ;
+    OfferService offerService;
+    CustomerService customerService;
     ExpertRepository expertRepository;
     TransactionService transactionService = new TransactionService();
 
@@ -42,8 +43,8 @@ public class OrderService {
         orders.setSubService(subService);
         orders.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
         orderRepository.save(orders);
-        customer.getOrders().add(orders);
-        customerRepository.save(customer);
+        //customer.getOrders().add(orders);
+        //  customerRepository.save(customer);
     }
 
     public List<OrderDto> showAllOrder() {
@@ -92,7 +93,7 @@ public class OrderService {
             expert.setCreditExpert(temp);
             expertRepository.save(expert);
             transactionService.createTransaction(orders, TypeOfTransaction.DEPOSIT);
-            transactionService.createTransaction(orders,TypeOfTransaction.WITHDRAW);
+            transactionService.createTransaction(orders, TypeOfTransaction.WITHDRAW);
         } else {
             throw new EnoughCredit("Not Enough Money");
         }

@@ -10,17 +10,17 @@ import ir.data.repository.OrderRepository;
 import ir.data.repository.ServiceRepository;
 import ir.data.repository.SubServiceRepository;
 import ir.exception.InputException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ir.service.mapper.ExpertMapper;
 import ir.service.mapper.OrderMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ExpertService {
     @Autowired
-    ExpertRepository expertRepository ;
+    ExpertRepository expertRepository;
     ServiceRepository serviceRepository;
     OrderService orderService = new OrderService();
     ExpertMapper expertMapper = new ExpertMapper();
@@ -102,7 +102,7 @@ public class ExpertService {
         } else {
             Expert expert = expertRepository.findAllByEmail(email).get(0);
             if (checkNotExistenceOfSubServiceInExpertSubServiceList(
-                    expertMapper.convertExpertToExpertDto(expert), subServiceName) == false){
+                    expertMapper.convertExpertToExpertDto(expert), subServiceName) == false) {
                 SubService foundSubService = subServiceRepository.findByName(subServiceName);
                 expert.getSubServiceList().add(foundSubService);
                 expertRepository.save(expert);
@@ -136,6 +136,7 @@ public class ExpertService {
         }
         throw new InputException("Expert hasn't such Service");
     }
+
     public boolean checkNotExistenceOfSubServiceInExpertSubServiceList(ExpertDto expertDto, String subServiceName) {
         for (SubService subService : expertDto.getSubServiceList()) {
             if (subService.getName().equalsIgnoreCase(subServiceName)) {

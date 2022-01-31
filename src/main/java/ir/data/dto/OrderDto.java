@@ -1,9 +1,8 @@
 package ir.data.dto;
 
-import lombok.*;
 import ir.data.model.Offer;
 import ir.data.model.services.SubService;
-import org.springframework.stereotype.Service;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +22,7 @@ public class OrderDto {
     private Date beggingDate;
     private Date endingTime;
     private String address;
-    private List<Offer> offerList= new ArrayList<>();
+    private List<Offer> offerList = new ArrayList<>();
 
     @Override
     public String toString() {

@@ -7,8 +7,6 @@ import ir.data.repository.CustomerRepository;
 import ir.exception.InputException;
 import ir.service.mapper.AddressMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,17 +15,19 @@ import java.util.List;
 @Service
 
 public class CustomerService {
-    private  CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
+
     @Autowired
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
+
     //ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
     @Autowired
-  //  @Qualifier("customerRepository")
-  //  CustomerRepository customerRepository;
-    //= context.getBean(CustomerRepository.class) ;
-    AddressMapper addressMapper = new AddressMapper();
+    //  @Qualifier("customerRepository")
+            //  CustomerRepository customerRepository;
+            //= context.getBean(CustomerRepository.class) ;
+            AddressMapper addressMapper = new AddressMapper();
     @Autowired
     AddressService addressService = new AddressService();
 

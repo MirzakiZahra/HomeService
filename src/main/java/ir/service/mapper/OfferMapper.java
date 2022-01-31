@@ -4,8 +4,8 @@ import ir.data.dto.OfferDto;
 import ir.data.model.Offer;
 
 public class OfferMapper {
-    public OfferDto convertOfferToOfferDto(Offer offer){
-        OfferDto offerDto=OfferDto.builder()
+    public OfferDto convertOfferToOfferDto(Offer offer) {
+        OfferDto offerDto = OfferDto.builder()
                 .id(offer.getId())
                 .price(offer.getPrice())
                 .creationDate(offer.getCreationDate())

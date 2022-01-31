@@ -1,10 +1,10 @@
 package ir.data.dto;
 
+import ir.data.model.user.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ir.data.model.user.Customer;
 
 @Data
 @AllArgsConstructor

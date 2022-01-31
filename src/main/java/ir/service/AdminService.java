@@ -23,7 +23,7 @@ public class AdminService {
     }
 
     public AdminDto findManagerByEmailReturnDto(String email) {
-        if (adminRepository.findManagerByEmail(email).size()==0){
+        if (adminRepository.findManagerByEmail(email).size() == 0) {
             throw new InputException("User Not Found");
         }
         List<Admin> adminList = adminRepository.findManagerByEmail(email);
@@ -31,7 +31,7 @@ public class AdminService {
     }
 
     public Admin findManagerByEmail(String email) {
-        if (adminRepository.findManagerByEmail(email).size()==0){
+        if (adminRepository.findManagerByEmail(email).size() == 0) {
             throw new InputException("User Not Found");
         }
         return adminRepository.findManagerByEmail(email).get(0);

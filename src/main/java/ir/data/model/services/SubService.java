@@ -1,8 +1,11 @@
 package ir.data.model.services;
 
-import lombok.*;
 import ir.data.model.Orders;
 import ir.data.model.user.Expert;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -24,8 +27,9 @@ public class SubService {
     private MainService mainService;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Expert> expertSet = new HashSet<>();
-    @OneToMany(mappedBy = "subService" ,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "subService", fetch = FetchType.LAZY)
     private Set<Orders> ordersSet = new HashSet<>();
+
     @Builder
     public SubService(String name, String description, float price, MainService mainService) {
         this.name = name;

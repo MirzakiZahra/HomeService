@@ -26,7 +26,7 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public Person( String firstName, String lastName, String email, String password) {
+    public Person(String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,13 +34,15 @@ public class Person {
         this.password = password;
         this.username = username;
     }
-    public Person( String firstName, String lastName, String email) {
+
+    public Person(String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
-    public Person( String firstName, String lastName, String email, String password,String username) {
+
+    public Person(String firstName, String lastName, String email, String password, String username) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

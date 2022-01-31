@@ -1,8 +1,11 @@
 package ir.data.model.user;
 
-import lombok.*;
 import ir.data.model.Offer;
 import ir.data.model.services.SubService;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,16 +23,17 @@ public class Expert extends Person {
     private float score;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<SubService> subServiceList = new ArrayList<>();
-    @OneToMany(mappedBy = "expert",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "expert", fetch = FetchType.LAZY)
     private List<Offer> offerList = new ArrayList<>();
     private float creditExpert;
     private int countOfOrder = 0;
+
     @Builder
     public Expert(String firstName, String lastName, String email, float score,
-                  float creditExpert,List<SubService>subServiceList) {
+                  float creditExpert, List<SubService> subServiceList) {
         super(firstName, lastName);
-        this.creditExpert=creditExpert;
-        this.subServiceList=subServiceList;
+        this.creditExpert = creditExpert;
+        this.subServiceList = subServiceList;
     }
 
     public Expert(String firstName, String lastName, String email) {

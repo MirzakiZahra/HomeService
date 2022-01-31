@@ -1,10 +1,10 @@
 package ir.data.model;
 
+import ir.data.model.enums.TypeOfTransaction;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ir.data.model.enums.TypeOfTransaction;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;

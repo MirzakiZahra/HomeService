@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AddressMapper {
-    public Address convertAddressDtoToAddress(AddressDto addressDto){
+    public Address convertAddressDtoToAddress(AddressDto addressDto) {
         Address address = Address.builder()
                 .city(addressDto.getCity())
                 .country(addressDto.getCountry())

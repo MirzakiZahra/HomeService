@@ -1,10 +1,10 @@
 package ir.data.dto;
 
+import ir.data.model.Address;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ir.data.model.Address;
 
 import java.util.Date;
 import java.util.List;

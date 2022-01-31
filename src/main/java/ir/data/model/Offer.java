@@ -1,7 +1,10 @@
 package ir.data.model;
 
-import lombok.*;
 import ir.data.model.user.Expert;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -27,6 +30,7 @@ public class Offer {
     private String explanation;
     @Temporal(TemporalType.TIME)
     private Date durationOfWork;
+
     @Builder
     public Offer(float price, Expert expert, Orders orders, Date creationDate, Date startDate) {
         this.price = price;

@@ -1,29 +1,31 @@
 package ir.service;
 
-import ir.data.repository.CustomerRepository;
-import ir.data.repository.ExpertRepository;
-import ir.data.repository.OfferRepository;
-import ir.data.repository.OrderRepository;
 import ir.data.model.Offer;
 import ir.data.model.Orders;
 import ir.data.model.enums.OrderStatus;
 import ir.data.model.user.Expert;
+import ir.data.repository.ExpertRepository;
+import ir.data.repository.OfferRepository;
+import ir.data.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+
 @Service
 public class OfferService {
 
     private OfferRepository offerRepository;
+
     @Autowired
     public OfferService(OfferRepository offerRepository) {
         this.offerRepository = offerRepository;
     }
+
     @Autowired
     ExpertRepository expertRepository;
     @Autowired
-    OrderRepository orderRepository ;
+    OrderRepository orderRepository;
 
     public void createOffer(float price, int orderId, float basePrice,
                             Date creationDate, Date startDate, String email) {
@@ -34,7 +36,8 @@ public class OfferService {
         offerRepository.save(offer);
 
     }
-    public Offer findOfferById(int id){
+
+    public Offer findOfferById(int id) {
         return offerRepository.findOfferById(id);
     }
 }

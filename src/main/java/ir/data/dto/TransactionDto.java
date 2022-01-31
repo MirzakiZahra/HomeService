@@ -1,11 +1,11 @@
 package ir.data.dto;
 
+import ir.data.model.Orders;
+import ir.data.model.enums.TypeOfTransaction;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ir.data.model.Orders;
-import ir.data.model.enums.TypeOfTransaction;
 
 import java.util.Date;
 

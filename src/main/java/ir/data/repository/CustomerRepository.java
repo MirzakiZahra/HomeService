@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Integer> {
     List<Customer> findAllByPassword(String password);
+
     List<Customer> findAllByEmail(String email);
 }

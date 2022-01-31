@@ -29,12 +29,7 @@ public class Main {
     static ExpertService expertService = context.getBean(ExpertService.class);
     static Validator validator = new Validator();
     static OfferService offerService = context.getBean(OfferService.class);
-    static OfferRepository offerRepository;
-    static OrderRepository orderRepository;
-    static ServiceRepository serviceRepository;
     static MainServiceService mainServiceService = context.getBean(MainServiceService.class);
-    static SubServiceRepository subServiceRepository;
-    static SubServiceDto subServiceDto = new SubServiceDto();
     static AdminService adminService = context.getBean(AdminService.class);
 
     public static void main(String[] args) {
@@ -289,14 +284,14 @@ public class Main {
                     break;
                 case "6":
                     subServiceService.showAllSubService().stream().
-                            forEach(i-> System.out.println(i));
+                            forEach(i -> System.out.println(i));
                     System.out.println("Please enter SubService name");
-                    expertService.addServiceToExpert(expertDto.getEmail(),scanner.next());
+                    expertService.addServiceToExpert(expertDto.getEmail(), scanner.next());
                     break;
                 case "7":
-                    expertDto.getSubServiceList().stream().forEach(i-> System.out.println(i));
+                    expertDto.getSubServiceList().stream().forEach(i -> System.out.println(i));
                     System.out.println("Please enter SubService name");
-                    expertService.deleteServiceFromExpert(expertDto.getEmail(),scanner.next());
+                    expertService.deleteServiceFromExpert(expertDto.getEmail(), scanner.next());
                     break;
                 case "8":
                     break;

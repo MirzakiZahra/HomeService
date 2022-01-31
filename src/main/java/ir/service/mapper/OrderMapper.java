@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderMapper {
-    public OrderDto convertOrderToOrderDto(Orders orders){
+    public OrderDto convertOrderToOrderDto(Orders orders) {
         OrderDto orderDto = OrderDto.builder()
                 .id(orders.getId())
                 .price(orders.getPrice())
@@ -20,6 +20,7 @@ public class OrderMapper {
                 .build();
         return orderDto;
     }
+
     public List<OrderDto> convertOrderToOrderDto(List<Orders> ordersList) {
         List<OrderDto> orderDtoList = new ArrayList<>();
         for (Orders orders : ordersList) {

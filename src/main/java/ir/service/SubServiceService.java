@@ -1,25 +1,27 @@
 package ir.service;
 
-import ir.data.repository.ServiceRepository;
-import ir.data.repository.SubServiceRepository;
 import ir.data.dto.SubServiceDto;
-import ir.exception.InputException;
 import ir.data.model.services.MainService;
 import ir.data.model.services.SubService;
+import ir.data.repository.SubServiceRepository;
+import ir.exception.InputException;
+import ir.service.mapper.SubServiceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ir.service.mapper.SubServiceMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class SubServiceService {
     private SubServiceRepository subServiceRepository;
+
     @Autowired
     public SubServiceService(SubServiceRepository subServiceRepository) {
         this.subServiceRepository = subServiceRepository;
     }
-    SubServiceMapper subServiceMapper=new SubServiceMapper();
+
+    SubServiceMapper subServiceMapper = new SubServiceMapper();
     @Autowired
     MainServiceService mainServiceService;
 
@@ -49,19 +51,22 @@ public class SubServiceService {
         mainServiceService.updateMainService(mainServices.get(0));
         subServiceRepository.save(subService);
     }
+
     public void deleteSubService(String name) {
-        SubService subService= subServiceRepository.findByName(name);
+        SubService subService = subServiceRepository.findByName(name);
         subServiceRepository.delete(subService);
     }
+
     public SubServiceDto findSubServiceByName(String name) {
-        List<SubService>subServices= subServiceRepository.findAllByName(name);
+        List<SubService> subServices = subServiceRepository.findAllByName(name);
         if (subServices.size() == 0) {
             throw new InputException("SubService DosesNot Exist");
         }
         return subServiceMapper.convertSubServiceToSubServiceDto(subServices.get(0));
     }
+
     public void deleteSubServiceByName(String name) {
-        SubService subService= subServiceRepository.findByName(name);
+        SubService subService = subServiceRepository.findByName(name);
         MainService mainService = subService.getMainService();
         mainService.getSubServiceSet().remove(subService);
         mainServiceService.updateMainService(mainService);

@@ -5,7 +5,7 @@ import ir.data.model.user.Admin;
 
 public class AdminMapper {
     public AdminDto convertAdminToAdminDto(Admin admin) {
-        AdminDto adminDto= AdminDto.builder()
+        AdminDto adminDto = AdminDto.builder()
                 .firstName(admin.getFirstName())
                 .lastName(admin.getLastName())
                 .email(admin.getEmail())

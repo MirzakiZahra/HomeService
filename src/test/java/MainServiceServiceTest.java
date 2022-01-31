@@ -1,11 +1,10 @@
 import ir.config.SpringConfig;
-import ir.exception.InputException;
 import ir.data.model.services.MainService;
-import ir.service.OrderService;
+import ir.exception.InputException;
+import ir.service.MainServiceService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ir.service.MainServiceService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -40,17 +39,19 @@ public class MainServiceServiceTest {
                 mainServiceService.createMainService("Repairing"));
         Assertions.assertEquals("could not execute statement", result.getMessage());
     }
+
     @Test
-    void giveNewMainServiceName_updateItThenFindIt_throwException(){
+    void giveNewMainServiceName_updateItThenFindIt_throwException() {
         MainService mainService = mainServiceService.findMainService("Repairing").get(0);
         mainService.setName("RepairingSomeThingElse");
         mainServiceService.updateMainService(mainService);
         InputException result = Assertions.assertThrows(InputException.class, () ->
                 mainServiceService.findMainService("Repairing"));
-        Assertions.assertEquals("MainService DoesNot Exist",result.getMessage());
+        Assertions.assertEquals("MainService DoesNot Exist", result.getMessage());
     }
+
     @Test
-    void giveExistMainServiceName_checkExistenceOfIt_returnTrue(){
-        Assertions.assertEquals(true,mainServiceService.checkExistOfMainService("Repairing"));
+    void giveExistMainServiceName_checkExistenceOfIt_returnTrue() {
+        Assertions.assertEquals(true, mainServiceService.checkExistOfMainService("Repairing"));
     }
 }
