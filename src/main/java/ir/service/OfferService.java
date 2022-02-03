@@ -33,7 +33,7 @@ public class OfferService {
         Expert expert = expertRepository.findAllByEmail(email).get(0);
         Orders order = orderRepository.findById(orderId);
         if (offerPrice<order.getSubService().getBasePrice()){
-            throw new 
+            throw new
         }
         order.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, order, creationDate, startDate);
