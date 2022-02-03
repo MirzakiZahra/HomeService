@@ -22,7 +22,7 @@ public class SubService {
     //@Column(unique = true)
     private String name;
     private String description;
-    private float price;
+    private float basePrice;
     @ManyToOne
     private MainService mainService;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -34,7 +34,7 @@ public class SubService {
     public SubService(String name, String description, float price, MainService mainService) {
         this.name = name;
         this.description = description;
-        this.price = price;
+        this.basePrice = price;
         this.mainService = mainService;
     }
 }

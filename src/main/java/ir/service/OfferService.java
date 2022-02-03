@@ -28,12 +28,15 @@ public class OfferService {
     @Autowired
     OrderRepository orderRepository;
 
-    public void createOffer(float price, int orderId, float basePrice,
+    public void createOffer(float price, int orderId, float offerPrice,
                             Date creationDate, Date startDate, String email) {
         Expert expert = expertRepository.findAllByEmail(email).get(0);
-        Orders orders = orderRepository.findById(orderId);
-        orders.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
-        Offer offer = new Offer(price, expert, orders, creationDate, startDate);
+        Orders order = orderRepository.findById(orderId);
+        if (offerPrice<order.getSubService().getBasePrice()){
+            throw new 
+        }
+        order.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
+        Offer offer = new Offer(price, expert, order, creationDate, startDate);
         offerRepository.save(offer);
 
     }

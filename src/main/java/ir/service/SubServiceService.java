@@ -30,7 +30,7 @@ public class SubServiceService {
         List<SubServiceDto> subServiceDtoList = new ArrayList<>();
         for (SubService subService : subServiceList) {
             SubServiceDto subServiceDto = new SubServiceDto(subService.getId(),
-                    subService.getName(), subService.getDescription(), subService.getPrice());
+                    subService.getName(), subService.getDescription(), subService.getBasePrice());
             subServiceDtoList.add(subServiceDto);
         }
         return subServiceDtoList;
@@ -44,9 +44,9 @@ public class SubServiceService {
     }
 
     public void createSubService(String name, String description,
-                                 float price, String mainServiceName) {
+                                 float basePrice, String mainServiceName) {
         List<MainService> mainServices = mainServiceService.findMainService(mainServiceName);
-        SubService subService = new SubService(name, description, price, mainServices.get(0));
+        SubService subService = new SubService(name, description, basePrice, mainServices.get(0));
         mainServices.get(0).getSubServiceSet().add(subService);
         mainServiceService.updateMainService(mainServices.get(0));
         subServiceRepository.save(subService);
