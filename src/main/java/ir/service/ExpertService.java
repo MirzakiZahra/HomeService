@@ -83,7 +83,7 @@ public class ExpertService {
     public List<OrderDto> expertRelatedOrders() {
         List<SubService> subServices = expertDto.getSubServiceList();
         List<Orders> ordersList =
-                orderRepository.findAllByOrderStatusAndCustomer();
+                orderRepository.findAllByOrderStatus();
         for (SubService subService : subServices) {
             for (Orders orders : ordersList) {
                 if (orders.getSubService().equals(subService)) {
