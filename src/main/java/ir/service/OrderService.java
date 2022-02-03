@@ -11,7 +11,7 @@ import ir.data.model.user.Expert;
 import ir.data.repository.CustomerRepository;
 import ir.data.repository.ExpertRepository;
 import ir.data.repository.OrderRepository;
-import ir.exception.EnoughCredit;
+import ir.exception.EnoughCreditException;
 import ir.service.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -95,7 +95,7 @@ public class OrderService {
             transactionService.createTransaction(orders, TypeOfTransaction.DEPOSIT);
             transactionService.createTransaction(orders, TypeOfTransaction.WITHDRAW);
         } else {
-            throw new EnoughCredit("Not Enough Money");
+            throw new EnoughCreditException("Not Enough Money");
         }
     }
 }
