@@ -44,7 +44,7 @@ public class OrderService {
         orders.setOrderStatus(OrderStatus.WAITING_FOR_EXPERT_SUGGESTION);
         orderRepository.save(orders);
         //customer.getOrders().add(orders);
-        //  customerRepository.save(customer);
+        //customerRepository.save(customer);
     }
 
     public List<OrderDto> showAllOrder() {
@@ -59,7 +59,7 @@ public class OrderService {
         return orderDto;
     }
 
-    public void setOfferForSpecificOrder(int offerId) {
+    public void chooseExpertForSpecificOrder(int offerId) {
         Offer offer = offerService.findOfferById(offerId);
         Orders orders = offer.getOrders();
         orders.setPreferredOffer(offer);

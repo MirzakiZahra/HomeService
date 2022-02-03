@@ -4,10 +4,6 @@ import ir.config.SpringConfig;
 import ir.data.dto.*;
 import ir.data.model.enums.OrderStatus;
 import ir.data.model.user.Customer;
-import ir.data.repository.OfferRepository;
-import ir.data.repository.OrderRepository;
-import ir.data.repository.ServiceRepository;
-import ir.data.repository.SubServiceRepository;
 import ir.exception.InputException;
 import ir.service.*;
 import ir.util.Validator;
@@ -206,7 +202,7 @@ public class Main {
                 case "4":
                     System.out.println("Please Enter Offer ID");
                     int offerId = scanner.nextInt();
-                    orderService.setOfferForSpecificOrder(offerId);
+                    orderService.chooseExpertForSpecificOrder(offerId);
                     break;
                 case "5":
                     List<OrderDto> orderDtoList = orderService.

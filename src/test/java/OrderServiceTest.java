@@ -14,7 +14,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Set;
 
 public class OrderServiceTest {
     ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
@@ -71,7 +70,7 @@ public class OrderServiceTest {
                 convertStringToDate("10/11/1400,20:30"), convertStringToDate("10/11/1400,20:30"),
                 "ali@gmail.com");
         Offer offer = offerService.findOfferById(1);
-        orderService.setOfferForSpecificOrder(1);
+        orderService.chooseExpertForSpecificOrder(1);
         orders = orderService.findOrderByIdReturnOrder(1);
         Assertions.assertEquals(1, orders.getPreferredOffer().getId());
     }
