@@ -8,6 +8,7 @@ import ir.data.model.user.Expert;
 import ir.data.repository.ExpertRepository;
 import ir.data.repository.OfferRepository;
 import ir.data.repository.OrderRepository;
+import ir.exception.PriceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +34,11 @@ public class OfferService {
         Expert expert = expertRepository.findAllByEmail(email).get(0);
         Orders order = orderRepository.findById(orderId);
         if (offerPrice<order.getSubService().getBasePrice()){
-            throw new
+            throw new PriceException("Offered Price is Lower Than BasePrice");
         }
         order.setOrderStatus(OrderStatus.WAITING_FOR_SPECIALIST_SELECTION);
         Offer offer = new Offer(price, expert, order, creationDate, startDate);
         offerRepository.save(offer);
-
     }
 
     public Offer findOfferById(int id) {
