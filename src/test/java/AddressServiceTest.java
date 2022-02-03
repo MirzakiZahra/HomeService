@@ -1,21 +1,24 @@
-import dao.AddressDb;
-import model.Address;
+import ir.config.SpringConfig;
+import ir.data.model.Address;
+import ir.service.AddressService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import service.AddressService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AddressServiceTest {
-    AddressService addressService = new AddressService();
-    AddressDb addressDb = new AddressDb();
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    AddressService addressService = context.getBean(AddressService.class);
+
     @Test
-    void giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress(){
+    void giveAddressNeededData_addAddressAndThenFindIt_AccurateAddress() {
         Address address = Address.builder()
                 .country("Iran")
                 .city("Tehran")
-                .street("Imam")
-                .plaque("6")
+                .street("ImamKhomeini")
+                .plaque("65")
                 .build();
         addressService.createAddress(address);
-        Assertions.assertEquals(address,addressDb.findAddressById(1));
+        Assertions.assertEquals(address, addressService.findById(13));
     }
 }

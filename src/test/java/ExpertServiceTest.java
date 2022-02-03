@@ -1,75 +1,78 @@
-import dao.ServiceDb;
-import dao.SubServiceDb;
-import dto.AddressDto;
-import dto.ExpertDto;
-import exception.InputException;
-import model.Offer;
-import model.Orders;
-import model.services.MainService;
-import model.services.SubService;
+import ir.config.SpringConfig;
+import ir.data.dto.ExpertDto;
+import ir.data.model.services.MainService;
+import ir.data.model.services.SubService;
+import ir.exception.InputException;
+import ir.service.ExpertService;
+import ir.service.MainServiceService;
+import ir.service.SubServiceService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import service.CustomerService;
-import service.ExpertService;
-import service.OrderService;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ExpertServiceTest {
-    ExpertService expertService = new ExpertService();
+    ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    ExpertService expertService = context.getBean(ExpertService.class);
+    MainServiceService mainServiceService = context.getBean(MainServiceService.class);
+    SubServiceService subServiceService = context.getBean(SubServiceService.class);
+
 
     @BeforeEach
     void init() {
         expertService.createExpert("Ali", "Alavi", "ali@gmail.com");
     }
+
     @Test
-    void giveExpertEmail_findExpertByEmail_trueExpertName(){
+    void giveExpertEmail_findExpertByEmail_trueExpertName() {
         ExpertDto expertDto = expertService.findExpertByEmail("ali@gmail.com");
-        Assertions.assertEquals("Ali",expertDto.getFirstName());
+        Assertions.assertEquals("Ali", expertDto.getFirstName());
     }
+
     @Test
-    void giveNotExistExpertEmail_findExpertByEmail_throwException(){
+    void giveNotExistExpertEmail_findExpertByEmail_throwException() {
         InputException result = Assertions.assertThrows(InputException.class, () ->
                 expertService.findExpertByEmail("aliyavari@gmail.com"));
-        Assertions.assertEquals("Expert DoesNot Exist",result.getMessage());
+        Assertions.assertEquals("Expert DoesNot Exist", result.getMessage());
     }
+
     @Test
-    void giveExistExpert_removeAndFindExpert_ThrowException(){
+    void giveExistExpert_removeAndFindExpert_ThrowException() {
         expertService.deleteExpert("ali@gmail.com");
         InputException result = Assertions.assertThrows(InputException.class, () ->
                 expertService.findExpertByEmail("ali@gmail.com"));
-        Assertions.assertEquals("Expert DoesNot Exist",result.getMessage());
+        Assertions.assertEquals("Expert DoesNot Exist", result.getMessage());
     }
+
     @Test
-    void giveExpertEmailAndSubServiceName_addSubServiceToExpert_AccurateSubService(){
+    void giveExpertEmailAndSubServiceName_addSubServiceToExpert_AccurateSubService() {
         ExpertDto expertDto = preTasks();
-        Assertions.assertEquals("Home Cleaning",expertDto.getSubServiceList().get(0).getName());
+        Assertions.assertEquals("Home Cleaning", expertDto.getSubServiceList().get(0).getName());
     }
+
     @Test
-    void giveExpertEmailAndSubServiceName_checkExistOfSubService_trueOutput(){
+    void giveExpertEmailAndSubServiceName_checkExistOfSubService_trueOutput() {
         ExpertDto expertDto = preTasks();
         Assertions.assertEquals(true,
-                expertService.checkExistenceOfSubServiceInExpertSubServiceList(expertDto,"Home Cleaning"));
+                expertService.checkExistenceOfSubServiceInExpertSubServiceList(expertDto, "Home Cleaning"));
     }
+
     @Test
-    void giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService(){
+    void giveValidExpertEmailAndSubServiceName_deleteSubServiceFromExpert_noExistenceOfSubService() {
         ExpertDto expertDto = preTasks();
-        Assertions.assertNotEquals(null,expertDto.
+        Assertions.assertNotEquals(null, expertDto.
                 getSubServiceList());
     }
-    public ExpertDto preTasks(){
+
+    public ExpertDto preTasks() {
         MainService mainService = new MainService("Cleaning");
-        ServiceDb serviceDb = new ServiceDb();
-        serviceDb.addMainService(mainService);
-        SubService subService = new SubService("Home Cleaning","Clean Home",
-                2000,mainService);
-        SubServiceDb subServiceDb = new SubServiceDb();
-        subServiceDb.addSubService(subService);
-        expertService.addServiceToExpert("ali@gmail.com",subService.getName());
+        mainServiceService.createMainService(mainService.getName());
+        SubService subService = new SubService("Home Cleaning", "Clean Home",
+                2000, mainService);
+        subServiceService.createSubService(subService.getName(), subService.getDescription(),
+                subService.getPrice(), mainService.getName());
+        expertService.addServiceToExpert("ali@gmail.com", subService.getName());
         return expertService.findExpertByEmail("ali@gmail.com");
     }
     /*@Test
