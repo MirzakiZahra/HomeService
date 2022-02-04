@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +85,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/HomeService" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.56" />
+          <option name="number" value="0" />
+          <option name="path" value="C:\apache-tomcat-9.0.56" />
+          <option name="version" value="9.0.56.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.OrderServiceTest.giveOrderId_findOrderById_trueOrder" />
@@ -117,7 +135,7 @@
       <workItem from="1643759553270" duration="1280000" />
       <workItem from="1643842005901" duration="2049000" />
       <workItem from="1643930457836" duration="1783000" />
-      <workItem from="1643942110948" duration="262000" />
+      <workItem from="1643942110948" duration="615000" />
     </task>
     <servers />
   </component>
