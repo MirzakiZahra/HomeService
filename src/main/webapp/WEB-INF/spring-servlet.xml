@@ -19,7 +19,7 @@
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
 
-        <property value="/WEB-INF/jsp/" name="prefix"/>
+        <property value="/WEB-INF/pages/" name="prefix"/>
 
         <property value=".jsp" name="suffix"/>
 
