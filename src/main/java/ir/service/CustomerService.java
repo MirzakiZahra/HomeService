@@ -31,7 +31,8 @@ public class CustomerService {
     @Autowired
     AddressService addressService = new AddressService();
 
-    public void createCustomer(String firstName, String lastName, AddressDto addressDto, String email, String password) {
+    public void createCustomer(String firstName, String lastName,
+                               AddressDto addressDto, String email, String password) {
         Address address = addressMapper.convertAddressDtoToAddress(addressDto);
         List<Address> addressList = new ArrayList<>();
         addressList.add(address);
