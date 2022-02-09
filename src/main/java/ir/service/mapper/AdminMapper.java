@@ -2,7 +2,9 @@ package ir.service.mapper;
 
 import ir.data.dto.AdminDto;
 import ir.data.model.user.Admin;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AdminMapper {
     public AdminDto convertAdminToAdminDto(Admin admin) {
         AdminDto adminDto = AdminDto.builder()

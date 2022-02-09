@@ -2,10 +2,11 @@ package ir.service.mapper;
 
 import ir.data.dto.OrderDto;
 import ir.data.model.Orders;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class OrderMapper {
     public OrderDto convertOrderToOrderDto(Orders orders) {
         OrderDto orderDto = OrderDto.builder()

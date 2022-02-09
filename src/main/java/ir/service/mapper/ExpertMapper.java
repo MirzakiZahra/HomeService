@@ -2,10 +2,11 @@ package ir.service.mapper;
 
 import ir.data.dto.ExpertDto;
 import ir.data.model.user.Expert;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class ExpertMapper {
     public ExpertDto convertExpertToExpertDto(Expert expert) {
         ExpertDto expertDto = ExpertDto.builder()

@@ -12,6 +12,7 @@ public class AddressMapper {
                 .country(addressDto.getCountry())
                 .plaque(addressDto.getPlaque())
                 .street(addressDto.getStreet())
+                .customer(addressDto.getCustomer())
                 .build();
         return address;
     }

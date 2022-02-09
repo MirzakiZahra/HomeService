@@ -2,7 +2,9 @@ package ir.service.mapper;
 
 import ir.data.dto.OfferDto;
 import ir.data.model.Offer;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OfferMapper {
     public OfferDto convertOfferToOfferDto(Offer offer) {
         OfferDto offerDto = OfferDto.builder()

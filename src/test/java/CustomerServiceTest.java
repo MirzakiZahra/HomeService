@@ -1,4 +1,6 @@
+
 import ir.config.SpringConfig;
+
 import ir.data.dto.AddressDto;
 import ir.data.model.user.Customer;
 import ir.exception.InputException;
@@ -6,14 +8,18 @@ import ir.service.CustomerService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.format.support.FormattingConversionService;
+import org.springframework.lang.Nullable;
 
 public class CustomerServiceTest {
     ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
     CustomerService customerService = context.getBean(CustomerService.class);
     AddressDto addressDto = new AddressDto();
-    ;
 
     @BeforeEach
     void init() {

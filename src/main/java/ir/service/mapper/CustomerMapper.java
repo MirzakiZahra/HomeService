@@ -2,7 +2,9 @@ package ir.service.mapper;
 
 import ir.data.dto.CustomerDto;
 import ir.data.model.user.Customer;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerMapper {
     public CustomerDto convertCustomerToCustomerDto(Customer customer) {
         CustomerDto customerDto = CustomerDto.builder()

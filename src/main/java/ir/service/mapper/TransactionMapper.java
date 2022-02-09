@@ -2,10 +2,11 @@ package ir.service.mapper;
 
 import ir.data.dto.TransactionDto;
 import ir.data.model.Transaction;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class TransactionMapper {
     public TransactionDto convertTransactionToTransactionDto(Transaction transaction) {
         TransactionDto transactionDto = TransactionDto.builder()

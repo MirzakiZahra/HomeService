@@ -71,7 +71,7 @@ public class ExpertServiceTest {
         SubService subService = new SubService("Home Cleaning", "Clean Home",
                 2000, mainService);
         subServiceService.createSubService(subService.getName(), subService.getDescription(),
-                subService.getPrice(), mainService.getName());
+                subService.getBasePrice(), mainService.getName());
         expertService.addServiceToExpert("ali@gmail.com", subService.getName());
         return expertService.findExpertByEmail("ali@gmail.com");
     }

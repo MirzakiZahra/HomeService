@@ -38,7 +38,8 @@ public class CustomerService {
         Customer customer = new Customer(firstName, lastName, email, password, addressList);
         customer.getAddress().add(address);
         address.setCustomer(customer);
-        addressService.createAddress(address);
+        addressDto.setCustomer(customer);
+        addressService.createAddress(addressDto);
     }
 
     public void removeCustomer(String email) {
