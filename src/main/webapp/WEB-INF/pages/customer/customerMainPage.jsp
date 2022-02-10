@@ -6,11 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Customer Main</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/dashboard_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/dashboard.css">
 </head>
 
 <body>
@@ -19,14 +22,14 @@
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Home Service Provider System</a>
+    <a class="navbar-brand" href="#">Home Service</a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         </ul>
         <div class="d-flex align-items-center">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li>
+                <li class="nav-item active">
                     <a class="btn btn-outline-primary my-2 my-sm-0"
                        href="${pageContext.request.contextPath}/">Logout</a>
                 </li>
@@ -56,12 +59,8 @@
             </div>
             <div class="col-12">
                 <div class="w-100 h-100 rounded pricing-text">
-                    <h1></h1>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="w-100 h-100 rounded pricing-text">
                     <h1>Hi ${customerDto.firstName}</h1>
+                    <h4>Your city ${addressDto.city}</h4>
                 </div>
             </div>
             <div class="col-12">
