@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ir/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/web/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/web/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customerRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customerRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/web/AddressController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ir/web/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/web/CustomerController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +46,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp\WEB-INF\pages" />
       <recent name="C:\Users\zahra\Desktop\HomeService\src\main" />
     </key>
   </component>
@@ -188,9 +185,7 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
+      <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
       <option name="tomcatInfo">
@@ -267,7 +262,8 @@
       <workItem from="1643930457836" duration="1783000" />
       <workItem from="1643942110948" duration="1085000" />
       <workItem from="1644008448600" duration="435000" />
-      <workItem from="1644365793086" duration="10583000" />
+      <workItem from="1644365793086" duration="11180000" />
+      <workItem from="1644454921758" duration="3812000" />
     </task>
     <servers />
   </component>

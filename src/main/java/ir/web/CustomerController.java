@@ -18,25 +18,26 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
     @ModelAttribute("addressDto")
-    public AddressDto createAddressObject() {
+    public AddressDto createAddressDtoObject() {
         return new AddressDto();
     }
 
    @ModelAttribute("customerDto")
-    public CustomerDto getUserObject() {
+    public CustomerDto createCustomerDtoObject() {
         return new CustomerDto();
     }
 
 
-    @RequestMapping(value = "/signUp")
-    //  @ResponseBody
-    public String display(@ModelAttribute("addressDto") AddressDto addressDto,
+    @RequestMapping(value = "/customerSignUp")
+    public String customerSignUp(@ModelAttribute("addressDto") AddressDto addressDto,
                           @ModelAttribute("customerDto") CustomerDto customerDto,
                           Model model) {
-
-        model.addAttribute("AddressDto", addressDto);
         customerService.createCustomer(customerDto.getFirstName(), customerDto.getLastName(), addressDto
                 , customerDto.getEmail(), customerDto.getPassword());
+        return "customerRegister";
+    }
+    @RequestMapping(value = "/displaySignUp")
+    public String displaySignUpPage(){
         return "customerRegister";
     }
 }

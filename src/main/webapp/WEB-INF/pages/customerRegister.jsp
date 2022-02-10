@@ -14,7 +14,7 @@
 <body>
 
 <%--@elvariable id="customerDto" type="CustomerServiceTest"--%>
-<form:form action="signUp" modelAttribute="customerDto" method="post">
+<form:form action="customerSignUp" modelAttribute="customerDto" method="post">
     firstName: <form:input path="firstName" />
     <br><br>
     lastName: <form:input path="lastName" />
@@ -23,9 +23,10 @@
     <br><br>
     password: <form:input path="password" />
     <br><br>
-    <input type="submit" value="save" />
+
+
     <%--@elvariable id="addressDto" type="java"--%>
-    <form:form action="signUp" modelAttribute="addressDto" method="post">
+    <form:form action="customerSignUp" modelAttribute="addressDto" method="post">
         city: <form:input path="city" />
         <br><br>
         country: <form:input path="country" />
@@ -34,6 +35,8 @@
         <br><br>
         street: <form:input path="street" />
         <br><br>
+
+        <input type="submit" value="SignUp" />
     </form:form>
 </form:form>
 
