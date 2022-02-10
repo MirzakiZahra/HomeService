@@ -6,7 +6,6 @@ import ir.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -30,14 +29,13 @@ public class CustomerController {
 
     @RequestMapping(value = "/customerSignUp")
     public String customerSignUp(@ModelAttribute("addressDto") AddressDto addressDto,
-                          @ModelAttribute("customerDto") CustomerDto customerDto,
-                          Model model) {
+                          @ModelAttribute("customerDto") CustomerDto customerDto) {
         customerService.createCustomer(customerDto.getFirstName(), customerDto.getLastName(), addressDto
                 , customerDto.getEmail(), customerDto.getPassword());
-        return "customerRegister";
+        return "customer/customerMainPage";
     }
     @RequestMapping(value = "/displaySignUp")
     public String displaySignUpPage(){
-        return "customerRegister";
+        return "customer/customerRegister";
     }
 }
