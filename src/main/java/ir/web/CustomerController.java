@@ -38,5 +38,10 @@ public class CustomerController {
     public String displaySignUpPage(){
         return "customer/customerRegister";
     }
-
+    @RequestMapping(value = "/customerChangePassword")
+    public String customerChangePassword
+            (@ModelAttribute("customerDto")CustomerDto customerDto){
+        customerService.changePassword(customerDto.getPassword(),customerDto.getEmail());
+        return "customer/customerChangePassword";
+    }
 }
