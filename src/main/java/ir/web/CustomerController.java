@@ -87,11 +87,12 @@ public class CustomerController {
       }
       return date1;
   }
+    @RequestMapping(value = "/ShowOffer")
   public String ShowOffersForSpecificOrder(@ModelAttribute("orderDto")OrderDto orderDto,
                                            @RequestParam(name = "OrderId") int orderId){
       orderService.findOrderById(orderId);
    orderDto.getOfferList().stream().forEach(i -> System.out.println(i));
-   return
+   return "customer/customerOffer";
   }
 
 }
