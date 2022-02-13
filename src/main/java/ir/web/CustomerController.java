@@ -38,4 +38,5 @@ public class CustomerController {
     public String displaySignUpPage(){
         return "customer/customerRegister";
     }
+
 }
