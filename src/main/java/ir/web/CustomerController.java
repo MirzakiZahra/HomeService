@@ -6,8 +6,10 @@ import ir.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -38,10 +40,22 @@ public class CustomerController {
     public String displaySignUpPage(){
         return "customer/customerRegister";
     }
-    @RequestMapping(value = "/customerChangePassword")
-    public String customerChangePassword
-            (@ModelAttribute("customerDto")CustomerDto customerDto){
-        customerService.changePassword(customerDto.getPassword(),customerDto.getEmail());
+    @RequestMapping(value = "/displayChange")
+    public String displayChangePassword(){
         return "customer/customerChangePassword";
     }
+
+    @RequestMapping(value = "/ChangePassword")
+    public String customerChangePassword
+            (@RequestParam(name = "email") String email,
+             @RequestParam(name = "oldPass") String oldPassword,
+             @RequestParam(name = "newPass") String newPassword, Model model){
+        customerService.checkOldPassword(oldPassword);
+        customerService.changePassword(newPassword,email);
+        model.addAttribute("succ_massage", "successfuly changed");
+        return "customer/customerChangePassword";
+    }
+  //  public String addOrderCustomer(@ModelAttribute("customerDto") CustomerDto customerDto){
+   // }
+
 }
