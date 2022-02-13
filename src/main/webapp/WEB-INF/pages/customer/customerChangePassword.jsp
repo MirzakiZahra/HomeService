@@ -14,14 +14,17 @@
 <body>
 <form:form action="ChangePassword"  method="post">
     <label>
+        <label>oldPass</label>
         <input type="text" name="oldPass"/>
     </label>
     <br><br>
     <label>
+        <label>newPass</label>
         <input type="text" name="newPass"/>
     </label>
     <br><br>
     <label>
+        <label>email</label>
         <input type="text" name="email"/>
     </label>
     <br><br>
