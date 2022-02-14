@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,14 +69,20 @@ public class CustomerController {
         model.addAttribute("succ_massage", "successfuly changed");
         return "customer/customerChangePassword";
     }
-   public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
+    @RequestMapping("/showAllSubService")
+    public String showAllSubService(ModelMap model){
+        List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
+        model.addAttribute("subServiceDtoList",subServiceDtoList);
+        return "customer/showSubService";
+    }
+   /*public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
                                    @ModelAttribute("subServiceDto")SubServiceDto subServiceDto){
         List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
         subServiceDtoList.stream().forEach(i -> System.out.println(i));
         orderService.createOrder(orderDto.getPrice(),orderDto.getExplanation(),
                 orderDto.getBeggingDate(),orderDto.getEndingTime(),orderDto.getAddress()
                 ,);
-    }
+    }*/
   public static Date convertStringToDate(String date) {
       Date date1 = new Date();
       SimpleDateFormat formatter =
