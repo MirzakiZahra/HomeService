@@ -68,14 +68,14 @@ public class CustomerController {
         model.addAttribute("succ_massage", "successfuly changed");
         return "customer/customerChangePassword";
     }
-   /* public String addOrderCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
+   public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
                                    @ModelAttribute("subServiceDto")SubServiceDto subServiceDto){
         List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
         subServiceDtoList.stream().forEach(i -> System.out.println(i));
         orderService.createOrder(orderDto.getPrice(),orderDto.getExplanation(),
                 orderDto.getBeggingDate(),orderDto.getEndingTime(),orderDto.getAddress()
-                ,));
-    }*/
+                ,);
+    }
   public static Date convertStringToDate(String date) {
       Date date1 = new Date();
       SimpleDateFormat formatter =
