@@ -96,6 +96,7 @@ public class CustomerController {
   @RequestMapping(value = "/select")
   public String SelectExpert( @RequestParam(name = "offerId") int offerId){
       orderService.chooseExpertForSpecificOrder(offerId);
+      return "customer/customerSelectExpert";
   }
 
 }
