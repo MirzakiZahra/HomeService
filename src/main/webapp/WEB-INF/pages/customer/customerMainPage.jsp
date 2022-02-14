@@ -46,7 +46,7 @@
             <div class="custome-sidebar">
                 <div>
                     <a href="${pageContext.request.contextPath}/customer/all_orders">Orders</a>
-                    <a href="customer/displayChange">change password</a>
+                    <a href="/customer/displayChange">change password</a>
                     <a href="customer/ShowOffer">ShowOffersForSpecificOrder</a>
                     <a href="${pageContext.request.contextPath}/customer/bank">Increase credit</a>
                 </div>

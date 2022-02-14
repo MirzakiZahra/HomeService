@@ -1,4 +1,4 @@
-package ir.web;
+package ir.web.customer;
 
 import ir.data.dto.AddressDto;
 import ir.data.dto.CustomerDto;

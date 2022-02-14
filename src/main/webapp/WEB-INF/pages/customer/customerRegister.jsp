@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="m-4">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="customerSignUp"  modelAttribute="customerDto" method="post">
 
             <div class="row mb-3">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
@@ -37,12 +37,25 @@
                     <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
                 </div>
             </div>
+
+        <%--@elvariable id="addressDto" type="java"--%>
+        <form:form action="customerSignUp" modelAttribute="addressDto" method="post">
+            city: <form:input path="city" />
+            <br><br>
+            country: <form:input path="country" />
+            <br><br>
+            plaque: <form:input path="plaque" />
+            <br><br>
+            street: <form:input path="street" />
+            <br><br>
+
             <div class="row">
                 <div class="col-sm-10 offset-sm-2">
                     <button type="submit" class="btn btn-primary">Sign in</button>
 
                 </div>
             </div>
+        </form:form>
 
     </form>
 </div>
