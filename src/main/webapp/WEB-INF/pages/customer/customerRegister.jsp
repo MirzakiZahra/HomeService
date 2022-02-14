@@ -10,12 +10,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div class="m-4">
+<div class="m-4 bg-info ">
     <form action="customerSignUp"  modelAttribute="customerDto" method="post">
 
-            <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
+            <div class="row mb-3 " >
+                <label for="inputEmail" class="col-sm-2 col-form-label mt-5">Email</label>
+                <div class="col-sm-10 mt-5">
                     <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
                 </div>
             </div>
