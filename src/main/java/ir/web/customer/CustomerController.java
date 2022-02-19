@@ -75,8 +75,8 @@ public class CustomerController {
         model.addAttribute("subServiceDtoList",subServiceDtoList);
         return "customer/showSubService";
     }
-    @RequestMapping("/Score")
-    public String orderListForScore(ModelMap model,
+    @RequestMapping("/ShowOrderListDone")
+    public String showOrderListForScore(ModelMap model,
                             @ModelAttribute("customerDto") CustomerDto customerDto){
         List<OrderDto> orderDtoList = orderService.
                 customerDoneOrder(customerDto.getId());
@@ -102,12 +102,12 @@ public class CustomerController {
       }
       return date1;
   }
-    @RequestMapping(value = "/ShowOffer")
+ /*   @RequestMapping(value = "/ShowOffer")
   public String ShowOffersForSpecificOrder(@ModelAttribute("orderDto")OrderDto orderDto){
       orderService.findOrderById(orderDto.getId());
    orderDto.getOfferList().stream().forEach(i -> System.out.println(i));
    return "customer/customerOffer";
-  }
+  }*/
   @RequestMapping(value = "/select")
   public String SelectExpert( @RequestParam(name = "offerId") int offerId){
       orderService.chooseExpertForSpecificOrder(offerId);
