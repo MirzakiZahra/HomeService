@@ -75,6 +75,14 @@ public class CustomerController {
         model.addAttribute("subServiceDtoList",subServiceDtoList);
         return "customer/showSubService";
     }
+    @RequestMapping("/Score")
+    public String orderListForScore(ModelMap model,
+                            @ModelAttribute("customerDto") CustomerDto customerDto){
+        List<OrderDto> orderDtoList = orderService.
+                customerDoneOrder(customerDto.getId());
+        model.addAttribute("orderDtoList ",orderDtoList );
+        return "";
+    }
    /*public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
                                    @ModelAttribute("subServiceDto")SubServiceDto subServiceDto){
         List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
