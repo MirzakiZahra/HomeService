@@ -5,6 +5,7 @@ import ir.data.dto.CustomerDto;
 import ir.data.dto.OrderDto;
 import ir.data.dto.SubServiceDto;
 import ir.service.CustomerService;
+import ir.service.ExpertService;
 import ir.service.OrderService;
 import ir.service.SubServiceService;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,8 @@ public class CustomerController {
     private SubServiceService subServiceService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private ExpertService expertService;
     @ModelAttribute("addressDto")
     public AddressDto createAddressDtoObject() {
         return new AddressDto();
@@ -113,5 +116,15 @@ public class CustomerController {
       orderService.chooseExpertForSpecificOrder(offerId);
       return "customer/customerSelectExpert";
   }
+    @RequestMapping(value = "/score")
+  public String Score(@RequestParam(name = "orderId") int orderId,
+                      @RequestParam(name = "score")float score
+                      ){
+      expertService.updateExpertScore(score, orderId);
+      return "";
+
+  }
+
+
 
 }
