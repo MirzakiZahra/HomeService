@@ -84,7 +84,7 @@ public class CustomerController {
         List<OrderDto> orderDtoList = orderService.
                 customerDoneOrder(customerDto.getId());
         model.addAttribute("orderDtoList ",orderDtoList );
-        return "";
+        return "customer/showOrderListForScore";
     }
    /*public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
                                    @ModelAttribute("subServiceDto")SubServiceDto subServiceDto){
