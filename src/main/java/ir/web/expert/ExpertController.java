@@ -28,6 +28,6 @@ public class ExpertController {
     }
     @RequestMapping(value = "/displayChangeExpert")
     public String displayChangePasswordExpert() {
-        return "";
+        return "expert/expertChangePassword";
     }
 }
