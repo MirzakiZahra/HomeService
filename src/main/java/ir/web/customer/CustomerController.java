@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@SessionAttributes({"addressDto","customerDto"})
+@SessionAttributes({"addressDto", "customerDto"})
 @RequiredArgsConstructor
 public class CustomerController {
     @Autowired
@@ -35,12 +35,13 @@ public class CustomerController {
     private OrderService orderService;
     @Autowired
     private ExpertService expertService;
+
     @ModelAttribute("addressDto")
     public AddressDto createAddressDtoObject() {
         return new AddressDto();
     }
 
-   @ModelAttribute("customerDto")
+    @ModelAttribute("customerDto")
     public CustomerDto createCustomerDtoObject() {
         return new CustomerDto();
     }
@@ -48,17 +49,19 @@ public class CustomerController {
 
     @RequestMapping(value = "/customerSignUp")
     public String customerSignUp(@ModelAttribute("addressDto") AddressDto addressDto,
-                          @ModelAttribute("customerDto") CustomerDto customerDto) {
+                                 @ModelAttribute("customerDto") CustomerDto customerDto) {
         customerService.createCustomer(customerDto.getFirstName(), customerDto.getLastName(), addressDto
                 , customerDto.getEmail(), customerDto.getPassword());
         return "customer/customerMainPage";
     }
+
     @RequestMapping(value = "/displaySignUp")
-    public String displaySignUpPage(){
+    public String displaySignUpPage() {
         return "customer/customerRegister";
     }
+
     @RequestMapping(value = "/displayChange")
-    public String displayChangePassword(){
+    public String displayChangePassword() {
         return "customer/customerChangePassword";
     }
 
@@ -66,64 +69,69 @@ public class CustomerController {
     public String customerChangePassword
             (@RequestParam(name = "email") String email,
              @RequestParam(name = "oldPass") String oldPassword,
-             @RequestParam(name = "newPass") String newPassword, Model model){
+             @RequestParam(name = "newPass") String newPassword, Model model) {
         customerService.checkOldPassword(oldPassword);
-        customerService.changePassword(newPassword,email);
+        customerService.changePassword(newPassword, email);
         model.addAttribute("succ_massage", "successfuly changed");
         return "customer/customerChangePassword";
     }
+
     @RequestMapping("/showAllSubService")
-    public String showAllSubService(ModelMap model){
+    public String showAllSubService(ModelMap model) {
         List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
-        model.addAttribute("subServiceDtoList",subServiceDtoList);
+        model.addAttribute("subServiceDtoList", subServiceDtoList);
         return "customer/showSubService";
     }
+
     @RequestMapping("/ShowOrderListDone")
     public String showOrderListForScore(ModelMap model,
-                            @ModelAttribute("customerDto") CustomerDto customerDto){
+                                        @ModelAttribute("customerDto") CustomerDto customerDto) {
         List<OrderDto> orderDtoList = orderService.
                 customerDoneOrder(customerDto.getId());
-        model.addAttribute("orderDtoList ",orderDtoList );
+        model.addAttribute("orderDtoList ", orderDtoList);
         return "customer/showOrderListForScore";
     }
-   /*public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
-                                   @ModelAttribute("subServiceDto")SubServiceDto subServiceDto){
-        List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
-        subServiceDtoList.stream().forEach(i -> System.out.println(i));
-        orderService.createOrder(orderDto.getPrice(),orderDto.getExplanation(),
-                orderDto.getBeggingDate(),orderDto.getEndingTime(),orderDto.getAddress()
-                ,);
-    }*/
-  public static Date convertStringToDate(String date) {
-      Date date1 = new Date();
-      SimpleDateFormat formatter =
-              new SimpleDateFormat("dd/MM/yyyy,HH:mm");
-      try {
-          date1 = formatter.parse(date);
-      } catch (ParseException e) {
-          e.printStackTrace();
-      }
-      return date1;
-  }
- /*   @RequestMapping(value = "/ShowOffer")
-  public String ShowOffersForSpecificOrder(@ModelAttribute("orderDto")OrderDto orderDto){
-      orderService.findOrderById(orderDto.getId());
-   orderDto.getOfferList().stream().forEach(i -> System.out.println(i));
-   return "customer/customerOffer";
-  }*/
-  @RequestMapping(value = "/select")
-  public String SelectExpert( @RequestParam(name = "offerId") int offerId){
-      orderService.chooseExpertForSpecificOrder(offerId);
-      return "customer/customerSelectExpert";
-  }
-    @RequestMapping(value = "/score")
-  public String Score(@RequestParam(name = "orderId") int orderId,
-                      @RequestParam(name = "score")float score
-                      ){
-      expertService.updateExpertScore(score, orderId);
-      return "";
 
-  }
+    /*public String addOrderByCustomer(@ModelAttribute("orderDto")OrderDto orderDto,
+                                    @ModelAttribute("subServiceDto")SubServiceDto subServiceDto){
+         List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
+         subServiceDtoList.stream().forEach(i -> System.out.println(i));
+         orderService.createOrder(orderDto.getPrice(),orderDto.getExplanation(),
+                 orderDto.getBeggingDate(),orderDto.getEndingTime(),orderDto.getAddress()
+                 ,);
+     }*/
+    public static Date convertStringToDate(String date) {
+        Date date1 = new Date();
+        SimpleDateFormat formatter =
+                new SimpleDateFormat("dd/MM/yyyy,HH:mm");
+        try {
+            date1 = formatter.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date1;
+    }
+
+    /*   @RequestMapping(value = "/ShowOffer")
+     public String ShowOffersForSpecificOrder(@ModelAttribute("orderDto")OrderDto orderDto){
+         orderService.findOrderById(orderDto.getId());
+      orderDto.getOfferList().stream().forEach(i -> System.out.println(i));
+      return "customer/customerOffer";
+     }*/
+    @RequestMapping(value = "/select")
+    public String SelectExpert(@RequestParam(name = "offerId") int offerId) {
+        orderService.chooseExpertForSpecificOrder(offerId);
+        return "customer/customerSelectExpert";
+    }
+
+    @RequestMapping(value = "/score")
+    public String Score(@RequestParam(name = "orderId") int orderId,
+                        @RequestParam(name = "score") float score
+    ) {
+        expertService.updateExpertScore(score, orderId);
+        return "customer/customerScore";
+
+    }
 
 
 

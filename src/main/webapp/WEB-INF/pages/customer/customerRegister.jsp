@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div >
 
     <div class=" bg-secondary col-6 m-5 justify-content-center ">
         <form action="customerSignUp" modelAttribute="customerDto" method="post">
