@@ -26,4 +26,8 @@ public class ExpertController {
                 expertDto.getEmail());
         return "expert/expertMainPage";
     }
+    @RequestMapping(value = "/displayChangeExpert")
+    public String displayChangePasswordExpert() {
+        return "";
+    }
 }
