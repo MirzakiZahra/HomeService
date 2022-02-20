@@ -24,6 +24,6 @@ public class ExpertController {
     public String expertSignUp(@ModelAttribute("expertDto")ExpertDto expertDto) {
         expertService.createExpert(expertDto.getFirstName(),expertDto.getLastName(),
                 expertDto.getEmail());
-        return "";
+        return "expert/expertMainPage";
     }
 }

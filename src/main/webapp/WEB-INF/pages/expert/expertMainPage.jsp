@@ -60,7 +60,7 @@
             <div class="col-12">
                 <div class="w-100 h-100 rounded pricing-text">
                     <h1>Hi ${expertDto.firstName}</h1>
-                 
+
                 </div>
             </div>
             <div class="col-12">
