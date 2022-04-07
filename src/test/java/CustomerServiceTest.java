@@ -30,7 +30,7 @@ public class CustomerServiceTest {
                 .plaque("5")
                 .build();
         customerService.createCustomer("Zahra", "Mirzaki",
-                addressDto, "mirzaki1@gmail.com", "Z@hra123456");
+                addressDto, "mirzaki11@gmail.com", "Z@hra123456");
     }
 
     @Test

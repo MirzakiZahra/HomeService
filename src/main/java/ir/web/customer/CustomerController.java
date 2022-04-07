@@ -13,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -50,13 +48,21 @@ public class CustomerController {
     @RequestMapping(value = "/customerSignUp")
     public String customerSignUp(@ModelAttribute("addressDto") AddressDto addressDto,
                                  @ModelAttribute("customerDto") CustomerDto customerDto) {
-        customerService.createCustomer(customerDto.getFirstName(), customerDto.getLastName(), addressDto
-                , customerDto.getEmail(), customerDto.getPassword());
+        customerService.createCustomer(customerDto.getFirstName(), customerDto.getLastName(),
+                addressDto, customerDto.getEmail(), customerDto.getPassword());
         return "customer/customerMainPage";
     }
 
     @RequestMapping(value = "/displaySignUp")
     public String displaySignUpPage() {
+      /*  AddressDto addressDto = AddressDto.builder()
+                .country("Iran1")
+                .city("Tehran1")
+                .street("Imam1")
+                .plaque("5")
+                .build();
+        customerService.createCustomer("Zahra", "Mirzaki",
+                addressDto, "mirzaki119999@gmail.com", "Z@hra123456");*/
         return "customer/customerRegister";
     }
 
