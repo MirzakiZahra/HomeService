@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cedb0ca-47f7-44da-ad74-108099a62ecb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/static/image/signUpImage.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/static/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer/customerRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer/customerRegister.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +47,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp\resources\static\image" />
       <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp\recources\static" />
       <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp" />
       <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp\recources" />
       <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp\WEB-INF\pages\customer" />
-      <recent name="C:\Users\zahra\Desktop\HomeService\src\main\webapp\WEB-INF\pages" />
     </key>
   </component>
   <component name="RunManager" selected="Smart Tomcat.Unnamed">
@@ -279,7 +280,8 @@
       <workItem from="1645415335726" duration="866000" />
       <workItem from="1648751990589" duration="10601000" />
       <workItem from="1648836297746" duration="2384000" />
-      <workItem from="1649357478917" duration="13936000" />
+      <workItem from="1649357478917" duration="14267000" />
+      <workItem from="1649387980796" duration="12925000" />
     </task>
     <servers />
   </component>

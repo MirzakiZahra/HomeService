@@ -12,15 +12,16 @@
 
 </head>
 <body>
-<div class="d-lg-flex half">
-    <div class="contents order-2 order-md-1">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-md-7">
+<div class="row bg-transparent ">
+<div class="col" style="background-image: url('/resources/static/image/signUpImage.jpg'); background-repeat: no-repeat"></div>
+
+
+                <div class="col">
+                    <center>
                     <h3>Home Service System</h3>
                     <form:form action="customerSignUp" modelAttribute="customerDto" method="post">
                         <div class="form-group">
-                            <form:input path="email" placeholder="email" />
+                            <form:input type="email"  path="email" placeholder="email" />
                             <br>
                         </div>
                         <div class="form-group">
@@ -32,10 +33,9 @@
                             <br>
                         </div>
                         <div class="form-group">
-                            <form:input path="password" placeholder="password" />
+                            <form:input type="password" path="password" placeholder="password" />
                             <br>
                         </div>
-
                         <form:form action="customerSignUp" modelAttribute="addressDto" method="post">
                             <div class="form-group">
                                 <form:input path="city" placeholder="city" />
@@ -61,10 +61,11 @@
 
                         </form:form>
                     </form:form>
+                    </center>
                 </div>
-            </div>
-        </div>
-    </div>
+
+
+
 </div>
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery-3.3.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/static/js/popper.min.js"></script>
