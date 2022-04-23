@@ -80,6 +80,10 @@ public class CustomerController {
         model.addAttribute("subServiceDtoList", subServiceDtoList);
         return "customer/showSubService";
     }
+    @RequestMapping(value = "/displayOrderPage")
+    public String displayOrder() {
+        return "customer/customerChangePassword";
+    }
 
     @RequestMapping("/ShowOrderListDone")
     public String showOrderListForScore(ModelMap model,
