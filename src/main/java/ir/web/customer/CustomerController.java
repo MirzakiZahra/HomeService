@@ -55,14 +55,6 @@ public class CustomerController {
 
     @RequestMapping(value = "/displaySignUp")
     public String displaySignUpPage() {
-      /*  AddressDto addressDto = AddressDto.builder()
-                .country("Iran1")
-                .city("Tehran1")
-                .street("Imam1")
-                .plaque("5")
-                .build();
-        customerService.createCustomer("Zahra", "Mirzaki",
-                addressDto, "mirzaki119999@gmail.com", "Z@hra123456");*/
         return "customer/customerRegister";
     }
 
@@ -79,7 +71,7 @@ public class CustomerController {
         customerService.checkOldPassword(oldPassword);
         customerService.changePassword(newPassword, email);
         model.addAttribute("succ_massage", "successfuly changed");
-        return "customer/customerChangePassword";
+        return "customer/customerMainPage";
     }
 
     @RequestMapping("/showAllSubService")

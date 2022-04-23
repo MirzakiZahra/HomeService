@@ -5,49 +5,39 @@
   Time: ۱۲:۵۹ قبل‌ازظهر
   To change this template use File | Settings | File Templates.
 --%>
+<!DOCTYPE html>
+<html lang="en">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
 <head>
     <title>Customer Main</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/login_style.css">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light box-shadow-style">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Home Service</a>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="displayChange">Change Password</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ShowOffersForSpecificOrder</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Increase Credit</a>
+            </li>
         </ul>
-        <div class="d-flex align-items-center">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="btn btn-outline-primary my-2 my-sm-0"
-                       href="${pageContext.request.contextPath}/">Logout</a>
-                </li>
-
-            </ul>
-        </div>
-
     </div>
 </nav>
-
 <div class="main">
     <div class="row">
-        <div class="col-2">
-            <div class="custome-sidebar">
-                <div>
-                    <a href="${pageContext.request.contextPath}/customer/all_orders">Orders</a>
-                    <a href="${pageContext.request.contextPath}/displayChange">change password</a>
-                    <a href="customer/ShowOffer">ShowOffersForSpecificOrder</a>
-                    <a href="${pageContext.request.contextPath}/customer/bank">Increase credit</a>
-                </div>
-            </div>
-        </div>
+
         <div class="col-10">
             <div class="col-12">
                 <div class="w-100 h-100 rounded pricing-text">
@@ -96,5 +86,9 @@
         </div>
     </div>
 </div>
+<script src="${pageContext.request.contextPath}/resources/static/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/static/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/static/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/static/js/register.js"></script>
 </body>
 </html>
