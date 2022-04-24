@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Create Order</title>
@@ -20,48 +21,43 @@
     <div class="col">
         <center>
             <h3>Create Order</h3>
-            <form:form action="customerSignUp" modelAttribute="customerDto" method="post">
+            <form:form action="orderCreate"  method="post">
                 <div class="form-group">
-                    <form:input type="email"  path="email" placeholder="email" />
+                    <input type="flost" name="cost"   placeholder="cost" />
                     <br>
                 </div>
                 <div class="form-group">
-                    <form:input path="firstName" placeholder="firstname" />
+                    <input type="text" name="explanation"   placeholder="explanation" />
                     <br>
                 </div>
                 <div class="form-group">
-                    <form:input path="lastName" placeholder="lastname" />
+                    <input type="text"  name="beggingDate"   placeholder="beggingDate,dd/MM/yyyy,HH:mm" />
                     <br>
                 </div>
                 <div class="form-group">
-                    <form:input type="password" path="password" placeholder="password" />
+                    <input type="text" name="endingDate"   placeholder="endingDate,dd/MM/yyyy,HH:mm" />
                     <br>
                 </div>
-                <form:form action="customerSignUp" modelAttribute="addressDto" method="post">
-                    <div class="form-group">
-                        <form:input path="city" placeholder="city" />
-                        <br>
-                    </div>
-                    <div class="form-group">
-                        <form:input path="country" placeholder="country" />
-                        <br>
-                    </div>
-                    <div class="form-group">
-                        <form:input path="plaque" placeholder="plaque" />
-                        <br>
-                    </div>
-                    <div class="form-group">
-                        <form:input path="street" placeholder="street" />
-                        <br>
-                    </div>
+                <div class="form-group">
+                    <input type="text" name="address"   placeholder="address" />
+                    <br>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email"   placeholder="email" />
+                    <br>
+                </div>
+                <div class="form-group">
+                    <input type="int" name="subServiceId"   placeholder="subServiceId" />
+                    <br>
+                </div>
 
-                    <button type="submit" class="btn btn-primary  px-25">Sign in</button>
+                    <button type="submit" class="btn btn-primary  px-25">Create Order</button>
 
 
 
 
                 </form:form>
-            </form:form>
+
         </center>
     </div>
 

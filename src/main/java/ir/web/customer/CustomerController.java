@@ -82,18 +82,20 @@ public class CustomerController {
     }
     @RequestMapping(value = "/displayOrderPage")
     public String displayOrder() {
-        return "customer/customerChangePassword";
+        return "customer/createOrder";
     }
     @RequestMapping(value = "/orderCreate")
     public String createOrder(@RequestParam(name = "cost") float cost,
                               @RequestParam(name="explanation") String explanation,
-                              @RequestParam(name="beggingDate") Date beggingDate,
-                              @RequestParam(name="endingDate") Date endingDate,
+                              @RequestParam(name="beggingDate") String beggingDate,
+                              @RequestParam(name="endingDate") String endingDate,
                               @RequestParam(name="address") String address,
                               @RequestParam(name = "email") String email,
                               @RequestParam(name = "subServiceId") int subServiceId) {
-        orderService.createOrder(cost,explanation,beggingDate,endingDate,address,email,
-                subServiceId);
+        orderService.createOrder(cost,explanation,
+                convertStringToDate(beggingDate),
+                convertStringToDate(endingDate),
+                address,email, subServiceId);
         return "customer/customerChangePassword";
     }
 
