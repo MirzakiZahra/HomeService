@@ -14,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -74,11 +76,19 @@ public class CustomerController {
         return "customer/customerMainPage";
     }
 
-    @RequestMapping("/showAllSubService")
-    public String showAllSubService(ModelMap model) {
+    @RequestMapping(value="/showAllSubService")
+    public String showAllSubService(Model model) {
         List<SubServiceDto> subServiceDtoList = subServiceService.showAllSubService();
-        model.addAttribute("subServiceDtoList", subServiceDtoList);
+            model.addAttribute("subServiceDtoList", subServiceDtoList);
         return "customer/showSubService";
+    }
+    @RequestMapping(value="/addOrder")
+    public ModelAndView showAddNewOrder(ModelAndView modelAndView) {
+        List<SubServiceDto> subServiceDtos = subServiceService.showAllSubService();
+        modelAndView.setViewName("customer/createOrder");
+        modelAndView.getModelMap().addAttribute("set", subServiceDtos);
+        modelAndView.getModelMap().addAttribute("order",new OrderDto());
+        return modelAndView;
     }
     @RequestMapping(value = "/displayOrderPage")
     public String displayOrder() {
@@ -96,7 +106,7 @@ public class CustomerController {
                 convertStringToDate(beggingDate),
                 convertStringToDate(endingDate),
                 address,email, subServiceId);
-        return "customer/customerChangePassword";
+        return "customer/customerMainPage";
     }
 
     @RequestMapping("/ShowOrderListDone")

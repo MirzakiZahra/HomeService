@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ir/web/customer/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/web/customer/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer/createOrder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer/createOrder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer/showSubService.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/customer/showSubService.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ir/web/customer/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ir/web/customer/CustomerController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +285,8 @@
       <workItem from="1649357478917" duration="14267000" />
       <workItem from="1649387980796" duration="13084000" />
       <workItem from="1649827558929" duration="3003000" />
-      <workItem from="1650744245727" duration="12742000" />
+      <workItem from="1650744245727" duration="14489000" />
+      <workItem from="1650776987934" duration="9968000" />
     </task>
     <servers />
   </component>

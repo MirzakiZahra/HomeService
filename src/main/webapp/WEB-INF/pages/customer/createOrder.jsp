@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Create Order</title>
@@ -15,52 +16,48 @@
 </head>
 <body>
 <div class="row bg-transparent ">
-    <div class="col" style="background-image: url('/resources/static/image/signUpImage.jpg'); background-repeat: no-repeat"></div>
 
 
-    <div class="col">
+        <div class="col">
         <center>
             <h3>Create Order</h3>
-            <form:form action="orderCreate"  method="post">
+            <form:form action="orderCreate" method="post">
                 <div class="form-group">
-                    <input type="flost" name="cost"   placeholder="cost" />
+                    <input type="flost" name="cost" placeholder="cost"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="explanation"   placeholder="explanation" />
+                    <input type="text" name="explanation" placeholder="explanation"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <input type="text"  name="beggingDate"   placeholder="beggingDate,dd/MM/yyyy,HH:mm" />
+                    <input type="text" name="beggingDate" placeholder="beggingDate,dd/MM/yyyy,HH:mm"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="endingDate"   placeholder="endingDate,dd/MM/yyyy,HH:mm" />
+                    <input type="text" name="endingDate" placeholder="endingDate,dd/MM/yyyy,HH:mm"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="address"   placeholder="address" />
+                    <input type="text" name="address" placeholder="address"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email"   placeholder="email" />
+                    <input type="email" name="email" placeholder="email"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <input type="int" name="subServiceId"   placeholder="subServiceId" />
+                    <input type="int" name="subServiceId" placeholder="subServiceId"/>
                     <br>
                 </div>
 
-                    <button type="submit" class="btn btn-primary  px-25">Create Order</button>
+                <button type="submit" class="btn btn-primary  px-25">Create Order</button>
 
 
-
-
-                </form:form>
+            </form:form>
 
         </center>
     </div>
-
 
 
 </div>

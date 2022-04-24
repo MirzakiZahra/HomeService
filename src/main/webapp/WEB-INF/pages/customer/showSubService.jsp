@@ -10,18 +10,36 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <h1>${subServiceDtoList}</h1>
-    <p><b>Iterated List:</b><p>
 
-    <ol>
-        <c:forEach var="subService" items="${subServiceDtoList}">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/login_style.css">
 
-            <li>${subService}</li>
-
-        </c:forEach>
-    </ol>
 </head>
 <body>
+<table class="table table-striped table-bordered">
+    <thead class="thead-light">
+    <tr>
+    <th scope="col">id</th>
+    <th scope="col">name</th>
+    <th scope="col">description</th>
+    <th scope="col">price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${subServiceDtoList}" var="subServiceDto">
+        <tr>
+            <td><c:out value="${subServiceDto.id}"/> </td>
+            <td><c:out value="${subServiceDto.name}"/> </td>
+            <td><c:out value="${subServiceDto.description}"/> </td>
+            <td><c:out value="${subServiceDto.price}"/> </td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+<script src="${pageContext.request.contextPath}/resources/static/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/static/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/static/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/static/js/register.js"></script>
 
 </body>
 </html>
