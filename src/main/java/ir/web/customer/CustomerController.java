@@ -59,24 +59,14 @@ public class CustomerController {
         CustomerDto customerDto;
         HttpSession session;
         try {
-            customerDto = customerService.findUserByUserNameAndPassword(loginDto);
-            switch (user.getUserRole()) {
-                case CUSTOMER:
-                    CustomerDto customerDto = customerService.findByEmail(user.getEmail());
+            customerDto = customerService.findCustomerByUserNameAndPassword(loginDto);
                     session = request.getSession();
                     session.setAttribute("customerDto", customerDto);
-                    return "redirect:/customer/dashboard";
-                case EXPERT:
-                    ExpertDto expertDto = expertService.findByEmail(user.getEmail());
-                    session = request.getSession();
-                    session.setAttribute("expertDto", expertDto);
-                    return "redirect:/expert/dashboard";
-                default:
-                    return "login";
+                    return "redirect:/customer/customerMainPage";
             }
-        } catch (Exception e) {
+         catch (Exception e) {
             model.addAttribute("massage", e.getLocalizedMessage());
-            return "login";
+            return "customer/cutomerLogin";
         }
     }
     @RequestMapping(value = "/displaySignUp")
