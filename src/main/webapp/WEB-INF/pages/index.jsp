@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Welcome Page</title>
@@ -15,10 +15,29 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/static/css/login_style.css">
 </head>
 <body>
-<div class="col"></div>
-<div class="row" style="background-image: url('/resources/static/image/HomeService.JPG'); background-repeat: no-repeat"></div>
-<button type="button" class="btn btn-primary">Go As Customer</button>
-<div class="col"></div>
+<div class="row bg-transparent ">
+    <div class="col mx-auto">
+        <img src="/resources/static/image/HomeService.jpg" class="img-fluid" alt="Responsive image">
+        <div class="row">
+        <div class="col"></div>
+        <div class="col">
+        <button type="button" class="btn btn-primary   mx-auto" href="/index">Expert SignUp</button></div>
+        <div class="col">
+        <button type="button" class="btn btn-primary  mx-auto" href="/index">Expert LogIn</button></div>
+        <div class="col"></div></div>
+    </div>
+    <div class="col mx-auto">
+        <img src="/resources/static/image/Customer.jpg" class="img-fluid" alt="Responsive image">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <button type="button" class="btn btn-primary   mx-auto" href="/index">User SignUp</button></div>
+            <div class="col">
+                <button type="button" class="btn btn-primary  mx-auto" href="/index">User LogIn</button></div>
+            <div class="col"></div></div>
+    </div>
+    </div>
+</div>
 <script src="${pageContext.request.contextPath}/resources/static/js/jquery-3.3.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/static/js/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/static/js/bootstrap.min.js"></script>
