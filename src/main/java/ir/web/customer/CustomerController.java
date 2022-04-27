@@ -1,9 +1,6 @@
 package ir.web.customer;
 
-import ir.data.dto.AddressDto;
-import ir.data.dto.CustomerDto;
-import ir.data.dto.OrderDto;
-import ir.data.dto.SubServiceDto;
+import ir.data.dto.*;
 import ir.service.CustomerService;
 import ir.service.ExpertService;
 import ir.service.OrderService;
@@ -13,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,7 +53,32 @@ public class CustomerController {
                 addressDto, customerDto.getEmail(), customerDto.getPassword());
         return "customer/customerMainPage";
     }
-
+    @PostMapping("/customerLogin")
+    public String doLogin(@ModelAttribute("loginData") @Validated LogInDto loginDto,
+                          Model model,HttpServletRequest request){
+        CustomerDto customerDto;
+        HttpSession session;
+        try {
+            customerDto = customerService.findUserByUserNameAndPassword(loginDto);
+            switch (user.getUserRole()) {
+                case CUSTOMER:
+                    CustomerDto customerDto = customerService.findByEmail(user.getEmail());
+                    session = request.getSession();
+                    session.setAttribute("customerDto", customerDto);
+                    return "redirect:/customer/dashboard";
+                case EXPERT:
+                    ExpertDto expertDto = expertService.findByEmail(user.getEmail());
+                    session = request.getSession();
+                    session.setAttribute("expertDto", expertDto);
+                    return "redirect:/expert/dashboard";
+                default:
+                    return "login";
+            }
+        } catch (Exception e) {
+            model.addAttribute("massage", e.getLocalizedMessage());
+            return "login";
+        }
+    }
     @RequestMapping(value = "/displaySignUp")
     public String displaySignUpPage() {
         return "customer/customerRegister";
