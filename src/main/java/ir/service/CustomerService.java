@@ -1,6 +1,8 @@
 package ir.service;
 
 import ir.data.dto.AddressDto;
+import ir.data.dto.CustomerDto;
+import ir.data.dto.LogInDto;
 import ir.data.model.Address;
 import ir.data.model.user.Customer;
 import ir.data.repository.CustomerRepository;
@@ -79,6 +81,9 @@ public class CustomerService {
             throw new InputException("Customer Not Exist");
         }
         return customerList.get(0);
+    }
+    public CustomerDto findCustomerByUserNameAndPassword(LogInDto logInDto){
+        Customer customer = customerRepository.
     }
 
     public void checkOldPassword(String password) {
