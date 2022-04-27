@@ -8,6 +8,7 @@ import ir.data.model.user.Customer;
 import ir.data.repository.CustomerRepository;
 import ir.exception.InputException;
 import ir.service.mapper.AddressMapper;
+import ir.service.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,8 @@ public class CustomerService {
             AddressMapper addressMapper = new AddressMapper();
     @Autowired
     AddressService addressService = new AddressService();
-
+    @Autowired
+    CustomerMapper customerMapper=new CustomerMapper();
     public void createCustomer(String firstName, String lastName,
                                AddressDto addressDto, String email, String password) {
         Address address = addressMapper.convertAddressDtoToAddress(addressDto);
@@ -82,8 +84,9 @@ public class CustomerService {
         }
         return customerList.get(0);
     }
-    public CustomerDto findCustomerByUserNameAndPassword(LogInDto logInDto){
-        Customer customer = customerRepository.
+    public CustomerDto findCustomerByUserNameAndPassword(LogInDto logInDto) {
+        Customer customer = customerRepository.findByEmailAndPassword(logInDto.getEmail(), logInDto.getPassword());
+        return customerMapper.convertCustomerToCustomerDto(customer);
     }
 
     public void checkOldPassword(String password) {

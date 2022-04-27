@@ -13,5 +13,5 @@ public interface CustomerRepository extends CrudRepository<Customer, Integer> {
 
     List<Customer> findAllByEmail(String email);
 
-    Optional<Customer> findByEmailAndPassword(String email, String password);
+    Customer findByEmailAndPassword(String email, String password);
 }
