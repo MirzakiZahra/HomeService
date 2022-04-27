@@ -21,9 +21,9 @@
         <div class="row">
         <div class="col"></div>
         <div class="col">
-        <button type="button" class="btn btn-primary   mx-auto" href="/index">Expert SignUp</button></div>
+            <a href="displaySignUp" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">Expert SignUp</a></div>
         <div class="col">
-        <button type="button" class="btn btn-primary  mx-auto" href="/index">Expert LogIn</button></div>
+            <a href="displaySignUp" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">Expert LogIn</a></div>
         <div class="col"></div></div>
     </div>
     <div class="col mx-auto">
@@ -31,9 +31,10 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                <button type="button" class="btn btn-primary   mx-auto" href="/index">User SignUp</button></div>
+                <a href="displaySignUp" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">User SignUp</a>
+                </div>
             <div class="col">
-                <button type="button" class="btn btn-primary  mx-auto" href="/index">User LogIn</button></div>
+                <a href="displaySignUp" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">User LogIn</a></div>
             <div class="col"></div></div>
     </div>
     </div>
