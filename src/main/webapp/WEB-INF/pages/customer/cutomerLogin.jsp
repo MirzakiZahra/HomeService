@@ -15,20 +15,19 @@
 </head>
 <body>
 <div class="d-lg-flex half">
-    <div class="bg order-1 order-md-2" style="background-image: url('../../resources/static/images/bg_1.jpg');"></div>
+    <div class="bg order-1 order-md-2" style="background-image: url('/resources/static/image/Login.jpg');"></div>
     <div class="contents order-2 order-md-1">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
-                    <h3>Login to <strong>Home Service Provider System</strong></h3>
-                    <p class="mb-4">Thanks for choosing us ^_^</p>
+                    <h3>Login to</h3>
                     <div id="massage" style="color: red">${massage}</div>
 
-                    <form:form action="doLogin" modelAttribute="loginData" method="post">
+                    <form:form action="doLogin" modelAttribute="logInDto" method="post">
                         <div class="form-group first">
-                            <form:input path="username" placeholder='username'/>
+                            <form:input path="email" placeholder="email"/>
                             <br>
-                            <form:errors path="username" cssStyle="color: red"/>
+                            <form:errors path="email" cssStyle="color: red"/>
                         </div>
                         <div class="form-group last mb-3">
                             <form:password path="password" placeholder='password'/>

@@ -44,8 +44,8 @@ public class CustomerController {
     public CustomerDto createCustomerDtoObject() {
         return new CustomerDto();
     }
-
-
+    @ModelAttribute("logInDto")
+    public LogInDto createLogInDtoObject(){return new LogInDto();}
     @RequestMapping(value = "/customerSignUp")
     public String customerSignUp(@ModelAttribute("addressDto") AddressDto addressDto,
                                  @ModelAttribute("customerDto") CustomerDto customerDto) {
@@ -53,8 +53,12 @@ public class CustomerController {
                 addressDto, customerDto.getEmail(), customerDto.getPassword());
         return "customer/customerMainPage";
     }
+    @RequestMapping("/displayCustomerLogin")
+    public String displayCustomerLogin(){
+        return "customer/cutomerLogin";
+    }
     @PostMapping("/customerLogin")
-    public String doLogin(@ModelAttribute("loginData") @Validated LogInDto loginDto,
+    public String doLogin(@ModelAttribute("logInDto") @Validated LogInDto loginDto,
                           Model model,HttpServletRequest request){
         CustomerDto customerDto;
         HttpSession session;

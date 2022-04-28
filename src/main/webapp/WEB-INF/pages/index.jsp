@@ -34,7 +34,7 @@
                 <a href="displaySignUp" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">User SignUp</a>
                 </div>
             <div class="col">
-                <a href="displaySignUp" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">User LogIn</a></div>
+                <a href="displayCustomerLogin" class="btn btn-primary  mx-auto" role="button" aria-pressed="true">User LogIn</a></div>
             <div class="col"></div></div>
     </div>
     </div>
